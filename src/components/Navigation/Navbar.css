@@ -1,0 +1,50 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  background-color: lightblue;
+  justify-content: space-between;
+  align-items: center;
+  text-align: right;
+  padding: 0.5rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  border-bottom: solid 1px black;
+  height: 5%
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: black;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  float: right;
+  align-items: right;
+  text-decoration: none;
+}
+
+.navbar a .bad {
+  color: black;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a .bad:hover {
+  color: red;
+  font-weight: bold;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a:hover {
+  color: blue;
+  font-weight: bold;
+}
+
+.navbar .welcome span {
+  margin-right: 0.6rem;
+}
