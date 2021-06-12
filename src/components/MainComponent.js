@@ -1,6 +1,6 @@
-import React, {useContext} from 'react'
+import React, {useContext, Fragment} from 'react'
 
-import AuthContext from './auth/auth-context';
+import AuthContextProvider from './auth/auth-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Components
@@ -15,7 +15,7 @@ import Projects from './Pages/Projects'
 
 const MainComponent = () => {
 
-  const context = useContext(AuthContext);
+  const context = useContext(AuthContextProvider);
 
   return (
     <div>

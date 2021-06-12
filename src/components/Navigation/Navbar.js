@@ -2,34 +2,33 @@ import React, {useContext, Fragment} from 'react'
 
 import './Navbar.css'
 
-import AuthContext from '../auth/auth-context';
-import Login from '../Inputs/Login';
-import Dashboard from '../Main/Dashboard';
-import Landing from '../Main/Landing';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+import AuthContextProvider from '../auth/auth-context';
 
-  const context = useContext(AuthContext);
+const Navbar = (props) => {
+
+  const context = useContext(AuthContextProvider);
 
   return (
     <div className="navbar">
       <ul>
-      {!context.isLoggedIn &&
+      {context.isLoggedIn && (
         <Fragment>
-          <a href='/login'><span ><i />Login</span></a>
-          <a href='/projects'><span ><i />Projects</span></a>
-          <a href='/about'><span ><i />About</span></a>
-        </Fragment>}
-      {context.isLoggedIn &&
-        <Fragment>
-          <a href='/dashboard'><span ><i />Dashboard</span></a>
-          <a href='/people'><span ><i />People</span></a>
-          <a href='/projects'><span ><i />Projects</span></a>
-          <a href='/about'><span ><i />About</span></a>
-          <a onClick={context.onLogout}><span className="bad"><i/>{''}Sign Out</span></a>
-        </Fragment>
-      }
+          <Link to='/dashboard'><span ><i />Dashboard</span></Link>
+          <Link to='/people'><span ><i />People</span></Link>
+          <Link to='/projects'><span ><i />Projects</span></Link>
+          <Link to='/about'><span ><i />About</span></Link>
+          <a onClick={context.onLogout} href='/' className="bad"><span  ><i/>{''}Sign Out</span></a>
+        </Fragment>)}
 
+        {!context.isLoggedIn && (
+          <Fragment>
+            <Link to='/login'><span ><i />Login</span></Link>
+            <Link to='/projects'><span ><i />Projects</span></Link>
+            <Link to='/about'><span ><i />About</span></Link>
+          </Fragment>
+        )}
       </ul>
     </div>
   )

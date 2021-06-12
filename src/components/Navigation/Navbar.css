@@ -1,16 +1,15 @@
 /* Navbar */
 .navbar {
   display: flex;
-  background-color: lightblue;
+  background-color: #24292E;
   justify-content: space-between;
   align-items: center;
   text-align: right;
   padding: 0.5rem;
-  position: fixed;
   z-index: 1;
   width: 100%;
-  border-bottom: solid 1px black;
-  height: 5%
+  border-bottom: solid 1px white;
+  opacity: 0.8;
 }
 
 .navbar ul {
@@ -18,7 +17,7 @@
 }
 
 .navbar a {
-  color: black;
+  color: white;
   padding: 0.45rem;
   margin: 0 0.25rem;
   cursor: pointer;
@@ -27,8 +26,12 @@
   text-decoration: none;
 }
 
+.navbar a:hover {
+  color: #FAFBFC;
+  font-weight: bold;
+}
+
 .navbar a .bad {
-  color: black;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -38,11 +41,6 @@
   font-weight: bold;
   padding: 0.45rem;
   margin: 0 0.25rem;
-}
-
-.navbar a:hover {
-  color: blue;
-  font-weight: bold;
 }
 
 .navbar .welcome span {

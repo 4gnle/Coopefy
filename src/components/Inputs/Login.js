@@ -1,44 +1,98 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useReducer, useEffect} from 'react'
+
+import {Redirect} from 'react-router-dom'
 
 import './Inputs.css'
 
-import AuthContext from '../auth/auth-context';
+import AuthContextProvider from '../auth/auth-context';
 import Button from '../UI/Button'
+
+const usernameReducer = (state, action) => {
+  if (action.type === 'INPUT') {
+    return {...state, value: action.value }
+  };
+  if (action.type === 'VALIDATE') {
+    return {...state, isValid: state.value.includes('@') }
+  };
+  return {value: '', isValid: null }
+}
+
+const passwordReducer = (state, action) => {
+  if (action.type === 'INPUT') {
+    return {...state, value: action.value }
+  };
+
+  if (action.type === 'VALIDATE') {
+    return {...state, isValid: state.value.trim().length > 6 }
+  };
+  return {value: '', isValid: null }
+}
 
 const Login = (props) => {
 
-  const context = useContext(AuthContext);
+  const context = useContext(AuthContextProvider);
 
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
+  const [usernameState, dispatchUsername] = useReducer(usernameReducer, {
+    value: '',
+    isValid: null
+  })
+
+  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
+    value: '', isValid: null
+  })
 
   const [validData, setValidData] = useState(false);
 
+  const {isValid: usernameIsValid } = usernameState;
+  const {isValid: passwordIsValid } = passwordState;
+
+  useEffect(() => {
+  const identifier = setTimeout(() => {
+    console.log('Checking form validity!');
+    setValidData(
+      usernameIsValid && passwordIsValid
+    );
+  }, 50);
+
+    return () => {
+      console.log('CLEANUP');
+      clearTimeout(identifier);
+    };
+  }, [usernameIsValid, passwordIsValid]);
+
   const addUsername = (event) => {
-    setFormData.username(event.target.value)
+    dispatchUsername({type: 'INPUT', value: event.target.value})
+    dispatchUsername({type: 'VALIDATE'})
   };
 
   const addPassword = (event) => {
-    setFormData.password(event.target.value)
+    dispatchPassword({type: 'INPUT', value: event.target.value})
+    dispatchPassword({type: 'VALIDATE'})
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    context.onLogin(formData.username, formData.password)
-  }
+    console.log(validData);
+    context.onLogin(usernameState.value, passwordState.value);
+    props.history.push('/dashboard')
+  };
 
   return (
     <div className='input-box'>
-      <form className='input-within'>
+      <form >
+        <div
+        className={`${'inputs-within'} ${
+            passwordState.IsValid === false ? 'invalid' : ''
+          }`}
+        >
+
         <label>User Name</label>
           <input
           type='text'
           name='username'
-          placeholder='Write your username here'
+          placeholder='Write your username'
           onChange={addUsername}
-          value={formData.username}
+          value={usernameState.value}
           >
           </input>
         <label>Password</label>
@@ -47,16 +101,18 @@ const Login = (props) => {
             name='userage'
             placeholder='Write your password'
             onChange={addPassword}
-            value={formData.password}
+            value={passwordState.value}
             >
             </input>
 
           <Button
           type='submit'
           onClick={onSubmit}
+          disabled={!validData}
           >
             Log In
           </Button>
+        </div>
       </form>
     </div>
   )
