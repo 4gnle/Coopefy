@@ -14,10 +14,18 @@
 }
 
 .inputs-within {
-  display: inline;
+  display: inline-block;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
   text-align: center;
 }
 

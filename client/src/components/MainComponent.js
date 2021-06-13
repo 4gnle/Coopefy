@@ -10,8 +10,8 @@ import Register from './Inputs/Register'
 import Dashboard from './Main/Dashboard'
 import Landing from './Main/Landing'
 import About from './Main/About'
-import People from './Pages/People'
-import Projects from './Pages/Projects'
+import People from './Profiles/People'
+import Projects from './Projects/Projects'
 
 const MainComponent = () => {
 

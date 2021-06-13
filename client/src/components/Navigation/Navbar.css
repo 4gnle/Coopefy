@@ -1,11 +1,10 @@
 /* Navbar */
 .navbar {
   display: flex;
-  background-color: #24292E;
+  background-color: #000000;
   justify-content: space-between;
   align-items: center;
   text-align: right;
-  padding: 0.5rem;
   z-index: 1;
   width: 100%;
   border-bottom: solid 1px white;

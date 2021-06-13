@@ -2,9 +2,9 @@
   font: inherit;
   cursor: pointer;
   padding: 1rem 2rem;
-  border: 1px solid white;
+  border: 1px solid black;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: #ADD8E6;
+  background-color: #darkgray;
   color: black;
   border-radius: 12px;
   transition: all 0.5s ease;
