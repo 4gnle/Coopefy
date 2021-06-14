@@ -7,7 +7,7 @@ import './Inputs.css'
 import AuthContextProvider from '../auth/auth-context';
 import Button from '../UI/Button'
 
-const usernameReducer = (state, action) => {
+const emailReducer = (state, action) => {
   if (action.type === 'INPUT') {
     return {...state, value: action.value }
   };
@@ -32,7 +32,7 @@ const Login = (props) => {
 
   const context = useContext(AuthContextProvider);
 
-  const [usernameState, dispatchUsername] = useReducer(usernameReducer, {
+  const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: '',
     isValid: null
   })
@@ -43,14 +43,14 @@ const Login = (props) => {
 
   const [validData, setValidData] = useState(false);
 
-  const {isValid: usernameIsValid } = usernameState;
+  const {isValid: emailIsValid } = emailState;
   const {isValid: passwordIsValid } = passwordState;
 
   useEffect(() => {
   const identifier = setTimeout(() => {
     console.log('Checking form validity!');
     setValidData(
-      usernameIsValid && passwordIsValid
+      emailIsValid && passwordIsValid
     );
   }, 50);
 
@@ -58,11 +58,11 @@ const Login = (props) => {
       console.log('CLEANUP');
       clearTimeout(identifier);
     };
-  }, [usernameIsValid, passwordIsValid]);
+  }, [emailIsValid, passwordIsValid]);
 
-  const addUsername = (event) => {
-    dispatchUsername({type: 'INPUT', value: event.target.value})
-    dispatchUsername({type: 'VALIDATE'})
+  const addEmail = (event) => {
+    dispatchEmail({type: 'INPUT', value: event.target.value})
+    dispatchEmail({type: 'VALIDATE'})
   };
 
   const addPassword = (event) => {
@@ -73,7 +73,7 @@ const Login = (props) => {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log(validData);
-    context.onLogin(usernameState.value, passwordState.value);
+    context.onLogin(emailState.value, passwordState.value);
     props.history.push('/dashboard')
   };
 
@@ -86,13 +86,13 @@ const Login = (props) => {
           }`}
         >
 
-        <label>User Name</label>
+        <label>Email</label>
           <input
           type='text'
           name='username'
           placeholder='Write your username'
-          onChange={addUsername}
-          value={usernameState.value}
+          onChange={addEmail}
+          value={emailState.value}
           >
           </input>
         <label>Password</label>

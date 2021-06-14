@@ -126,6 +126,7 @@
     "raw-body": "^2.4.0",
     "readable-stream": "^2.3.7",
     "regexp-clone": "^1.0.0",
+    "request": "^2.88.2",
     "safe-buffer": "^5.1.2",
     "safer-buffer": "^2.1.2",
     "saslprep": "^1.0.3",

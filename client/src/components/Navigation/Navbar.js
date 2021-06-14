@@ -19,7 +19,7 @@ const Navbar = (props) => {
           <Link to='/people'><span ><i />People</span></Link>
           <Link to='/projects'><span ><i />Projects</span></Link>
           <Link to='/about'><span ><i />About</span></Link>
-          <a onClick={context.onLogout} href='/' className="bad"><span  ><i/>{''}Sign Out</span></a>
+          <a onClick={context.onLogout} href='/' ><span className="bad" ><i/>{''}Sign Out</span></a>
         </Fragment>)}
 
         {!context.isLoggedIn && (

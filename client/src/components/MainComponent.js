@@ -11,6 +11,7 @@ import Dashboard from './Main/Dashboard'
 import Landing from './Main/Landing'
 import About from './Main/About'
 import People from './Profiles/People'
+import Profile from './Profiles/Profile'
 import Projects from './Projects/Projects'
 
 const MainComponent = () => {
@@ -29,6 +30,7 @@ const MainComponent = () => {
           <Route path='/login' component={Login} />
           <Route path='/projects' component={Projects} />
           <Route path='/people' component={People} />
+          <Route path='/profile' component={Profile} />
           <Route path='/about' component={About} />
       </Switch>
       </Router>
