@@ -7,6 +7,9 @@ const ProfileSchema = new mongoose.Schema({
   },
 
   // Data for Every user
+  profileimage: {
+
+  },
   bio: {
     type: String,
   },
