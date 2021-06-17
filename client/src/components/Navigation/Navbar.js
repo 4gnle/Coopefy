@@ -25,6 +25,7 @@ const Navbar = (props) => {
         {!context.isLoggedIn && (
           <Fragment>
             <Link to='/login'><span ><i />Login</span></Link>
+            <Link to='/register'><span ><i />Register</span></Link>
             <Link to='/projects'><span ><i />Projects</span></Link>
             <Link to='/about'><span ><i />About</span></Link>
           </Fragment>

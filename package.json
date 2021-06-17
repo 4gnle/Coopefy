@@ -84,6 +84,7 @@
     "json-schema-traverse": "^0.4.1",
     "json-stringify-safe": "^5.0.1",
     "json5": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
     "jsprim": "^1.4.1",
     "jwa": "^1.4.1",
     "jws": "^3.2.2",
