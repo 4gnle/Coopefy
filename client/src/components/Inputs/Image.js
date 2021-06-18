@@ -3,6 +3,10 @@ import React, {useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 // import {deleteImage, getProfileImage, profileImage} from '../../actions/profile';
 
+import Button from '../UI/Button'
+
+import './Inputs.css'
+
 const ImageUpload = () => {
 
   const [file, setFile] = useState();
@@ -80,30 +84,29 @@ const ImageUpload = () => {
         </div>
       </div>
 
-      <button
+      <Button
       type="button"
       onClick={filePicker}
-      className='btn btn-light my-1'
       title='Pick Image'>
       <i className="fas fa-images"></i>
-      </button>
+      </Button>
 
-      <button
+      <Button
       onClick={submitImage}
-      className='btn btn-primary my-1'
+      className='primary'
       title='Upload Image'>
       <i className="fas fa-upload"></i>
-      </button>
+      </Button>
 
       {previewURL && prevURL.showPrev ?
 
-      <button
+      <Button
       onClick={noPicture}
-      className='btn btn-danger my-1'
+      className='bad'
       title='Delete Image'>
       <i className="fas fa-trash-alt">
       </i>
-      </button> : null
+      </Button> : null
 
       }
 

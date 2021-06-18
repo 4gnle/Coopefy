@@ -79,7 +79,7 @@ const Login = (props) => {
 
   return (
     <div className='input-box'>
-      <form >
+      <form className="form">
         <div
         className={`${'inputs-within'} ${
             passwordState.IsValid === false ? 'invalid' : ''
