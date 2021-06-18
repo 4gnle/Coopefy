@@ -27,7 +27,7 @@ const Register = (props) => {
       <form>
       <div className='inputs-within'>
 
-        <label>User Name</label>
+        <label className="lead">Username ID</label>
           <input
           type='text'
           name='username'
@@ -38,7 +38,7 @@ const Register = (props) => {
           >
           </input>
 
-        <label>Email</label>
+        <label className="lead">Email</label>
           <input
           type='email'
           name='email'
@@ -48,7 +48,7 @@ const Register = (props) => {
           >
           </input>
 
-        <label >Password</label>
+        <label className="lead">Password</label>
           <input
           type='password'
           name='password'

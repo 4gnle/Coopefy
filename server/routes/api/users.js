@@ -16,8 +16,11 @@ router.post('/', [
   check('email', 'Write a valid email').isEmail(),
   check('password', 'You need a secure password (more than 8 characters)').isLength({ min: 8})
 ], async (req, res) => {
+
+  // Variable takes errors from ValidationResult
   const errors = validationResult(req);
 
+  //If there are errors, show a message
   if (!errors.isEmpty()){
     return res.status(400).json({errors: errors.array() });
   }
@@ -32,13 +35,14 @@ router.post('/', [
       return  res.status(400).json({ errors: [{msg: 'Email is already registered'}]})
     }
 
-    // Hashing passwords
+    // Breaking down user
     user = new User({
       name,
       email,
       password
     });
 
+    //Hashing the password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
     await user.save();
