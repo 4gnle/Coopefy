@@ -23,24 +23,37 @@ const Navbar = (props) => {
 
           <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
 
-          <a
-          onClick={context.onLogout} href='/' >
-          <span className="bad-a" >
-          <i/>Sign Out</span></a>
+          <div className="auth-links">
+
+            <a
+            onClick={context.onLogout} href='/' >
+            <span className="bad-a" >
+            <i class="fas fa-sign-out-alt"></i> Sign Out</span></a>
+
+          </div>
 
         </Fragment>)}
 
         {!context.isLoggedIn && (
           <Fragment>
-            <Link to='/login'><span ><i className= "fas fa-egg fa-fw"/> Login</span></Link>
 
-            <Link to='/register'><span ><i className= "fas fa-sign-in-alt fa-fw"/> Register</span></Link>
+            <div className="auth-links">
 
-            <Link to='/projects'><span >
-            <i className= "fas fa-tools fa-fw" /> Projects</span>
-            </Link>
+              <Link to='/register'><span ><i className= "fas fa-sign-in-alt fa-fw"/> Sign Up</span></Link>
 
-            <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
+              <Link to='/login'><span ><i class="fas fa-door-open"></i> Login</span></Link>
+
+            </div>
+
+            <div className="general-links">
+
+              <Link to='/projects'><span >
+              <i className= "fas fa-tools fa-fw" /> Projects</span>
+              </Link>
+
+              <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
+
+            </div>
           </Fragment>
         )}
       </ul>

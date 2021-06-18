@@ -86,24 +86,24 @@ const Login = (props) => {
           }`}
         >
 
-        <label>Email</label>
+        <label className="lead">Email / Username</label>
           <input
           type='text'
           name='username'
-          placeholder='Write your username'
+          placeholder='&#xF007; Write your username or email'
           onChange={addEmail}
           value={emailState.value}
-          >
-          </input>
-        <label>Password</label>
+          required
+          />
+
+        <label className="lead">Password</label>
             <input
             type='password'
             name='userage'
-            placeholder='Write your password'
+            placeholder='&#xF084; Write your password'
             onChange={addPassword}
             value={passwordState.value}
-            >
-            </input>
+            required/>
 
           <Button
           type='submit'

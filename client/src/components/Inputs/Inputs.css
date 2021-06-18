@@ -15,6 +15,7 @@
 
 ::-webkit-input-placeholder {
   text-align: center;
+  font-family: 'FontAwesome', 'Segoe UI';
 }
 
 :-moz-placeholder {
@@ -57,6 +58,16 @@
   text-align: center;
 }
 
+.icon {
+  position: relative;
+  z-index: 1;
+  left: -25px;
+  top: 1px;
+  color: #7B7B7B;
+  cursor: pointer;
+  width: 0;
+}
+
 .form input[type='text'],
 .form input[type='email'],
 .form input[type='password'],
@@ -74,5 +85,6 @@
   .control {
     align-items: center;
     flex-direction: row;
+    height: 100px;
   }
 }

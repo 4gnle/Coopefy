@@ -31,7 +31,7 @@ const Register = (props) => {
           <input
           type='text'
           name='username'
-          placeholder='Unique username'
+          placeholder='&#xF007; Write a unique username'
           required
           onChange={(e => onChange(e))}
           value={formData.username}
@@ -42,7 +42,7 @@ const Register = (props) => {
           <input
           type='email'
           name='email'
-          placeholder='Valid email'
+          placeholder='&#xf02a; Write a valid email'
           onChange={(e => onChange(e))}
           value={formData.email}
           >
@@ -52,7 +52,7 @@ const Register = (props) => {
           <input
           type='password'
           name='password'
-          placeholder='At least 8 characters'
+          placeholder='&#xF084; At least 8 characters'
           onChange={(e => onChange(e))}
           value={formData.password}
           >
