@@ -5,7 +5,7 @@ import React, {useRef, useState, useEffect} from 'react'
 
 import Button from '../UI/Button'
 
-import './Inputs.css'
+import './ProfileEdit.css'
 
 const ImageUpload = () => {
 

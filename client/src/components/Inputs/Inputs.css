@@ -1,16 +1,8 @@
 .input-box {
   position: relative;
-  text-align: center;
-  width: 500px;
-  max-width: 90%;
-  margin: auto;
-  padding: 2rem;
-  box-shadow: 0 2px 12px grey;
-  border-radius: 10px;
+  display: block;
   background-color: white;
-  overflow: hidden;
-  z-index: 1;
-  top: 100px;
+  top: 50px;
 }
 
 .inputs-within {
@@ -19,30 +11,6 @@
   gap: 1rem;
   margin-bottom: 1rem;
   text-align: center;
-}
-
-.image-upload.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.image-upload__preview {
-  width: 13rem;
-  height: 13rem;
-  border: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.image-upload__preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 ::-webkit-input-placeholder {
@@ -55,14 +23,14 @@
 
 .inputs-within label {
   display: block;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  display: block;
 }
 
 .inputs-within input {
   display: block;
+  text-align: center;
   position: relative;
   font: inherit;
   margin-top: -0.5px;
@@ -97,8 +65,8 @@
 .form textarea {
   display: block;
   width: 100%;
-  padding: 0.4rem;
-  font-size: 0.8rem;
+  padding: 0.8rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
 }
 

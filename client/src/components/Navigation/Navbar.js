@@ -15,19 +15,32 @@ const Navbar = (props) => {
       <ul>
       {context.isLoggedIn && (
         <Fragment>
-          <Link to='/dashboard'><span ><i />Dashboard</span></Link>
-          <Link to='/people'><span ><i />People</span></Link>
-          <Link to='/projects'><span ><i />Projects</span></Link>
-          <Link to='/about'><span ><i />About</span></Link>
-          <a onClick={context.onLogout} href='/' ><span className="bad" ><i/>{''}Sign Out</span></a>
+          <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> Dashboard</span></Link>
+
+          <Link to='/people'><span ><i className= "fas fa-users fa-fw"/> People</span></Link>
+
+          <Link to='/projects'><span ><i className= "fas fa-tools fa-fw"/> Projects</span></Link>
+
+          <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
+
+          <a
+          onClick={context.onLogout} href='/' >
+          <span className="bad-a" >
+          <i/>Sign Out</span></a>
+
         </Fragment>)}
 
         {!context.isLoggedIn && (
           <Fragment>
-            <Link to='/login'><span ><i />Login</span></Link>
-            <Link to='/register'><span ><i />Register</span></Link>
-            <Link to='/projects'><span ><i />Projects</span></Link>
-            <Link to='/about'><span ><i />About</span></Link>
+            <Link to='/login'><span ><i className= "fas fa-egg fa-fw"/> Login</span></Link>
+
+            <Link to='/register'><span ><i className= "fas fa-sign-in-alt fa-fw"/> Register</span></Link>
+
+            <Link to='/projects'><span >
+            <i className= "fas fa-tools fa-fw" /> Projects</span>
+            </Link>
+
+            <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
           </Fragment>
         )}
       </ul>

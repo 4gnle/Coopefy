@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 
-import ImageUpload from './Image'
 import Button from '../UI/Button'
 
 import './Inputs.css'
@@ -25,20 +24,21 @@ const Register = (props) => {
 
   return (
     <div className='input-box'>
-      <div className='input-within'>
-      <form className="form">
+      <form>
+      <div className='inputs-within'>
 
-        <label className="lead">User Name</label>
+        <label>User Name</label>
           <input
           type='text'
           name='username'
           placeholder='Unique username'
+          required
           onChange={(e => onChange(e))}
           value={formData.username}
           >
           </input>
 
-        <label className="lead">Email</label>
+        <label>Email</label>
           <input
           type='email'
           name='email'
@@ -47,7 +47,8 @@ const Register = (props) => {
           value={formData.email}
           >
           </input>
-        <label className="lead">Password</label>
+
+        <label >Password</label>
           <input
           type='password'
           name='password'
@@ -58,16 +59,15 @@ const Register = (props) => {
           </input>
 
           <Button
-          className="button my-1"
+          className="button m-1"
           type='submit'
           onClick={onSubmit}
           // disabled={!validData}
           >
             Sign Up
           </Button>
-
+          </div>
       </form>
-      </div>
     </div>  )
 }
 

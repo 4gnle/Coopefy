@@ -79,7 +79,7 @@ const Login = (props) => {
 
   return (
     <div className='input-box'>
-      <form className="form">
+        <form>
         <div
         className={`${'inputs-within'} ${
             passwordState.IsValid === false ? 'invalid' : ''
@@ -109,6 +109,7 @@ const Login = (props) => {
           type='submit'
           onClick={onSubmit}
           disabled={!validData}
+          className="button m-1"
           >
             Log In
           </Button>

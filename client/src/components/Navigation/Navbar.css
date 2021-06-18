@@ -1,10 +1,10 @@
 /* Navbar */
 .navbar {
-  display: flex;
+  display: block;
   background-color: #000000;
   justify-content: space-between;
   align-items: center;
-  text-align: right;
+  text-align: center;
   z-index: 1;
   width: 100%;
   border-bottom: solid 1px white;
@@ -12,7 +12,9 @@
 }
 
 .navbar ul {
-  display: flex;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar a {
@@ -30,12 +32,11 @@
   font-weight: bold;
 }
 
-.navbar a .bad {
+.navbar a .bad-a {
   padding: 0.45rem;
-  margin: 0 0.25rem;
 }
 
-.navbar a .bad:hover {
+.navbar a .bad-a:hover {
   color: red;
   font-weight: bold;
   padding: 0.45rem;
