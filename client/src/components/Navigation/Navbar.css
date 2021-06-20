@@ -1,6 +1,6 @@
 /* Navbar */
 .navbar {
-  /* display: block; */
+  display: block;
   background-color: #000000;
   justify-content: space-between;
   text-align: center;
@@ -12,23 +12,30 @@
 }
 
 .auth-links {
-  display: inline;
+  display: inline-block;
   align-items: right;
   text-align: right;
   float: right;
 }
 
 .general-links {
-  display: inline;
-  align-items: left;
-  text-align: left;
-  float: left;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  float: center;
 }
 
+/* .navbar .sign-up {
+
+}
+
+.navbar .login {
+
+} */
+
 .navbar ul {
-  display: inline-block;
   justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 .navbar a {
@@ -42,7 +49,7 @@
 }
 
 .navbar a:hover {
-  color: #FAFBFC;
+  color: gray;
   font-weight: bold;
 }
 

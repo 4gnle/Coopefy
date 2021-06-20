@@ -127,6 +127,7 @@
     "range-parser": "^1.2.1",
     "raw-body": "^2.4.0",
     "readable-stream": "^2.3.7",
+    "redux": "^4.1.0",
     "regexp-clone": "^1.0.0",
     "request": "^2.88.2",
     "safe-buffer": "^5.1.2",

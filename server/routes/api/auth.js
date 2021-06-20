@@ -84,7 +84,7 @@ router.post('/', [
       res.json({ token })
     });
 
-    console.log(req.body);
+    // console.log(req.body);
     // res.send('User Registered');
 
   } catch(err) {

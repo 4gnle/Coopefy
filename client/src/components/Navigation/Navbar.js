@@ -15,7 +15,8 @@ const Navbar = (props) => {
       <ul>
       {context.isLoggedIn && (
         <Fragment>
-          <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> Dashboard</span></Link>
+
+        <div className="general-links">
 
           <Link to='/people'><span ><i className= "fas fa-users fa-fw"/> People</span></Link>
 
@@ -23,7 +24,11 @@ const Navbar = (props) => {
 
           <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
 
+        </div>
+
           <div className="auth-links">
+
+            <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
 
             <a
             onClick={context.onLogout} href='/' >
@@ -39,9 +44,9 @@ const Navbar = (props) => {
 
             <div className="auth-links">
 
-              <Link to='/register'><span ><i className= "fas fa-sign-in-alt fa-fw"/> Sign Up</span></Link>
+              <Link to='/login'  className="login"><span ><i class="fas fa-door-open"></i> Login</span></Link>
 
-              <Link to='/login'><span ><i class="fas fa-door-open"></i> Login</span></Link>
+              <Link to='/register' className="sign-up"><span ><i className= "fas fa-sign-in-alt fa-fw"/> Sign Up</span></Link>
 
             </div>
 
