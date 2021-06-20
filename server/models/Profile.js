@@ -6,9 +6,9 @@ const ProfileSchema = new mongoose.Schema({
     ref: 'user'
   },
 
-  // Data for Every user
+  // Main info for Every user
   profileimage: {
-
+    type: Buffer
   },
   bio: {
     type: String,
@@ -80,32 +80,7 @@ experience:  [{
       linkedin: {
         type: String
       },
-    },
-
-  //PROJECT DATA FOR USERS
-  projects: [
-      {
-      title: {
-        type: String,
-        required: true
-      },
-      website: {
-        type: String,
-        required: true
-      },
-      description: {
-        type: String,
-        required: true
-      },
-      helpneeded: {
-        type: String,
-        required: true
-      },
-      currentState: {
-        type: Boolean,
-        default: false
-      }
-  }],
+    }
 });
 
 module.exports = Profile = mongoose.model('profile', ProfileSchema);

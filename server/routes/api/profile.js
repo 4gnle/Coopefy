@@ -1,10 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
-// @router GET api/profile
+const Profile = require('../../models/Profile');
+const User = require('../../models/User');
+
+// @router GET api/profile/me
 // @desc Testing Route
 // @access Public
 
-router.get('/', (req, res) => res.send('Profile Route'));
+router.get('/me', auth, async (req, res) => {
+  try {
+
+  }catch(err) {
+    console.error(err.message)
+    res.send('Server Error')
+  };
+})
 
 module.exports = router;
