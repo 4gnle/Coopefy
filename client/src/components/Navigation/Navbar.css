@@ -25,13 +25,10 @@
   float: center;
 }
 
-/* .navbar .sign-up {
-
+.navbar .sign {
+  border-radius: 10px;
+  border: 1px solid;
 }
-
-.navbar .login {
-
-} */
 
 .navbar ul {
   justify-content: center;

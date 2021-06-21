@@ -12,8 +12,29 @@ const Register = (props) => {
     password: ''
   });
 
+  const [validPassword, setValidPassword] = useState(false);
+  const [firstPassword, setFirstPassword] = useState('');
+  const [secondPassword, setSecondPassword] = useState('');
+
   const onChange = e =>
   setFormData({ ...formData, [e.target.name]: e.target.value });
+
+
+  const setPassword1 = (event) => {
+    setFirstPassword(event.target.value)
+  };
+
+  const checkPassword1 = (event) => {
+    if (firstPassword.trim().length >= 8) {
+      setFirstPassword(true);
+    }
+  }
+
+  const setPassword2 = (event) => {
+    if (firstPassword === secondPassword) {
+      setValidPassword(true);
+    }
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -53,16 +74,26 @@ const Register = (props) => {
           type='password'
           name='password'
           placeholder='&#xF084; At least 8 characters'
-          onChange={(e => onChange(e))}
-          value={formData.password}
+          onChange={setPassword1}
+          value={firstPassword}
           >
           </input>
+
+          {firstPassword &&
+          <input
+          type='password2'
+          name='password2'
+          placeholder='&#xF084; Confirm Password'
+          onChange={setPassword2}
+          value={secondPassword}
+          >
+          </input>}
 
           <Button
           className="button m-1"
           type='submit'
           onClick={onSubmit}
-          // disabled={!validData}
+          disabled={!validPassword}
           >
             Sign Up
           </Button>

@@ -10,58 +10,51 @@ const Navbar = (props) => {
 
   const context = useContext(AuthContextProvider);
 
+  const loggedIn = (
+    <ul>
+    <div className="general-links">
+
+        <Link to='/people'><span ><i className= "fas fa-users fa-fw"/> People</span></Link>
+
+        <Link to='/projects'><span ><i className= "fas fa-tools fa-fw"/> Projects</span></Link>
+
+        <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
+
+      </div>
+
+      <div className="auth-links">
+
+        <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
+
+        <Link
+        onClick={context.onLogout} to='/' className="sign" >
+        <span >
+        <i class="fas fa-sign-out-alt"></i> Sign Out</span></Link>
+
+      </div>
+      </ul>
+  )
+
+  const loggedOut = (
+    <ul>
+    <div className="auth-links">
+      <Link to='/login'  className="login"><span ><i class="fas fa-door-open"></i> Login</span></Link>
+
+      <Link to='/register' className="sign"><span ><i className= "fas fa-sign-in-alt fa-fw"/> Sign Up</span></Link>
+    </div>
+
+    <div className="general-links">
+      <Link to='/projects'><span >
+      <i className= "fas fa-tools fa-fw" /> Projects</span></Link>
+
+      <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
+    </div>
+    </ul>
+  )
+
   return (
     <div className="navbar">
-      <ul>
-      {context.isLoggedIn && (
-        <Fragment>
-
-        <div className="general-links">
-
-          <Link to='/people'><span ><i className= "fas fa-users fa-fw"/> People</span></Link>
-
-          <Link to='/projects'><span ><i className= "fas fa-tools fa-fw"/> Projects</span></Link>
-
-          <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
-
-        </div>
-
-          <div className="auth-links">
-
-            <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
-
-            <a
-            onClick={context.onLogout} href='/' >
-            <span className="bad-a" >
-            <i class="fas fa-sign-out-alt"></i> Sign Out</span></a>
-
-          </div>
-
-        </Fragment>)}
-
-        {!context.isLoggedIn && (
-          <Fragment>
-
-            <div className="auth-links">
-
-              <Link to='/login'  className="login"><span ><i class="fas fa-door-open"></i> Login</span></Link>
-
-              <Link to='/register' className="sign-up"><span ><i className= "fas fa-sign-in-alt fa-fw"/> Sign Up</span></Link>
-
-            </div>
-
-            <div className="general-links">
-
-              <Link to='/projects'><span >
-              <i className= "fas fa-tools fa-fw" /> Projects</span>
-              </Link>
-
-              <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
-
-            </div>
-          </Fragment>
-        )}
-      </ul>
+        {context.isLoggedIn ? loggedIn : loggedOut}
     </div>
   )
 }
