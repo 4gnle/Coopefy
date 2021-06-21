@@ -23,6 +23,7 @@ const Register = (props) => {
 
   const setPassword1 = (event) => {
     setFirstPassword(event.target.value)
+    checkPassword1();
   };
 
   const checkPassword1 = (event) => {
@@ -33,6 +34,7 @@ const Register = (props) => {
 
   const setPassword2 = (event) => {
     setSecondPassword(event.target.value)
+    checkPassword2();
   };
 
   const checkPassword2 = (event) => {
@@ -86,7 +88,7 @@ const Register = (props) => {
 
           {validPassword &&
           <input
-          type='password2'
+          type='password'
           name='password2'
           placeholder='&#xF084; Confirm Password'
           onChange={setPassword2}
