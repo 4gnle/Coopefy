@@ -20,8 +20,8 @@
 
 .general-links {
   display: inline-block;
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  text-align: left;
   float: center;
 }
 
@@ -63,4 +63,33 @@
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+
+@media (max-width: 700px) {
+
+  /*Navbar*/
+  .navbar {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar span {
+    display: none;
+    justify-content: center;
+  }
+
+  .navbar ul {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .navbar h1 {
+    margin-bottom: 1rem;
+  }
+
+  .navbar .welcome {
+    display: none;
+  }
+
 }

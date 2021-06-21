@@ -12,43 +12,45 @@ const Navbar = (props) => {
 
   const loggedIn = (
     <ul>
-    <div className="general-links">
+      <div className="general-links">
 
-        <Link to='/people'><span ><i className= "fas fa-users fa-fw"/> People</span></Link>
+          <Link to='/people'><i className= "fas fa-users fa-fw"/><span> People</span></Link>
 
-        <Link to='/projects'><span ><i className= "fas fa-tools fa-fw"/> Projects</span></Link>
+          <Link to='/projects'><i className= "fas fa-tools fa-fw"/><span> Projects</span></Link>
 
-        <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
+          <Link to='/about'><i className="fas fa-book-open"/><span> About</span></Link>
 
-      </div>
+        </div>
 
-      <div className="auth-links">
+        <div className="auth-links">
 
-        <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
+          <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
 
-        <Link
-        onClick={context.onLogout} to='/' className="sign" >
-        <span >
-        <i class="fas fa-sign-out-alt"></i> Sign Out</span></Link>
+          <Link
+          onClick={context.onLogout} to='/' className="sign" >
+          <span >
+          <i class="fas fa-sign-out-alt"></i> Sign Out</span></Link>
 
-      </div>
+        </div>
       </ul>
   )
 
   const loggedOut = (
     <ul>
-    <div className="auth-links">
-      <Link to='/login'  className="login"><span ><i class="fas fa-door-open"></i> Login</span></Link>
+      <div className="auth-links">
+        <Link to='/login'  className="login"><i class="fas fa-door-open"></i><span> Login</span></Link>
 
-      <Link to='/register' className="sign"><span ><i className= "fas fa-sign-in-alt fa-fw"/> Sign Up</span></Link>
-    </div>
+        <Link to='/register' className="sign"><i className= "fas fa-sign-in-alt fa-fw"/><span> Sign Up</span></Link>
+      </div>
 
-    <div className="general-links">
-      <Link to='/projects'><span >
-      <i className= "fas fa-tools fa-fw" /> Projects</span></Link>
+      <div className="general-links">
+        <Link to='/people'><i className= "fas fa-users fa-fw"/><span> People</span></Link>
 
-      <Link to='/about'><span ><i className="fas fa-book-open"/> About</span></Link>
-    </div>
+        <Link to='/projects'><i className= "fas fa-tools fa-fw" />
+        <span> Projects</span></Link>
+
+        <Link to='/about'><i className="fas fa-book-open"/><span> About</span></Link>
+      </div>
     </ul>
   )
 

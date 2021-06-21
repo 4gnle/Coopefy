@@ -3,6 +3,7 @@
   display: block;
   background-color: white;
   top: 50px;
+  overflow: scroll;
 }
 
 .inputs-within {
@@ -81,10 +82,29 @@
   border: 1px solid #ccc;
 }
 
-@media (min-width: 768px) {
-  .control {
+@media (max-width: 1000px) {
+
+  /* .control {
     align-items: center;
     flex-direction: row;
     height: 100px;
+  } */
+
+  .input-box {
+    position: flex;
+    display: block;
+    background-color: white;
+    top: 20px;
+    height: 30%;
+    overflow: scroll;
   }
+
+  .inputs-within {
+    display: inline-block;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
 }
