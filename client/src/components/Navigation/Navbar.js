@@ -56,13 +56,14 @@ const Navbar = (props) => {
 
   return (
     <div className="navbar">
+      <div className="title1">
+        <ul>
+        <Link to="/" ><i className="fas fa-code"></i><span className="icon-sm"> Coopefy</span></Link>
+        </ul>
+      </div>
         {context.isLoggedIn ? loggedIn : loggedOut}
     </div>
   )
 }
 
-export default Navbar
-
-//USELESS FOR NOW
-// import Register from '../Inputs/Register';
-// <a href={Register}><span ><i />Register</span></a>
+export default Navbar;

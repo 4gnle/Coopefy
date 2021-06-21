@@ -25,6 +25,13 @@
   float: center;
 }
 
+.title1 {
+  display: inline-block;
+  align-items: left;
+  text-align: left;
+  float: left;
+}
+
 .navbar .sign {
   border-radius: 10px;
   border: 1px solid;
@@ -47,18 +54,6 @@
 
 .navbar a:hover {
   color: gray;
-  font-weight: bold;
-}
-
-.navbar a .bad {
-  padding: 0.45rem;
-}
-
-.navbar a .bad:hover {
-  color: red;
-  font-weight: bold;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
 }
 
 .navbar .welcome span {

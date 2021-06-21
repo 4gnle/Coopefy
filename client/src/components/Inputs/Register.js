@@ -13,6 +13,7 @@ const Register = (props) => {
   });
 
   const [validPassword, setValidPassword] = useState(false);
+  const [validPassword2, setValidPassword2] = useState(false);
   const [firstPassword, setFirstPassword] = useState('');
   const [secondPassword, setSecondPassword] = useState('');
 
@@ -26,15 +27,19 @@ const Register = (props) => {
 
   const checkPassword1 = (event) => {
     if (firstPassword.trim().length >= 8) {
-      setFirstPassword(true);
-    }
-  }
+      setValidPassword(true);
+    };
+  };
 
   const setPassword2 = (event) => {
-    if (firstPassword === secondPassword) {
-      setValidPassword(true);
-    }
+    setSecondPassword(event.target.value)
   };
+
+  const checkPassword2 = (event) => {
+    if (firstPassword === secondPassword) {
+      setValidPassword2(true);
+    };
+  }
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -79,7 +84,7 @@ const Register = (props) => {
           >
           </input>
 
-          {firstPassword &&
+          {validPassword &&
           <input
           type='password2'
           name='password2'
@@ -93,7 +98,7 @@ const Register = (props) => {
           className="button m-1"
           type='submit'
           onClick={onSubmit}
-          disabled={!validPassword}
+          disabled={!validPassword2}
           >
             Sign Up
           </Button>
