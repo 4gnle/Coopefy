@@ -2,8 +2,7 @@
   position: relative;
   display: block;
   background-color: white;
-  top: 50px;
-  overflow: scroll;
+  top: 100px;
 }
 
 .inputs-within {
@@ -82,7 +81,7 @@
   border: 1px solid #ccc;
 } */
 
-@media (max-width: 768px) {
+@media (max-width: 768px) to (min-width: 290px) {
 
   /* .control {
     align-items: center;
@@ -91,7 +90,9 @@
   } */
 
   .input-box {
-    width: 90%;
+    grid-template-columns: 1fr;
+    text-align: center;
+    width: 100px;
   }
 
   .inputs-within {
@@ -103,11 +104,32 @@
   }
 
   .inputs-within input {
-    max-width: 50%;
+    max-width: 80%;
+  }
+
+}
+
+@media (max-width: 289px) {
+
+  .input-box {
+    
+  }
+
+  .inputs-within {
+    display: inline-block;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .inputs-within input {
+    max-width: 60%;
   }
 
   .inputs-within button {
-    align-items: center;
+    margin-right: 120px;
   }
+
 
 }
