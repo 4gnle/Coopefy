@@ -50,7 +50,7 @@
   background: #f6dbfc;
 }
 
-.inputs-within.invalid input {
+.inputs-within .invalid input {
   border-color: red;
   background: #fbdada;
 }
@@ -69,7 +69,7 @@
   width: 0;
 }
 
-.form input[type='text'],
+/* .form input[type='text'],
 .form input[type='email'],
 .form input[type='password'],
 .form input[type='date'],
@@ -80,9 +80,9 @@
   padding: 0.8rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-}
+} */
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
 
   /* .control {
     align-items: center;
@@ -91,12 +91,7 @@
   } */
 
   .input-box {
-    position: flex;
-    display: block;
-    background-color: white;
-    top: 20px;
-    height: 30%;
-    overflow: scroll;
+    width: 90%;
   }
 
   .inputs-within {
@@ -105,6 +100,14 @@
     gap: 1rem;
     margin-bottom: 1rem;
     text-align: center;
+  }
+
+  .inputs-within input {
+    max-width: 50%;
+  }
+
+  .inputs-within button {
+    align-items: center;
   }
 
 }
