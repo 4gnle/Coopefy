@@ -1,8 +1,17 @@
 .input-box {
-  position: relative;
   display: block;
+  text-align: center;
+  width: 500px;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  float: center;
+  padding: 2rem;
+  box-shadow: 0 2px 12px grey;
+  border-radius: 10px;
   background-color: white;
-  top: 100px;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .inputs-within {
@@ -68,31 +77,20 @@
   width: 0;
 }
 
-/* .form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
-.form select,
-.form textarea {
-  display: block;
-  width: 100%;
-  padding: 0.8rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-} */
-
 @media (max-width: 768px) to (min-width: 290px) {
 
-  /* .control {
-    align-items: center;
-    flex-direction: row;
-    height: 100px;
-  } */
-
   .input-box {
-    grid-template-columns: 1fr;
     text-align: center;
-    width: 100px;
+    width: 200px;
+    max-width: 100%;
+    top: 50px;
+    margin: auto;
+    padding: 2rem;
+    box-shadow: 0 2px 12px grey;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
   }
 
   .inputs-within {
@@ -104,7 +102,7 @@
   }
 
   .inputs-within input {
-    max-width: 80%;
+    max-width: 55%;
   }
 
 }
@@ -112,7 +110,7 @@
 @media (max-width: 289px) {
 
   .input-box {
-    
+    height: 50%;
   }
 
   .inputs-within {
@@ -124,7 +122,7 @@
   }
 
   .inputs-within input {
-    max-width: 60%;
+    max-width: 55%;
   }
 
   .inputs-within button {

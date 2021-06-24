@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Main.css'
+import './MainC.css'
 
 const About = () => {
   return (
