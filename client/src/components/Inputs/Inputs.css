@@ -4,8 +4,7 @@
   width: 500px;
   max-width: 70%;
   margin: auto;
-  margin-top: 20px;
-  float: center;
+  margin-top: 200px;
   padding: 2rem;
   box-shadow: 0 2px 12px grey;
   border-radius: 10px;
@@ -48,8 +47,7 @@
   padding: 0.5rem;
   border-radius: 6px;
   border: 1px solid #ccc;
-  width: 20rem;
-  max-width: 100%;
+  width: 300px;
 }
 
 .inputs-within input:focus {
@@ -77,15 +75,16 @@
   width: 0;
 }
 
-@media (max-width: 768px) to (min-width: 290px) {
+@media (max-width: 768px) {
 
   .input-box {
     text-align: center;
     width: 200px;
     max-width: 100%;
     top: 50px;
-    margin: auto;
+    margin-top: 20px;
     padding: 2rem;
+    padding-bottom: 0rem;
     box-shadow: 0 2px 12px grey;
     border-radius: 10px;
     background-color: white;
@@ -102,15 +101,31 @@
   }
 
   .inputs-within input {
-    max-width: 55%;
+    max-width: 60%;
+  }
+
+  .inputs-within button {
+    float: left;
+    margin-left: 45px;
   }
 
 }
 
-@media (max-width: 289px) {
+@media (max-width: 299px) {
 
   .input-box {
-    height: 50%;
+    text-align: center;
+    width: 200px;
+    max-width: 100%;
+    top: 50px;
+    margin-top: 20px;
+    padding: 2rem;
+    padding-bottom: 0rem;
+    box-shadow: 0 2px 12px grey;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
   }
 
   .inputs-within {
@@ -122,7 +137,7 @@
   }
 
   .inputs-within input {
-    max-width: 55%;
+    max-width: 60%;
   }
 
   .inputs-within button {
