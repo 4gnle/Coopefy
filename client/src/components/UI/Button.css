@@ -58,3 +58,17 @@ button:active:disabled {
   color: #666666;
   cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+  .button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem;
+    border: 1px solid black;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    background-color: #darkgray;
+    color: black;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+  }
+}

@@ -1,8 +1,10 @@
 /* Navbar */
 .footer {
   display: block;
+  left: 0;
+  bottom: 0;
+  margin-top: auto;
   background-color: #000000;
-  justify-content: space-between;
   text-align: center;
   z-index: 1;
   width: 100%;
@@ -12,21 +14,21 @@
 }
 
 .auth-links {
-  display: inline-block;
+  display: block;
   align-items: right;
   text-align: right;
   float: right;
 }
 
 .general-links {
-  display: inline-block;
+  display: block;
   align-items: left;
   text-align: left;
   float: center;
 }
 
 .title1 {
-  display: inline-block;
+  display: block;
   align-items: left;
   text-align: left;
   float: left;
@@ -61,20 +63,19 @@
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
 
-  /*Navbar*/
   .footer {
     display: block;
     text-align: center;
   }
 
   .footer span {
-    display: none;
     justify-content: center;
   }
 
   .footer ul {
+    display: block;
     text-align: center;
     justify-content: center;
   }
@@ -85,6 +86,13 @@
 
   .footer .welcome {
     display: none;
+  }
+
+  .title1 {
+    display: block;
+    align-items: center;
+    text-align: center;
+    float: center;
   }
 
 }

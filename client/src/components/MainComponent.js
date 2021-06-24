@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Components
 import Navbar from './Navigation/Navbar'
+import Footer from './Navigation/Footer'
 import Login from './Inputs/Login'
 import Register from './Inputs/Register'
 import Dashboard from './Main/Dashboard'
@@ -33,6 +34,9 @@ const MainComponent = () => {
           <Route path='/profile' component={Profile} />
           <Route path='/about' component={About} />
       </Switch>
+
+      <Footer loggedin={context.isLoggedIn}/>
+
       </Router>
     </div>
   )

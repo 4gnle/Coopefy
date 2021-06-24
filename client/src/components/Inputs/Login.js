@@ -113,6 +113,8 @@ const Login = (props) => {
           >
             Log In
           </Button>
+          <br></br>
+          <small>Don't have an account? <a href='/register'>Click here to sign up!</a></small>
         </div>
       </form>
     </div>
