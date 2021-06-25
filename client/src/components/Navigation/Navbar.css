@@ -11,14 +11,14 @@
   overflow: hidden;
 }
 
-.auth-links {
+.navbar .auth-links {
   display: inline-block;
   align-items: right;
   text-align: right;
   float: right;
 }
 
-.general-links {
+.navbar .general-links {
   display: inline-block;
   align-items: center;
   text-align: center;
