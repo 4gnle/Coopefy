@@ -1,6 +1,15 @@
 html,
 body {
 height: 100%;
+font-family: 'Nunito', sans-serif;
+}
+
+footer {
+position: absolute;
+display: block;
+left:0;
+bottom:0;
+right:0;
 }
 
 /* Text Styles*/

@@ -56,9 +56,7 @@ const Footer = (props) => {
 
   return (
     <footer className="footer">
-          <h1 className="title1">
-            <Link to="/" ><span className="icon-sm"> Coopefy</span></Link>
-          </h1>
+            <Link to="/" ><span className="icon-sm">Coopefy</span></Link>
         {context.isLoggedIn ? loggedIn : loggedOut}
     </footer>
   )

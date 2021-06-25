@@ -55,6 +55,10 @@ const Register = (props) => {
       <form>
       <div className='inputs-within'>
 
+        <h1>Sign Up</h1>
+        <p>and build your team!</p>
+        <br></br>
+
         <label className="lead">Username ID</label>
           <input
           type='text'

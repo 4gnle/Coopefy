@@ -35,11 +35,13 @@ const MainComponent = () => {
           <Route path='/about' component={About} />
       </Switch>
 
-      <Footer loggedin={context.isLoggedIn}/>
-
       </Router>
     </div>
   )
 }
 
 export default MainComponent
+
+// <footer>
+//   <Footer loggedin={context.isLoggedIn}/>
+// </footer>

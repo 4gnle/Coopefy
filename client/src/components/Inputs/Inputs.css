@@ -23,12 +23,21 @@
 }
 
 ::-webkit-input-placeholder {
-  text-align: center;
+  text-align: left;
   font-family: 'FontAwesome', 'Segoe UI';
 }
 
 :-moz-placeholder {
   text-align: center;
+}
+
+.inputs-within h1, p {
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.inputs-within small {
+  display: block;
 }
 
 .inputs-within label {
@@ -102,6 +111,11 @@
     text-align: center;
   }
 
+  .inputs-within h1, p {
+    display: none;
+  }
+
+
   .inputs-within input {
     max-width: 60%;
   }
@@ -109,6 +123,10 @@
   .inputs-within button {
     float: left;
     margin-left: 60px;
+  }
+
+  small {
+    position: absolute;
   }
 
 }

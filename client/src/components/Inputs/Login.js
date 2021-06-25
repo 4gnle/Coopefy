@@ -85,7 +85,9 @@ const Login = (props) => {
             passwordState.IsValid === false ? 'invalid' : ''
           }`}
         >
-
+          <h1>Log in</h1>
+          <p>and collaborate!</p>
+          <br></br>
         <label className="lead">Email / Username</label>
           <input
           type='text'
