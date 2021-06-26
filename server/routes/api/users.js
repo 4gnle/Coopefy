@@ -7,12 +7,12 @@ const config = require('config');
 
 const User = require('../../models/User')
 
-// @router GET api/auth
+// @router GET api/users
 // @desc Register User
 // @access Public
 
 router.post('/', [
-  check('name', 'Name is required').not().isEmpty(),
+  check('username', 'Name is required').not().isEmpty(),
   check('email', 'Write a valid email').isEmail(),
   check('password', 'You need a secure password (more than 8 characters)').isLength({ min: 8})
 ], async (req, res) => {
@@ -26,7 +26,7 @@ router.post('/', [
   }
 
   // This breaks down the req.body (data received)
-  const {name, email, password} = req.body;
+  const {username, email, password} = req.body;
 
   try {
     // Finding registered emails
@@ -37,7 +37,7 @@ router.post('/', [
 
     // Breaking down user
     user = new User({
-      name,
+      username,
       email,
       password
     });
