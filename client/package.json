@@ -26,8 +26,7 @@
     "start": "cross-env BROWSER=opera react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "proxy": "http://localhost:5000"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +46,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://localhost:5000",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "devDependencies": {},

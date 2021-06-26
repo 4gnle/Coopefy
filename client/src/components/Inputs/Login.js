@@ -1,88 +1,42 @@
 import React, {useState, useContext, useReducer, useEffect} from 'react'
+import axios from 'axios'
 
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 
 import './Inputs.css'
 
 import AuthContextProvider from '../auth/auth-context';
 import Button from '../UI/Button'
 
-const emailReducer = (state, action) => {
-  if (action.type === 'INPUT') {
-    return {...state, value: action.value }
-  };
-  if (action.type === 'VALIDATE') {
-    return {...state, isValid: state.value.includes('@') }
-  };
-  return {value: '', isValid: null }
-}
-
-const passwordReducer = (state, action) => {
-  if (action.type === 'INPUT') {
-    return {...state, value: action.value }
-  };
-
-  if (action.type === 'VALIDATE') {
-    return {...state, isValid: state.value.trim().length > 6 }
-  };
-  return {value: '', isValid: null }
-}
-
 const Login = (props) => {
 
-  const context = useContext(AuthContextProvider);
+const [formData, setFormData] = useState({
+  email: '',
+  password: ''
+});
 
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {
-    value: '',
-    isValid: null
-  })
+const {validPassword, setValidPassword} = useState(false);
 
-  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
-    value: '', isValid: null
-  })
+const {email, password } = formData;
 
-  const [validData, setValidData] = useState(false);
+const onChange = (e) => {
+setFormData({ ...formData, [e.target.name]: e.target.value });
+}
 
-  const {isValid: emailIsValid } = emailState;
-  const {isValid: passwordIsValid } = passwordState;
+const onSubmit = async (event) => {
+  event.preventDefault();
+  console.log(formData);
+  // context.onLogin(emailState.value, passwordState.value);
+  // props.history.push('/dashboard')
+};
 
-  useEffect(() => {
-  const identifier = setTimeout(() => {
-    console.log('Checking form validity!');
-    setValidData(
-      emailIsValid && passwordIsValid
-    );
-  }, 50);
-
-    return () => {
-      console.log('CLEANUP');
-      clearTimeout(identifier);
-    };
-  }, [emailIsValid, passwordIsValid]);
-
-  const addEmail = (event) => {
-    dispatchEmail({type: 'INPUT', value: event.target.value})
-    dispatchEmail({type: 'VALIDATE'})
-  };
-
-  const addPassword = (event) => {
-    dispatchPassword({type: 'INPUT', value: event.target.value})
-    dispatchPassword({type: 'VALIDATE'})
-  };
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(validData);
-    context.onLogin(emailState.value, passwordState.value);
-    props.history.push('/dashboard')
-  };
 
   return (
     <div className='input-box'>
         <form>
         <div
         className={`${'inputs-within'} ${
-            passwordState.IsValid === false ? 'invalid' : ''
+            validPassword === false ? 'invalid' : ''
           }`}
         >
           <h1>Log in</h1>
@@ -91,32 +45,31 @@ const Login = (props) => {
         <label className="lead">Email / Username</label>
           <input
           type='text'
-          name='username'
+          name='email'
           placeholder='&#xF007; Write your username or email'
-          onChange={addEmail}
-          value={emailState.value}
-          required
+          onChange={(e) => onChange(e)}
+          value={formData.email}
           />
 
         <label className="lead">Password</label>
             <input
             type='password'
-            name='userage'
+            name='password'
             placeholder='&#xF084; Write your password'
-            onChange={addPassword}
-            value={passwordState.value}
-            required/>
+            onChange={(e) => onChange(e)}
+            value={formData.password}
+            />
 
           <Button
           type='submit'
           onClick={onSubmit}
-          disabled={!validData}
+          // disabled={!validPassword}
           className="button m-1"
           >
             Log In
           </Button>
-          <br></br>
-          <small>Don't have an account? <a href='/register'>Click here to sign up!</a></small>
+
+          <small>Don't have an account? <Link to='/register'>Sign up then!</Link></small>
         </div>
       </form>
     </div>

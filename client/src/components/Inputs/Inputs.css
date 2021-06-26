@@ -36,9 +36,14 @@
   margin-top: -10px;
 }
 
+.inputs-within a:hover {
+  color: red;
+}
+
 .inputs-within small {
   display: block;
 }
+
 
 .inputs-within label {
   display: block;
@@ -125,9 +130,13 @@
     margin-left: 60px;
   }
 
-  small {
+  .inputs-within small {
+    display: block;
     position: absolute;
+    float: left;
+    margin-left: -10px;
   }
+
 
 }
 
