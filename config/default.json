@@ -1,5 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://angelCoopefy:4ng3lc00p3f1@coopefy.3dbic.mongodb.net/Coopefy?retryWrites=true&w=majority",
-
-  "jwtSecret": "mysecrettoken"
-}
