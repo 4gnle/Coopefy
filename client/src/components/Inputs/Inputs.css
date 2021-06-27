@@ -32,8 +32,8 @@
 }
 
 .inputs-within h1, p {
-  margin-bottom: 10px;
-  margin-top: -10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .inputs-within a:hover {

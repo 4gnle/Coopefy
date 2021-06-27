@@ -6,7 +6,6 @@ import 'font-awesome/css/font-awesome.min.css';
 
 import {AuthContextProvider} from './components/auth/auth-context';
 
-
 ReactDOM.render(
   <AuthContextProvider>
     <App />

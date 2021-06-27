@@ -3,6 +3,10 @@ import React, {useContext, Fragment} from 'react'
 import AuthContextProvider from './auth/auth-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+//Redux
+import {Provider} from 'react-redux';
+import store from '../redux/store/store'
+
 //Components
 import Navbar from './Navigation/Navbar'
 import Footer from './Navigation/Footer'
@@ -20,7 +24,7 @@ const MainComponent = () => {
   const context = useContext(AuthContextProvider);
 
   return (
-    <div>
+    <Provider store={store}>
       <Router>
         <Navbar loggedin={context.isLoggedIn}/>
 
@@ -36,7 +40,7 @@ const MainComponent = () => {
       </Switch>
 
       </Router>
-    </div>
+    </Provider>
   )
 }
 
