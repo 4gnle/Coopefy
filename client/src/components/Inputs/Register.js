@@ -43,7 +43,7 @@ const Register = ({ setAlert, history }) => {
     if (!valid) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      setAlert('Registered Successfully', 'success');
+      setAlert('Registered successfully', 'success');
       history.push('/dashboard')
     };
       event.preventDefault();

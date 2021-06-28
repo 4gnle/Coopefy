@@ -8,35 +8,38 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
-.alert .danger {
+.alert {
   text-align: center;
   position: fixed;
-  width: 500px;
-  max-width: 90%;
   margin: 3rem auto;
-  padding: 2rem;
+  padding: 3rem;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.alert p {
+  padding: 10px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.alert-danger {
+  width: 500px;
+  max-width: 70%;
   background-color: white;
   box-shadow: 0 2px 12px red;
   border-radius: 10px;
-  z-index: 100;
-  overflow: hidden;
 }
 
-.alert .success {
-  text-align: center;
-  position: fixed;
-  width: 500px;
-  max-width: 90%;
-  margin: 3rem auto;
-  padding: 2rem;
+.alert-success {
   background-color: white;
   box-shadow: 0 2px 12px green;
   border-radius: 10px;
-  z-index: 100;
-  overflow: hidden;
 }
 
-.alert .danger header {
+.alert-danger header {
  background: red;
  padding: 1rem;
  font-size: 15px;
@@ -44,7 +47,7 @@
  color: white;
 }
 
-.alert .success header {
+.alert-success header {
  background: green;
  padding: 1rem;
  font-size: 15px;
@@ -52,13 +55,9 @@
  color: white;
 }
 
-.alert h2 {
-  text-align: center;
-  color: white;
-}
-
-.alert .danger button {
-  font: inherit;
+.alert-danger button {
+  margin: 10px;
+  font-size: 15px;
   cursor: pointer;
   padding: 1rem 2rem;
   border: 1px solid white;
@@ -69,8 +68,9 @@
   transition: all 0.5s ease;
 }
 
-.alert .danger button {
-  font: inherit;
+.alert-success button {
+  margin: 10px;
+  font-size: 20px;
   cursor: pointer;
   padding: 1rem 2rem;
   border: 1px solid white;
@@ -82,7 +82,8 @@
 }
 
 .alert button:hover {
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 @media (min-width: 768px) {

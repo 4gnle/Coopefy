@@ -4,41 +4,37 @@ import ReactDOM from 'react-dom'
 //Redux
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import {removeAlert} from '../../redux/actions/alert'
 
-import './Alerts.css'
+import './Alert.css'
 
-const Backdrop = (props) => {
-  return(
-    <div className='backdrop' onClick={props.validationState}></div>
-  )
-}
-
-const Alert = (props) => {
+const Alerts = ({ removeAlert, alerts }) => {
   return (
-  <div className='alert'>
-    <header>
-      <h2>{props.error}</h2>
-    </header>
-    <p>Name or age are wrong</p>
-    <button
-    onClick={props.validationState}
-    >Okay</button>
+    <div>
+     {alerts !== null &&
+     alerts.length > 0 &&
+     alerts.map(alert =>(
+
+      <Fragment>
+        <div className='backdrop'></div>
+
+        <div className='alert'>
+          <div key={alert.id} className={`alert-${alert.alertType}`}>
+           <header>{alert.msg}</header>
+           <p>Make sure passwords are the same</p>
+           <button onClick={removeAlert}
+           >Okay</button>
+         </div>
+        </div>
+
+      </Fragment>
+    ))}
   </div>
   )
-}
-
-const Alerts = ({ alerts }) => {
-  return (
-    <Fragment>
-      {ReactDOM.createPortal(<Backdrop validationState={props.validationState}/>, document.getElementById('backdrop-root'))}
-
-      {ReactDOM.createPortal(<Alert validationState={props.validationState} error={props.error}/>, document.getElementById('alert-root'))}
-    </Fragment>
-  )
-}
+};
 
 const mapStateToProps = state => ({
   alerts: state.alert
 })
 
-export default connect()(Alerts, Alert)
+export default connect(mapStateToProps, {removeAlert})(Alerts)

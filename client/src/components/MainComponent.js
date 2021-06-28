@@ -18,6 +18,8 @@ import About from './Main/About'
 import People from './Profiles/People'
 import Profile from './Profiles/Profile'
 import Projects from './Projects/Projects'
+import Alerts from './UI/Alert'
+
 
 const MainComponent = () => {
 
@@ -27,7 +29,7 @@ const MainComponent = () => {
     <Provider store={store}>
       <Router>
         <Navbar loggedin={context.isLoggedIn}/>
-
+        <Alerts />
         <Switch>
           <Route path='/' exact component={Landing} />
           <Route path='/dashboard' component={Dashboard} />
