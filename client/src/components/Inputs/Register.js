@@ -2,12 +2,15 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
+// UI and Functions
 import Button from '../UI/Button'
+import {setAlert} from '../../redux/actions/alert'
 
 import './Inputs.css'
 
-const Register = (props) => {
+const Register = ({ setAlert, history }) => {
 
   const [formData, setFormData] = useState({
     username: '',
@@ -15,18 +18,36 @@ const Register = (props) => {
     password: ''
   });
 
-  const {validPassword, setValidPassword} = useState(false);
+  const [valid, setValid] = useState(false);
 
   const {username, email, password, password2 } = formData;
+
+  useEffect(() => {
+  const performingCheck = setTimeout(() => {
+    if (password === password2) {
+      checkValidity();
+    }
+  }, [2000])
+
+  console.log('Testing useEffect')
+}, [password, password2]);
+
+  const checkValidity = () => {
+      setValid(true);
+  };
 
   const onChange = e =>
   setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (event) => {
-    event.preventDefault();
-    // console.log(validData);
-    // context.onLogin(emailState.value, passwordState.value);
-    props.history.push('/dashboard')
+    if (!valid) {
+      setAlert('Passwords do not match', 'danger');
+    } else {
+      setAlert('Registered Successfully', 'success');
+      history.push('/dashboard')
+    };
+      event.preventDefault();
+      console.log(formData);
   };
 
   return (
@@ -34,7 +55,7 @@ const Register = (props) => {
       <form>
       <div className='inputs-within'>
 
-        <h1>Sign Up</h1>
+        <h1>Register</h1>
         <p>and co-operate!</p>
         <br></br>
 
@@ -44,7 +65,7 @@ const Register = (props) => {
           name='username'
           placeholder='&#xF007; Write a unique username'
           required
-          onChange={(e => onChange(e))}
+          onChange={e => onChange(e)}
           value={formData.username}
           >
           </input>
@@ -54,7 +75,7 @@ const Register = (props) => {
           type='email'
           name='email'
           placeholder='&#xf02a; Write a valid email'
-          onChange={(e => onChange(e))}
+          onChange={e => onChange(e)}
           value={formData.email}
           >
           </input>
@@ -64,7 +85,7 @@ const Register = (props) => {
           type='password'
           name='password'
           placeholder='&#xF084; At least 8 characters'
-          onChange={(e) => onChange(e)}
+          onChange={e => onChange(e)}
           value={formData.password}
           >
           </input>
@@ -74,7 +95,7 @@ const Register = (props) => {
           type='password'
           name='password2'
           placeholder='&#xF084; Confirm Password'
-          onChange={(e) => onChange(e)}
+          onChange={e => onChange(e)}
           value={formData.password2}
           >
           </input>
@@ -83,7 +104,7 @@ const Register = (props) => {
           className="button m-1"
           type='submit'
           onClick={onSubmit}
-          // disabled={!validPassword}
+          // disabled={!valid}
           >
             Sign Up
           </Button>
@@ -94,4 +115,4 @@ const Register = (props) => {
     </div>  )
 }
 
-export default Register
+export default connect(null, {setAlert})(Register)

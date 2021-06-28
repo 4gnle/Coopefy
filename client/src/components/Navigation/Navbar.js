@@ -29,7 +29,7 @@ const Navbar = (props) => {
           <Link
           onClick={context.onLogout} to='/' className="sign" >
           <span >
-          <i className="fas fa-sign-out-alt"></i> Sign Out</span></Link>
+          <i className="fas fa-sign-out-alt"></i> Log Out</span></Link>
 
         </div>
       </ul>
@@ -40,7 +40,7 @@ const Navbar = (props) => {
       <div className="auth-links">
         <Link to='/login'  className="login"><i className="fas fa-door-open"></i><span> Login</span></Link>
 
-        <Link to='/register' className="sign"><i className= "fas fa-sign-in-alt fa-fw"/><span> Sign Up</span></Link>
+        <Link to='/register' className="sign"><i className= "fas fa-sign-in-alt fa-fw"/><span> Register</span></Link>
       </div>
 
       <div className="general-links">

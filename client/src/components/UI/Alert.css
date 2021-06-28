@@ -8,7 +8,7 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
-.alert {
+.alert .danger {
   text-align: center;
   position: fixed;
   width: 500px;
@@ -22,8 +22,30 @@
   overflow: hidden;
 }
 
-.alert header {
+.alert .success {
+  text-align: center;
+  position: fixed;
+  width: 500px;
+  max-width: 90%;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 2px 12px green;
+  border-radius: 10px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.alert .danger header {
  background: red;
+ padding: 1rem;
+ font-size: 15px;
+ font-weight: bold;
+ color: white;
+}
+
+.alert .success header {
+ background: green;
  padding: 1rem;
  font-size: 15px;
  font-weight: bold;
@@ -35,13 +57,25 @@
   color: white;
 }
 
-.alert button {
+.alert .danger button {
   font: inherit;
   cursor: pointer;
   padding: 1rem 2rem;
   border: 1px solid white;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   background-color: pink;
+  color: black;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+}
+
+.alert .danger button {
+  font: inherit;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  background-color: lightgreen;
   color: black;
   border-radius: 12px;
   transition: all 0.5s ease;

@@ -1,6 +1,10 @@
 import React, {Fragment} from 'react'
 import ReactDOM from 'react-dom'
 
+//Redux
+import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
+
 import './Alerts.css'
 
 const Backdrop = (props) => {
@@ -23,7 +27,7 @@ const Alert = (props) => {
   )
 }
 
-const Alerts = (props) => {
+const Alerts = ({ alerts }) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(<Backdrop validationState={props.validationState}/>, document.getElementById('backdrop-root'))}
@@ -33,4 +37,8 @@ const Alerts = (props) => {
   )
 }
 
-export default Alerts
+const mapStateToProps = state => ({
+  alerts: state.alert
+})
+
+export default connect()(Alerts, Alert)

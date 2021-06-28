@@ -10,6 +10,8 @@ import Button from '../UI/Button'
 
 const Login = (props) => {
 
+const context = useContext(AuthContextProvider)
+
 const [formData, setFormData] = useState({
   email: '',
   password: ''
@@ -24,10 +26,14 @@ setFormData({ ...formData, [e.target.name]: e.target.value });
 }
 
 const onSubmit = async (event) => {
-  event.preventDefault();
-  console.log(formData);
-  // context.onLogin(emailState.value, passwordState.value);
-  // props.history.push('/dashboard')
+  // if (validData) {
+    event.preventDefault();
+    console.log(formData);
+    context.onLogin(formData.email, formData.password);
+  //   props.history.push('/dashboard')
+  // } else {
+  //
+  // }
 };
 
 
