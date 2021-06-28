@@ -1,9 +1,8 @@
 import React, {Fragment} from 'react'
-import ReactDOM from 'react-dom'
 
 //Redux
 import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import {removeAlert} from '../../redux/actions/alert'
 
 import './Alert.css'
@@ -16,14 +15,13 @@ const Alerts = ({ removeAlert, alerts }) => {
      alerts.map(alert =>(
 
       <Fragment>
-        <div className='backdrop'></div>
+        <div className='backdrop' onClick={removeAlert}></div>
 
         <div className='alert'>
           <div key={alert.id} className={`alert-${alert.alertType}`}>
            <header>{alert.msg}</header>
            <p>Make sure passwords are the same</p>
-           <button onClick={removeAlert}
-           >Okay</button>
+           <button onClick={removeAlert}>Okay</button>
          </div>
         </div>
 
@@ -32,6 +30,8 @@ const Alerts = ({ removeAlert, alerts }) => {
   </div>
   )
 };
+
+
 
 const mapStateToProps = state => ({
   alerts: state.alert

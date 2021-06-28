@@ -10,8 +10,9 @@
 
 .alert {
   text-align: center;
+  float: center;
   position: fixed;
-  margin: 3rem auto;
+  margin: 3rem;
   padding: 3rem;
   z-index: 100;
   overflow: hidden;
@@ -34,6 +35,8 @@
 }
 
 .alert-success {
+  width: 500px;
+  max-width: 70%;
   background-color: white;
   box-shadow: 0 2px 12px green;
   border-radius: 10px;
@@ -86,9 +89,58 @@
   color: white;
 }
 
-@media (min-width: 768px) {
-  .alert {
+@media (max-width: 768px) {
+  /* .alert {
     left: calc(50% - 20rem);
     width: 40rem;
+  } */
+
+  .alert {
+    text-align: center;
+    position: fixed;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  .alert p {
+    padding: 15px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .alert-danger {
+    width: 300px;
+    max-width: 70%;
+  }
+
+  .alert-success {
+    width: 300px;
+    max-width: 70%;
+  }
+
+  .alert-danger header {
+   padding: 1rem;
+   font-size: 15px;
+  }
+
+  .alert-success header {
+   padding: 1rem;
+   font-size: 15px;
+  }
+
+  .alert-danger button {
+    margin: 10px;
+    font-size: 15px;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+  }
+
+  .alert-success button {
+    margin: 10px;
+    font-size: 20px;
+    padding: 1rem 2rem;
+    border-radius: 12px;
   }
 }
