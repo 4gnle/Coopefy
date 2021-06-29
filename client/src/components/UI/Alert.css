@@ -12,7 +12,7 @@
   text-align: center;
   float: center;
   position: fixed;
-  margin: 3rem;
+  margin: 5rem 3rem;
   padding: 3rem;
   z-index: 100;
   overflow: hidden;
@@ -89,25 +89,25 @@
   color: white;
 }
 
-@media (max-width: 768px) {
-  /* .alert {
+@media (min-width: 768px) {
+  .alert {
     left: calc(50% - 20rem);
     width: 40rem;
-  } */
+  }
+}
+
+@media (max-width: 768px) {
 
   .alert {
-    text-align: center;
-    position: fixed;
-    margin: 1.5rem;
-    padding: 1.5rem;
-    z-index: 100;
-    overflow: hidden;
+    top: 50px;
+    left: calc(50% - 13rem);
+    width: 20rem;
   }
 
   .alert p {
     padding: 15px;
     text-align: center;
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .alert-danger {
