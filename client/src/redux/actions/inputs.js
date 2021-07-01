@@ -9,7 +9,7 @@ import {
 
 import axios from 'axios'
 
-export const registerUser = (history, username, email, password) => async dispatch => {
+export const registerUser = ({username, email, password}) => async dispatch => {
 
   const body = JSON.stringify({username, email, password});
 
@@ -21,11 +21,17 @@ export const registerUser = (history, username, email, password) => async dispat
 
   try {
 
-    const res = await axios.post('/api/users', body, config)
+    const res = await axios.post('/api/users', body, config);
 
-    dispatch({ type: REG_SUCCESS, payload: res.data })
+    dispatch({
+      type: REG_SUCCESS,
+      payload: res.data
+     })
 
-    history.push('/dashboard')
+     dispatch (
+       setAlert('Registered Successfully', 'success'),
+     );
+
 
   } catch(err) {
     console.error(err.message)
@@ -39,3 +45,40 @@ export const registerUser = (history, username, email, password) => async dispat
     dispatch({ type: REG_FAILED })
     }
   }
+
+
+  export const loginUser = ({username, email, password}) => async dispatch => {
+
+    const body = JSON.stringify({username, email, password});
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+
+      const res = await axios.post('/api/auth', body, config);
+
+      dispatch({
+        type: REG_SUCCESS,
+        payload: res.data
+       })
+
+       dispatch (
+         setAlert('Logged In', 'success'),
+       );
+
+    } catch(err) {
+      console.error(err.message)
+
+      const errors = err.response.data.errors;
+
+      if (errors) {
+          errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      }
+
+      dispatch({ type: REG_FAILED })
+      }
+    }

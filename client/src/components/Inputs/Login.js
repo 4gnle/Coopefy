@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import {Link} from 'react-router-dom'
 
@@ -7,32 +7,44 @@ import './Inputs.css'
 import AuthContextProvider from '../auth/auth-context';
 import Button from '../UI/Button'
 
-const Login = (props) => {
+import {loginUser} from '../../redux/actions/inputs'
 
-const context = useContext(AuthContextProvider)
+const Login = (setAlert, loginUser) => {
 
 const [formData, setFormData] = useState({
   email: '',
   password: ''
 });
 
-const [validPassword, setValidPassword] = useState(false);
+const [validData, setValidData] = useState(false);
 
-const {email, password} = formData;
+const {email, username, password} = formData;
+
+useEffect(() => {
+  const performingCheck = setTimeout(() => {
+    if (password.trim().length >= 8 && email.trim().contains('@')) {
+      checkValidity();
+    }
+  }, [500])
+
+  console.log('Testing useEffect')
+}, [password, email]);
+
+const checkValidity = () => {
+  setValidData(true)
+}
 
 const onChange = (e) => {
 setFormData({ ...formData, [e.target.name]: e.target.value });
 }
 
 const onSubmit = async (event) => {
-  // if (validData) {
+  if (validData) {
     event.preventDefault();
-    console.log(formData);
-    context.onLogin(formData.email, formData.password);
-  //   props.history.push('/dashboard')
-  // } else {
-  //
-  // }
+    loginUser({email, username, password});
+  } else {
+    setAlert('Your email/username or password is wrong', 'danger')
+  }
 };
 
 
@@ -41,7 +53,7 @@ const onSubmit = async (event) => {
         <form>
         <div
         className={`${'inputs-within'} ${
-            validPassword === false ? 'invalid' : ''
+            validData === false ? 'invalid' : ''
           }`}
         >
           <h1>Log in</h1>
@@ -68,7 +80,7 @@ const onSubmit = async (event) => {
           <Button
           type='submit'
           onClick={onSubmit}
-          // disabled={!validPassword}
+          disabled={!validData}
           className="button m-1"
           >
             Log In
