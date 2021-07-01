@@ -1,7 +1,6 @@
-import React, {useState, useContext, useReducer, useEffect} from 'react'
-import axios from 'axios'
+import React, {useState, useContext} from 'react'
 
-import {Redirect, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import './Inputs.css'
 
@@ -17,9 +16,9 @@ const [formData, setFormData] = useState({
   password: ''
 });
 
-const {validPassword, setValidPassword} = useState(false);
+const [validPassword, setValidPassword] = useState(false);
 
-const {email, password } = formData;
+const {email, password} = formData;
 
 const onChange = (e) => {
 setFormData({ ...formData, [e.target.name]: e.target.value });

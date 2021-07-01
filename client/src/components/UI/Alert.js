@@ -20,7 +20,6 @@ const Alerts = ({ removeAlert, alerts }) => {
         <div className='alert'>
           <div className={`alert-${alert.alertType}`}>
            <header>{alert.msg}</header>
-           <p>Make sure passwords are the same</p>
            <button onClick={removeAlert}>Okay</button>
          </div>
         </div>

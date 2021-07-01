@@ -7,10 +7,11 @@ import {connect} from 'react-redux'
 // UI and Functions
 import Button from '../UI/Button'
 import {setAlert} from '../../redux/actions/alert'
+import {registerUser} from '../../redux/actions/inputs'
 
 import './Inputs.css'
 
-const Register = ({ setAlert, history }) => {
+const Register = ({ registerUser, setAlert, history }) => {
 
   const [formData, setFormData] = useState({
     username: '',
@@ -27,7 +28,7 @@ const Register = ({ setAlert, history }) => {
     if (password === password2) {
       checkValidity();
     }
-  }, [2000])
+  }, [500])
 
   console.log('Testing useEffect')
 }, [password, password2]);
@@ -44,6 +45,7 @@ const Register = ({ setAlert, history }) => {
       setAlert('Passwords do not match', 'danger');
     } else {
       setAlert('Registered successfully', 'success');
+      registerUser(username, email, password);
       history.push('/dashboard')
     };
       event.preventDefault();
@@ -115,4 +117,4 @@ const Register = ({ setAlert, history }) => {
     </div>  )
 }
 
-export default connect(null, {setAlert})(Register)
+export default connect(null, {setAlert, registerUser})(Register)
