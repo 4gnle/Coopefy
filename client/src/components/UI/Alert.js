@@ -14,11 +14,11 @@ const Alerts = ({ removeAlert, alerts }) => {
      alerts.length > 0 &&
      alerts.map(alert =>(
 
-      <Fragment>
+      <Fragment key={alert.id}>
         <div className='backdrop' onClick={removeAlert}></div>
 
         <div className='alert'>
-          <div key={alert.id} className={`alert-${alert.alertType}`}>
+          <div className={`alert-${alert.alertType}`}>
            <header>{alert.msg}</header>
            <p>Make sure passwords are the same</p>
            <button onClick={removeAlert}>Okay</button>

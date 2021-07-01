@@ -4,8 +4,7 @@ import {
   REG_SUCCESS,
   REG_FAILED} from './types'
 
-
-export const registerUser = (token) => dispatch => {
+export const registerUser = (username, password, email) => dispatch => {
   const id = uuid();
 
   dispatch({
@@ -15,7 +14,6 @@ export const registerUser = (token) => dispatch => {
 
   dispatch({
     type: REG_FAILED,
-    payload: null
+    payload: alert.id
   })
-
 }

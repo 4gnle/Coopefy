@@ -14,5 +14,5 @@ export const removeAlert = () => dispatch => {
   dispatch({
     type: REMOVE_ALERT,
     payload: null
-  })
+    })
 }
