@@ -4,9 +4,12 @@ import {
   REG_SUCCESS,
   REG_FAILED} from './types'
 
+  import {setAlert} from './alert'
+
+
 import axios from 'axios'
 
-export const registerUser = (username, email, password) => async dispatch => {
+export const registerUser = (history, username, email, password) => async dispatch => {
 
   const body = JSON.stringify({username, email, password});
 
@@ -22,12 +25,17 @@ export const registerUser = (username, email, password) => async dispatch => {
 
     dispatch({ type: REG_SUCCESS, payload: res.data })
 
-    console.log('Registered User Successfully')
+    history.push('/dashboard')
 
   } catch(err) {
     console.error(err.message)
 
-    dispatch({ type: REG_FAILED })
-  }
+    const errors = err.response.data.errors;
 
+    if (errors) {
+        errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+    dispatch({ type: REG_FAILED })
+    }
   }

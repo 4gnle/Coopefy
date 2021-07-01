@@ -44,9 +44,7 @@ const Register = ({ registerUser, setAlert, history }) => {
     if (!valid) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      setAlert('Registered successfully', 'success');
-      registerUser(username, email, password);
-      history.push('/dashboard')
+      registerUser({username, email, password});
     };
       event.preventDefault();
       console.log(formData);

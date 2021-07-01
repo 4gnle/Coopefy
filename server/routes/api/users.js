@@ -30,9 +30,14 @@ router.post('/', [
 
   try {
     // Finding registered emails
-    let user = await User.findOne({email})
-    if (user) {
+    let userEmail = await User.findOne({email})
+    if (userEmail) {
       return  res.status(400).json({ errors: [{msg: 'Email is already registered'}]})
+    }
+
+    let userName = await User.findOne({username})
+    if (userName) {
+      return  res.status(400).json({ errors: [{msg: 'Usernae is already in use'}]})
     }
 
     // Breaking down user

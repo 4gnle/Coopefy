@@ -11,20 +11,20 @@ import {
     user: null
   };
 
-export default function login(state = initialState, action) {
-  const {payload, type} = action;
-
-  switch(type){
-    case LOGIN:
-      return [...state, payload];
-
-    case LOGOUT:
-      return state. ;
-
-    default:
-      return state;
-  }
-}
+// export default function login(state = initialState, action) {
+//   const {payload, type} = action;
+//
+//   switch(type){
+//     case LOGIN:
+//       return [...state, payload];
+//
+//     case LOGOUT:
+//       return state. ;
+//
+//     default:
+//       return state;
+//   }
+// }
 
 
 export default function register(state = initialState, action) {
@@ -42,7 +42,7 @@ export default function register(state = initialState, action) {
 
     case REG_FAILED:
       localStorage.removeItem('token');
-      
+
       return {
       ...state,
       token: null,
