@@ -13,7 +13,7 @@ import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {loginUser} from '../../redux/actions/inputs'
 
-const Login = (setAlert, loginUser) => {
+const Login = ({setAlert, loginUser}) => {
 
 const [formData, setFormData] = useState({
   email: '',
@@ -43,11 +43,7 @@ setFormData({ ...formData, [e.target.name]: e.target.value });
 }
 
 const onSubmit = (event) => {
-  if (!validData) {
-    setAlert('Your email/username or password is wrong', 'danger')
-  } else {
-    loginUser({email, password});
-  }
+  loginUser({email, password});
   event.preventDefault();
 };
 
@@ -60,14 +56,15 @@ const onSubmit = (event) => {
             validData === false ? 'invalid' : ''
           }`}
         >
+        <div className='titles'>
           <h1>Log in</h1>
           <p>and collaborate!</p>
-          <br></br>
+        </div>
         <label className="lead">Email </label>
           <input
           type='text'
           name='email'
-          placeholder='&#xF007; Write your email'
+          placeholder='&#xf0e0; Write your email'
           onChange={(e) => onChange(e)}
           value={formData.email}
           />

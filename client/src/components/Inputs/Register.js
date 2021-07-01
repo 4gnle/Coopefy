@@ -14,7 +14,7 @@ import {registerUser} from '../../redux/actions/inputs'
 
 import './Inputs.css'
 
-const Register = ({ registerUser, setAlert, history }) => {
+const Register = ({ registerUser, setAlert }) => {
 
   const [formData, setFormData] = useState({
     username: '',
@@ -43,7 +43,7 @@ const Register = ({ registerUser, setAlert, history }) => {
   const onChange = e =>
   setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (event) => {
+  const onSubmit = (event) => {
     if (!valid) {
       setAlert('Passwords do not match', 'danger');
     } else {
@@ -58,10 +58,10 @@ const Register = ({ registerUser, setAlert, history }) => {
       <form>
       <div className='inputs-within'>
 
-        <h1>Register</h1>
-        <p>and co-operate!</p>
-        <br></br>
-
+        <div className='titles'>
+          <h1>Register</h1>
+          <p>and co-operate!</p>
+        </div>
         <label className="lead">Username ID</label>
           <input
           type='text'
@@ -78,7 +78,7 @@ const Register = ({ registerUser, setAlert, history }) => {
           <input
           type='email'
           name='email'
-          placeholder='&#xf02a; Write a valid email'
+          placeholder='&#xf0e0; Write a valid email'
           onChange={e => onChange(e)}
           value={formData.email}
           required

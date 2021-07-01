@@ -32,8 +32,12 @@
 }
 
 .inputs-within h1, p {
-  margin-bottom: 5px;
+  margin-bottom: 2.5px;
   margin-top: 5px;
+}
+
+.inputs-within .titles {
+  margin-bottom: 15px;
 }
 
 .inputs-within a:hover {
