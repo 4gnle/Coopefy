@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
+// Router
 import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
 
-// UI and Functions
+// UI
 import Button from '../UI/Button'
+
+// Redux Functions
+import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {registerUser} from '../../redux/actions/inputs'
 
@@ -67,6 +70,7 @@ const Register = ({ registerUser, setAlert, history }) => {
           required
           onChange={e => onChange(e)}
           value={formData.username}
+          required
           >
           </input>
 
@@ -77,6 +81,7 @@ const Register = ({ registerUser, setAlert, history }) => {
           placeholder='&#xf02a; Write a valid email'
           onChange={e => onChange(e)}
           value={formData.email}
+          required
           >
           </input>
 
@@ -87,6 +92,7 @@ const Register = ({ registerUser, setAlert, history }) => {
           placeholder='&#xF084; At least 8 characters'
           onChange={e => onChange(e)}
           value={formData.password}
+          required
           >
           </input>
 

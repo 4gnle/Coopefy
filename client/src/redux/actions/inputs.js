@@ -47,9 +47,9 @@ export const registerUser = ({username, email, password}) => async dispatch => {
   }
 
 
-  export const loginUser = ({username, email, password}) => async dispatch => {
+  export const loginUser = ({email, password}) => async dispatch => {
 
-    const body = JSON.stringify({username, email, password});
+    const body = JSON.stringify({email, password});
 
     const config = {
       headers: {
@@ -62,7 +62,7 @@ export const registerUser = ({username, email, password}) => async dispatch => {
       const res = await axios.post('/api/auth', body, config);
 
       dispatch({
-        type: REG_SUCCESS,
+        type: LOGIN,
         payload: res.data
        })
 
@@ -79,6 +79,6 @@ export const registerUser = ({username, email, password}) => async dispatch => {
           errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
       }
 
-      dispatch({ type: REG_FAILED })
+      dispatch({ type: LOGOUT })
       }
     }

@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react'
 
-import {Link} from 'react-router-dom'
-
 import './Inputs.css'
 
-import AuthContextProvider from '../auth/auth-context';
+// Router
+import {Link} from 'react-router-dom'
+
+// UI
 import Button from '../UI/Button'
 
+// Redux Functions
+import {connect} from 'react-redux'
+import {setAlert} from '../../redux/actions/alert'
 import {loginUser} from '../../redux/actions/inputs'
 
 const Login = (setAlert, loginUser) => {
@@ -18,11 +22,11 @@ const [formData, setFormData] = useState({
 
 const [validData, setValidData] = useState(false);
 
-const {email, username, password} = formData;
+const {email, password} = formData;
 
 useEffect(() => {
   const performingCheck = setTimeout(() => {
-    if (password.trim().length >= 8 && email.trim().contains('@')) {
+    if (password.trim().length >= 8 && email.includes('@')) {
       checkValidity();
     }
   }, [500])
@@ -38,13 +42,13 @@ const onChange = (e) => {
 setFormData({ ...formData, [e.target.name]: e.target.value });
 }
 
-const onSubmit = async (event) => {
-  if (validData) {
-    event.preventDefault();
-    loginUser({email, username, password});
-  } else {
+const onSubmit = (event) => {
+  if (!validData) {
     setAlert('Your email/username or password is wrong', 'danger')
+  } else {
+    loginUser({email, password});
   }
+  event.preventDefault();
 };
 
 
@@ -59,11 +63,11 @@ const onSubmit = async (event) => {
           <h1>Log in</h1>
           <p>and collaborate!</p>
           <br></br>
-        <label className="lead">Email / Username</label>
+        <label className="lead">Email </label>
           <input
           type='text'
           name='email'
-          placeholder='&#xF007; Write your username or email'
+          placeholder='&#xF007; Write your email'
           onChange={(e) => onChange(e)}
           value={formData.email}
           />
@@ -93,4 +97,4 @@ const onSubmit = async (event) => {
   )
 }
 
-export default Login
+export default connect(null, {setAlert, loginUser})(Login);

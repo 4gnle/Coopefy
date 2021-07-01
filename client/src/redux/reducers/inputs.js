@@ -11,27 +11,13 @@ import {
     user: null
   };
 
-// export default function login(state = initialState, action) {
-//   const {payload, type} = action;
-//
-//   switch(type){
-//     case LOGIN:
-//       return [...state, payload];
-//
-//     case LOGOUT:
-//       return state. ;
-//
-//     default:
-//       return state;
-//   }
-// }
 
-
-export default function register(state = initialState, action) {
+export default function authenticate(state = initialState, action) {
   const {payload, type} = action;
 
   switch(type){
     case REG_SUCCESS:
+    case LOGIN:
       localStorage.getItem('token', payload.token)
       return {
         ...state,
@@ -41,6 +27,7 @@ export default function register(state = initialState, action) {
       };
 
     case REG_FAILED:
+    case LOGOUT:
       localStorage.removeItem('token');
 
       return {

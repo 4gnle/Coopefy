@@ -37,7 +37,7 @@ router.post('/', [
 
     let userName = await User.findOne({username})
     if (userName) {
-      return  res.status(400).json({ errors: [{msg: 'Usernae is already in use'}]})
+      return  res.status(400).json({ errors: [{msg: 'Username is already in use'}]})
     }
 
     // Breaking down user
