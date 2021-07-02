@@ -1,8 +1,13 @@
+import {
+  LOGIN,
+  LOGOUT} from '../../redux/actions/types'
+
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 
 //Redux
 import {connect} from 'react-redux'
-import {loginUser} from '../../redux/actions/inputs'
+import {setAlert} from '../../redux/actions/alert'
 
 const AuthContext = React.createContext({
   isLoggedIn: null,
@@ -10,7 +15,7 @@ const AuthContext = React.createContext({
   onLogout: (email, password) => {}
 });
 
-export const AuthContextProvider = (props, {loginUser}) => {
+export const AuthContextProvider = (props, {setAlert}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -21,11 +26,39 @@ export const AuthContextProvider = (props, {loginUser}) => {
     }
   }, []);
 
-  const loginHandler = (email, password) => {
-    loginUser({email, password});
-    // localStorage.setItem('loggedIn', 'yes');
-    // setIsLoggedIn(true);
-  };
+  const loginHandler = (email, password) => async dispatch => {
+
+    const body = JSON.stringify(email, password);
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+      try {
+        const res = await axios.post('/api/auth', body, config);
+
+        dispatch({
+          type: LOGIN,
+          payload: res.data
+         })
+
+         dispatch (
+           setAlert('Logged In', 'success')
+         );
+
+      } catch(err) {
+        console.error(err.message)
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+        }
+
+        dispatch({ type: LOGOUT })
+        }
+      }
+
 
   const logoutHandler = () => {
     setIsLoggedIn(false);
@@ -45,4 +78,4 @@ export const AuthContextProvider = (props, {loginUser}) => {
   )
 }
 
-export default connect(null, {loginUser})(AuthContext)
+export default connect(null, {setAlert})(AuthContext)

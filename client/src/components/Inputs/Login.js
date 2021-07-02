@@ -31,7 +31,7 @@ useEffect(() => {
     if (password.trim().length >= 8 && email.includes('@')) {
       checkValidity();
     }
-  }, [500])
+  }, [50])
 
   console.log('Testing useEffect')
 }, [password, email]);
@@ -48,7 +48,7 @@ const onSubmit = (event) => {
   if (!validData) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    context.onLogin(email, password);
+    context.onLogin({email, password});
   }
   event.preventDefault();
 };
