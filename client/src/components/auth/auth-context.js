@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import {loginUser} from '../../redux/actions/inputs'
+
 
 const AuthContext = React.createContext({
   isLoggedIn: null,
@@ -6,7 +8,7 @@ const AuthContext = React.createContext({
   onLogout: (email, password) => {}
 });
 
-export const AuthContextProvider = (props) => {
+export const AuthContextProvider = (props, {loginUser}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() =>{
@@ -18,8 +20,7 @@ export const AuthContextProvider = (props) => {
   }, []);
 
   const loginHandler = (email, password) => {
-    // We should of course check email and password
-    // But it's just a dummy/ demo anyways
+    loginUser({email, password})
     localStorage.setItem('loggedIn', 'yes');
     setIsLoggedIn(true);
   };

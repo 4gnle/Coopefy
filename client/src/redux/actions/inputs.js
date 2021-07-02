@@ -1,12 +1,12 @@
+import {useContext} from 'react'
+
 import {
   LOGIN,
   LOGOUT,
   REG_SUCCESS,
   REG_FAILED} from './types'
 
-  import {setAlert} from './alert'
-
-
+import {setAlert} from './alert'
 import axios from 'axios'
 
 export const registerUser = ({username, email, password}) => async dispatch => {
@@ -29,7 +29,7 @@ export const registerUser = ({username, email, password}) => async dispatch => {
      })
 
      dispatch (
-       setAlert('Registered Successfully', 'success'),
+       setAlert('Registered Successfully', 'success')
      );
 
 
@@ -67,7 +67,7 @@ export const registerUser = ({username, email, password}) => async dispatch => {
        })
 
        dispatch (
-         setAlert('Logged In', 'success'),
+         setAlert('Logged In', 'success')
        );
 
     } catch(err) {

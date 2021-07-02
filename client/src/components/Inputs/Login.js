@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 
 import './Inputs.css'
 
 // Router
 import {Link} from 'react-router-dom'
+import AuthContextProvider from '../../components/auth/auth-context';
 
 // UI
 import Button from '../UI/Button'
@@ -11,9 +12,10 @@ import Button from '../UI/Button'
 // Redux Functions
 import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
-import {loginUser} from '../../redux/actions/inputs'
 
-const Login = ({setAlert, loginUser}) => {
+const Login = ({setAlert}) => {
+
+const context = useContext(AuthContextProvider);
 
 const [formData, setFormData] = useState({
   email: '',
@@ -43,8 +45,12 @@ setFormData({ ...formData, [e.target.name]: e.target.value });
 }
 
 const onSubmit = (event) => {
-  loginUser({email, password});
-  event.preventDefault();
+  if (!validData) {
+    setAlert('Invalid inputs', 'danger')
+  } else {
+    event.preventDefault();
+    context.onLogin({email, password});
+  }
 };
 
 
@@ -81,7 +87,6 @@ const onSubmit = (event) => {
           <Button
           type='submit'
           onClick={onSubmit}
-          disabled={!validData}
           className="button m-1"
           >
             Log In
@@ -94,4 +99,4 @@ const onSubmit = (event) => {
   )
 }
 
-export default connect(null, {setAlert, loginUser})(Login);
+export default connect(null, {setAlert})(Login);
