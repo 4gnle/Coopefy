@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
 
 // Router
 import {Link} from 'react-router-dom'
@@ -27,7 +26,7 @@ const Register = ({ registerUser, setAlert }) => {
   const {username, email, password, password2 } = formData;
 
   useEffect(() => {
-  const performingCheck = setTimeout(() => {
+    setTimeout(() => {
     if (password === password2) {
       checkValidity();
     }
@@ -67,7 +66,6 @@ const Register = ({ registerUser, setAlert }) => {
           type='text'
           name='username'
           placeholder='&#xF007; Write a unique username'
-          required
           onChange={e => onChange(e)}
           value={formData.username}
           required

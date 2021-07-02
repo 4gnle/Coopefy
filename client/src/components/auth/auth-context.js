@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import {loginUser} from '../../redux/actions/inputs'
 
+//Redux
+import {connect} from 'react-redux'
+import {loginUser} from '../../redux/actions/inputs'
 
 const AuthContext = React.createContext({
   isLoggedIn: null,
@@ -11,7 +13,7 @@ const AuthContext = React.createContext({
 export const AuthContextProvider = (props, {loginUser}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() =>{
+  useEffect(() => {
     const logsInUser = localStorage.getItem('loggedIn');
 
     if (logsInUser === 'yes') {
@@ -20,9 +22,9 @@ export const AuthContextProvider = (props, {loginUser}) => {
   }, []);
 
   const loginHandler = (email, password) => {
-    loginUser({email, password})
-    localStorage.setItem('loggedIn', 'yes');
-    setIsLoggedIn(true);
+    loginUser({email, password});
+    // localStorage.setItem('loggedIn', 'yes');
+    // setIsLoggedIn(true);
   };
 
   const logoutHandler = () => {
@@ -43,4 +45,4 @@ export const AuthContextProvider = (props, {loginUser}) => {
   )
 }
 
-export default AuthContext
+export default connect(null, {loginUser})(AuthContext)

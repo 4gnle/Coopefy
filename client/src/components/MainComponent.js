@@ -1,4 +1,4 @@
-import React, {useContext, Fragment} from 'react'
+import React, {useContext} from 'react'
 
 import AuthContextProvider from './auth/auth-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -9,14 +9,14 @@ import store from '../redux/store/store'
 
 //Components
 import Navbar from './Navigation/Navbar'
-import Footer from './Navigation/Footer'
+// import Footer from './Navigation/Footer'
 import Login from './Inputs/Login'
 import Register from './Inputs/Register'
 import Dashboard from './Main/Dashboard'
 import Landing from './Main/Landing'
 import About from './Main/About'
 import People from './Profiles/People'
-import Profile from './Profiles/Profile'
+// import Profile from './Profiles/Profile'
 import Projects from './Projects/Projects'
 import Alerts from './UI/Alert'
 
@@ -37,7 +37,6 @@ const MainComponent = () => {
           <Route path='/login' component={Login} />
           <Route path='/projects' component={Projects} />
           <Route path='/people' component={People} />
-          <Route path='/profile' component={Profile} />
           <Route path='/about' component={About} />
       </Switch>
 
@@ -51,3 +50,5 @@ export default MainComponent
 // <footer>
 //   <Footer loggedin={context.isLoggedIn}/>
 // </footer>
+
+// <Route path='/profile' component={Profile} />

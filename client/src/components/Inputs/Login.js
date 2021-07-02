@@ -27,7 +27,7 @@ const [validData, setValidData] = useState(false);
 const {email, password} = formData;
 
 useEffect(() => {
-  const performingCheck = setTimeout(() => {
+  setTimeout(() => {
     if (password.trim().length >= 8 && email.includes('@')) {
       checkValidity();
     }
@@ -48,9 +48,9 @@ const onSubmit = (event) => {
   if (!validData) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    event.preventDefault();
-    context.onLogin({email, password});
+    context.onLogin(email, password);
   }
+  event.preventDefault();
 };
 
 

@@ -1,5 +1,3 @@
-import {useContext} from 'react'
-
 import {
   LOGIN,
   LOGOUT,
