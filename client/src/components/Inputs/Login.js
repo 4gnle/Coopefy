@@ -12,8 +12,10 @@ import Button from '../UI/Button'
 // Redux Functions
 import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
+import {loginUser} from '../../redux/actions/inputs'
 
-const Login = ({setAlert}) => {
+
+const Login = ({loginUser, setAlert}) => {
 
 const context = useContext(AuthContextProvider);
 
@@ -48,7 +50,7 @@ const onSubmit = (event) => {
   if (!validData) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    context.onLogin({email, password});
+    loginUser({email, password});
   }
   event.preventDefault();
 };
@@ -99,4 +101,4 @@ const onSubmit = (event) => {
   )
 }
 
-export default connect(null, {setAlert})(Login);
+export default connect(null, {loginUser, setAlert})(Login);

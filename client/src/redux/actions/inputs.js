@@ -1,4 +1,6 @@
 import {
+  LOGIN,
+  LOGOUT,
   REG_SUCCESS,
   REG_FAILED} from './types'
 
@@ -41,3 +43,40 @@ export const registerUser = ({username, email, password}) => async dispatch => {
     dispatch({ type: REG_FAILED })
     }
   }
+
+
+  export const loginUser = ({email, password}) => async dispatch => {
+
+    const body = JSON.stringify({email, password});
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+
+      const res = await axios.post('/api/auth', body, config);
+
+      dispatch({
+        type: LOGIN,
+        payload: res.data
+       })
+
+       dispatch (
+         setAlert('Logged In', 'success')
+       );
+
+    } catch(err) {
+      console.error(err.message)
+
+      const errors = err.response.data.errors;
+
+      if (errors) {
+          errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+      }
+
+      dispatch({ type: LOGOUT })
+      }
+    }
