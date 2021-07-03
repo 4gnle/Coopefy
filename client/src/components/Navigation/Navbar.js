@@ -4,11 +4,7 @@ import './Navbar.css'
 
 import { Link } from 'react-router-dom';
 
-import AuthContextProvider from '../auth/auth-context';
-
 const Navbar = (props) => {
-
-  const context = useContext(AuthContextProvider);
 
   const loggedIn = (
     <ul>
@@ -27,7 +23,7 @@ const Navbar = (props) => {
           <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
 
           <Link
-          onClick={context.onLogout} to='/' className="sign" >
+            to='/' className="sign" >
           <span >
           <i className="fas fa-sign-out-alt"></i> Log Out</span></Link>
 
@@ -59,7 +55,6 @@ const Navbar = (props) => {
           <h1 className="title1">
             <Link to="/" ><i className='fas fa-hands-helping'/><span className="icon-sm"> Coopefy</span></Link>
           </h1>
-        {context.isLoggedIn ? loggedIn : loggedOut}
     </div>
   )
 }

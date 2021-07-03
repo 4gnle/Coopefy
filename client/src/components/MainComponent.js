@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 
-import AuthContextProvider from './auth/auth-context';
+import AuthContextProvider from './context/main-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Redux

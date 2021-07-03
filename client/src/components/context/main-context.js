@@ -17,7 +17,7 @@ export const AuthContextProvider = (props, {setAlert}) => {
     }
   }, []);
 
-  const loginHandler = (email, password) => async dispatch => {
+  const loginHandler = ({email, password}) => async dispatch => {
     localStorage.setItem('loggedIn', 'yes');
     setIsLoggedIn(true);
       }

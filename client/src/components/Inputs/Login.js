@@ -4,7 +4,6 @@ import './Inputs.css'
 
 // Router
 import {Link} from 'react-router-dom'
-import AuthContextProvider from '../../components/auth/auth-context';
 
 // UI
 import Button from '../UI/Button'
@@ -16,8 +15,6 @@ import {loginUser} from '../../redux/actions/inputs'
 
 
 const Login = ({loginUser, setAlert}) => {
-
-const context = useContext(AuthContextProvider);
 
 const [formData, setFormData] = useState({
   email: '',

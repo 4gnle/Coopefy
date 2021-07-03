@@ -4,11 +4,7 @@ import './Footer.css'
 
 import { Link } from 'react-router-dom';
 
-import AuthContextProvider from '../auth/auth-context';
-
 const Footer = (props) => {
-
-  const context = useContext(AuthContextProvider);
 
   const loggedIn = (
     <ul>
@@ -27,7 +23,7 @@ const Footer = (props) => {
           <Link to='/dashboard'><span > You</span></Link>
 
           <Link
-          onClick={context.onLogout} to='/' className="sign" >
+            to='/' className="sign" >
           <span >
           Sign Out</span></Link>
 

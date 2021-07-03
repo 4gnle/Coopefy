@@ -24,7 +24,7 @@
 
 ::-webkit-input-placeholder {
   text-align: left;
-  font-family: 'FontAwesome', 'Segoe UI';
+  font-family: 'FontAwesome';
 }
 
 :-moz-placeholder {
@@ -47,7 +47,6 @@
 .inputs-within small {
   display: block;
 }
-
 
 .inputs-within label {
   display: block;
