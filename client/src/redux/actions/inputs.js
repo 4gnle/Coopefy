@@ -8,7 +8,7 @@ import {
 
 import {setAlert} from './alert'
 import authToken from '../utilities/authToken'
-import axios from 'axios'
+import api from '../utilities/api'
 
 export const registerUser = ({username, email, password}) => async dispatch => {
 
@@ -22,7 +22,7 @@ export const registerUser = ({username, email, password}) => async dispatch => {
 
   try {
 
-    const res = await axios.post('/api/users', body, config);
+    const res = await api.post('/users', body, config);
 
     dispatch({
       type: REG_SUCCESS,
@@ -48,53 +48,14 @@ export const registerUser = ({username, email, password}) => async dispatch => {
   }
 
 
-  export const loginUser = (email, password) => async dispatch => {
-
-    const body = JSON.stringify({email, password});
-
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-
-      const res = await axios.post('/api/auth', body, config);
-
-      dispatch({
-        type: LOGIN,
-        payload: res.data
-       })
-
-       dispatch (
-         setAlert('Logged In', 'success')
-       );
-
-       dispatch(loadUser())
-
-    } catch(err) {
-      console.error(err.message)
-
-      const errors = err.response.data.errors;
-
-      if (errors) {
-          errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-      }
-
-      dispatch({ type: LOGOUT })
-      }
-    }
-
-
 export const loadUser = (token) => async dispatch => {
   if (localStorage.token) {
-    authToken(localStorage.token)
+    authToken(localStorage.token);
   }
 
   try {
 
-    const res = await axios.get('/api/auth');
+    const res = await api.get('/auth');
 
     dispatch({
       type: LOADED,
@@ -109,3 +70,41 @@ export const loadUser = (token) => async dispatch => {
     })
   }
 }
+
+export const loginUser = (email, password) => async dispatch => {
+
+  const body = JSON.stringify({email, password});
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+
+    const res = await api.post('/auth', body, config);
+
+    dispatch({
+      type: LOGIN,
+      payload: res.data
+     })
+
+     dispatch (
+       setAlert('Logged In', 'success')
+     );
+
+     // dispatch(loadUser())
+
+  } catch(err) {
+    console.error(err.message)
+
+    const errors = err.response.data.errors;
+
+    if (errors) {
+        errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+    dispatch({ type: LOGOUT })
+    }
+  }
