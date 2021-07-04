@@ -47,30 +47,6 @@ export const registerUser = ({username, email, password}) => async dispatch => {
     }
   }
 
-
-export const loadUser = (token) => async dispatch => {
-  if (localStorage.token) {
-    authToken(localStorage.token);
-  }
-
-  try {
-
-    const res = await api.get('/auth');
-
-    dispatch({
-      type: LOADED,
-      payload: res.data
-    })
-
-  } catch (err) {
-    console.error(err.message)
-
-    dispatch({
-      type: NOT_LOADED
-    })
-  }
-}
-
 export const loginUser = (email, password) => async dispatch => {
 
   const body = JSON.stringify({email, password});
@@ -90,11 +66,11 @@ export const loginUser = (email, password) => async dispatch => {
       payload: res.data
      })
 
+     dispatch(loadUser())
+
      dispatch (
        setAlert('Logged In', 'success')
      );
-
-     // dispatch(loadUser())
 
   } catch(err) {
     console.error(err.message)
@@ -106,5 +82,29 @@ export const loginUser = (email, password) => async dispatch => {
     }
 
     dispatch({ type: LOGOUT })
+    }
+  }
+
+  export const loadUser = () => async dispatch => {
+    if (localStorage.token) {
+      authToken(localStorage.token);
+    }
+
+    try {
+
+      const res = await api.get('/auth');
+
+      dispatch({
+        type: LOADED,
+        payload: res.data
+      })
+
+    } catch (err) {
+
+      console.error(err.message)
+
+      dispatch({
+        type: NOT_LOADED
+      })
     }
   }

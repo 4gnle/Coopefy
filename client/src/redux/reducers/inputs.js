@@ -25,7 +25,7 @@ export default function authenticate(state = initialState, action) {
       isLoad: false,
       user: payload
     }
-    
+
     case REG_SUCCESS:
     case LOGIN:
       localStorage.getItem('token', payload.token)
