@@ -2,9 +2,12 @@ import {
   LOGIN,
   LOGOUT,
   REG_SUCCESS,
-  REG_FAILED} from './types'
+  REG_FAILED,
+  LOADED,
+  NOT_LOADED} from './types'
 
 import {setAlert} from './alert'
+import authToken from '../utilities/authToken'
 import axios from 'axios'
 
 export const registerUser = ({username, email, password}) => async dispatch => {
@@ -45,7 +48,7 @@ export const registerUser = ({username, email, password}) => async dispatch => {
   }
 
 
-  export const loginUser = ({email, password}) => async dispatch => {
+  export const loginUser = (email, password) => async dispatch => {
 
     const body = JSON.stringify({email, password});
 
@@ -68,6 +71,8 @@ export const registerUser = ({username, email, password}) => async dispatch => {
          setAlert('Logged In', 'success')
        );
 
+       dispatch(loadUser())
+
     } catch(err) {
       console.error(err.message)
 
@@ -80,3 +85,27 @@ export const registerUser = ({username, email, password}) => async dispatch => {
       dispatch({ type: LOGOUT })
       }
     }
+
+
+export const loadUser = (token) => async dispatch => {
+  if (localStorage.token) {
+    authToken(localStorage.token)
+  }
+
+  try {
+
+    const res = await axios.get('/api/auth');
+
+    dispatch({
+      type: LOADED,
+      payload: res.data
+    })
+
+  } catch (err) {
+    console.error(err.message)
+
+    dispatch({
+      type: NOT_LOADED
+    })
+  }
+}

@@ -47,7 +47,7 @@ const onSubmit = (event) => {
   if (!validData) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    loginUser({email, password});
+    loginUser(email, password);
   }
   event.preventDefault();
 };

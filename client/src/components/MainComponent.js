@@ -1,11 +1,13 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 
 import AuthContextProvider from './context/main-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-//Redux
+//Redux and Context
 import {Provider} from 'react-redux';
 import store from '../redux/store/store'
+import authToken from '../redux/utilities/authToken'
+import {loadUser} from '../redux/actions/inputs'
 
 //Components
 import Navbar from './Navigation/Navbar'
@@ -20,8 +22,15 @@ import People from './Profiles/People'
 import Projects from './Projects/Projects'
 import Alerts from './UI/Alert'
 
+if (localStorage.token){
+  authToken(localStorage.token)
+}
 
 const MainComponent = () => {
+
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, [])
 
   const context = useContext(AuthContextProvider);
 
