@@ -13,7 +13,7 @@ import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {loginUser} from '../../redux/actions/inputs'
 
-const Login = ({loginUser, setAlert}) => {
+const Login = ({history, loginUser, setAlert}) => {
 
 const [formData, setFormData] = useState({
   email: '',
@@ -46,7 +46,7 @@ const onSubmit = (event) => {
   if (!validData) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    loginUser(email, password);
+    loginUser(history, email, password);
   }
   event.preventDefault();
 };
@@ -90,7 +90,7 @@ const onSubmit = (event) => {
             Log In
           </Button>
 
-          <small>Don't have an account? <Link to='/register'>Sign up then!</Link></small>
+            <small>Don't have an account? <Link to='/register'>Sign up then!</Link></small>
         </div>
       </form>
     </div>

@@ -17,14 +17,14 @@ const api = axios.create({
  logout the user if the token has expired
 **/
 
-// api.interceptors.response.use(
-//   res => res,
-//   err => {
-//     if (err.response.status === 401) {
-//       store.dispatch({ type: LOGOUT });
-//     }
-//     return Promise.reject(err);
-//   }
-// );
-//
+api.interceptors.response.use(
+  res => res,
+  err => {
+    if (err.response.status === 401) {
+      store.dispatch({ type: LOGOUT });
+    }
+    return Promise.reject(err);
+  }
+);
+
 export default api;

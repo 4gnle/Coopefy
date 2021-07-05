@@ -4,7 +4,11 @@ import './Navbar.css'
 
 import { Link } from 'react-router-dom';
 
-const Navbar = (props) => {
+//Redux
+import {connect} from 'react-redux'
+import {logUserOut} from '../../redux/actions/inputs'
+
+const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
 
   const loggedIn = (
     <ul>
@@ -22,8 +26,7 @@ const Navbar = (props) => {
 
           <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
 
-          <Link
-            to='/' className="sign" >
+          <Link to='/' className="sign" onClick={logUserOut}>
           <span >
           <i className="fas fa-sign-out-alt"></i> Log Out</span></Link>
 
@@ -55,8 +58,16 @@ const Navbar = (props) => {
           <h1 className="title1">
             <Link to="/" ><i className='fas fa-hands-helping'/><span className="icon-sm"> Coopefy</span></Link>
           </h1>
+
+    {isAuth ? loggedIn : loggedOut}
     </div>
+
+
   )
 }
 
-export default Navbar;
+const mapStateToProps = state => ({
+  authenticate: state.authenticate
+})
+
+export default connect(mapStateToProps, {logUserOut})(Navbar);

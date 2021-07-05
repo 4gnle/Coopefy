@@ -10,6 +10,7 @@ import {setAlert} from './alert'
 import authToken from '../utilities/authToken'
 import api from '../utilities/api'
 
+//Registering a New User
 export const registerUser = ({username, email, password}) => async dispatch => {
 
   const body = JSON.stringify({username, email, password});
@@ -47,7 +48,8 @@ export const registerUser = ({username, email, password}) => async dispatch => {
     }
   }
 
-export const loginUser = (email, password) => async dispatch => {
+//Login User In
+export const loginUser = (history, email, password) => async dispatch => {
 
   const body = JSON.stringify({email, password});
 
@@ -58,23 +60,21 @@ export const loginUser = (email, password) => async dispatch => {
   }
 
   try {
-
     const res = await api.post('/auth', body, config);
-
     dispatch({
       type: LOGIN,
       payload: res.data
      })
 
      dispatch (
-       setAlert('Logged In', 'success')
+       setAlert('Logged In', 'success'),
+       history.push('/dashboard')
      );
 
      dispatch(loadUser())
 
   } catch(err) {
     console.error(err.message)
-
     const errors = err.response.data.errors;
 
     if (errors) {
@@ -83,6 +83,19 @@ export const loginUser = (email, password) => async dispatch => {
 
     dispatch({ type: LOGOUT })
     }
+  }
+
+  // Logging User Out
+  export const logUserOut = () => async dispatch => {
+      dispatch({
+        type: LOGOUT
+       })
+
+       dispatch (
+         setAlert('Logged Out', 'danger')
+       );
+
+       dispatch(loadUser())
   }
 
   export const loadUser = () => async dispatch => {

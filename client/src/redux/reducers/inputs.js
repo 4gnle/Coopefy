@@ -44,7 +44,7 @@ export default function authenticate(state = initialState, action) {
       return {
       ...state,
       token: null,
-      isAuth: true,
+      isAuth: false,
       isLoad: false
     };
 
