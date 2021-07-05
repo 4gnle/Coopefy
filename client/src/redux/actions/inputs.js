@@ -72,7 +72,6 @@ export const loginUser = (email, password) => async dispatch => {
 
      dispatch(loadUser())
 
-
   } catch(err) {
     console.error(err.message)
 
@@ -87,6 +86,7 @@ export const loginUser = (email, password) => async dispatch => {
   }
 
   export const loadUser = () => async dispatch => {
+
     if (localStorage.token) {
       authToken(localStorage.token);
     }

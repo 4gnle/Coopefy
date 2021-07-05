@@ -22,16 +22,15 @@ import People from './Profiles/People'
 import Projects from './Projects/Projects'
 import Alerts from './UI/Alert'
 
-
-
 const MainComponent = () => {
+  if (localStorage.token){
+    authToken(localStorage.token)
+  }
 
   useEffect(() => {
-    if (localStorage.token){
-      authToken(localStorage.token)
-    }
-
+    
     store.dispatch(loadUser());
+
   }, [])
 
   const context = useContext(AuthContextProvider);

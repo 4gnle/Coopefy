@@ -24,7 +24,7 @@ export default function authenticate(state = initialState, action) {
         isAuth: true,
         isLoad: false,
         user: payload
-      }
+      };
 
     case REG_SUCCESS:
     case LOGIN:

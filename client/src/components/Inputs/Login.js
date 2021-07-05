@@ -13,7 +13,6 @@ import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {loginUser} from '../../redux/actions/inputs'
 
-
 const Login = ({loginUser, setAlert}) => {
 
 const [formData, setFormData] = useState({
