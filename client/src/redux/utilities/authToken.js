@@ -1,6 +1,6 @@
 import api from './api'
 
-const authToken = token => {
+const authToken = (token) => {
 
   if (token) {
 
@@ -8,7 +8,7 @@ const authToken = token => {
     localStorage.setItem('token', token);
 
   } else {
-    
+
     api.defaults.headers.common['x-auth-token'] = null;
     localStorage.removeItem('token');
   }
