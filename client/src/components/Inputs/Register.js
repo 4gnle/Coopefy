@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 
 // Router
 import {Link} from 'react-router-dom'
@@ -13,7 +13,11 @@ import {registerUser} from '../../redux/actions/inputs'
 
 import './Inputs.css'
 
-const Register = ({ registerUser, setAlert }) => {
+const Register = ({history, registerUser, setAlert }) => {
+
+  if (localStorage.token) {
+    history.push('/dashboard')
+  }
 
   const [formData, setFormData] = useState({
     username: '',
@@ -22,10 +26,17 @@ const Register = ({ registerUser, setAlert }) => {
   });
 
   const [valid, setValid] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
 
   const {username, email, password, password2 } = formData;
 
   useEffect(() => {
+    setTimeout(() => {
+    if (password.trim().length >= 8) {
+      checkFirstPassword();
+    }
+  }, [500])
+
     setTimeout(() => {
     if (password === password2) {
       checkValidity();
@@ -39,6 +50,10 @@ const Register = ({ registerUser, setAlert }) => {
       setValid(true);
   };
 
+  const checkFirstPassword = () => {
+      setValidPassword(true);
+  };
+
   const onChange = e =>
   setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -46,10 +61,9 @@ const Register = ({ registerUser, setAlert }) => {
     if (!valid) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      registerUser({username, email, password});
+      registerUser(history, username, email, password);
     };
       event.preventDefault();
-      console.log(formData);
   };
 
   return (
@@ -94,15 +108,20 @@ const Register = ({ registerUser, setAlert }) => {
           >
           </input>
 
-          <label className="lead">Confirm Password</label>
-          <input
-          type='password'
-          name='password2'
-          placeholder='&#xF084; Confirm Password'
-          onChange={e => onChange(e)}
-          value={formData.password2}
-          >
-          </input>
+          {validPassword &&
+            <Fragment>
+              <label className="lead">Confirm Password</label>
+              <input
+              type='password'
+              name='password2'
+              placeholder='&#xF084; Confirm Password'
+              onChange={e => onChange(e)}
+              value={formData.password2}
+              >
+              </input>
+            </Fragment>
+          }
+
 
           <Button
           className="button m-1"

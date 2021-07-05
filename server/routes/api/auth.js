@@ -32,7 +32,7 @@ router.get('/', auth, async (req, res) => {
 //@access Public
 
 router.post('/', [
-  check('email', 'Write a valid email').isEmail(),
+  check('email', 'Write a valid email or username').isEmail(),
   check('password', 'Write a valid password').exists()
 ], async (req, res) => {
 
@@ -50,7 +50,7 @@ router.post('/', [
   const {email, password} = req.body;
 
   try {
-    // Finding registered emails
+    // Finding registered emails or usernames
     let user = await User.findOne({email});
 
     if (!user) {

@@ -28,7 +28,7 @@
 }
 
 :-moz-placeholder {
-  text-align: center;
+  text-align: left;
 }
 
 .inputs-within h1, p {
@@ -57,7 +57,7 @@
 
 .inputs-within input {
   display: block;
-  text-align: center;
+  text-align: left;
   position: relative;
   font: inherit;
   margin-top: -0.5px;

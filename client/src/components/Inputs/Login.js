@@ -15,6 +15,10 @@ import {loginUser} from '../../redux/actions/inputs'
 
 const Login = ({history, loginUser, setAlert}) => {
 
+if (localStorage.token) {
+  history.push('/dashboard')
+}
+
 const [formData, setFormData] = useState({
   email: '',
   password: ''

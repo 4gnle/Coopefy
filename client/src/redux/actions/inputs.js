@@ -11,7 +11,7 @@ import authToken from '../utilities/authToken'
 import api from '../utilities/api'
 
 //Registering a New User
-export const registerUser = ({username, email, password}) => async dispatch => {
+export const registerUser = (history, username, email, password) => async dispatch => {
 
   const body = JSON.stringify({username, email, password});
 
@@ -31,7 +31,8 @@ export const registerUser = ({username, email, password}) => async dispatch => {
      })
 
      dispatch (
-       setAlert('Registered Successfully', 'success')
+       setAlert('Registered Successfully', 'success'),
+       history.push('/dashboard')
      );
 
 
