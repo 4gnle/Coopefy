@@ -19,12 +19,12 @@ export default function authenticate(state = initialState, action) {
 
   switch(type){
     case LOADED:
-    return {
-      ...state,
-      isAuth: true,
-      isLoad: false,
-      user: payload
-    }
+      return {
+        ...state,
+        isAuth: true,
+        isLoad: false,
+        user: payload
+      }
 
     case REG_SUCCESS:
     case LOGIN:

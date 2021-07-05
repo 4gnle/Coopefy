@@ -22,13 +22,15 @@ import People from './Profiles/People'
 import Projects from './Projects/Projects'
 import Alerts from './UI/Alert'
 
-if (localStorage.token){
-  authToken(localStorage.token)
-}
+
 
 const MainComponent = () => {
 
   useEffect(() => {
+    if (localStorage.token){
+      authToken(localStorage.token)
+    }
+
     store.dispatch(loadUser());
   }, [])
 

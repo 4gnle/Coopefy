@@ -73,6 +73,7 @@
     "har-schema": "^2.0.0",
     "har-validator": "^5.1.5",
     "http-errors": "^1.7.2",
+    "http-proxy-middleware": "^2.0.1",
     "http-signature": "^1.2.0",
     "iconv-lite": "^0.4.24",
     "inherits": "^2.0.3",

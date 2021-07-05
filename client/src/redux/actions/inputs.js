@@ -66,11 +66,12 @@ export const loginUser = (email, password) => async dispatch => {
       payload: res.data
      })
 
-     dispatch(loadUser())
-
      dispatch (
        setAlert('Logged In', 'success')
      );
+
+     dispatch(loadUser())
+
 
   } catch(err) {
     console.error(err.message)
