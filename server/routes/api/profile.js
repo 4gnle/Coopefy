@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const {check, validationResult} = require('express-validator')
+const normalize = require('normalize-url');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -50,23 +51,51 @@ router.post('/', [auth],
   try {
 
     const {
-    profileimage,
-    bio,
     status,
-    location,
     skills,
-    work,
     website,
-    githubusername
+    twitter,
+    facebook,
+    instagram,
+    youtube,
+    linkedin,
+    ...rest
   } = req.body;
 
+  // build a profile
+   const profileFields = {
+     user: req.user.id,
+     website:
+       website && website !== ''
+         ? normalize(website, { forceHttps: true })
+         : '',
+     skills: Array.isArray(skills)
+       ? skills
+       : skills.split(',').map((skill) => skill.trim()),
+     ...rest
+   };
 
+   // Build socialFields object
+   const socialfields = { youtube, twitter, instagram, linkedin, facebook };
+   profileFields.socialmedia = socialfields;
 
+   try {
+     // Using upsert option (creates new doc if no match is found):
+     let profile = await Profile.findOneAndUpdate(
+       { user: req.user.id },
+       { $set: profileFields },
+       { new: true, upsert: true, setDefaultsOnInsert: true }
+     );
+     return res.json(profile);
+   } catch (err) {
+     console.error(err.message);
+     return res.status(500).send('Server Error');
+   }
 
   }catch(err) {
     console.error(err.message)
     res.send('Server Error')
   };
-})
+});
 
 module.exports = router;

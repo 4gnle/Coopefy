@@ -114,6 +114,7 @@
     "mquery": "^3.2.5",
     "ms": "^2.0.0",
     "negotiator": "^0.6.2",
+    "normalize-url": "^6.1.0",
     "oauth-sign": "^0.9.0",
     "on-finished": "^2.3.0",
     "optional-require": "^1.0.3",
