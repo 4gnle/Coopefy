@@ -14,7 +14,7 @@ import Navbar from './Navigation/Navbar'
 // import Footer from './Navigation/Footer'
 import Login from './Inputs/Login'
 import Register from './Inputs/Register'
-import Dashboard from './Main/Dashboard'
+import Dashboard from './Dashboard/Dashboard'
 import Landing from './Main/Landing'
 import About from './Main/About'
 import People from './Profiles/People'
@@ -28,7 +28,7 @@ const MainComponent = () => {
   }
 
   useEffect(() => {
-    
+
     store.dispatch(loadUser());
 
   }, [])

@@ -45,7 +45,7 @@ export const getProfileImage = (id) => async dispatch => {
      const res = await api.get(`/profile/image/${id}`);
 
     dispatch({
-      type: GET_GITHUB,
+      type: GET_IMAGE,
       payload: res.data
     });
 
@@ -53,7 +53,7 @@ export const getProfileImage = (id) => async dispatch => {
   }catch (err) {
 
     dispatch({
-      type: NO_REPOS
+      type: WRONG_IMAGE
     });
 
   }
@@ -62,25 +62,12 @@ export const getProfileImage = (id) => async dispatch => {
 // Delete profile image
 export const deleteImage = () => async dispatch => {
 
-  try {
-
     const res = await api.delete('/profile/image/');
 
     dispatch({
-
       type: IMAGE_DELETED,
-
     });
 
     dispatch(setAlert('Image Removed', 'danger'));
 
-
-  } catch (err) {
-
-    dispatch({
-      type: WRONG_IMAGE,
-      payload: { msg: err.response.statusText, status: err.response.status}
-    });
-
-  }
 };

@@ -10,6 +10,11 @@
   transition: all 0.5s ease;
 }
 
+.button:hover {
+  background-color: black;
+  color: white;
+}
+
 .primary {
   font: inherit;
   cursor: pointer;
@@ -18,8 +23,30 @@
   transition: all 0.5s ease;
   border: 1px solid black;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: blue;
+  background-color: black;
   color: white;
+}
+
+.primary:hover {
+  background-color: white;
+  color: black;
+}
+
+.small {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  border: 1px solid black;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  background-color: darkgray;
+  color: white;
+}
+
+.small:hover {
+  background-color: white;
+  color: black;
 }
 
 .bad {
@@ -34,20 +61,11 @@
   color: white;
 }
 
-.primary:hover {
-  background-color: lightblue;
-  color: black;
-}
-
 .bad:hover {
   background-color: pink;
   color: black;
 }
 
-.button:hover {
-  background-color: black;
-  color: white;
-}
 
 button:disabled,
 button:focus:disabled,
