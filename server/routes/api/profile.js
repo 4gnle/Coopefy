@@ -49,7 +49,19 @@ router.post('/', [auth],
 
   try {
 
-    
+    const {
+    profileimage,
+    bio,
+    status,
+    location,
+    skills,
+    work,
+    website,
+    githubusername
+  } = req.body;
+
+
+
 
   }catch(err) {
     console.error(err.message)
