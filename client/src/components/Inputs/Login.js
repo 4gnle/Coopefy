@@ -21,25 +21,31 @@ if (localStorage.token) {
 
 const [formData, setFormData] = useState({
   email: '',
-  password: ''
+  password: '',
+  username: ''
 });
 
-const [validData, setValidData] = useState(false);
+const [data, setData] = useState({data1: ''});
 
-const {email, password} = formData;
+const {username, email, password} = formData;
+
+const {data1} = data;
+
 
 useEffect(() => {
   setTimeout(() => {
-    if (password.trim().length >= 8 && email.includes('@')) {
       checkValidity();
-    }
   }, [50])
-
   console.log('Testing useEffect')
-}, [password, email]);
+}, [password]);
 
-const checkValidity = () => {
-  setValidData(true)
+
+const checkValidity = (e) => {
+  if (data1.contains('@')) {
+    email(e.target.value)
+  } else {
+    username(e.target.value)
+  }
 }
 
 const onChange = (e) => {
@@ -47,34 +53,30 @@ setFormData({ ...formData, [e.target.name]: e.target.value });
 }
 
 const onSubmit = (event) => {
-  if (!validData) {
+  if (!data) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    loginUser(history, email, password);
+    loginUser(history, formData);
   }
   event.preventDefault();
 };
-
 
   return (
     <div className='input-box'>
         <form>
         <div
-        className={`${'inputs-within'} ${
-            validData === false ? 'invalid' : ''
-          }`}
+        className='inputs-within'
         >
         <div className='titles'>
           <h1>Log in</h1>
           <p>and collaborate!</p>
         </div>
-        <label className="lead">Email </label>
+        <label className="lead">Email or Username</label>
           <input
           type='text'
-          name='email'
-          placeholder='&#xf0e0; Write your email'
-          onChange={(e) => onChange(e)}
-          value={formData.email}
+          placeholder='&#xf0e0; Write your email or username'
+          onChange={(e) => checkValidity(e)}
+          value={data.data}
           />
 
         <label className="lead">Password</label>

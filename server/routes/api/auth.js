@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const bcrypt = require('bcryptjs')
-const {check, validationResult} = require('express-validator')
+const {check, oneOf, validationResult} = require('express-validator')
+const validator = require('validator')
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
@@ -31,15 +32,17 @@ router.get('/', auth, async (req, res) => {
 //@desc Auth User & token
 //@access Public
 
-router.post('/', [
-  check('email', 'Write a valid email or username').isEmail(),
-  check('password', 'Write a valid password').exists()
-], async (req, res) => {
+const validateLogin =  [
+  oneOf([
+    check('email', 'Write a valid email or username').isEmail(),
+    check('username', 'Write a valid email or username').exists().isLength({min: 3})])
+];
+
+router.post('/', validateLogin,
+[check('password', 'Write a valid password').exists()], async (req, res) => {
 
   // Variable takes errors from ValidationResult
   const errors = validationResult(req);
-
-  //If there are errors, show a message
   if (!errors.isEmpty()){
     return res
       .status(400)
@@ -47,17 +50,19 @@ router.post('/', [
   }
 
   // This breaks down the req.body (data received)
-  const {email, password} = req.body;
+  const {username, email, password} = req.body;
 
   try {
     // Finding registered emails or usernames
-    let user = await User.findOne({email});
+
+    let user = await User.findOne({ $or: [ {email}, {username} ] });
 
     if (!user) {
       return  res
         .status(400)
         .json({ errors: [{msg: 'Invalid Credentials'}]})
     }
+
 
     //Validating the password
     const isMatch = await bcrypt.compare(password, user.password);

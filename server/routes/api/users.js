@@ -12,7 +12,7 @@ const User = require('../../models/User')
 // @access Public
 
 router.post('/', [
-  check('username', 'Name is required').not().isEmpty(),
+  check('username', 'Username is required (More than 3 characters)').not().isEmpty().isLength({ min: 3}),
   check('email', 'Write a valid email').isEmail(),
   check('password', 'You need a secure password (more than 8 characters)').isLength({ min: 8})
 ], async (req, res) => {

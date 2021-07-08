@@ -71,7 +71,7 @@ router.post('/', [auth],
          : '',
      skills: Array.isArray(skills)
        ? skills
-       : skills.split(',').map((skill) => skill.trim()),
+       : skills.split(' ').map((skill) => skill.trim()),
      ...rest
    };
 
