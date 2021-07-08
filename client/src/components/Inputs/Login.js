@@ -25,27 +25,40 @@ const [formData, setFormData] = useState({
   username: ''
 });
 
-const [data, setData] = useState({data1: ''});
+const [validData, setValidData] = useState(false);
 
 const {username, email, password} = formData;
 
-const {data1} = data;
+const dataHandler = (event) => {
+  /** W3C Email regex: (RFC5322) */
+  const email_regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  /** Must starts with a letter then can include underscores (_) & hyphens (-) */
+  const username_regex = /^[a-zA-Z][\w-]+$/;
 
+  let input = document.querySelector('#username-or-email');
+
+  if (email_regex.test(input.value)) {
+    // it is an email, send the value as an email
+    input.setAttribute("name", "email");
+  } else if (username_regex.test(input.value)) {
+    // it is a username, send the value as a username
+    input.setAttribute("name", "username");
+  } else {
+    // invalid email or username format, return an error message to user
+  }
 
 useEffect(() => {
   setTimeout(() => {
+    if (password.trim().length >= 8) {
       checkValidity();
+    }
   }, [50])
+
   console.log('Testing useEffect')
-}, [password]);
+}, [password, email]);
 
-
-const checkValidity = (e) => {
-  if (data1.contains('@')) {
-    email(e.target.value)
-  } else {
-    username(e.target.value)
-  }
+const checkValidity = () => {
+  setValidData(true)
 }
 
 const onChange = (e) => {
@@ -53,19 +66,22 @@ setFormData({ ...formData, [e.target.name]: e.target.value });
 }
 
 const onSubmit = (event) => {
-  if (!data) {
+  if (!validData) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    loginUser(history, formData);
+    loginUser(history, email, password);
   }
   event.preventDefault();
 };
+
 
   return (
     <div className='input-box'>
         <form>
         <div
-        className='inputs-within'
+        className={`${'inputs-within'} ${
+            validData === false ? 'invalid' : ''
+          }`}
         >
         <div className='titles'>
           <h1>Log in</h1>
@@ -74,9 +90,10 @@ const onSubmit = (event) => {
         <label className="lead">Email or Username</label>
           <input
           type='text'
-          placeholder='&#xf0e0; Write your email or username'
-          onChange={(e) => checkValidity(e)}
-          value={data.data}
+          name='email'
+          placeholder='&#xf0e0; Write your email'
+          onChange={(e) => dataHandler(e)}
+          value=''
           />
 
         <label className="lead">Password</label>
