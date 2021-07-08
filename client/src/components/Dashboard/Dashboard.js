@@ -7,6 +7,22 @@ const Dashboard = (history) => {
 
   return (
     <div className='dashboard'>
+      <div className='db-profile-description'
+        <div>
+        </div>
+        <div>
+        </div>
+        <div>
+        </div>
+      </div>
+      <div>
+        <div>
+        </div>
+        <div>
+        </div>
+      </div>
+      <div>
+      </div>
       <h1>Dashboard</h1>
       <DashboardFunctions/>
     </div>
