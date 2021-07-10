@@ -36,32 +36,25 @@ useEffect(() => {
     if (password.trim().length >= 8) {
       checkValidity();
     }
-}, [50]);
-  console.log('Testing useEffect')
-}, [password]);
 
-const checkValidity = () => {
-  setValidData(true)
-}
-
-useEffect(() => {
-  setTimeout(() => {
-    /** W3C Email regex: (RFC5322) */
     const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     /** Must starts with a letter then can include underscores (_) & hyphens (-) */
     const usernameRegex = /^[a-zA-Z0-9][\w-]+$/;
 
     if (emailRegex.test(userOrEmail)) {
-      // it is an email, send the value as an email
       setFormData({...formData, email: userOrEmail });
       console.log(email);
     } else if (usernameRegex.test(userOrEmail)) {
-      // it is a username, send the value as a username
       setFormData({...formData, username: userOrEmail });
       console.log(username);
     }
-  })
-}, [userOrEmail])
+}, [50]);
+  console.log('Testing useEffect')
+}, [password, userOrEmail]);
+
+const checkValidity = () => {
+  setValidData(true)
+}
 
 const userEmail = (e) => {
 setUserOrEmail(e.target.value);

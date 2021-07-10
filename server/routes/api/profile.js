@@ -22,6 +22,38 @@ router.get('/me', auth, async (req, res) => {
 
 module.exports = router;
 
+// @router GET api/profile
+// @desc Get All Profiles
+// @access Public
+
+router.get('/', async (req, res) => {
+
+  try {
+    const profileData = await Profile.find().populate('user', ['name', 'profileimage']);
+
+  }catch(err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  };
+})
+
+module.exports = router;
+
+// @router GET api/profile/me
+// @desc Get Profile by Username
+// @access Public
+
+router.get('/me', auth, async (req, res) => {
+  try {
+
+  }catch(err) {
+    console.error(err.message)
+    res.send('Server Error')
+  };
+})
+
+module.exports = router;
+
 // @router POST api/profile
 // @desc Post profile data
 // @access Private
