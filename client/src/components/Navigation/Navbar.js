@@ -24,11 +24,10 @@ const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
 
         <div className="auth-links">
 
-          <Link to='/dashboard'><span ><i className="fas fa-user fa-fw" /> You</span></Link>
+          <Link to='/dashboard'><i className="fas fa-user fa-fw" /><span>You</span></Link>
 
           <Link to='/' className="sign" onClick={logUserOut}>
-          <span >
-          <i className="fas fa-sign-out-alt"></i> Log Out</span></Link>
+          <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>
 
         </div>
       </ul>

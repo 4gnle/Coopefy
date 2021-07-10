@@ -25,40 +25,46 @@ const [formData, setFormData] = useState({
   username: ''
 });
 
+const [userOrEmail, setUserOrEmail] = useState('');
+
 const [validData, setValidData] = useState(false);
 
 const {username, email, password} = formData;
-
-const dataHandler = (event) => {
-  /** W3C Email regex: (RFC5322) */
-  const email_regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  /** Must starts with a letter then can include underscores (_) & hyphens (-) */
-  const username_regex = /^[a-zA-Z][\w-]+$/;
-
-  let input = document.querySelector('#username-or-email');
-
-  if (email_regex.test(input.value)) {
-    // it is an email, send the value as an email
-    input.setAttribute("name", "email");
-  } else if (username_regex.test(input.value)) {
-    // it is a username, send the value as a username
-    input.setAttribute("name", "username");
-  } else {
-    // invalid email or username format, return an error message to user
-  }
 
 useEffect(() => {
   setTimeout(() => {
     if (password.trim().length >= 8) {
       checkValidity();
     }
-  }, [50])
-
+}, [50]);
   console.log('Testing useEffect')
-}, [password, email]);
+}, [password]);
 
 const checkValidity = () => {
   setValidData(true)
+}
+
+useEffect(() => {
+  setTimeout(() => {
+    /** W3C Email regex: (RFC5322) */
+    const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    /** Must starts with a letter then can include underscores (_) & hyphens (-) */
+    const usernameRegex = /^[a-zA-Z0-9][\w-]+$/;
+
+    if (emailRegex.test(userOrEmail)) {
+      // it is an email, send the value as an email
+      setFormData({...formData, email: userOrEmail });
+      console.log(email);
+    } else if (usernameRegex.test(userOrEmail)) {
+      // it is a username, send the value as a username
+      setFormData({...formData, username: userOrEmail });
+      console.log(username);
+    }
+  })
+}, [userOrEmail])
+
+const userEmail = (e) => {
+setUserOrEmail(e.target.value);
 }
 
 const onChange = (e) => {
@@ -69,7 +75,7 @@ const onSubmit = (event) => {
   if (!validData) {
     setAlert('Invalid inputs', 'danger')
   } else {
-    loginUser(history, email, password);
+    loginUser(history, {username, email, password});
   }
   event.preventDefault();
 };
@@ -90,10 +96,10 @@ const onSubmit = (event) => {
         <label className="lead">Email or Username</label>
           <input
           type='text'
-          name='email'
+          name='user-or-email'
           placeholder='&#xf0e0; Write your email'
-          onChange={(e) => dataHandler(e)}
-          value=''
+          onChange={(e) => userEmail(e)}
+          value={userOrEmail}
           />
 
         <label className="lead">Password</label>

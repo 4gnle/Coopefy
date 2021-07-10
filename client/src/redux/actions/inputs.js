@@ -50,9 +50,9 @@ export const registerUser = (history, username, email, password) => async dispat
   }
 
 //Login User In
-export const loginUser = (history, email, password) => async dispatch => {
+export const loginUser = (history, {username, email, password}) => async dispatch => {
 
-  const body = JSON.stringify({email, password});
+  const body = JSON.stringify({username, email, password});
 
   const config = {
     headers: {
