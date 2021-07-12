@@ -36,21 +36,25 @@ useEffect(() => {
     if (password.trim().length >= 8) {
       checkValidity();
     }
+  }, [50])
+})
 
+useEffect(() => {
+  setTimeout(() => {
     const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     /** Must starts with a letter then can include underscores (_) & hyphens (-) */
     const usernameRegex = /^[a-zA-Z0-9][\w-]+$/;
 
     if (emailRegex.test(userOrEmail)) {
-      setFormData({...formData, email: userOrEmail });
       console.log(email);
+      setFormData({ ...formData, email: userOrEmail });
     } else if (usernameRegex.test(userOrEmail)) {
-      setFormData({...formData, username: userOrEmail });
+      setFormData({ ...formData, username: userOrEmail});
       console.log(username);
     }
-}, [50]);
+}, [50000]);
   console.log('Testing useEffect')
-}, [password, userOrEmail]);
+}, [userOrEmail]);
 
 const checkValidity = () => {
   setValidData(true)
@@ -89,7 +93,6 @@ const onSubmit = (event) => {
         <label className="lead">Email or Username</label>
           <input
           type='text'
-          name='user-or-email'
           placeholder='&#xf0e0; Write your email'
           onChange={(e) => userEmail(e)}
           value={userOrEmail}
