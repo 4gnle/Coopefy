@@ -1,5 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
+import GoogleLogin from 'react-google-login'
+
 // Router
 import {Link} from 'react-router-dom'
 
@@ -10,6 +12,7 @@ import Button from '../UI/Button'
 import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {registerUser} from '../../redux/actions/inputs'
+import {googleLogin} from '../../redux/actions/inputs'
 
 import './Inputs.css'
 
@@ -132,8 +135,19 @@ const Register = ({history, registerUser, setAlert }) => {
             Sign Up
           </Button>
 
-          <small>Already have an account? <Link to='/login'>Log in then!</Link></small>
           </div>
+          <h3>OR</h3>
+          <GoogleLogin
+            className='google-button m-1'
+            clientId={process.env.REACT_APP_GOOGLE_ID}
+            buttonText="Register with Google"
+            onSuccess={googleLogin}
+            onFailure={googleLogin}
+            cookiePolicy={'single_host_origin'}
+          />
+          <br></br>
+
+          <small>Already have an account? <Link to='/login'>Log in then!</Link></small>
       </form>
     </div>  )
 }

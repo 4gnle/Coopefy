@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
+import GoogleLogin from 'react-google-login'
+
 import './Inputs.css'
 
 // Router
@@ -12,8 +14,9 @@ import Button from '../UI/Button'
 import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {loginUser} from '../../redux/actions/inputs'
+import {googleLogin} from '../../redux/actions/inputs'
 
-const Login = ({history, loginUser, setAlert}) => {
+const Login = ({history, loginUser, googleLogin, setAlert}) => {
 
 if (localStorage.token) {
   history.push('/dashboard')
@@ -41,8 +44,8 @@ useEffect(() => {
 
 useEffect(() => {
   setTimeout(() => {
+
     const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    /** Must starts with a letter then can include underscores (_) & hyphens (-) */
     const usernameRegex = /^[a-zA-Z0-9][\w-]+$/;
 
     if (emailRegex.test(userOrEmail)) {
@@ -52,7 +55,7 @@ useEffect(() => {
       setFormData({ ...formData, username: userOrEmail});
       console.log(username);
     }
-}, [50000]);
+}, [50]);
   console.log('Testing useEffect')
 }, [userOrEmail]);
 
@@ -115,11 +118,22 @@ const onSubmit = (event) => {
             Log In
           </Button>
 
-            <small>Don't have an account? <Link to='/register'>Sign up then!</Link></small>
+
         </div>
+        <h3>OR</h3>
+        <GoogleLogin
+          className='google-button m-1'
+          clientId={process.env.REACT_APP_GOOGLE_ID}
+          buttonText="Log in with Google"
+          onSuccess={googleLogin}
+          onFailure={googleLogin}
+          cookiePolicy={'single_host_origin'}
+        />
+        <br></br>
+        <small>Don't have an account? <Link to='/register'>Sign up then!</Link></small>
       </form>
     </div>
   )
 }
 
-export default connect(null, {loginUser, setAlert})(Login);
+export default connect(null, {loginUser, googleLogin, setAlert})(Login);

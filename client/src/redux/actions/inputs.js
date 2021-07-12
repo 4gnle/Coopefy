@@ -86,7 +86,28 @@ export const loginUser = (history, {username, email, password}) => async dispatc
     }
   }
 
-  // Logging User Out
+  //Login Via Google
+  export const googleLogin = async googleData => {
+    const body = JSON.stringify({token: googleData.tokenId});
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await api.post('/v1/auth/google', body, config)
+      const data = await res.json()
+
+    } catch (err) {
+      console.error(err.message)
+      const errors = err.response.data.errors;
+    }
+  }
+
+
+  // Log User Out
   export const logUserOut = () => async dispatch => {
       dispatch({
         type: LOGOUT

@@ -31,6 +31,10 @@
   text-align: left;
 }
 
+.google-button {
+  /* margin-right: 50px; */
+}
+
 .inputs-within h1, p {
   margin-bottom: 2.5px;
   margin-top: 5px;
