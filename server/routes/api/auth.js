@@ -6,6 +6,8 @@ const {check, oneOf, validationResult} = require('express-validator')
 const validator = require('validator')
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const { OAuth2Client } = require('google-auth-library')
+const client = new OAuth2Client(process.env.CLIENT_ID)
 
 const User = require('../../models/User')
 
@@ -27,6 +29,32 @@ router.get('/', auth, async (req, res) => {
     console.error(err.message)
   }
 });
+
+//@router POST api/v1/auth/google
+//@desc Auth User & Token from Google
+//@access Public
+
+router.post("/google", async (req, res) => {
+
+  try {
+    const { token }  = req.body
+    const ticket = await client.verifyIdToken({
+          idToken: token,
+          audience: process.env.CLIENT_ID
+      });
+
+      const { email } = ticket.getPayload();
+      const user = await db.user.upsert({
+          where: { email: email }
+      })
+      res.status(201)
+      res.json(user)
+  } catch (err) {
+    res.status(500).send('Server error')
+    console.error(err.message)
+  }
+
+})
 
 //@router POST api/auth
 //@desc Auth User & token

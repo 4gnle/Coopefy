@@ -51,6 +51,7 @@
     "denque": "^1.5.0",
     "depd": "^1.1.2",
     "destroy": "^1.0.4",
+    "dotenv": "^10.0.0",
     "ecc-jsbn": "^0.1.2",
     "ecdsa-sig-formatter": "^1.0.11",
     "ee-first": "^1.1.1",

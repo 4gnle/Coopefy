@@ -97,7 +97,7 @@ export const loginUser = (history, {username, email, password}) => async dispatc
     }
 
     try {
-      const res = await api.post('/v1/auth/google', body, config)
+      const res = await api.post('/google', body, config)
       const data = await res.json()
 
     } catch (err) {

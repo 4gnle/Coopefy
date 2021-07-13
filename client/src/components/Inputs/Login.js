@@ -80,7 +80,6 @@ const onSubmit = (event) => {
   event.preventDefault();
 };
 
-
   return (
     <div className='input-box'>
         <form>
@@ -118,12 +117,11 @@ const onSubmit = (event) => {
             Log In
           </Button>
 
-
         </div>
         <h3>OR</h3>
         <GoogleLogin
           className='google-button m-1'
-          clientId={process.env.REACT_APP_GOOGLE_ID}
+          clientId={process.env.REACT_APP_CLIENT_ID}
           buttonText="Log in with Google"
           onSuccess={googleLogin}
           onFailure={googleLogin}
