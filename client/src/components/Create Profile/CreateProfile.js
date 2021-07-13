@@ -9,15 +9,17 @@ const CreateProfile = ({profileImage}) => {
     <div className='edit-box'>
       <ImageUpload />
 
-      <div className='top-inputs'>
+      <div className='top-inputs-name'>
         <input
         placeholder='Name'
-        className='m-1'>
+        className='name m-1'>
         </input>
+      </div>
 
+     <div className='top-inputs-bio'>
         <input
         placeholder='Bio'
-        className='m-1'>
+        className='bio m-1'>
         </input>
       </div>
 
