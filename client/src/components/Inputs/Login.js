@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import GoogleLogin from 'react-google-login'
+// import GoogleLogin from 'react-google-login'
 
 import './Inputs.css'
 
@@ -14,9 +14,10 @@ import Button from '../UI/Button'
 import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {loginUser} from '../../redux/actions/inputs'
-import {googleLogin} from '../../redux/actions/inputs'
+// import {googleLogin} from '../../redux/actions/inputs'
+// import {googleLogout} from '../../redux/actions/inputs'
 
-const Login = ({history, loginUser, googleLogin, setAlert}) => {
+const Login = ({history, loginUser, setAlert}) => {
 
 if (localStorage.token) {
   history.push('/dashboard')
@@ -39,6 +40,7 @@ useEffect(() => {
     if (password.trim().length >= 8) {
       checkValidity();
     }
+    console.log('Testing useEffect')
   }, [50])
 })
 
@@ -49,15 +51,12 @@ useEffect(() => {
     const usernameRegex = /^[a-zA-Z0-9][\w-]+$/;
 
     if (emailRegex.test(userOrEmail)) {
-      console.log(email);
       setFormData({ ...formData, email: userOrEmail });
     } else if (usernameRegex.test(userOrEmail)) {
       setFormData({ ...formData, username: userOrEmail});
-      console.log(username);
     }
 }, [50]);
-  console.log('Testing useEffect')
-}, [userOrEmail]);
+}, [formData]);
 
 const checkValidity = () => {
   setValidData(true)
@@ -117,21 +116,26 @@ const onSubmit = (event) => {
             Log In
           </Button>
 
+          <small>Don't have an account? <Link to='/register'>Sign up then!</Link></small>
         </div>
-        <h3>OR</h3>
-        <GoogleLogin
-          className='google-button m-1'
-          clientId={process.env.REACT_APP_CLIENT_ID}
-          buttonText="Log in with Google"
-          onSuccess={googleLogin}
-          onFailure={googleLogin}
-          cookiePolicy={'single_host_origin'}
-        />
-        <br></br>
-        <small>Don't have an account? <Link to='/register'>Sign up then!</Link></small>
       </form>
     </div>
   )
 }
 
-export default connect(null, {loginUser, googleLogin, setAlert})(Login);
+export default connect(null, {loginUser, setAlert})(Login);
+
+// <h3>OR</h3>
+// <GoogleLogin
+//   clientId={process.env.REACT_APP_CLIENT_ID}
+//   render={(renderProps) => (
+//     <Button
+//     className="button m-1"
+//     onClick={renderProps.onClick}
+//     ><i class="fab fa-google"></i> Login with Google</Button>
+//   )}
+//   onSuccess={loginWithGoogle}
+//   onFailure={googleLogout}
+//   cookiePolicy={'single_host_origin'}
+// />
+// <br></br>

@@ -1,5 +1,7 @@
 import {
   LOGIN,
+  // GOOGLELOGIN,
+  // GOOGLELOGOUT,
   LOGOUT,
   REG_SUCCESS,
   REG_FAILED,
@@ -86,29 +88,60 @@ export const loginUser = (history, {username, email, password}) => async dispatc
     }
   }
 
-  //Login Via Google
-  export const googleLogin = async googleData => {
-    const body = JSON.stringify({token: googleData.tokenId});
-
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await api.post('/google', body, config)
-      const data = await res.json()
-
-    } catch (err) {
-      console.error(err.message)
-      const errors = err.response.data.errors;
-    }
-  }
-
+  // //Login Via Google
+  // export const googleLogin = (res) => async dispatch => {
+  //
+  //   const body = JSON.stringify(res.tokenId);
+  //
+  //   const config = {
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }
+  //
+  //   try {
+  //     const res = await api.post('/google', body, config)
+  //     const data = await res.json()
+  //
+  //     dispatch({
+  //       type: GOOGLELOGIN,
+  //       payload: res.data
+  //     })
+  //
+  //     dispatch(
+  //       setAlert('Logged In', 'success'),
+  //       console.log(res)
+  //     )
+  //
+  //     dispatch(loadUser())
+  //
+  //   } catch (err) {
+  //     console.error(err.message)
+  //     const errors = err.response.data.errors;
+  //
+  //     if (errors) {
+  //         errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+  //     }
+  //
+  //     dispatch({ type: GOOGLELOGOUT })
+  //
+  //   }
+  // }
+  //
+  // //Logout Via Google
+  // export const googleLogout = () => async dispatch => {
+  //   dispatch({
+  //     type: GOOGLELOGOUT
+  //    })
+  //
+  //    dispatch (
+  //      setAlert('Google Logout', 'danger')
+  //    );
+  // }
 
   // Log User Out
   export const logUserOut = () => async dispatch => {
+
       dispatch({
         type: LOGOUT
        })
@@ -120,6 +153,7 @@ export const loginUser = (history, {username, email, password}) => async dispatc
        dispatch(loadUser())
   }
 
+  //Load User
   export const loadUser = () => async dispatch => {
 
     if (localStorage.token) {

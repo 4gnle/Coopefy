@@ -1,7 +1,7 @@
 import React from 'react'
 
 import DashboardFunctions from './DashboardFunctions'
-import Button from '../UI/Button'
+// import Button from '../UI/Button'
 
 const Dashboard = (history) => {
 

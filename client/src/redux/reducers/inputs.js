@@ -1,5 +1,7 @@
 import {
   LOGIN,
+  // GOOGLELOGIN,
+  // GOOGLELOGOUT,
   LOGOUT,
   REG_SUCCESS,
   REG_FAILED,
@@ -25,7 +27,17 @@ export default function authenticate(state = initialState, action) {
         isLoad: false,
         user: payload
       };
-
+    // case GOOGLELOGIN:
+    //   localStorage.getItem('token', payload.token)
+    //   return {
+    //     ...state
+    //   }
+    // case GOOGLELOGOUT:
+    //   console.log(action.data)
+    //   return {
+    //     ...state,
+    //     ...payload
+    //   }
     case REG_SUCCESS:
     case LOGIN:
       localStorage.getItem('token', payload.token)
