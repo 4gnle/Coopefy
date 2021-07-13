@@ -6,7 +6,7 @@ import Button from '../UI/Button'
 const DashboardFunctions = () => {
 
   const editPage = () => {
-    window.location.href='/profile-edit'
+    window.location.href='/edit-profile'
   }
 
   return (

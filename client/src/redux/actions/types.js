@@ -8,3 +8,7 @@ export const GOOGLELOGOUT = 'GOOGLELOGOUT';
 export const LOGOUT = 'LOGOUT';
 export const LOADED = 'LOADED';
 export const NOT_LOADED = 'NOT_LOADED';
+export const ADD_IMAGE = 'ADD_IMAGE';
+export const WRONG_IMAGE = 'WRONG_IMAGE';
+export const GET_IMAGE = 'GET_IMAGE';
+export const DELETE_IMAGE = 'DELETE_IMAGE';

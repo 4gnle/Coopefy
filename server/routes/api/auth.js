@@ -34,27 +34,27 @@ router.get('/', auth, async (req, res) => {
 //@desc Auth User & Token from Google
 //@access Public
 
-router.post("/google", async (req, res) => {
-
-  try {
-    const { token }  = req.body
-    const ticket = await client.verifyIdToken({
-          idToken: token,
-          audience: process.env.CLIENT_ID
-      });
-
-      const { email } = ticket.getPayload();
-      const user = await db.user.upsert({
-          where: { email: email }
-      })
-      res.status(201)
-      res.json(user)
-  } catch (err) {
-    res.status(500).send('Server error')
-    console.error(err.message)
-  }
-
-})
+// router.post("/google", async (req, res) => {
+//
+//   try {
+//     const { token }  = req.body
+//     const ticket = await client.verifyIdToken({
+//           idToken: token,
+//           audience: process.env.CLIENT_ID
+//       });
+//
+//       const { email } = ticket.getPayload();
+//       const user = await db.user.upsert({
+//           where: { email: email }
+//       })
+//       res.status(201)
+//       res.json(user)
+//   } catch (err) {
+//     res.status(500).send('Server error')
+//     console.error(err.message)
+//   }
+//
+// })
 
 //@router POST api/auth
 //@desc Auth User & token

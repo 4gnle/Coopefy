@@ -1,3 +1,72 @@
+.edit-box {
+  display: block;
+  text-align: center;
+  position: absolute;
+  width: 805px;
+  height: 839px;
+  left: 500px;
+  top: 50px;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px grey;
+  background: #C4C4C4;
+  border-radius: 28px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.top-inputs {
+  display: block;
+  float: right;
+  margin-top: -150px;
+}
+
+.top-inputs input {
+  background: #C4C4C4;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 200px;
+  height: 60px;
+  left: 500px;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: 'Roboto';
+  padding: 5px;
+}
+
+.bottom-inputs input {
+  background: #C4C4C4;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 774px;
+  height: 53px;
+  left: 350px;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: 'Roboto';
+  padding: 5px;
+}
+
+.brand-icons {
+  position: absolute;
+  width: 43px;
+  height: 54px;
+  left: 506px;
+  top: 821px;
+  font-family: 'Font Awesome';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+
+  color: #000000;
+}
+
+/*IMAGE COMPONENT*/
 .image-upload.center {
   display: flex;
   justify-content: center;
@@ -6,18 +75,139 @@
 }
 
 .image-upload__preview {
-  width: 13rem;
-  height: 13rem;
   border: 1px solid #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-bottom: 1rem;
+  margin-left: 45px;
+  width: 210px;
+  height: 210px;
+  border-radius: 180px;
+  background: #000000;
 }
 
 .image-upload__preview img {
   width: 100%;
   height: 100%;
+  border-radius: 180px;
   object-fit: cover;
+}
+
+.buttons {
+  float: left;
+}
+
+@media (max-width: 1000px) {
+  .edit-box {
+    width: 400px;
+    height: 500px;
+    left: 250px;
+    top: 50px;
+  }
+
+  .top-inputs {
+    margin-top: -150px;
+    margin-left: 150px;
+    float: right;
+  }
+  .top-inputs input {
+    width: 200px;
+    height: 40px;
+    right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: 'Roboto';
+    padding: 5px;
+  }
+
+  .bottom-inputs {
+    margin-top: 70px;
+    float: center;
+  }
+
+  .bottom-inputs input {
+    width: 400px;
+    height: 40px;
+    margin-left: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: 'Roboto';
+    padding: 5px;
+  }
+  .brand-icons {
+
+  }
+  /*IMAGE COMPONENT*/
+  .image-upload__preview {
+    margin-bottom: 0.5rem;
+    margin-left: 20px;
+    width: 105px;
+    height: 105px;
+  }
+
+  .buttons {
+    float: left;
+    margin-left: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .edit-box {
+    width: 400px;
+    height: 500px;
+    left: 50px;
+    top: 50px;
+  }
+  .top-inputs {
+    margin-top: -150px;
+    margin-left: 200px;
+    float: right;
+  }
+  .top-inputs input {
+    width: 150px;
+    height: 35px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: 'Roboto';
+    padding: 5px;
+  }
+
+  .bottom-inputs {
+    margin-top: 70px;
+    float: center;
+  }
+
+  .bottom-inputs input {
+    width: 350px;
+    height: 35px;
+    margin-left: -15px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: 'Roboto';
+    padding: 5px;
+  }
+  .brand-icons {
+
+  }
+  /*IMAGE COMPONENT*/
+
+  .image-upload.center {
+
+  }
+  .image-upload__preview {
+    margin-bottom: 0.5rem;
+    margin-left: 20px;
+    width: 105px;
+    height: 105px;
+  }
+  .image-upload__preview img {
+
+  }
+
+  .buttons {
+
+    float: left;
+  }
 }

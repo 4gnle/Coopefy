@@ -1,13 +1,15 @@
 import React, {useRef, useState, useEffect} from 'react'
-// import {connect} from 'react-redux';
 // import PropTypes from 'prop-types';
-// import {deleteImage, getProfileImage, profileImage} from '../../actions/profile';
+
+//Redux
+import {/*deleteImage, getProfileImage,*/ profileImage} from '../../redux/actions/profile';
+import {connect} from 'react-redux';
 
 import Button from '../UI/Button'
 
 import './ProfileEdit.css'
 
-const ImageUpload = () => {
+const ImageUpload = ({profileImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -34,6 +36,7 @@ const ImageUpload = () => {
 
   // This create the image preview from the input
   const imagePreview = (event) => {
+    setprevURL({showPrev: true});
     let pickedFile;
     let fileIsValid = valid;
     if (event.target.files && event.target.files.length === 1) {
@@ -56,18 +59,20 @@ const ImageUpload = () => {
     const formData = new FormData();
     formData.append("profileimage", file);
     e.preventDefault()
+    profileImage(formData)
   }
 
   const noPicture = (e) => {
     e.preventDefault();
     setprevURL({showPrev: false});
+    setFile(null);
   }
 
   return (
 
     <div>
 
-      <input className='form-group'
+      <input
         type="file"
         ref={filePickerRef}
         accept='.jpeg,.jpg,.png'
@@ -84,34 +89,38 @@ const ImageUpload = () => {
         </div>
       </div>
 
-      <Button
-      type="button"
-      onClick={filePicker}
-      title='Pick Image'>
-      <i className="fas fa-images"></i>
-      </Button>
+      <div className='buttons'>
 
-      <Button
-      onClick={submitImage}
-      className='primary'
-      title='Upload Image'>
-      <i className="fas fa-upload"></i>
-      </Button>
+        <Button
+        className="button m"
+        type="button"
+        onClick={filePicker}
+        title='Pick Image'>
+        <i className="fas fa-images"></i>
+        </Button>
 
-      {previewURL && prevURL.showPrev ?
+        <Button
+        className="button primary m"
+        onClick={submitImage}
+        title='Upload Image'>
+        <i className="fas fa-upload"></i>
+        </Button>
 
-      <Button
-      onClick={noPicture}
-      className='bad'
-      title='Delete Image'>
-      <i className="fas fa-trash-alt">
-      </i>
-      </Button> : null
+        {previewURL && prevURL.showPrev ?
 
-      }
+        <Button
+        onClick={noPicture}
+        className='button bad m'
+        title='Delete Image'>
+        <i className="fas fa-trash-alt">
+        </i>
+        </Button> : null
+        }
+      </div>
+
 
     </div>
   )
 }
 
-export default ImageUpload;
+export default connect(null, {profileImage})(ImageUpload);

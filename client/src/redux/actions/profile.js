@@ -1,12 +1,16 @@
 import {
   ADD_IMAGE,
   WRONG_IMAGE,
+  GET_IMAGE,
+  DELETE_IMAGE
 } from './types'
 
+import {setAlert} from './alert'
+import authToken from '../utilities/authToken'
+import api from '../utilities/api'
 
 //Send Profile Image
-export const profileImage = (
-  formData) => async dispatch => {
+export const profileImage = (formData) => async dispatch => {
 
     try {
 
@@ -18,10 +22,19 @@ export const profileImage = (
     });
 
     dispatch(
-      setAlert("Profile Image Updated", 'primary')
+      setAlert("Profile Image Updated", 'success')
     );
 
     }catch(err) {
+
+      dispatch({
+        type: WRONG_IMAGE,
+        payload: { msg: err.response.statusText, status: err.response.status}
+      });
+
+      dispatch(
+        setAlert("Wrong Image", 'danger')
+      );
 
     console.log(err);
 
@@ -31,10 +44,6 @@ export const profileImage = (
     errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
 
-    dispatch({
-      type: WRONG_IMAGE,
-      payload: { msg: err.response.statusText, status: err.response.status}
-    });
   }
 };
 
@@ -65,7 +74,7 @@ export const deleteImage = () => async dispatch => {
     const res = await api.delete('/profile/image/');
 
     dispatch({
-      type: IMAGE_DELETED,
+      type: DELETE_IMAGE,
     });
 
     dispatch(setAlert('Image Removed', 'danger'));

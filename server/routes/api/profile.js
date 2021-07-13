@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
+const imageUpload = require('../../middleware/upload-image');
 const {check, validationResult} = require('express-validator')
 const normalize = require('normalize-url');
 
@@ -131,3 +132,67 @@ router.post('/', [auth],
 });
 
 module.exports = router;
+
+//@route POST api/profile/image
+//@desc  Posts an image in database
+//@access Private
+  router.post('/image', auth, imageUpload.single('profileimage'),
+
+  async (req, res) => {
+
+    try {
+
+      let profile = await Profile.findOneAndUpdate(
+        { user: req.user.id },
+        { profileimage: req.file.buffer })
+
+      await profile.save();
+
+      res.send(profile);
+
+    } catch (err) {
+
+      res.status(400).send({error: err.message })
+        }
+      }
+    );
+
+    // @route    GET api/profile image by user ID
+    // @desc     Get the profile image by ID
+    // @access   Public
+    router.get(
+      '/user/:user_id/image',
+     async ({ params: { user_id } }, res) => {
+      try {
+        const profiles = await Profile.findOne({
+        user: user_id}).populate('user', ['profileimage']);
+
+        res.set('Content-Type', 'image/jpg');
+
+        res.send(profiles.profileimage);
+      } catch (err) {
+        res.status(500).send({error: err.message });
+      }
+    });
+
+  // @router  DELETE api/profile/image
+  // @desc    DELETE Profile Image
+  // @access  Private
+  router.delete('/image', auth, async (req, res) => {
+
+    try {
+      // @todo Remove user image
+      //Remove Profile image
+      let profileFind = await Profile.findOne({ user: req.user.id });
+
+      profileFind.profileimage = undefined
+
+      await profileFind.save();
+
+      res.send({msg: 'Image Has Been Removed'});
+
+    }catch(err) {
+      res.status(500).send({error: err.message });
+    }
+
+  });
