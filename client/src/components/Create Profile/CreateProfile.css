@@ -174,9 +174,10 @@
 
 @media (max-width: 768px) {
   .edit-box {
+    max-width: 70%;
     width: 300px;
     height: 500px;
-    left: 50px;
+    left: 125px;
     top: 50px;
   }
 
@@ -232,6 +233,76 @@
     font-size: 15px;
     font-weight: bold;
     font-family: 'Nunito';
+    padding: 5px;
+  }
+  .brand-icons {
+
+  }
+}
+
+@media (max-width: 400px) {
+  .edit-box {
+    width: 300px;
+    height: 500px;
+    left: 25px;
+    top: 50px;
+  }
+
+  .top-inputs {
+    margin-top: -100px;
+    float: right;
+    margin-right: -5px;
+  }
+
+  .top-inputs-name input {
+    width: 100px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: 'Nunito';
+    padding: 5px;
+  }
+
+  .top-inputs-status input {
+    width: 100px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: 'Nunito';
+    padding: 5px;
+  }
+
+  .bottom-inputs {
+    float: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .bottom-inputs input {
+    margin-bottom: 15px;
+    width: 270px;
+    height: 25px;
+    margin-left: -10px;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: 'Nunito';
+    padding: 5px;
+  }
+
+  .bottom-inputs textarea {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    resize: none;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin-left: -10px;
+    width: 270px;
+    height: 45px;
+    font-size: 10px;
+    font-weight: bold;
+    font-Family: 'Nunito';
     padding: 5px;
   }
   .brand-icons {

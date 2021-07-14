@@ -1,14 +1,14 @@
 import React from 'react'
 
-import './ProfileEdit.css'
+import './CreateProfile.css'
 
 import ImageUpload from './Image'
+import SkillsandSocials from './SkillsandSocials'
 
 const CreateProfile = ({profileImage}) => {
   return (
     <div className='edit-box'>
       <ImageUpload />
-
       <div className='top-inputs'>
         <div className='top-inputs-name'>
           <input
@@ -27,7 +27,7 @@ const CreateProfile = ({profileImage}) => {
 
       <div className='bottom-inputs'>
           <textarea
-          maxLength='100'
+          maxLength='50'
           cols="30"
           rows="5"
           type='text'
@@ -44,6 +44,7 @@ const CreateProfile = ({profileImage}) => {
           className=''>
           </input>
         </div>
+        <SkillsandSocials />
       </div>
   )
 }

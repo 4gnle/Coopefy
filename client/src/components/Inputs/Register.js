@@ -70,7 +70,7 @@ const Register = ({history, registerUser, setAlert }) => {
   };
 
   return (
-    <div className='input-box'>
+    <div className='input-box-register'>
       <form>
       <div className='inputs-within'>
 
@@ -135,8 +135,9 @@ const Register = ({history, registerUser, setAlert }) => {
             Sign Up
           </Button>
 
+          <small>Already have an account? <Link to='/login'>
+          Log in then!</Link></small>
           </div>
-          <small>Already have an account? <Link to='/login'>Log in then!</Link></small>
       </form>
     </div>  )
 }

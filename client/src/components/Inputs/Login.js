@@ -80,7 +80,7 @@ const onSubmit = (event) => {
 };
 
   return (
-    <div className='input-box'>
+    <div className='input-box-login'>
         <form>
         <div
         className={`${'inputs-within'} ${

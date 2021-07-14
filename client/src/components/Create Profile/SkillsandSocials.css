@@ -1,0 +1,9 @@
+.bottom-section {
+  margin-top: -20px;
+}
+
+.bottom-section p {
+  font-weight: bold;
+  float: left;
+  text-align: left;
+}

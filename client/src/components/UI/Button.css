@@ -129,7 +129,7 @@ button:active:disabled {
   .button {
     font: inherit;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.7rem;
     border: 1px solid black;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     background-color: #darkgray;
@@ -141,7 +141,7 @@ button:active:disabled {
   .primary {
     font: inherit;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.7rem;
     border-radius: 12px;
     transition: all 0.5s ease;
     border: 1px solid black;
@@ -158,7 +158,55 @@ button:active:disabled {
   .bad {
     font: inherit;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    border: 1px solid black;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    background-color: red;
+    color: white;
+  }
+
+  .bad:hover {
+    background-color: pink;
+    color: black;
+  }
+}
+
+@media (max-width: 400px) {
+  .button {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid black;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    background-color: #darkgray;
+    color: black;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+  }
+
+  .primary {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    border: 1px solid black;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    background-color: black;
+    color: white;
+  }
+
+  .primary:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .bad {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
     border-radius: 12px;
     transition: all 0.5s ease;
     border: 1px solid black;

@@ -1,4 +1,20 @@
-.input-box {
+.input-box-login {
+  display: block;
+  text-align: center;
+  width: 500px;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px grey;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.input-box-register {
   display: block;
   text-align: center;
   width: 500px;
@@ -75,7 +91,7 @@
 .inputs-within input:focus {
   outline: none;
   border-color: blue;
-  background: #f6dbfc;
+  background: lightgray;
 }
 
 .inputs-within .invalid input {
@@ -104,13 +120,30 @@
   width: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
-  .input-box {
+  .input-box-register {
+    text-align: center;
+    width: 200px;
+    max-width: 70%;
+    top: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 2rem;
+    padding-bottom: 0rem;
+    box-shadow: 0 2px 12px grey;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .input-box-login {
     text-align: center;
     width: 200px;
     max-width: 100%;
     top: 50px;
+    height: 350px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 2rem;
@@ -160,18 +193,34 @@
     margin-left: -10px;
     margin-top: 65px;
   }
-
-
 }
 
 @media (max-width: 299px) {
 
-  .input-box {
+  .input-box-register {
+    text-align: center;
+    width: 100px;
+    max-width: 100%;
+    top: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 2rem;
+    padding-bottom: 0rem;
+    box-shadow: 0 2px 12px grey;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .input-box-login {
     text-align: center;
     width: 200px;
     max-width: 100%;
     top: 50px;
+    height: 350px;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 2rem;
     padding-bottom: 0rem;
     box-shadow: 0 2px 12px grey;
@@ -197,5 +246,12 @@
     margin-right: 120px;
   }
 
+  .inputs-within small {
+    display: block;
+    position: absolute;
+    float: left;
+    margin-left: 10px;
+    margin-top: 65px;
+  }
 
 }

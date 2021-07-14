@@ -58,7 +58,35 @@
   }
   .image-upload__preview {
     margin-bottom: 0.5rem;
-    margin-left: 20px;
+    margin-left: 18px;
+    width: 105px;
+    height: 105px;
+  }
+  .image-upload__preview img {
+
+  }
+
+  .image-upload__preview p {
+    color: white;
+    font-size: 10px;
+  }
+
+
+  .buttons {
+
+    float: left;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .image-upload.center {
+
+  }
+
+  .image-upload__preview {
+    margin-bottom: 0.5rem;
+    margin-left: 10px;
     width: 105px;
     height: 105px;
   }
