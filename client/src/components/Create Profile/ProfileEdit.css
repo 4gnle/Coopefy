@@ -21,45 +21,69 @@
 
 .top-inputs {
   float: right;
-  margin-top: -150px;
+  margin-top: -200px;
+  margin-right: 100px;
 }
 
 .top-inputs-name input {
-  background: #C4C4C4;
+  border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
-  width: 200px;
+  width: 300px;
   height: 60px;
   left: 500px;
   font-size: 20px;
   font-weight: bold;
-  font-style: 'Roboto';
+  font-family: 'Nunito';
   padding: 5px;
 }
 
-.top-inputs-bio input {
-  background: #C4C4C4;
+.top-inputs-status input {
+  border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
-  width: 200px;
+  width: 300px;
   height: 60px;
   left: 500px;
   font-size: 20px;
   font-weight: bold;
-  font-style: 'Roboto';
+  font-family: 'Nunito';
   padding: 5px;
+}
+
+.bottom-inputs {
+  margin-top: 70px;
+  float: center;
 }
 
 .bottom-inputs input {
-  background: #C4C4C4;
+  border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
+  margin-bottom: 20px;
   width: 774px;
   height: 53px;
   left: 350px;
   font-size: 20px;
   font-weight: bold;
-  font-style: 'Roboto';
+  font-family: 'Nunito';
+  padding: 5px;
+}
+
+.bottom-inputs textarea {
+  resize: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 774px;
+  height: 100px;
+  left: 350px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Nunito';
   padding: 5px;
 }
 
@@ -78,169 +102,139 @@
   color: #000000;
 }
 
-/*IMAGE COMPONENT*/
-.image-upload.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.image-upload__preview {
-  border: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 1rem;
-  margin-left: 45px;
-  width: 210px;
-  height: 210px;
-  border-radius: 180px;
-  background: #000000;
-}
-
-.image-upload__preview img {
-  width: 100%;
-  height: 100%;
-  border-radius: 180px;
-  object-fit: cover;
-}
-
-.buttons {
-  float: left;
-}
-
 @media (max-width: 1000px) {
   .edit-box {
-    width: 400px;
+    width: 500px;
     height: 500px;
     left: 250px;
     top: 50px;
   }
 
   .top-inputs {
-    margin-left: 150px;
-    float: right;
-  }
+    margin-top: -100px;
+    margin-right: 50px;
+   }
+
   .top-inputs-name input {
-    margin-top: -200px;
     width: 200px;
     height: 35px;
     right: 10px;
     font-size: 15px;
     font-weight: bold;
-    font-style: 'Roboto';
+    font-style: 'Nunito';
     padding: 5px;
   }
 
-  .top-inputs-bio input {
+  .top-inputs-status input {
     width: 200px;
-    height: 60px;
+    height: 35px;
     right: 10px;
     font-size: 15px;
     font-weight: bold;
-    font-style: 'Roboto';
+    font-style: 'Nunito';
     padding: 5px;
   }
 
   .bottom-inputs {
-    margin-top: 70px;
     float: center;
+    margin-bottom: 10px;
   }
 
   .bottom-inputs input {
-    width: 400px;
+    margin-top: 5px;
+    width: 500px;
     height: 40px;
     margin-left: 0px;
     font-size: 15px;
     font-weight: bold;
-    font-style: 'Roboto';
+    font-style: 'Nunito';
+  }
+
+  .bottom-inputs textarea {
+    margin-top: 5px;
+    resize: none;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin-left: 0px;
+    width: 500px;
+    height: 60px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Nunito';
     padding: 5px;
   }
+
   .brand-icons {
 
   }
-  /*IMAGE COMPONENT*/
-  .image-upload__preview {
-    margin-bottom: 0.5rem;
-    margin-left: 20px;
-    width: 105px;
-    height: 105px;
-  }
 
-  .buttons {
-    float: left;
-    margin-left: -10px;
-  }
 }
 
 @media (max-width: 768px) {
   .edit-box {
-    width: 400px;
+    width: 300px;
     height: 500px;
     left: 50px;
     top: 50px;
   }
+
   .top-inputs {
-    margin-top: -200px;
-    margin-left: 200px;
+    margin-top: -120px;
     float: right;
+    margin-right: 5px;
   }
+
   .top-inputs-name input {
-    width: 150px;
+    width: 130px;
     height: 35px;
-    right: 10px;
     font-size: 15px;
     font-weight: bold;
-    font-style: 'Roboto';
+    font-style: 'Nunito';
     padding: 5px;
   }
 
-  .top-inputs-bio input {
-    width: 150px;
-    height: 60px;
-    right: 10px;
+  .top-inputs-status input {
+    width: 130px;
+    height: 35px;
     font-size: 15px;
     font-weight: bold;
-    font-style: 'Roboto';
+    font-style: 'Nunito';
     padding: 5px;
   }
 
   .bottom-inputs {
-    margin-top: 70px;
+    margin-top: 10px;
     float: center;
   }
 
   .bottom-inputs input {
-    width: 350px;
+    margin-top: 0.5px;
+    width: 300px;
     height: 35px;
-    margin-left: -15px;
+    margin-left: -5px;
     font-size: 15px;
     font-weight: bold;
-    font-style: 'Roboto';
+    font-style: 'Nunito';
+    padding: 5px;
+  }
+
+  .bottom-inputs textarea {
+    resize: none;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin-left: -5px;
+    width: 300px;
+    height: 60px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Nunito';
     padding: 5px;
   }
   .brand-icons {
 
-  }
-  /*IMAGE COMPONENT*/
-
-  .image-upload.center {
-
-  }
-  .image-upload__preview {
-    margin-bottom: 0.5rem;
-    margin-left: 20px;
-    width: 105px;
-    height: 105px;
-  }
-  .image-upload__preview img {
-
-  }
-
-  .buttons {
-
-    float: left;
   }
 }

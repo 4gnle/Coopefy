@@ -9,37 +9,42 @@ const CreateProfile = ({profileImage}) => {
     <div className='edit-box'>
       <ImageUpload />
 
-      <div className='top-inputs-name'>
-        <input
-        placeholder='Name'
-        className='name m-1'>
-        </input>
-      </div>
+      <div className='top-inputs'>
+        <div className='top-inputs-name'>
+          <input
+          placeholder='Name'
+          className='m-1'>
+          </input>
+        </div>
 
-     <div className='top-inputs-bio'>
-        <input
-        placeholder='Bio'
-        className='bio m-1'>
-        </input>
+       <div className='top-inputs-status'>
+          <input
+          placeholder='Status'
+          className='m-1'>
+          </input>
+        </div>
       </div>
 
       <div className='bottom-inputs'>
-        <input
-        placeholder='Status'
-        className='m-1'>
-        </input>
+          <textarea
+          maxLength='100'
+          cols="30"
+          rows="5"
+          type='text'
+          placeholder='Bio'
+          className=''>
+          </textarea>
 
-        <input
-        placeholder='Location'
-        className='m-1'>
-        </input>
+          <input
+          placeholder='Location'>
+          </input>
 
-        <input
-        placeholder='Website'
-        className='m-1'>
-        </input>
+          <input
+          placeholder='Website'
+          className=''>
+          </input>
+        </div>
       </div>
-    </div>
   )
 }
 

@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 import Button from '../UI/Button'
 
-import './ProfileEdit.css'
+import './Image.css'
 
 const ImageUpload = ({profileImage}) => {
 
