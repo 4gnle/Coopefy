@@ -36,8 +36,22 @@
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1260px) {
 
+  .image-upload__preview {
+    margin-bottom: 0.5rem;
+    margin-left: 20px;
+    width: 105px;
+    height: 105px;
+  }
+
+  .buttons {
+    float: left;
+    margin-left: -5px;
+  }
+}
+
+@media (max-width: 992px) {
   .image-upload__preview {
     margin-bottom: 0.5rem;
     margin-left: 20px;
@@ -78,7 +92,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
 
   .image-upload.center {
 

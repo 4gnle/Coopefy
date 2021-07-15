@@ -77,7 +77,7 @@ button:active:disabled {
   cursor: not-allowed;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1260px) {
   .button {
     font: inherit;
     cursor: pointer;
