@@ -45,12 +45,12 @@ const CreateProfile = ({profileImage}) => {
 
         <label>Location</label>
           <input
-          placeholder='Your country and/or city'>
+          placeholder='State/City + Country  (eg. California, US)'>
           </input>
 
         <label>Website</label>
           <input
-          placeholder='Your website URL'
+          placeholder='Personal website (www.example.com)'
           className=''>
           </input>
         </div>

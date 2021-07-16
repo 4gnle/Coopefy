@@ -1,9 +1,105 @@
 .bottom-section {
-  margin-top: -20px;
+  margin-top: 20px;
 }
 
 .bottom-section p {
   font-weight: bold;
   float: left;
   text-align: left;
+}
+
+@media (max-width: 1280px) {
+  .bottom-section {
+    margin-top: -10px;
+  }
+
+  .bottom-section .socials {
+    font-weight: bold;
+    margin-left: 50px;
+    float: left;
+    text-align: left;
+  }
+
+  .bottom-section .skills {
+    font-weight: bold;
+    margin-right: 80px;
+    float: right;
+    text-align: left;
+  }
+}
+@media (max-width: 992px) {
+  .bottom-section {
+    margin-top: -20px;
+  }
+
+  .bottom-section .socials {
+    font-weight: bold;
+    margin-left: 50px;
+    float: left;
+    text-align: left;
+  }
+
+  .bottom-section .skills {
+    font-weight: bold;
+    margin-right: 80px;
+    float: right;
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
+  .bottom-section {
+  }
+
+  .bottom-section .socials {
+    margin-bottom: -50px;
+    font-weight: bold;
+    margin-left: 50px;
+    float: left;
+    text-align: left;
+  }
+
+  .bottom-section .skills {
+    font-weight: bold;
+    margin-right: 80px;
+    float: right;
+    text-align: left;
+  }
+}
+@media (max-width: 480px) {
+  .bottom-section {
+    margin-top: -40px;
+  }
+
+  .bottom-section .socials {
+    font-weight: bold;
+    margin-left: 50px;
+    float: left;
+    text-align: left;
+  }
+
+  .bottom-section .skills {
+    font-weight: bold;
+    margin-right: 80px;
+    float: right;
+    text-align: left;
+  }
+}
+@media (max-width: 320px) {
+  .bottom-section {
+    margin-top: -10px;
+  }
+
+  .bottom-section .socials {
+    font-weight: bold;
+    margin-left: 50px;
+    float: left;
+    text-align: left;
+  }
+
+  .bottom-section .skills {
+    font-weight: bold;
+    margin-right: 80px;
+    float: right;
+    text-align: left;
+  }
 }

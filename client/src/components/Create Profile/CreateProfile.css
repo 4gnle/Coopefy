@@ -2,7 +2,7 @@
   display: block;
   text-align: center;
   position: absolute;
-  width: 805px;
+  width: 50%;
   height: 839px;
   left: 500px;
   top: 50px;
@@ -113,8 +113,8 @@
 
 @media (max-width: 1280px) {
   .edit-box {
-    width: 500px;
-    height: 500px;
+    width: 50%;
+    height: 600px;
     left: 250px;
     top: 50px;
   }
@@ -132,13 +132,6 @@
      display: block;
    }
 
-   .edit-box .bottom-inputs label {
-     font-weight: bold;
-     font-size: 12px;
-     margin-top: -10px;
-     float:left;
-   }
-
   .top-inputs-name input {
     width: 200px;
     height: 35px;
@@ -160,14 +153,19 @@
   }
 
   .bottom-inputs {
-    float: center;
     margin-bottom: 10px;
     margin-top: 80px;
   }
 
+  .edit-box .bottom-inputs label {
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: -10px;
+  }
+
   .bottom-inputs input {
     margin-top: 5px;
-    width: 500px;
+    width: 100%;
     height: 40px;
     margin-left: 0px;
     font-size: 12px;
@@ -183,7 +181,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     margin-left: 0px;
-    width: 500px;
+    width: 100%;
     height: 60px;
     font-size: 12px;
     font-weight: bold;
@@ -199,8 +197,7 @@
 
 @media (max-width: 992px) {
   .edit-box {
-    max-width: 70%;
-    width: 500px;
+    width: 50%;
     height: 500px;
     left: 200px;
     top: 50px;
@@ -211,13 +208,6 @@
     font-size: 12px;
     margin-top: -10px;
     margin-left: 10px;
-    z-index: 1;
-  }
-
-  .edit-box .bottom-inputs label {
-    margin-top: 10px;
-    font-size: 12px;
-    float:left;
   }
 
   .top-inputs {
@@ -227,7 +217,7 @@
   }
 
   .top-inputs-name input {
-    width: 200px;
+    width: 90%;
     margin-bottom: 20px;
     height: 35px;
     font-size: 12px;
@@ -237,7 +227,7 @@
   }
 
   .top-inputs-status select {
-    width: 200px;
+    width: 90%;
     height: 35px;
     font-size: 12px;
     font-weight: bold;
@@ -246,13 +236,19 @@
   }
 
   .bottom-inputs {
-    margin-top: 10px;
-    float: center;
+    margin-top: 5px;
+    float: right;
+  }
+
+  .edit-box .bottom-inputs label {
+    margin-top: -5px;
+    font-size: 12px;
   }
 
   .bottom-inputs input {
     margin-top: 0.5px;
-    width: 300px;
+    margin-bottom: 15px;
+    width: 100%;
     height: 35px;
     margin-left: -5px;
     font-size: 12px;
@@ -268,7 +264,9 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     margin-left: -5px;
-    width: 300px;
+    margin-bottom: 15px;
+    margin-top: 0.5px;
+    width: 100%;
     height: 60px;
     font-size: 12px;
     font-weight: bold;
@@ -283,7 +281,7 @@
 @media (max-width: 768px) {
   .edit-box {
     max-width: 70%;
-    width: 300px;
+    width: 50%;
     height: 500px;
     left: 150px;
     top: 50px;
@@ -291,26 +289,20 @@
 
 
   .top-inputs {
-    margin-top: -120px;
+    margin-top: -110px;
     float: right;
-    margin-right: 5px;
+    margin-right: 25px;
   }
 
   .edit-box .top-inputs label {
     position: absolute;
-    font-size: 9px;
+    font-size: 10px;
     z-index: 1;
   }
 
-  .edit-box .bottom-inputs label {
-    margin-top: 10px;
-    font-size: 9px;
-    float:left;
-  }
-
   .top-inputs-name input {
-    width: 130px;
-    height: 35px;
+    width: 90%;
+    height: 30px;
     font-size: 10px;
     font-weight: bold;
     font-style: 'Nunito';
@@ -318,8 +310,8 @@
   }
 
   .top-inputs-status select {
-    width: 130px;
-    height: 35px;
+    width: 90%;
+    height: 30px;
     font-size: 10px;
     font-weight: bold;
     font-style: 'Nunito';
@@ -331,9 +323,15 @@
     float: center;
   }
 
+  .edit-box .bottom-inputs label {
+    margin-top: -5px;
+    font-size: 10px;
+    float:left;
+  }
+
   .bottom-inputs input {
     margin-top: 0.5px;
-    width: 300px;
+    width: 100%;
     height: 35px;
     margin-left: -5px;
     font-size: 10px;
@@ -349,7 +347,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     margin-left: -5px;
-    width: 300px;
+    width: 100%;
     height: 60px;
     font-size: 10px;
     font-weight: bold;
@@ -363,9 +361,9 @@
 
 @media (max-width: 480px) {
   .edit-box {
-    width: 300px;
+    width: 60%;
     height: 500px;
-    left: 25px;
+    left: 55px;
     top: 50px;
   }
 
@@ -387,7 +385,7 @@
   }
 
   .top-inputs-name input {
-    width: 100px;
+    width: 100%;
     height: 25px;
     font-size: 10px;
     font-weight: bold;
@@ -395,8 +393,8 @@
     padding: 5px;
   }
 
-  .top-inputs-status input {
-    width: 100px;
+  .top-inputs-status select {
+    width: 100%;
     height: 25px;
     font-size: 10px;
     font-weight: bold;
@@ -412,7 +410,7 @@
 
   .bottom-inputs input {
     margin-bottom: 15px;
-    width: 270px;
+    width: 100%;
     height: 25px;
     margin-left: -10px;
     font-size: 10px;
@@ -430,7 +428,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     margin-left: -10px;
-    width: 270px;
+    width: 100%;
     height: 45px;
     font-size: 10px;
     font-weight: bold;
@@ -470,7 +468,7 @@
   }
 
   .top-inputs-name input {
-    width: 100px;
+    width: 90%;
     height: 25px;
     font-size: 10px;
     font-weight: bold;
