@@ -2,7 +2,7 @@ import React from 'react'
 
 import './CreateProfile.css'
 
-import ImageUpload from './Image'
+import ImageUpload from '../UI/ProfileImage'
 import SkillsandSocials from './SkillsandSocials'
 
 const CreateProfile = ({profileImage}) => {

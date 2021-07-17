@@ -6,7 +6,8 @@
 }
 
 .image-upload__preview {
-  border: 1px solid #ccc;
+  box-shadow: 0 2px 12px grey;
+  border: 2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
