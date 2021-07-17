@@ -42,7 +42,7 @@ useEffect(() => {
     }
     console.log('Testing useEffect')
   }, [50])
-})
+}, [password])
 
 useEffect(() => {
   setTimeout(() => {
@@ -56,7 +56,7 @@ useEffect(() => {
       setFormData({ ...formData, username: userOrEmail});
     }
 }, [50]);
-}, [formData]);
+}, [userOrEmail]);
 
 const checkValidity = () => {
   setValidData(true)

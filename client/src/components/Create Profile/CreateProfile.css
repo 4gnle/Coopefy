@@ -366,7 +366,7 @@
   .edit-box {
     width: 65%;
     height: 500px;
-    left: 55px;
+    left: 40px;
     top: 20px;
   }
 
@@ -383,9 +383,7 @@
   }
 
   .top-inputs {
-    margin-top: -100px;
-    float: right;
-    margin-right: -15px;
+    margin-right: -35px;
   }
 
   .top-inputs-name input {
@@ -449,23 +447,24 @@
     width: 300px;
     height: 500px;
     left: 25px;
-    top: 50px;
+    top: 10px;
   }
 
   .edit-box .top-inputs label {
     position:absolute;
     font-size: 9px;
-    float: right;
+    margin-top: -5px;;
   }
 
   .edit-box .bottom-inputs label {
     font-size: 9px;
     float:left;
-    margin-left: -7px;
+    margin-left: -5px;
   }
 
   .top-inputs {
    margin-right: -30px;
+
    position: static;
   }
 
@@ -495,9 +494,9 @@
 
   .bottom-inputs input {
     margin-bottom: 15px;
-    width: 270px;
-    height: 25px;
     margin-left: -10px;
+    width: 100%;
+    height: 25px;
     font-size: 10px;
     font-weight: bold;
     font-style: 'Nunito';
@@ -505,15 +504,96 @@
   }
 
   .bottom-inputs textarea {
-    margin-bottom: 15px;
-    margin-top: 2px;
+    margin-bottom: 5px;
+    margin-left: -17px;
     resize: none;
     border-radius: 6px;
     background: white;
     border: 1px solid #000000;
     box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    font-size: 10px;
+    font-weight: bold;
+    font-Family: 'Nunito';
+    padding: 5px;
+  }
+  .brand-icons {
+
+  }
+}
+
+
+@media (max-width: 281px) {
+  .edit-box {
+    width: 65%;
+    height: 500px;
+    left: 18px;
+    top: 10px;
+  }
+
+  .edit-box .top-inputs label {
+    position:absolute;
+    margin-left: 30px;
+    font-size: 9px;
+    margin-top: -5px;;
+  }
+
+  .edit-box .bottom-inputs label {
+    font-size: 9px;
+    float:left;
+    margin-left: -5px;
+  }
+
+  .top-inputs {
+   margin-right: -45px;
+   position: static;
+  }
+
+  .top-inputs-name input {
+    width: 60%;
+    height: 25px;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: 'Nunito';
+    padding: 5px;
+  }
+
+  .top-inputs-status select {
+    width: 60%;
+    height: 25px;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: 'Nunito';
+    padding: 5px;
+  }
+
+  .bottom-inputs {
+    float: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .bottom-inputs input {
+    margin-bottom: 15px;
     margin-left: -10px;
-    width: 270px;
+    width: 100%;
+    height: 25px;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: 'Nunito';
+    padding: 5px;
+  }
+
+  .bottom-inputs textarea {
+    margin-bottom: 5px;
+    margin-left: -18px;
+    resize: none;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    width: 100%;
     height: 45px;
     font-size: 10px;
     font-weight: bold;

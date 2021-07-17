@@ -100,7 +100,7 @@
 
   .image-upload__preview {
     margin-bottom: 0.5rem;
-    margin-left: 10px;
+    margin-left: 5px;
     width: 105px;
     height: 105px;
   }
@@ -109,7 +109,7 @@
   }
 
   .buttons {
-
+    margin-left: -10px;
     float: left;
   }
 }

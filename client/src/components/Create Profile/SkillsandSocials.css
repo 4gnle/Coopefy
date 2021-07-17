@@ -115,3 +115,27 @@
     text-align: left;
   }
 }
+
+@media (max-width: 281px) {
+  .bottom-section {
+    margin-top: -10px;
+  }
+
+  .bottom-section .socials {
+    margin-top: -10px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 5px;
+    float: left;
+    text-align: left;
+  }
+
+  .bottom-section .skills {
+    margin-top: -10px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 20px;
+    float: right;
+    text-align: left;
+  }
+}
