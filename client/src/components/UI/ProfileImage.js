@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react'
+import React, {Fragment, useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 
 //Redux
@@ -84,37 +84,38 @@ const ImageUpload = ({profileImage}) => {
         <div  className='image-upload__preview'>
 
           {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
-          <p>Please, pick an image</p>}
+          <Button
+          className="button-image"
+          type="button"
+          onClick={filePicker}
+          title='Pick Image'>
+          <i className="fas fa-images"></i>
+          </Button>}
 
         </div>
       </div>
 
       <div className='buttons'>
 
-        <Button
-        className="button m"
-        type="button"
-        onClick={filePicker}
-        title='Pick Image'>
-        <i className="fas fa-images"></i>
-        </Button>
-
-        <Button
-        className="button primary m"
-        onClick={submitImage}
-        title='Upload Image'>
-        <i className="fas fa-upload"></i>
-        </Button>
 
         {previewURL && prevURL.showPrev ?
+        <Fragment>
+            <Button
+            className="button primary m"
+            onClick={submitImage}
+            title='Upload Image'>
+            <i className="fas fa-upload"></i>
+            </Button>
 
-        <Button
-        onClick={noPicture}
-        className='button bad m'
-        title='Delete Image'>
-        <i className="fas fa-trash-alt">
-        </i>
-        </Button> : null
+            <Button
+            onClick={noPicture}
+            className='button bad m'
+            title='Delete Image'>
+            <i className="fas fa-trash-alt">
+            </i>
+            </Button>
+          </Fragment>
+          : null
         }
       </div>
 

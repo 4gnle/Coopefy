@@ -1,5 +1,5 @@
 .bottom-section {
-  margin-top: 5px;
+  z-index: 1;
 }
 
 .bottom-section .socials {
@@ -48,8 +48,6 @@
   height: auto;
   font-size: 35px;
 }
-
-
 
 @media (max-width: 1280px) {
   .bottom-section {
@@ -131,11 +129,11 @@
 }
 @media (max-width: 768px) {
   .bottom-section {
+    display: block;
   }
 
   .bottom-section .socials {
     width: 70%;
-    margin-top: -15px;
     margin-left: -45px;
     font-weight: bold;
     font-size: 12px;
@@ -154,11 +152,12 @@
   }
 
   .bottom-section .skills {
-    margin-top: -15px;
     font-weight: bold;
     font-size: 12px;
     margin-right: 10px;
+    margin-top: -15px;
     text-align: left;
+    float: right;
   }
 
   .bottom-section .skills p {

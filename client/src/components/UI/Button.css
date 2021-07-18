@@ -23,7 +23,7 @@
   transition: all 0.5s ease;
   border: 1px solid black;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: black;
+  background-color: green;
   color: white;
 }
 
@@ -47,6 +47,25 @@
 .small:hover {
   background-color: white;
   color: black;
+}
+
+.button-image {
+  border: black;
+  padding: 6.8rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 180px;
+  background: #000000;
+  color: white;
+  cursor: pointer;
+}
+
+.button-image:hover {
+  background: white;
+  color: black;
+  transition: all 0.5s ease;
+  float: center;
+  text-align: center;
 }
 
 .bad {
@@ -80,27 +99,11 @@ button:active:disabled {
 @media (max-width: 1260px) {
   .button {
     margin: 5px 5px ;
-    font: inherit;
-    cursor: pointer;
     padding: 0.6rem 1.1rem;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: #darkgray;
-    color: black;
-    border-radius: 12px;
-    transition: all 0.5s ease;
   }
 
   .primary {
-    font: inherit;
-    cursor: pointer;
     padding: 0.6rem 1.1rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: black;
-    color: white;
   }
 
   .primary:hover {
@@ -108,16 +111,14 @@ button:active:disabled {
     color: black;
   }
 
+  .button-image {
+    padding: 4rem;
+    width: 60px;
+    height: 60px;
+  }
+
   .bad {
-    font: inherit;
-    cursor: pointer;
     padding: 0.6rem 1.1rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: red;
-    color: white;
   }
 
   .bad:hover {
@@ -128,27 +129,12 @@ button:active:disabled {
 
 @media (max-width: 992px) {
   .button {
-    font: inherit;
-    cursor: pointer;
     padding: 0.5rem 0.8rem;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: #darkgray;
-    color: black;
-    border-radius: 12px;
-    transition: all 0.5s ease;
   }
 
   .primary {
     font: inherit;
-    cursor: pointer;
     padding: 0.5rem 0.8rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: black;
-    color: white;
   }
 
   .primary:hover {
@@ -156,16 +142,14 @@ button:active:disabled {
     color: black;
   }
 
+  .button-image {
+    padding: 4rem;
+    width: 60px;
+    height: 60px;
+  }
+
   .bad {
-    font: inherit;
-    cursor: pointer;
     padding: 0.5rem 0.8rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: red;
-    color: white;
   }
 
   .bad:hover {
@@ -176,44 +160,27 @@ button:active:disabled {
 
 @media (max-width: 768px) {
   .button {
-    font: inherit;
-    cursor: pointer;
     padding: 0.4rem 0.7rem;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: #darkgray;
-    color: black;
-    border-radius: 12px;
-    transition: all 0.5s ease;
   }
 
   .primary {
-    font: inherit;
-    cursor: pointer;
     padding: 0.4rem 0.7rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: black;
     color: white;
   }
 
   .primary:hover {
-    background-color: white;
+    background-color: lightgreen;
     color: black;
   }
 
+  .button-image {
+    padding: 3.5rem;
+    width: 60px;
+    height: 60px;
+  }
+
   .bad {
-    font: inherit;
-    cursor: pointer;
     padding: 0.4rem 0.7rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: red;
-    color: white;
   }
 
   .bad:hover {
@@ -224,27 +191,11 @@ button:active:disabled {
 
 @media (max-width: 480px) {
   .button {
-    font: inherit;
-    cursor: pointer;
     padding: 0.25rem 0.5rem;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: #darkgray;
-    color: black;
-    border-radius: 12px;
-    transition: all 0.5s ease;
   }
 
   .primary {
-    font: inherit;
-    cursor: pointer;
     padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: black;
-    color: white;
   }
 
   .primary:hover {
@@ -253,15 +204,7 @@ button:active:disabled {
   }
 
   .bad {
-    font: inherit;
-    cursor: pointer;
     padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: red;
-    color: white;
   }
 
   .bad:hover {
@@ -272,27 +215,11 @@ button:active:disabled {
 
 @media (max-width: 420px) {
   .button {
-    font: inherit;
-    cursor: pointer;
     padding: 0.25rem 0.5rem;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: #darkgray;
-    color: black;
-    border-radius: 12px;
-    transition: all 0.5s ease;
   }
 
   .primary {
-    font: inherit;
-    cursor: pointer;
     padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: black;
-    color: white;
   }
 
   .primary:hover {
@@ -301,15 +228,7 @@ button:active:disabled {
   }
 
   .bad {
-    font: inherit;
-    cursor: pointer;
     padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    border: 1px solid black;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    background-color: red;
-    color: white;
   }
 
   .bad:hover {
