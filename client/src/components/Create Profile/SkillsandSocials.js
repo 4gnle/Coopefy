@@ -48,7 +48,7 @@ const SocialLinks = () => {
           {changeSkills && <SkillsSelect />}
           <div className='skills-text'>
 
-        </div>
+          </div>
       </div>
     </div>
   )

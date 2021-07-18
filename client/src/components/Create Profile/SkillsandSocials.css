@@ -14,7 +14,6 @@
   font-size: 20px;
   font-weight: bold;
   margin-right: 10px;
-  float: right;
   text-align: left;
 }
 
@@ -28,7 +27,7 @@
 
 .social-icons {
   width: 60%;
-  margin-left: -35px;
+  margin-left: 35px;
 }
 
 .social-icons i {
@@ -61,6 +60,7 @@
     font-size: 15px;
     font-weight: bold;
     margin-left: 50px;
+    margin-top: -10px;
     float: left;
     text-align: left;
   }
@@ -69,8 +69,8 @@
     font-size: 15px;
     font-weight: bold;
     margin-right: -70px;
-    float: right;
-    text-align: left;
+    margin-top: -10px;
+    text-align: center;
   }
 
   .bottom-section .socials p {
@@ -83,7 +83,6 @@
 
   .social-icons {
     width: 60%;
-    margin-left: -35px;
   }
 
   .social-icons i {
@@ -107,21 +106,26 @@
     text-align: left;
   }
 
+  .bottom-section .socials p {
+    margin-left: 5px;
+  }
+
   .bottom-section .skills {
     font-weight: bold;
     font-size: 13px;
-    margin-right: 60px;
     margin-top: -20px;
-    float: right;
-    text-align: left;
-  }
-
-  .bottom-section .socials p {
-    margin-left: 15px;
+    text-align: center;
   }
 
   .bottom-section .skills p {
-    margin-right: 15px;
+    margin-right: 20px;
+  }
+
+  .social-icons i {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    font-size: 28px;
   }
 
 }
@@ -130,18 +134,37 @@
   }
 
   .bottom-section .socials {
+    width: 70%;
     margin-top: -15px;
+    margin-left: -45px;
     font-weight: bold;
-    margin-left: 30px;
+    font-size: 12px;
     float: left;
-    text-align: left;
+    text-align: center;
+  }
+
+  .bottom-section .socials p {
+    margin-left: -15px;
+  }
+
+  .social-icons {
+    margin-bottom: 10px;
+    height: auto;
+    font-size: 25px;
   }
 
   .bottom-section .skills {
     margin-top: -15px;
     font-weight: bold;
+    font-size: 12px;
     margin-right: 10px;
+    text-align: left;
   }
+
+  .bottom-section .skills p {
+    margin-right: 15px;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -165,6 +188,13 @@
     margin-right: 20px;
     float: right;
     text-align: left;
+  }
+
+  .social-icons i {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    font-size: 35px;
   }
 }
 @media (max-width: 361px) {
