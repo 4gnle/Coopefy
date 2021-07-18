@@ -13,21 +13,29 @@
 .bottom-section .skills {
   font-size: 20px;
   font-weight: bold;
-  margin-right: 100px;
+  margin-right: 10px;
   float: right;
   text-align: left;
 }
 
+.bottom-section .socials p {
+  margin-left: 65px;
+}
+
+.bottom-section .skills p {
+  margin-right: 65px;
+}
+
 .social-icons {
-  width: 200px;
+  width: 60%;
   margin-left: -35px;
 }
 
 .social-icons i {
-  margin-left: 10px;
+  margin-left: 20px;
   margin-bottom: 10px;
   height: auto;
-  font-size: 35px;
+  font-size: 55px;
 }
 
 .skills-text {
@@ -50,6 +58,7 @@
   }
 
   .bottom-section .socials {
+    font-size: 15px;
     font-weight: bold;
     margin-left: 50px;
     float: left;
@@ -57,11 +66,33 @@
   }
 
   .bottom-section .skills {
+    font-size: 15px;
     font-weight: bold;
-    margin-right: 80px;
+    margin-right: -70px;
     float: right;
     text-align: left;
   }
+
+  .bottom-section .socials p {
+    margin-left: 15px;
+  }
+
+  .bottom-section .skills p {
+    margin-right: 15px;
+  }
+
+  .social-icons {
+    width: 60%;
+    margin-left: -35px;
+  }
+
+  .social-icons i {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    font-size: 35px;
+  }
+
 }
 @media (max-width: 992px) {
   .bottom-section {
@@ -84,6 +115,15 @@
     float: right;
     text-align: left;
   }
+
+  .bottom-section .socials p {
+    margin-left: 15px;
+  }
+
+  .bottom-section .skills p {
+    margin-right: 15px;
+  }
+
 }
 @media (max-width: 768px) {
   .bottom-section {
@@ -100,11 +140,10 @@
   .bottom-section .skills {
     margin-top: -15px;
     font-weight: bold;
-    margin-right: 40px;
-    float: right;
-    text-align: left;
+    margin-right: 10px;
   }
 }
+
 @media (max-width: 480px) {
   .bottom-section {
     margin-top: -40px;
