@@ -28,7 +28,7 @@
 }
 
 .primary:hover {
-  background-color: white;
+  background-color: lightgreen;
   color: black;
 }
 
@@ -96,7 +96,7 @@ button:active:disabled {
   cursor: not-allowed;
 }
 
-@media (max-width: 1260px) {
+@media (max-width: 1280px) {
   .button {
     margin: 5px 5px ;
     padding: 0.6rem 1.1rem;
@@ -104,11 +104,6 @@ button:active:disabled {
 
   .primary {
     padding: 0.6rem 1.1rem;
-  }
-
-  .primary:hover {
-    background-color: white;
-    color: black;
   }
 
   .button-image {
@@ -121,10 +116,6 @@ button:active:disabled {
     padding: 0.6rem 1.1rem;
   }
 
-  .bad:hover {
-    background-color: pink;
-    color: black;
-  }
 }
 
 @media (max-width: 992px) {
@@ -137,11 +128,6 @@ button:active:disabled {
     padding: 0.5rem 0.8rem;
   }
 
-  .primary:hover {
-    background-color: white;
-    color: black;
-  }
-
   .button-image {
     padding: 4rem;
     width: 60px;
@@ -150,11 +136,6 @@ button:active:disabled {
 
   .bad {
     padding: 0.5rem 0.8rem;
-  }
-
-  .bad:hover {
-    background-color: pink;
-    color: black;
   }
 }
 
@@ -182,11 +163,6 @@ button:active:disabled {
   .bad {
     padding: 0.4rem 0.7rem;
   }
-
-  .bad:hover {
-    background-color: pink;
-    color: black;
-  }
 }
 
 @media (max-width: 480px) {
@@ -198,18 +174,8 @@ button:active:disabled {
     padding: 0.25rem 0.5rem;
   }
 
-  .primary:hover {
-    background-color: white;
-    color: black;
-  }
-
   .bad {
     padding: 0.25rem 0.5rem;
-  }
-
-  .bad:hover {
-    background-color: pink;
-    color: black;
   }
 }
 
@@ -222,17 +188,8 @@ button:active:disabled {
     padding: 0.25rem 0.5rem;
   }
 
-  .primary:hover {
-    background-color: white;
-    color: black;
-  }
-
   .bad {
     padding: 0.25rem 0.5rem;
   }
 
-  .bad:hover {
-    background-color: pink;
-    color: black;
-  }
 }
