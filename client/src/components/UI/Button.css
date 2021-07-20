@@ -58,7 +58,14 @@
   background: #000000;
   color: white;
   cursor: pointer;
+  text-align: center;
 }
+
+.button-image i {
+  margin-left: -5px;
+  margin-top: -15px;
+}
+
 
 .button-image:hover {
   background: white;
@@ -112,6 +119,13 @@ button:active:disabled {
     height: 60px;
   }
 
+  .button-image i {
+    margin-left: -5px;
+    margin-top: -15px;
+  }
+
+
+
   .bad {
     padding: 0.6rem 1.1rem;
   }
@@ -133,6 +147,12 @@ button:active:disabled {
     width: 60px;
     height: 60px;
   }
+
+  .button-image i {
+    margin-left: -5px;
+    margin-top: -15px;
+  }
+
 
   .bad {
     padding: 0.5rem 0.8rem;
@@ -158,6 +178,10 @@ button:active:disabled {
     padding: 3.5rem;
     width: 60px;
     height: 60px;
+  }
+
+  .button-image i {
+    margin-left: -5px;
   }
 
   .bad {
