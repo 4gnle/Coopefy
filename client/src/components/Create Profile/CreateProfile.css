@@ -265,7 +265,7 @@
   .edit-box {
     max-width: 70%;
     width: 50%;
-    height: 500px;
+    height: 450px;
     left: 150px;
     top: 50px;
   }
@@ -337,7 +337,7 @@
 @media (max-width: 480px) {
   .edit-box {
     width: 65%;
-    height: 500px;
+    height: 380px;
     left: 40px;
     top: 20px;
   }

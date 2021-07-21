@@ -39,7 +39,6 @@ const SocialLinks = () => {
           <i className="fab fa-behance-square"></i>
           <i className="fab fa-dribbble-square"></i>
           <i className="fab fa-linkedin-square"></i>
-
         </div>
       </div>
 
