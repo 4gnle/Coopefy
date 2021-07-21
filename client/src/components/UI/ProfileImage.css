@@ -38,12 +38,19 @@
   .image-upload__preview {
     margin-bottom: 0.5rem;
     margin-left: 30px;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .image-upload__preview img {
+    width: 100%;
+    height: 100%;
+    border-radius: 180px;
+    object-fit: cover;
   }
 
   .buttons {
-    margin-left: 30px;
+    margin-left: 40px;
     float: left;
   }
 }
@@ -53,8 +60,8 @@
   .image-upload__preview {
     margin-bottom: 0.5rem;
     margin-left: 30px;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
   }
 
   .buttons {

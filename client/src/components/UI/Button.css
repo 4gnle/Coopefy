@@ -104,6 +104,31 @@ button:active:disabled {
   cursor: not-allowed;
 }
 
+@media (max-width: 1440px) {
+  .button {
+    margin: 5px 5px ;
+    padding: 0.6rem 1.1rem;
+  }
+
+  .primary {
+    padding: 0.6rem 1.1rem;
+  }
+
+  .button-image {
+    padding: 4.7rem;
+  }
+
+  .button-image i {
+    margin-left: -5px;
+    margin-top: -15px;
+  }
+
+  .bad {
+    padding: 0.6rem 1.1rem;
+  }
+
+}
+
 @media (max-width: 1280px) {
   .button {
     margin: 5px 5px ;
