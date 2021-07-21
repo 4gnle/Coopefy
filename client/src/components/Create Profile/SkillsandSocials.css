@@ -48,21 +48,24 @@
   font-size: 35px;
 }
 
-@media (max-width: 1280px) {
+* @media (max-width: 1280px) {
   .bottom-section {
     margin-top: -10px;
   }
 
   .bottom-section .socials {
     margin-top: -10px;
+    width: 50%;
   }
 
   .bottom-section .socials p {
     font-size: 15px;
+    float: left;
+    margin-left: 50px;
   }
 
   .social-icons {
-    width: 60%;
+    width: 70%;
     margin-left: -5px
   }
 
@@ -73,8 +76,9 @@
   }
 
   .bottom-section .skills {
-    margin-right: -70px;
+    margin-right: -8px;
     margin-top: -10px;
+    width: 50%;
   }
 
   .bottom-section .skills p {
@@ -127,31 +131,29 @@
   }
 
   .bottom-section .socials {
-    width: 70%;
-    margin-left: -45px;
+    width: 50%;
     font-size: 12px;
   }
 
   .bottom-section .socials p {
-    margin-left: -15px;
+    font-size: 13px;
+    text-align: center;
   }
 
   .social-icons {
-    width: 60%;
+    width: 80%;
     margin-bottom: 10px;
-    margin-left: 40px;
     height: auto;
     font-size: 25px;
   }
 
   .bottom-section .skills {
-    font-size: 12px;
-    margin-right: 10px;
     margin-top: -15px;
+    margin-right: -20px;
   }
 
   .bottom-section .skills p {
-    margin-right: 15px;
+    font-size: 13px;
   }
 
 }
@@ -162,6 +164,7 @@
   }
 
   .bottom-section .socials {
+    width: 60%;
   }
 
   .bottom-section .socials p {
@@ -171,11 +174,12 @@
 
   .bottom-section .skills {
     width: 68%;
-    margin-right: -50px;
+    margin-right: -40px;
   }
 
   .bottom-section .skills p {
     font-size: 11px;
+    margin-right: auto;
   }
 
   .social-icons {
@@ -242,4 +246,4 @@
     float: right;
     text-align: left;
   }
-}
+} 
