@@ -59,6 +59,7 @@ const CreateProfile = ({profileImage}) => {
           </input>
         </div>
         <SkillsandSocials />
+        <br></br>
         <div className='profile-buttons'>
           <Button
           >Save</Button>

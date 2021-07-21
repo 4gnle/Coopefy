@@ -1,6 +1,7 @@
 .button {
   font: inherit;
   cursor: pointer;
+  margin: 5px;
   padding: 1rem 2rem;
   border: 1px solid black;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
@@ -124,8 +125,6 @@ button:active:disabled {
     margin-top: -15px;
   }
 
-
-
   .bad {
     padding: 0.6rem 1.1rem;
   }
@@ -205,15 +204,21 @@ button:active:disabled {
   .bad {
     padding: 0.25rem 0.5rem;
   }
+
+  .button-image {
+    padding: 2.5rem;
+    width: 60px;
+    height: 60px;
+  }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 380px) {
   .button {
-    padding: 0.25rem 0.5rem;
+    padding: 0.15rem 0.25rem;
   }
 
   .primary {
-    padding: 0.25rem 0.5rem;
+    padding: 0.15rem 0.25rem;
   }
 
   .small {
@@ -221,7 +226,13 @@ button:active:disabled {
   }
 
   .bad {
-    padding: 0.25rem 0.5rem;
+    padding: 0.15rem 0.25rem;
+  }
+
+  .button-image {
+    padding: 2.5rem;
+    width: 60px;
+    height: 60px;
   }
 
 }

@@ -114,13 +114,13 @@
 }
 
 .profile-buttons {
-  margin-right: 50px;
+  margin-top: 200px;
 }
 
 @media (max-width: 1280px) {
   .edit-box {
     width: 50%;
-    height: 600px;
+    height: auto;
     left: 250px;
     top: 50px;
   }
@@ -180,8 +180,9 @@
     padding: 5px;
   }
 
-  .brand-icons {
-
+  .profile-buttons {
+    margin-top: 100px;
+    margin-right: 50px;
   }
 
 }
@@ -189,7 +190,7 @@
 @media (max-width: 992px) {
   .edit-box {
     width: 50%;
-    height: 500px;
+    height: auto;
     left: 200px;
     top: 50px;
   }
@@ -256,16 +257,24 @@
     font-size: 12px;
     padding: 5px;
   }
-  .brand-icons {
-
+  .profile-buttons {
+    margin-top: 150px;
+    margin-right: 25px;
   }
+
+  .profile-buttons {
+    float:right;
+    margin-top: 20px;
+    margin-right: 150px;
+  }
+
 }
 
 @media (max-width: 768px) {
   .edit-box {
     max-width: 70%;
     width: 50%;
-    height: 450px;
+    height: auto;
     left: 150px;
     top: 50px;
   }
@@ -329,15 +338,17 @@
     font-size: 10px;
     padding: 5px;
   }
-  .brand-icons {
-
-  }
+  .profile-buttons {
+    margin-top: 10px;
+    margin-right: 120px;
+    float: center;
+    }
 }
 
 @media (max-width: 480px) {
   .edit-box {
     width: 65%;
-    height: 380px;
+    height: auto;
     left: 40px;
     top: 20px;
   }
@@ -409,7 +420,7 @@
 @media (max-width: 380px) {
   .edit-box {
     width: 300px;
-    height: 350px;
+    height: auto;
     left: 25px;
     top: 10px;
   }
@@ -428,7 +439,7 @@
 
   .top-inputs {
    margin-right: -30px;
-
+   margin-top: -90px;
    position: static;
   }
 
@@ -471,16 +482,17 @@
     font-size: 10px;
     padding: 5px;
   }
-  .brand-icons {
-
+  .profile-buttons {
+    margin-top: 10px;
+    margin-left: 10px;
+    float: right;
   }
 }
-
 
 @media (max-width: 281px) {
   .edit-box {
     width: 65%;
-    height: 500px;
+    height: auto;
     left: 18px;
     top: 10px;
   }
