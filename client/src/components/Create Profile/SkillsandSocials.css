@@ -3,26 +3,26 @@
 }
 
 .bottom-section .socials {
+  float: left;
   max-width: 50%;
-  margin-left: -20px;
-  font-size: 20px;
-  font-weight: bold;
+
 }
 
-.bottom-section .socials p {
-  margin-left: -150px;
-  float: center;
+.bottom-section .socials label {
+  font-weight: bold;
+  margin-left: -40px;
 }
 
 .social-icons {
-  max-width: 100%;
-  max-height: 100%;
+  margin-top: 5px;
+  text-align: right;
+  max-width: 70%;
+  margin-left: 30px;
 }
 
 .social-icons i {
-  margin-left: 20px;
-  margin-bottom: 10px;
   font-size: 65px;
+  margin-left: 10px;
 }
 
 .social-icons i.fa-twitter-square {
@@ -55,180 +55,174 @@ color: #DA552F}
 }
 
 .bottom-section .skills {
-  max-width: 70%;
-  font-size: 20px;
-  font-weight: bold;
-  margin-right: -20px;
-  float: right;
+  max-width: 50%;
+  float:right;
 }
 
-.bottom-section .skills p {
+.bottom-section .skills label {
+  font-weight: bold;
+  margin-right: 60px;
 }
 
 .skills-text {
   display: grid;
-  width: 100%;
-  text-align: center;
-  max-height: 100%;
+  grid-template-columns: repeat(2, 3fr);
+  grid-auto-rows: 40px;
+  margin-right: 50px;
+  margin-top: 5px;
 }
 
 .skills-text p {
-  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 10px;
-  height: auto;
-  font-size: 15px;
+  font-size: 20px;
+  text-align: center;
 }
 
 @media (max-width: 1440px) {
   .bottom-section .socials {
-    margin-top: -10px;
-    width: 50%;
+
   }
 
-  .bottom-section .socials p {
-    float: left;
-    margin-left: 60px;
+  .bottom-section .socials label {
   }
 
   .social-icons {
-    width: 80%;
-    margin-left: 5px
+    width: 100%;
+    margin-left: 10px;
   }
 
   .social-icons i {
-    margin-left: 10px;
-    margin-bottom: 10px;
+    font-size: 55px;
   }
 
   .bottom-section .skills {
-    margin-right: -8px;
-    margin-top: -10px;
-    width: 50%;
+
   }
 
-  .bottom-section .skills p {
-    margin-right: 15px;
+  .bottom-section .skills label {
+
+  }
+
+  .skills-text {
+    grid-auto-rows: 40px;
+    margin-right: 50px;
+    margin-top: 5px;
+  }
+
+  .skills-text p {
+    font-size: 15px;
   }
 }
 
 
 @media (max-width: 1280px) {
-  .bottom-section {
-    margin-top: -10px;
-  }
 
   .bottom-section .socials {
     margin-top: -10px;
-    width: 50%;
   }
 
-  .bottom-section .socials p {
-    font-size: 15px;
-    float: left;
-    margin-left: 50px;
+  .bottom-section .socials label {
+    font-size: 14px;
   }
 
   .social-icons {
-    width: 55%;
-    margin-left: -5px;
-    max-height: 100%;
+    width:auto;
   }
 
   .social-icons i {
-    margin-left: 10px;
-    margin-bottom: 10px;
-    font-size: 35px;
+    font-size: 45px;
   }
 
   .bottom-section .skills {
-    margin-right: -8px;
     margin-top: -10px;
-    width: 50%;
   }
 
-  .bottom-section .skills p {
-    margin-right: 15px;
+  .bottom-section .skills label {
+    font-size: 14px;
+  }
+
+  .skills-text {
+    grid-auto-rows: 30px;
+    margin-right: 50px;
+    margin-top: 5px;
+  }
+
+  .skills-text p {
     font-size: 15px;
   }
 }
 
 @media (max-width: 992px) {
-  .bottom-section {
-  }
-
   .bottom-section .socials {
-    width: 55%;
-    margin-left: -20px;
-    margin-top: -20px;
+    margin-top: -10px;
   }
 
-  .bottom-section .socials p {
-    font-size: 13px;
-    margin-left: 40px;
+  .bottom-section .socials label {
+    font-size: 12px;
   }
 
   .social-icons {
-    width: 70%;
-    margin-left: -5px;
-    max-height: 100%;
-
+    width:auto;
   }
 
   .social-icons i {
-    margin-left: 10px;
-    margin-bottom: 10px;
-    font-size: 28px;
+    font-size: 35px;
   }
 
   .bottom-section .skills {
-    font-size: 13px;
-    margin-top: -20px;
-    margin-right: -25px;
-    width: 55%;
+    margin-top: -10px;
   }
 
-  .bottom-section .skills p {
-    font-size: 13px;
+  .bottom-section .skills label {
+    font-size: 12px;
+  }
+
+  .skills-text {
+    grid-auto-rows: 25px;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+
+  .skills-text p {
+    font-size: 12px;
   }
 }
 
 @media (max-width: 768px) {
-  .bottom-section {
-
-  }
-
   .bottom-section .socials {
-    width: 55%;
-    font-size: 12px;
-    margin-left: -25px;
+    margin-top: -10px;
   }
 
-  .bottom-section .socials p {
-    font-size: 13px;
-    margin-left: 50px;
+  .bottom-section .socials label {
+    font-size: 12px;
   }
 
   .social-icons {
-    width: 65%;
-    font-size: 25px;
-    margin-left: 10px;
-    max-height: 100%;
+    width:auto;
   }
 
   .social-icons i {
-    font-size: 25px;
+    font-size: 35px;
   }
 
   .bottom-section .skills {
-    width: 55%;
-    margin-top: -15px;
-    margin-right: -20px;
+    margin-top: -10px;
   }
 
-  .bottom-section .skills p {
-    font-size: 13px;
+  .bottom-section .skills label {
+    font-size: 12px;
   }
 
+  .skills-text {
+    grid-auto-rows: 25px;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+
+  .skills-text p {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -236,90 +230,67 @@ color: #DA552F}
   }
 
   .bottom-section .socials {
-    width: 60%;
-    margin-left: -30px;
+
   }
 
   .bottom-section .socials p {
-    font-size: 10px;
-    margin-left: 30px;
-    width: 60%;
+
   }
 
   .social-icons {
-    width: 80%;
-    margin-left: 13px;
-    font-size: 20px;
+
   }
 
   .social-icons i {
-    font-size: 20px;
+
   }
 
   .bottom-section .skills {
-    width: 60%;
-    margin-right: -30px;
+
   }
 
   .bottom-section .skills p {
-    font-size: 10px;
-    margin-right: auto;
+
   }
 }
 
 @media (max-width: 361px) {
   .bottom-section {
-    margin-top: -10px;
+
   }
 
   .bottom-section .socials {
-    width: 60%;
-    margin-left: -30px;
+
   }
 
   .bottom-section .socials p {
-    margin-left: 30px;
-    font-size: 10px;
+
   }
 
   .bottom-section .skills {
-    width: 60%;
-    margin-right: -25px;
+
   }
 
   .social-icons {
-    width: 85%;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    font-size: 20px;
+
   }
 
   .bottom-section .skills p {
-    font-size: 10px;
+
   }
 
 }
 
 @media (max-width: 281px) {
   .bottom-section {
-    margin-top: -10px;
+
   }
 
   .bottom-section .socials {
-    margin-top: -10px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-left: 5px;
-    float: left;
-    text-align: left;
+
   }
 
   .bottom-section .skills {
-    margin-top: -10px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-right: 20px;
-    float: right;
-    text-align: left;
+
   }
 }

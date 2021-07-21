@@ -31,9 +31,9 @@ const SocialLinks = () => {
   return (
     <div className="bottom-section">
       <div className='socials'>
-        <p>Social Links{' '}      <Button
+        <label>Social Links{' '}      <Button
           className='small'
-        >Add+</Button></p>
+        >Add+</Button></label>
         {changeSocials && <SocialsSelect />}
         <div className='social-icons'>
           <i className="fab fa-product-hunt"></i>
@@ -48,15 +48,18 @@ const SocialLinks = () => {
       </div>
 
       <div className='skills'>
-          <p>Skills{' '}
+          <label>Skills{' '}
           <Button
             className='small'
-          >Add+</Button></p>
+          >Add+</Button></label>
           {changeSkills && <SkillsSelect />}
           <div className='skills-text'>
             <p>Marketing</p>
-            <p>Web Development</p>
+            <p>SEO</p>
             <p>Content Writing</p>
+            <p>Ethereum</p>
+            <p>HTML/CSS</p>
+            <p>React</p>
           </div>
       </div>
     </div>
