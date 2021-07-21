@@ -7,6 +7,9 @@ import './SkillsandSocials.css'
 import SocialsSelect from './SocialsSelect'
 import SkillsSelect from './SkillsSelect'
 
+// UI
+import Button from '../UI/Button'
+
 //Router
 import {Link} from 'react-router'
 
@@ -14,7 +17,7 @@ const SocialLinks = () => {
 
   const [changeSocials, setChangeSocials] = useState(false);
 
-    const [changeSkills, setChangeSkills] = useState(false);
+  const [changeSkills, setChangeSkills] = useState(false);
 
   const selectSocials = () => {
     setChangeSocials(true);
@@ -28,7 +31,9 @@ const SocialLinks = () => {
   return (
     <div className="bottom-section">
       <div className='socials'>
-        <p>Social Links</p>
+        <p>Social Links{' '}      <Button
+          className='small'
+        >Add+</Button></p>
         {changeSocials && <SocialsSelect />}
         <div className='social-icons'>
           <i className="fab fa-product-hunt"></i>
@@ -43,10 +48,15 @@ const SocialLinks = () => {
       </div>
 
       <div className='skills'>
-          <p>Skills</p>
+          <p>Skills{' '}
+          <Button
+            className='small'
+          >Add+</Button></p>
           {changeSkills && <SkillsSelect />}
           <div className='skills-text'>
-
+            <p>Marketing</p>
+            <p>Web Development</p>
+            <p>Content Writing</p>
           </div>
       </div>
     </div>

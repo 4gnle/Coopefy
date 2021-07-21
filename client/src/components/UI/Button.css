@@ -35,7 +35,7 @@
 .small {
   font: inherit;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.01rem 0.5rem;
   border-radius: 12px;
   transition: all 0.5s ease;
   border: 1px solid black;
@@ -198,6 +198,10 @@ button:active:disabled {
     padding: 0.25rem 0.5rem;
   }
 
+  .small {
+    padding: 0.1rem 0.2rem;
+  }
+
   .bad {
     padding: 0.25rem 0.5rem;
   }
@@ -210,6 +214,10 @@ button:active:disabled {
 
   .primary {
     padding: 0.25rem 0.5rem;
+  }
+
+  .small {
+    padding: 0.1rem 0.2rem;
   }
 
   .bad {

@@ -1,31 +1,28 @@
 .bottom-section {
-  z-index: 1;
-}
 
-.bottom-section small {
-font-size: 10px;
 }
 
 .bottom-section .socials {
+  max-width: 50%;
+  margin-left: -20px;
   font-size: 20px;
   font-weight: bold;
-  float: left;
-  text-align: center;
 }
 
 .bottom-section .socials p {
-  margin-left: 90px;
+  margin-left: -150px;
+  float: center;
 }
 
 .social-icons {
-  width: 60%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .social-icons i {
   margin-left: 20px;
   margin-bottom: 10px;
-  height: auto;
-  font-size: 55px;
+  font-size: 65px;
 }
 
 .social-icons i.fa-twitter-square {
@@ -58,28 +55,62 @@ color: #DA552F}
 }
 
 .bottom-section .skills {
+  max-width: 70%;
   font-size: 20px;
   font-weight: bold;
-  margin-right: 10px;
-  text-align: center;
+  margin-right: -20px;
   float: right;
 }
 
 .bottom-section .skills p {
-  margin-right: 65px;
 }
 
 .skills-text {
-  width: 200px;
-  margin-left: -35px;
+  display: grid;
+  width: 100%;
+  text-align: center;
+  max-height: 100%;
 }
 
-.skills-text {
+.skills-text p {
   margin-left: 10px;
   margin-bottom: 10px;
   height: auto;
-  font-size: 35px;
+  font-size: 15px;
 }
+
+@media (max-width: 1440px) {
+  .bottom-section .socials {
+    margin-top: -10px;
+    width: 50%;
+  }
+
+  .bottom-section .socials p {
+    float: left;
+    margin-left: 60px;
+  }
+
+  .social-icons {
+    width: 80%;
+    margin-left: 5px
+  }
+
+  .social-icons i {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bottom-section .skills {
+    margin-right: -8px;
+    margin-top: -10px;
+    width: 50%;
+  }
+
+  .bottom-section .skills p {
+    margin-right: 15px;
+  }
+}
+
 
 @media (max-width: 1280px) {
   .bottom-section {
@@ -99,7 +130,8 @@ color: #DA552F}
 
   .social-icons {
     width: 55%;
-    margin-left: -5px
+    margin-left: -5px;
+    max-height: 100%;
   }
 
   .social-icons i {
@@ -137,7 +169,9 @@ color: #DA552F}
 
   .social-icons {
     width: 70%;
-    margin-left: -5px
+    margin-left: -5px;
+    max-height: 100%;
+
   }
 
   .social-icons i {
@@ -178,6 +212,7 @@ color: #DA552F}
     width: 65%;
     font-size: 25px;
     margin-left: 10px;
+    max-height: 100%;
   }
 
   .social-icons i {
@@ -198,7 +233,6 @@ color: #DA552F}
 
 @media (max-width: 480px) {
   .bottom-section {
-    margin-top: -35px;
   }
 
   .bottom-section .socials {
@@ -223,8 +257,8 @@ color: #DA552F}
   }
 
   .bottom-section .skills {
-    width: 65%;
-    margin-right: -40px;
+    width: 60%;
+    margin-right: -30px;
   }
 
   .bottom-section .skills p {
