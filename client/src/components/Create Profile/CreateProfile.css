@@ -405,10 +405,10 @@
   }
 }
 
-@media (max-width: 361px) {
+@media (max-width: 380px) {
   .edit-box {
     width: 300px;
-    height: 500px;
+    height: 350px;
     left: 25px;
     top: 10px;
   }

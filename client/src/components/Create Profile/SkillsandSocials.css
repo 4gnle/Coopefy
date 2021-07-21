@@ -176,11 +176,12 @@ color: #DA552F}
 
   .bottom-section .skills label {
     font-size: 12px;
+    margin-right: 15px;
   }
 
   .skills-text {
     grid-auto-rows: 25px;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-top: 5px;
   }
 
@@ -195,88 +196,116 @@ color: #DA552F}
   }
 
   .bottom-section .socials label {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .social-icons {
     width:auto;
+    margin-left: -5px;
   }
 
   .social-icons i {
-    font-size: 35px;
+    font-size: 25px;
   }
 
   .bottom-section .skills {
     margin-top: -10px;
+    margin-right: -10px;
   }
 
   .bottom-section .skills label {
-    font-size: 12px;
+    font-size: 11px;
+    margin-right: 5px;
   }
 
   .skills-text {
-    grid-auto-rows: 25px;
-    margin-right: 20px;
-    margin-top: 5px;
+    grid-auto-rows: 18px;
+    margin-right: -10px;
+    margin-top: 0px;
   }
 
   .skills-text p {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 480px) {
-  .bottom-section {
-  }
-
   .bottom-section .socials {
-
+    margin-top: -15px;
   }
 
-  .bottom-section .socials p {
-
+  .bottom-section .socials label {
+    font-size: 10px;
+    margin-left: -5px;
   }
 
   .social-icons {
-
+    max-width: 80%;
+    margin-left: 0;
   }
 
   .social-icons i {
-
+    font-size: 18px;
   }
 
   .bottom-section .skills {
-
+    margin-top: -15px;
+    margin-right: -10px;
   }
 
-  .bottom-section .skills p {
+  .bottom-section .skills label {
+    font-size: 10px;
+    margin-right: 5px;
+  }
 
+  .skills-text {
+    grid-auto-rows: 16px;
+    margin-right: -10px;
+    margin-top: 0px;
+  }
+
+  .skills-text p {
+    font-size: 8px;
   }
 }
 
-@media (max-width: 361px) {
-  .bottom-section {
-
-  }
-
+@media (max-width: 380px) {
   .bottom-section .socials {
-
+    margin-top: -15px;
   }
 
-  .bottom-section .socials p {
-
-  }
-
-  .bottom-section .skills {
-
+  .bottom-section .socials label {
+    font-size: 9px;
+    margin-left: -15px;
   }
 
   .social-icons {
-
+    max-width: 90%;
+    margin-left: -10px;
   }
 
-  .bottom-section .skills p {
+  .social-icons i {
+    font-size: 18px;
+  }
 
+  .bottom-section .skills {
+    margin-top: -15px;
+    margin-right: -10px;
+  }
+
+  .bottom-section .skills label {
+    font-size: 9px;
+    margin-right: 5px;
+  }
+
+  .skills-text {
+    grid-auto-rows: 15px;
+    margin-right: -10px;
+    margin-top: 0px;
+  }
+
+  .skills-text p {
+    font-size: 7px;
   }
 
 }
