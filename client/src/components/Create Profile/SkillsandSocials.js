@@ -33,7 +33,7 @@ const SocialLinks = () => {
       <div className='socials'>
         <label>Social Links{' '}      <Button
           className='small'
-        >Add+</Button></label>
+        >Edit+</Button></label>
         {changeSocials && <SocialsSelect />}
         <div className='social-icons'>
           <i className="fab fa-product-hunt"></i>
@@ -51,7 +51,7 @@ const SocialLinks = () => {
           <label>Skills{' '}
           <Button
             className='small'
-          >Add+</Button></label>
+          >Edit+</Button></label>
           {changeSkills && <SkillsSelect />}
           <div className='skills-text'>
             <p>Marketing</p>

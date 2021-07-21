@@ -2,8 +2,12 @@ import React from 'react'
 
 import './CreateProfile.css'
 
+//Components
 import ImageUpload from '../UI/ProfileImage'
 import SkillsandSocials from './SkillsandSocials'
+
+//UI
+import Button from '../UI/Button'
 
 const CreateProfile = ({profileImage}) => {
   return (
@@ -55,6 +59,13 @@ const CreateProfile = ({profileImage}) => {
           </input>
         </div>
         <SkillsandSocials />
+        <div className='profile-buttons'>
+          <Button
+          >Save</Button>
+          <Button
+            className="bad"
+          >Cancel</Button>
+        </div>
       </div>
   )
 }
