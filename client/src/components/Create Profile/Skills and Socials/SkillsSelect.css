@@ -1,0 +1,63 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.select-skills {
+  text-align: center;
+  float: center;
+  position: fixed;
+  margin: 5rem 3rem;
+  padding: 3rem;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.select-skills p {
+  padding: 10px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.skills-window {
+  width: 500px;
+  max-width: 70%;
+  background-color: white;
+  box-shadow: 0 2px 12px gray;
+  border-radius: 10px;
+}
+
+.skills-window header {
+ background: gray;
+ padding: 1rem;
+ font-size: 15px;
+ font-weight: bold;
+ color: white;
+}
+
+.skills-window button {
+  margin: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  background-color: pink;
+  color: black;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+}
+
+.select-skills button:hover {
+  background-color: black;
+  color: white;
+}
+
+@media (max-width: 768px) {}

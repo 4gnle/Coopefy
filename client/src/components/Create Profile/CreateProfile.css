@@ -113,15 +113,15 @@
   color: #000000;
 }
 
-.profile-buttons {
+.submit-buttons {
   margin-top: 200px;
 }
 
 @media (max-width: 1440px) {
   .edit-box {
-    width: 50%;
+    width: 40%;
     height: auto;
-    left: 250px;
+    left: 350px;
     top: 50px;
   }
 
@@ -180,10 +180,10 @@
     padding: 5px;
   }
 
-  .profile-buttons {
-    margin-top: 0px;
-    margin-left: 160px;
-    float: right;
+  .submit-buttons {
+    margin-top: 15px;
+    margin-left: 150px;
+    float: left;
   }
 
 }
@@ -251,11 +251,11 @@
     padding: 5px;
   }
 
-  .profile-buttons {
-    margin-top: 100px;
-    margin-right: 50px;
+  .submit-buttons {
+    margin-top: 20px;
+    margin-right: 250px;
+    float: center;
   }
-
 }
 
 @media (max-width: 992px) {
@@ -333,7 +333,7 @@
     margin-right: 25px;
   }
 
-  .profile-buttons {
+  .submit-buttons {
     float:right;
     margin-top: 20px;
     margin-right: 150px;
@@ -409,7 +409,8 @@
     font-size: 10px;
     padding: 5px;
   }
-  .profile-buttons {
+
+  .submit-buttons {
     margin-top: 10px;
     margin-right: 120px;
     float: center;
@@ -483,9 +484,12 @@
     font-size: 10px;
     padding: 5px;
   }
-  .brand-icons {
 
+  .submit-buttons {
+    margin-top: 15px;
+    margin-right: 70px;
   }
+
 }
 
 @media (max-width: 380px) {
@@ -553,7 +557,8 @@
     font-size: 10px;
     padding: 5px;
   }
-  .profile-buttons {
+
+  .submit-buttons {
     margin-top: 10px;
     margin-left: 10px;
     float: right;
@@ -625,7 +630,7 @@
     font-size: 10px;
     padding: 5px;
   }
-  .brand-icons {
+  .submit-buttons {
 
   }
 }

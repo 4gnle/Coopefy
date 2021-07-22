@@ -8,7 +8,7 @@ import SocialsSelect from './SocialsSelect'
 import SkillsSelect from './SkillsSelect'
 
 // UI
-import Button from '../UI/Button'
+import Button from '../../UI/Button'
 
 //Router
 import {Link} from 'react-router'
@@ -27,14 +27,20 @@ const SocialLinks = () => {
     setChangeSkills(true);
   }
 
+  const unSelectSkills = () => {
+    setChangeSkills(false);
+  }
 
   return (
     <div className="bottom-section">
       <div className='socials'>
+
         <label>Social Links{' '}      <Button
           className='small'
         >Edit+</Button></label>
+
         {changeSocials && <SocialsSelect />}
+
         <div className='social-icons'>
           <i className="fab fa-product-hunt"></i>
           <i className="fab fa-github-square"></i>
@@ -50,9 +56,12 @@ const SocialLinks = () => {
       <div className='skills'>
           <label>Skills{' '}
           <Button
+            onClick={selectSkills}
             className='small'
           >Edit+</Button></label>
-          {changeSkills && <SkillsSelect />}
+
+          {changeSkills && <SkillsSelect unSelectSkills={unSelectSkills()}/>}
+
           <div className='skills-text'>
             <p>Marketing</p>
             <p>SEO</p>

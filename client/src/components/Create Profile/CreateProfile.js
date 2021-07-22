@@ -4,7 +4,7 @@ import './CreateProfile.css'
 
 //Components
 import ImageUpload from '../UI/ProfileImage'
-import SkillsandSocials from './SkillsandSocials'
+import SkillsandSocials from './Skills and Socials/SkillsandSocials'
 
 //UI
 import Button from '../UI/Button'
@@ -60,7 +60,7 @@ const CreateProfile = ({profileImage}) => {
         </div>
         <SkillsandSocials />
         <br></br>
-        <div className='profile-buttons'>
+        <div className='submit-buttons'>
           <Button
           >Save</Button>
           <Button
