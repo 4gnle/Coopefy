@@ -60,7 +60,7 @@ const SocialLinks = () => {
             className='small'
           >Edit+</Button></label>
 
-          {changeSkills && <SkillsSelect unSelectSkills={unSelectSkills()}/>}
+          {changeSkills && <SkillsSelect unSelectSkills={unSelectSkills}/>}
 
           <div className='skills-text'>
             <p>Marketing</p>

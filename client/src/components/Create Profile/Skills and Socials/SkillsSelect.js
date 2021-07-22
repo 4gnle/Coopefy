@@ -9,13 +9,13 @@ import Button from '../../UI/Button'
 const SkillsSelect = (props) => {
   return (
   <div>
-    <div className='backdrop'>
+    <div className='backdrop'           onClick={props.unSelectSkills}
+    >
     </div>
 
       <div className='select-skills'>
         <div className='skills-window'>
         <header>Select Skills</header>
-
         <select>
           <option value='Marketing'>Marketing</option>
           <option value='SEO'>SEO</option>
