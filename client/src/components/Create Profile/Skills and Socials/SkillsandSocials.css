@@ -382,15 +382,46 @@ font-size: 60px;
 }
 
 @media (max-width: 281px) {
-  .bottom-section {
-
+  .bottom-section .socials {
+    margin-top: -15px;
   }
 
-  .bottom-section .socials {
+  .bottom-section .socials label {
+    font-size: 8px;
+    margin-left: -15px;
+  }
 
+  .social-icons {
+    max-width: 120%;
+    margin-left: -35px;
+  }
+
+  .social-icons i {
+    font-size: 15px;
+  }
+
+  .social-icons i.fa-product-hunt {
+    font-size: 14px;
   }
 
   .bottom-section .skills {
+    max-width: 65%;
+    margin-top: -15px;
+    margin-right: -25px;
+  }
 
+  .bottom-section .skills label {
+    font-size: 8px;
+    margin-right: 5px;
+  }
+
+  .skills-text {
+    grid-auto-rows: 14px;
+    margin-right: -10px;
+    margin-top: 0px;
+  }
+
+  .skills-text p {
+    font-size: 7px;
   }
 }

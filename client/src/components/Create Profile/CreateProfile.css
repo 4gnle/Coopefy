@@ -253,7 +253,6 @@
 
   .submit-buttons {
     margin-top: 20px;
-    margin-right: 250px;
     float: center;
   }
 }
@@ -350,7 +349,6 @@
     top: 50px;
   }
 
-
   .top-inputs {
     margin-top: -110px;
     float: right;
@@ -411,13 +409,14 @@
   }
 
   .submit-buttons {
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-left: auto;
     margin-right: 120px;
-    float: center;
+    text-align: center;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .edit-box {
     width: 65%;
     height: auto;
@@ -631,6 +630,7 @@
     padding: 5px;
   }
   .submit-buttons {
-
+    margin-left: auto;
+    margin-right: 35px;
   }
 }
