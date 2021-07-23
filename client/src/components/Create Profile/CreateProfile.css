@@ -1,4 +1,4 @@
-.edit-box {
+.createprofile-edit-box {
   display: block;
   text-align: center;
   position: absolute;
@@ -19,7 +19,7 @@
   z-index: 1;
 }
 
-.edit-box .top-inputs label {
+.createprofile-top-inputs label {
   margin-left: 15px;
   margin-bottom: -10px;
   font-size: 20px;
@@ -27,50 +27,48 @@
   float: left;
 }
 
-.edit-box .bottom-inputs label {
+.createprofile-bottom-inputs label {
   font-size: 20px;
   font-weight: bold;
   float:left;
 }
 
-.top-inputs {
+.createprofile-top-inputs {
   float: right;
+  margin-right: 250px;
   margin-top: -200px;
-  margin-right: 100px;
 }
 
-.top-inputs-name input {
+.createprofile-top-inputs-name input {
   border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
-  width: 100%;
+  width: 120%;
   height: 60px;
-  left: 500px;
   font-size: 20px;
   font-family: 'Nunito';
   font: 20px 'Nunito';
   padding: 5px;
 }
 
-.top-inputs-status select {
+.createprofile-top-inputs-status select {
   border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
-  width: 100%;
+  width: 120%;
   height: 60px;
-  left: 500px;
   font-size: 20px;
   font-family: 'Nunito';
   font: 20px 'Nunito';
   padding: 5px;
 }
 
-.bottom-inputs {
+.createprofile-bottom-inputs {
   margin-top: 90px;
   float: center;
 }
 
-.bottom-inputs input {
+.createprofile-bottom-inputs input {
   border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
@@ -84,7 +82,7 @@
   padding: 5px;
 }
 
-.bottom-inputs textarea {
+.createprofile-bottom-inputs textarea {
   resize: none;
   margin-bottom: 20px;
   border-radius: 6px;
@@ -95,48 +93,36 @@
   height: 100px;
   left: 350px;
   font-size: 20px;
-  font: 20px 'Nunito';
+  font-style: 'Arial';
+  font: 20px 'Arial';
   padding: 5px;
 }
 
-.brand-icons {
-  position: absolute;
-  width: 43px;
-  height: 54px;
-  left: 506px;
-  top: 821px;
-  font-family: 'Font Awesome';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 40px;
-  line-height: 46px;
-  color: #000000;
-}
+.createprofile-buttons {
+  display: inline-block;
 
-.submit-buttons {
-  margin-top: 200px;
 }
 
 @media (max-width: 1440px) {
-  .edit-box {
+  .createprofile-edit-box {
     width: 40%;
     height: auto;
     left: 350px;
     top: 50px;
   }
 
-  .top-inputs {
+  .createprofile-top-inputs {
     margin-top: -90px;
     margin-right: 50px;
    }
 
-   .edit-box .top-inputs label {
+  .createprofile-top-inputs label {
      display: block;
      position: absolute;
      font-size: 12px;
    }
 
-  .top-inputs-name input {
+  .createprofile-top-inputs-name input {
     width: 200px;
     height: 35px;
     right: 10px;
@@ -144,7 +130,7 @@
     padding: 5px;
   }
 
-  .top-inputs-status select {
+  .createprofile-top-inputs-status select {
     width: 200px;
     height: 35px;
     right: 10px;
@@ -152,17 +138,17 @@
     padding: 5px;
   }
 
-  .bottom-inputs {
+  .createprofile-bottom-inputs {
     margin-bottom: 10px;
     margin-top: 80px;
   }
 
-  .edit-box .bottom-inputs label {
+  .createprofile-bottom-inputs label {
     font-size: 12px;
     margin-top: -10px;
   }
 
-  .bottom-inputs input {
+  .createprofile-bottom-inputs input {
     margin-top: 5px;
     width: 100%;
     height: 40px;
@@ -170,7 +156,7 @@
     font-size: 12px;
   }
 
-  .bottom-inputs textarea {
+  .createprofile-bottom-inputs textarea {
     margin-top: 5px;
     border-radius: 6px;
     margin-left: 0px;
@@ -180,34 +166,32 @@
     padding: 5px;
   }
 
-  .submit-buttons {
-    margin-top: 15px;
-    margin-left: 150px;
-    float: left;
+  .createprofile-submit-buttons {
+
   }
 
 }
 
 @media (max-width: 1280px) {
-  .edit-box {
+  .createprofile-edit-box {
     width: 50%;
     height: auto;
     left: 250px;
     top: 50px;
   }
 
-  .top-inputs {
+  .createprofile-top-inputs {
     margin-top: -90px;
     margin-right: 50px;
    }
 
-   .edit-box .top-inputs label {
+   .createprofile-top-inputs label {
      display: block;
      position: absolute;
      font-size: 12px;
    }
 
-  .top-inputs-name input {
+  .createprofile-top-inputs-name input {
     width: 200px;
     height: 35px;
     right: 10px;
@@ -215,7 +199,7 @@
     padding: 5px;
   }
 
-  .top-inputs-status select {
+  .createprofile-top-inputs-status select {
     width: 200px;
     height: 35px;
     right: 10px;
@@ -223,17 +207,17 @@
     padding: 5px;
   }
 
-  .bottom-inputs {
+  .createprofile-bottom-inputs {
     margin-bottom: 10px;
     margin-top: 80px;
   }
 
-  .edit-box .bottom-inputs label {
+  .createprofile-bottom-inputs label {
     font-size: 12px;
     margin-top: -10px;
   }
 
-  .bottom-inputs input {
+  .createprofile-bottom-inputs input {
     margin-top: 5px;
     width: 100%;
     height: 40px;
@@ -241,7 +225,7 @@
     font-size: 12px;
   }
 
-  .bottom-inputs textarea {
+  .createprofile-bottom-inputs textarea {
     margin-top: 5px;
     border-radius: 6px;
     margin-left: 0px;
@@ -251,34 +235,34 @@
     padding: 5px;
   }
 
-  .submit-buttons {
-    margin-top: 20px;
-    float: center;
+  .createprofile-submit-buttons {
+
   }
+
 }
 
 @media (max-width: 992px) {
-  .edit-box {
+  .createprofile-edit-box {
     width: 50%;
     height: auto;
-    left: 200px;
+    left: 175px;
     top: 50px;
   }
 
-  .edit-box .top-inputs label {
+  .createprofile-top-inputs label {
     position: absolute;
     font-size: 12px;
     margin-top: -10px;
     margin-left: 10px;
   }
 
-  .top-inputs {
+  .createprofile-top-inputs {
     margin-top: -100px;
     float: right;
     margin-right: 20px;
   }
 
-  .top-inputs-name input {
+  .createprofile-top-inputs-name input {
     width: 90%;
     margin-bottom: 20px;
     height: 35px;
@@ -286,24 +270,24 @@
     padding: 5px;
   }
 
-  .top-inputs-status select {
+  .createprofile-top-inputs-status select {
     width: 90%;
     height: 35px;
     font-size: 12px;
     padding: 5px;
   }
 
-  .bottom-inputs {
+  .createprofile-bottom-inputs {
     margin-top: 5px;
     float: right;
   }
 
-  .edit-box .bottom-inputs label {
+  .createprofile-bottom-inputs label {
     margin-top: -5px;
     font-size: 12px;
   }
 
-  .bottom-inputs input {
+  .createprofile-bottom-inputs input {
     margin-top: 0.5px;
     margin-bottom: 15px;
     width: 100%;
@@ -313,7 +297,7 @@
     padding: 5px;
   }
 
-  .bottom-inputs textarea {
+  .createprofile-bottom-inputs textarea {
     resize: none;
     border-radius: 6px;
     background: white;
@@ -327,21 +311,21 @@
     font-size: 12px;
     padding: 5px;
   }
-  .profile-buttons {
+  .createprofile-profile-buttons {
     margin-top: 150px;
     margin-right: 25px;
   }
 
   .submit-buttons {
-    float:right;
-    margin-top: 20px;
-    margin-right: 150px;
+    position: relative;
+    left: 100px;
+    bottom: -20px;
   }
 
 }
 
 @media (max-width: 768px) {
-  .edit-box {
+  .createprofile-edit-box {
     max-width: 70%;
     width: 50%;
     height: auto;
@@ -349,44 +333,44 @@
     top: 50px;
   }
 
-  .top-inputs {
+  .createprofile-top-inputs {
     margin-top: -110px;
     float: right;
     margin-right: 25px;
   }
 
-  .edit-box .top-inputs label {
+  .createprofile-top-inputs label {
     position: absolute;
     font-size: 10px;
     z-index: 1;
   }
 
-  .top-inputs-name input {
+  .createprofile-top-inputs-name input {
     width: 90%;
     height: 30px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .top-inputs-status select {
+  .createprofile-top-inputs-status select {
     width: 90%;
     height: 30px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .bottom-inputs {
+  .createprofile-bottom-inputs {
     margin-top: 10px;
     float: center;
   }
 
-  .edit-box .bottom-inputs label {
+  .createprofile-bottom-inputs label {
     margin-top: -5px;
     font-size: 10px;
     float:left;
   }
 
-  .bottom-inputs input {
+  .createprofile-bottom-inputs input {
     margin-top: 0.5px;
     width: 100%;
     height: 35px;
@@ -395,7 +379,7 @@
     padding: 5px;
   }
 
-  .bottom-inputs textarea {
+  .createprofile-bottom-inputs textarea {
     resize: none;
     border-radius: 6px;
     background: white;
@@ -408,59 +392,58 @@
     padding: 5px;
   }
 
-  .submit-buttons {
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: 120px;
-    text-align: center;
-    }
+  .createprofile-submit-buttons {
+    position: relative;
+    left: 20px;
+    bottom: -20px;
+  }
 }
 
 @media (max-width: 580px) {
-  .edit-box {
+  .createprofile-edit-box {
     width: 65%;
     height: auto;
     left: 40px;
     top: 20px;
   }
 
-  .edit-box .top-inputs label {
+  .createprofile-top-inputs label {
     margin-left: 25px;
     font-size: 9px;
     z-index: 1;
   }
 
-  .edit-box .bottom-inputs label {
+  .createprofile-bottom-inputs label {
     font-size: 9px;
     float:left;
     margin-left: -5px;
   }
 
-  .top-inputs {
+  .createprofile-top-inputs {
     margin-right: -35px;
   }
 
-  .top-inputs-name input {
+  .createprofile-top-inputs-name input {
     width: 70%;
     height: 25px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .top-inputs-status select {
+  .createprofile-top-inputs-status select {
     width: 70%;
     height: 25px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .bottom-inputs {
+  .createprofile-bottom-inputs {
     float: center;
     margin-top: 5px;
     margin-bottom: 5px;
   }
 
-  .bottom-inputs input {
+  .createprofile-bottom-inputs input {
     margin-bottom: 15px;
     width: 100%;
     height: 25px;
@@ -469,7 +452,7 @@
     padding: 5px;
   }
 
-  .bottom-inputs textarea {
+  .createprofile-bottom-inputs textarea {
     margin-bottom: 15px;
     margin-top: 7px;
     resize: none;
@@ -484,60 +467,61 @@
     padding: 5px;
   }
 
-  .submit-buttons {
+  .createprofile-submit-buttons {
     margin-top: 15px;
-    margin-right: 70px;
+    margin-right: auto;
+    margin-left: 70px;
   }
 
 }
 
 @media (max-width: 380px) {
-  .edit-box {
+  .createprofile-edit-box {
     width: 300px;
     height: auto;
     left: 25px;
     top: 10px;
   }
 
-  .edit-box .top-inputs label {
+ .createprofile-top-inputs label {
     position:absolute;
     font-size: 9px;
     margin-top: -5px;;
   }
 
-  .edit-box .bottom-inputs label {
+  .createprofile-bottom-inputs label {
     font-size: 9px;
     float:left;
     margin-left: -5px;
   }
 
-  .top-inputs {
+  .createprofile-top-inputs {
    margin-right: -30px;
    margin-top: -90px;
    position: static;
   }
 
-  .top-inputs-name input {
+  .createprofile-top-inputs-name input {
     width: 70%;
     height: 25px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .top-inputs-status select {
+  .createprofile-top-inputs-status select {
     width: 70%;
     height: 25px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .bottom-inputs {
+  .createprofile-bottom-inputs {
     float: center;
     margin-top: 5px;
     margin-bottom: 5px;
   }
 
-  .bottom-inputs input {
+  .createprofile-bottom-inputs input {
     margin-bottom: 15px;
     margin-left: -10px;
     width: 100%;
@@ -546,7 +530,7 @@
     padding: 5px;
   }
 
-  .bottom-inputs textarea {
+  .createprofile-bottom-inputs textarea {
     margin-bottom: 5px;
     margin-left: -17px;
     resize: none;
@@ -557,60 +541,58 @@
     padding: 5px;
   }
 
-  .submit-buttons {
-    margin-top: 10px;
-    margin-left: 10px;
-    float: right;
+  .createprofile-submit-buttons {
+
   }
 }
 
 @media (max-width: 281px) {
-  .edit-box {
+  .createprofile-edit-box {
     width: 65%;
     height: auto;
     left: 18px;
     top: 10px;
   }
 
-  .edit-box .top-inputs label {
+  .createprofile-top-inputs label {
     position:absolute;
     margin-left: 30px;
     font-size: 9px;
     margin-top: -5px;;
   }
 
-  .edit-box .bottom-inputs label {
+  .createprofile-bottom-inputs label {
     font-size: 9px;
     float:left;
     margin-left: -5px;
   }
 
-  .top-inputs {
+  .createprofile-top-inputs {
    margin-right: -45px;
    position: static;
   }
 
-  .top-inputs-name input {
+  .createprofile-top-inputs-name input {
     width: 60%;
     height: 25px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .top-inputs-status select {
+  .createprofile-top-inputs-status select {
     width: 60%;
     height: 25px;
     font-size: 10px;
     padding: 5px;
   }
 
-  .bottom-inputs {
+  .createprofile-bottom-inputs {
     float: center;
     margin-top: 5px;
     margin-bottom: 5px;
   }
 
-  .bottom-inputs input {
+  .createprofile-bottom-inputs input {
     margin-bottom: 15px;
     margin-left: -10px;
     width: 100%;
@@ -619,7 +601,7 @@
     padding: 5px;
   }
 
-  .bottom-inputs textarea {
+  .createprofile-bottom-inputs textarea {
     margin-bottom: 5px;
     margin-left: -18px;
     resize: none;
@@ -629,8 +611,7 @@
     font-size: 10px;
     padding: 5px;
   }
-  .submit-buttons {
-    margin-left: auto;
-    margin-right: 35px;
+  .createprofile-submit-buttons {
+
   }
 }

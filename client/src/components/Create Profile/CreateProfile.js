@@ -11,18 +11,18 @@ import Button from '../UI/Button'
 
 const CreateProfile = ({profileImage}) => {
   return (
-    <div className='edit-box'>
+    <div className='createprofile-edit-box'>
       <ImageUpload />
-      <div className='top-inputs'>
+      <div className='createprofile-top-inputs'>
       <label>Name</label>
-        <div className='top-inputs-name'>
+        <div className='createprofile-top-inputs-name'>
           <input
           placeholder='First and last name'
           className='m-1'>
           </input>
         </div>
 
-       <div className='top-inputs-status'>
+       <div className='createprofile-top-inputs-status'>
        <label>Status</label>
           <select
           name='Status'
@@ -36,7 +36,7 @@ const CreateProfile = ({profileImage}) => {
         </div>
       </div>
 
-      <div className='bottom-inputs'>
+      <div className='createprofile-bottom-inputs'>
         <label>Bio</label>
           <textarea
           maxLength='50'
@@ -58,9 +58,10 @@ const CreateProfile = ({profileImage}) => {
           className=''>
           </input>
         </div>
-        <SkillsandSocials />
-        <br></br>
-        <div className='submit-buttons'>
+        <div className='createprofile-skillsandsocials'>
+          <SkillsandSocials />
+        </div>
+        <div className='createprofile-buttons'>
           <Button
           >Save</Button>
           <Button
