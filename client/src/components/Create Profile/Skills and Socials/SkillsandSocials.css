@@ -25,36 +25,10 @@
   margin-left: 10px;
 }
 
-.social-icons i.fa-twitter-square {
-  color: #38a1f3;
-}
-.social-icons i.fa-facebook-square {
-  color: #3b5998;
-}
-
-.social-icons i.fa-instagram-square {
-  color: transparent;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.social-icons i.fa-youtube {
-  color: #c4302b;
-}
-
-.social-icons i.fa-dribbble-square {
-color: #EA6493
-}
 .social-icons i.fa-product-hunt {
-color: #DA552F;
 font-size: 60px;
 }
 
-.social-icons i.fa-linkedin-square {
-  color: #0077b5;
-}
 
 .bottom-section .skills {
   max-width: 50%;

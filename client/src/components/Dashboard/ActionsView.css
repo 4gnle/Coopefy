@@ -3,7 +3,7 @@
   text-align: center;
   position: absolute;
   height: auto;
-  left: 300px;;
+  left: 320px;;
   top: 150px;
   width: 50%;
   max-width: 70%;
@@ -20,6 +20,7 @@
 .av-buttons {
   width: auto;
   height: auto;
+  margin-top: -15px;
   margin-bottom: 5px;
   background-color: lightgray;
   border-radius: 18px;

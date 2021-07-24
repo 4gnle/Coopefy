@@ -94,6 +94,38 @@ right:0;
   margin: 3rem 0;
 }
 
+/* ICons */
+i.fa-instagram-square {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+i.fa-youtube {
+  color: #c4302b;
+}
+
+i.fa-dribbble-square {
+color: #EA6493
+}
+i.fa-product-hunt {
+color: #DA552F;
+}
+
+i.fa-linkedin-square {
+  color: #0077b5;
+}
+
+i.fa-twitter-square {
+  color: #38a1f3;
+}
+
+i.fa-facebook-square {
+  color: #3b5998;
+}
+
 /* Mobile Styles */
 
 @media (max-width: 1000px) {
