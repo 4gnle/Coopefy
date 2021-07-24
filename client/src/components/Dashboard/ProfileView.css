@@ -1,11 +1,11 @@
-.av-box {
+.pv-box {
   display: block;
   text-align: center;
   position: absolute;
   height: auto;
-  left: 300px;;
+  left: 5px;
   top: 150px;
-  width: 50%;
+  width: 22%;
   max-width: 70%;
   margin: auto;
   padding: 0.5rem;
@@ -17,20 +17,11 @@
   z-index: 1;
 }
 
-.av-buttons {
-  width: auto;
-  height: auto;
-  margin-bottom: 5px;
-  background-color: lightgray;
-  border-radius: 18px;
+.pv-box h4 {
+  margin: 5px;
 }
 
-.av-box .av-buttons h3 {
-  padding: 10px;
-  margin-bottom: auto;
-}
-
-.av-box-list-item {
+.pv-box-list-item {
   box-sizing: border-box;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -42,43 +33,12 @@
   border-radius: 18px;
 }
 
-.av-profile-picture {
-  padding: 1.5rem;
+.pv-profile-picture {
+  padding: 2rem;
+
   width: 10px;
   height: 10px;
   margin-bottom: 10px;
   border-radius: 180px;
   background-color: black;
-}
-
-@media (max-width: 1480px) {
-
-}
-
-@media (max-width: 1280px) {
-
-}
-
-@media (max-width: 1080px) {
-
-}
-
-@media (max-width: 880px) {
-
-}
-
-@media (max-width: 680px) {
-
-}
-
-@media (max-width: 480px) {
-
-}
-
-@media (max-width: 380px) {
-
-}
-
-@media (max-width: 280px) {
-
 }

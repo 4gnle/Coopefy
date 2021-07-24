@@ -23,6 +23,52 @@ const ActionsView = () => {
         </Button>
       </div>
 
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
+
+
+      <div className='av-box-list-item'>
+        <div className='av-profile-picture'>
+        </div>
+      </div>
     </div>
   )
 }
