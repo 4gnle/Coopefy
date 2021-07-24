@@ -5,7 +5,7 @@ import Button from '../UI/Button'
 
 const DashboardFunctions = () => {
 
-  const editPage = () => {
+  const editProfile = () => {
     window.location.href='/edit-profile'
   }
 
@@ -13,7 +13,7 @@ const DashboardFunctions = () => {
     <div>
     <Button
     className='small'
-    onClick={editPage}>
+    onClick={editProfile}>
     Edit Profile
     </Button>
 
