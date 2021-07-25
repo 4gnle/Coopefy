@@ -5,7 +5,7 @@
   height: auto;
   left: 20px;
   top: 150px;
-  width: 270px;
+  width: 200px;
   max-width: 70%;
   margin: auto;
   padding: 0.5rem;
@@ -15,6 +15,10 @@
   background-color: white;
   overflow: hidden;
   z-index: 1;
+}
+
+.pv-box button {
+  align: center;
 }
 
 .pv-box h4 {
@@ -38,14 +42,16 @@
   width: 10px;
   height: 10px;
   margin-bottom: 10px;
-  margin-left: 85px;
+  margin-left: 50px;
   border-radius: 180px;
   background-color: black;
 }
 
 .pv-bio {
   width:auto;
+  text-align: left;
 }
+
 
 .pv-bio-box {
   height: 50px;
@@ -55,15 +61,15 @@
 }
 
 .pv-links {
+  text-align: left;
   height: auto;
   background-color: white;
   border-radius: 18px;
 }
 
 .pv-links-icons {
-  max-width: 70%;
   font-size: 40px;
-  margin-left: 30px;
+  margin-left: -10px;
 }
 
 .pv-links i {
@@ -76,7 +82,7 @@ font-size: 39px;
 }
 
 .pv-projects {
-
+  text-align: left;
 }
 
 .pv-projects-box {

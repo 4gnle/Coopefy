@@ -18,7 +18,7 @@ const ProfileView = () => {
       <div className='pv-box-items'>
         <div className='pv-profile-picture'>
         </div>
-
+        <p>@angel</p>
         <Button
         className='small'
         onClick={editProfile}>
