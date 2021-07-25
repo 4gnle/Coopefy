@@ -1,0 +1,49 @@
+.cs-box1 {
+  display: block;
+  text-align: center;
+  position: absolute;
+  height: auto;
+  left: 895px;;
+  top: 150px;
+  width: 25%;
+  max-width: 70%;
+  margin: auto;
+  padding: 0.5rem;
+  box-shadow: 0 2px 12px grey;
+  background: #C4C4C4;
+  border-radius: 28px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cs-box2 {
+  display: block;
+  text-align: center;
+  position: absolute;
+  height: auto;
+  left: 895px;;
+  top: 500px;
+  width: 25%;
+  max-width: 70%;
+  margin: auto;
+  padding: 0.5rem;
+  box-shadow: 0 2px 12px grey;
+  background: #C4C4C4;
+  border-radius: 28px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cs-box-list-item {
+  box-sizing: border-box;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 1rem;
+  width:auto;
+  height: auto;
+  background-color: #EEEEEE;
+  border: 1px solid #lightgray;
+  border-radius: 18px;
+}

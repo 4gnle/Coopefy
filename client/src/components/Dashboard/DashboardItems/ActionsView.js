@@ -4,7 +4,7 @@ import React from 'react'
 import './ActionsView.css'
 
 // UI
-import Button from '../UI/Button'
+import Button from '../../UI/Button'
 
 const ActionsView = () => {
   return (
