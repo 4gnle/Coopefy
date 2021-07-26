@@ -9,7 +9,7 @@
   max-width: 70%;
   margin: auto;
   padding: 0.5rem;
-  box-shadow: 0 2px 12px grey;
+  box-shadow: 0 2px 5px grey;
   background: #C4C4C4;
   border-radius: 28px;
   background-color: white;
@@ -100,12 +100,20 @@
   text-align: left;
 }
 
-
 .pv-bio-box {
   height: 50px;
   width:auto;
   background-color: #EEEEEE;
   border-radius: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.pv-bio-box p {
+  padding-top: 10px;
+  padding-left: 8px;
+  font-size: 12px;
 }
 
 .pv-links {

@@ -2,14 +2,29 @@
 
 }
 
-.dashboard h1 {
-  margin-left: 250px;
+.db-text h1 {
+  display: block;
+  height: auto;
+  width: auto;
+  margin-left: 615px;
+  margin-top: 30px;
+  color: darkgrey;
 }
 
-.actions-view {
-
+.db-text h2 {
+  display: block;
+  height: auto;
+  width: auto;
+  margin-left: 1220px;
+  margin-top: -55px;
+  color: darkgrey;
 }
 
-.db-main-section {
-
+.db-text h3 {
+  display: block;
+  height: auto;
+  width: auto;
+  margin-left: 1220px;
+  margin-top: 325px;
+  color: darkgrey;
 }

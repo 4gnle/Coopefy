@@ -40,10 +40,10 @@ const ProfileView = () => {
   return (
     <div className='pv-box'>
       <h4>You</h4>
+      <p>@angel</p>
       <div className='pv-box-items'>
         <div className='pv-profile-picture'>
         </div>
-        <p>@angel</p>
         <Button
         className='small'
         onClick={showMenu}>
@@ -64,6 +64,7 @@ const ProfileView = () => {
         <div className='pv-bio'>
           <h4>Bio</h4>
           <div className='pv-bio-box'>
+            <p>This is a mockup BIO, so you shouldn't get too excited about it. Please. </p>
           </div>
         </div>
 
