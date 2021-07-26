@@ -18,7 +18,7 @@ import Dashboard from './Dashboard/Dashboard'
 import Landing from './Main/Landing'
 import About from './Main/About'
 import People from './Profiles/People'
-// import Profile from './Profiles/Profile'
+import Profile from './Profiles/Profile'
 import CreateProfile from './Create Profile/CreateProfile'
 import Projects from './Projects/Projects'
 import Alerts from './UI/Alert'
@@ -49,6 +49,7 @@ const MainComponent = () => {
           <Route path='/projects' component={Projects} />
           <Route path='/people' component={People} />
           <Route path='/about' component={About} />
+          <Route path='/profile' component={Profile} />
           <Route path='/edit-profile' component={CreateProfile} />
       </Switch>
 

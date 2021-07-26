@@ -47,6 +47,32 @@
   background-color: black;
 }
 
+.pv-menu {
+  position: relative;
+  display: inline-block;
+  height: auto;
+  box-shadow: 0 2px 12px grey;
+  background: #C4C4C4;
+  background-color: white;
+  transition: 0.2s;
+}
+
+.pv-menu-button {
+  width: 100%;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.01rem 0.5rem;
+  transition: all 0.5s ease;
+  border: 1px solid white;
+  background-color: #EEEEEE;
+  color: black;
+}
+
+.pv-menu-button:hover {
+  color: white;
+  background-color: black;
+}
+
 .pv-bio {
   width:auto;
   text-align: left;

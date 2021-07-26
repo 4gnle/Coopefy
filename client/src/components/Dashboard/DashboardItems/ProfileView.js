@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 //Styles
 import './ProfileView.css'
@@ -7,6 +7,12 @@ import './ProfileView.css'
 import Button from '../../UI/Button'
 
 const ProfileView = () => {
+
+  const [useMenu, setUseMenu] = useState(false);
+
+  const showMenu = () => {
+    setUseMenu(true);
+  }
 
   const editProfile = () => {
     window.location.href='/edit-profile'
@@ -21,9 +27,20 @@ const ProfileView = () => {
         <p>@angel</p>
         <Button
         className='small'
-        onClick={editProfile}>
-        Edit Profile
+        onClick={showMenu}>
+        +++
         </Button>
+
+        {useMenu &&
+        <div className='pv-menu'>
+          <button
+            className='pv-menu-button'
+          >View Profile</button>
+          <button
+            className='pv-menu-button'
+            onClick={editProfile}
+          >Edit Profile</button>
+        </div> }
 
         <div className='pv-bio'>
           <h4>Bio</h4>

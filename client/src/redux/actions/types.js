@@ -12,3 +12,6 @@ export const ADD_IMAGE = 'ADD_IMAGE';
 export const WRONG_IMAGE = 'WRONG_IMAGE';
 export const GET_IMAGE = 'GET_IMAGE';
 export const DELETE_IMAGE = 'DELETE_IMAGE';
+export const GET_PROFILE = 'GET_PROFILE';
+export const GET_PROFILES = 'GET_PROFILES';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
