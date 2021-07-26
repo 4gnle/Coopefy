@@ -2,14 +2,14 @@ import React, {Fragment, useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 
 //Redux
-import {/*deleteImage, getProfileImage,*/ profileImage} from '../../redux/actions/profile';
+import {deleteImage, getProfileImage, profileImage} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 import Button from '../UI/Button'
 
 import './ProfileImage.css'
 
-const ImageUpload = ({profileImage}) => {
+const ImageUpload = ({profileImage, getProfileImage, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -62,10 +62,11 @@ const ImageUpload = ({profileImage}) => {
     profileImage(formData)
   }
 
-  const noPicture = (e) => {
+  const deleteFunc = (e) => {
     e.preventDefault();
     setprevURL({showPrev: false});
     setFile(null);
+    deleteImage();
   }
 
   return (
@@ -108,7 +109,7 @@ const ImageUpload = ({profileImage}) => {
             </Button>
 
             <Button
-            onClick={noPicture}
+            onClick={deleteFunc}
             className='button bad m'
             title='Delete Image'>
             <i className="fas fa-trash-alt">
@@ -124,4 +125,4 @@ const ImageUpload = ({profileImage}) => {
   )
 }
 
-export default connect(null, {profileImage})(ImageUpload);
+export default connect(null, {profileImage, deleteImage, getProfileImage})(ImageUpload);

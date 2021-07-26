@@ -136,7 +136,7 @@ module.exports = router;
 //@route POST api/profile/image
 //@desc  Posts an image in database
 //@access Private
-  router.post('/:user_id/image', auth, imageUpload.single('profileimage'),
+  router.post('/image', auth, imageUpload.single('profileimage'),
 
   async (req, res) => {
 

@@ -48,16 +48,17 @@
 }
 
 .pv-menu {
-  position: relative;
-  display: inline-block;
+  position: absolute;
   height: auto;
+  width: 50%;
+  left: 50px;
   box-shadow: 0 2px 12px grey;
   background: #C4C4C4;
   background-color: white;
-  transition: 0.2s;
+  border-radius: 18px;
 }
 
-.pv-menu-button {
+.pv-menu-button1 {
   width: 100%;
   font: inherit;
   cursor: pointer;
@@ -66,12 +67,28 @@
   border: 1px solid white;
   background-color: #EEEEEE;
   color: black;
+  border-radius: 18px 18px 0px 0px;
 }
 
-.pv-menu-button:hover {
+.pv-menu-button2 {
+  width: 100%;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.01rem 0.5rem;
+  transition: all 0.5s ease;
+  border: 1px solid white;
+  background-color: #EEEEEE;
+  color: black;
+  border-radius: 0px 0px 18px 18px;
+}
+
+.pv-menu-button1:hover,
+.pv-menu-button2:hover
+ {
   color: white;
   background-color: black;
 }
+
 
 .pv-bio {
   width:auto;
@@ -94,6 +111,7 @@
 }
 
 .pv-links-icons {
+  text-align: center;
   font-size: 40px;
   margin-left: -10px;
 }

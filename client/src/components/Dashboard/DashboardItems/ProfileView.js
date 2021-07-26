@@ -11,7 +11,12 @@ const ProfileView = () => {
   const [useMenu, setUseMenu] = useState(false);
 
   const showMenu = () => {
-    setUseMenu(true);
+
+    if (!useMenu) {
+      setUseMenu(true);
+    } else {
+      setUseMenu(false)
+    }
   }
 
   const editProfile = () => {
@@ -34,10 +39,10 @@ const ProfileView = () => {
         {useMenu &&
         <div className='pv-menu'>
           <button
-            className='pv-menu-button'
+            className='pv-menu-button1'
           >View Profile</button>
           <button
-            className='pv-menu-button'
+            className='pv-menu-button2'
             onClick={editProfile}
           >Edit Profile</button>
         </div> }
