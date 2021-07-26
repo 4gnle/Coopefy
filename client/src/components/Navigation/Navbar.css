@@ -49,10 +49,16 @@
   float: left;
   align-items: right;
   text-decoration: none;
+  border-radius: 18px;
 }
 
 .navbar a:hover {
   color: gray;
+}
+
+.navbar a:focus {
+  background-color: lightgray;
+  color: black;
 }
 
 .navbar .welcome span {

@@ -2,7 +2,7 @@
   display: block;
   text-align: center;
   position: absolute;
-  width: 50%;
+  width: 40%;
   height: 100%;
   left: 450px;
   top: 50px;
@@ -35,7 +35,7 @@
 
 .createprofile-top-inputs {
   float: right;
-  margin-right: 250px;
+  margin-right: 150px;
   margin-top: -200px;
 }
 
@@ -99,7 +99,9 @@
 }
 
 .createprofile-buttons {
-  bottom: 10px;
+  position: relative;
+  bottom: -10px;
+  left: 150px;
   display: inline-block;
 }
 
@@ -167,7 +169,8 @@
   }
 
   .createprofile-buttons {
-
+    bottom: -10px;
+    left: -150px;
   }
 
 }
@@ -236,7 +239,8 @@
   }
 
   .createprofile-buttons {
-
+      bottom: -10px;
+      left: -25px;
   }
 }
 

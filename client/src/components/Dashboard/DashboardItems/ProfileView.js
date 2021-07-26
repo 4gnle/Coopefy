@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 
 //Styles
 import './ProfileView.css'
@@ -10,6 +10,8 @@ const ProfileView = () => {
 
   const [useMenu, setUseMenu] = useState(false);
 
+  const wrapper = useRef(null);
+
   const showMenu = () => {
 
     if (!useMenu) {
@@ -18,6 +20,18 @@ const ProfileView = () => {
       setUseMenu(false)
     }
   }
+
+  useEffect(() => {
+     const handleClickOutside = (event) => {
+         if (wrapper.current && !wrapper.current.contains(event.target)) {
+           showMenu();
+         }
+     }
+     document.addEventListener("mousedown", handleClickOutside);
+     return () => {
+         document.removeEventListener("mousedown", handleClickOutside);
+     };
+ }, [wrapper, showMenu]);
 
   const editProfile = () => {
     window.location.href='/edit-profile'
@@ -37,7 +51,7 @@ const ProfileView = () => {
         </Button>
 
         {useMenu &&
-        <div className='pv-menu'>
+        <div className='pv-menu' ref={wrapper}>
           <button
             className='pv-menu-button1'
           >View Profile</button>

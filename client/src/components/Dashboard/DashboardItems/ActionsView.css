@@ -3,9 +3,9 @@
   text-align: center;
   position: absolute;
   height: auto;
-  left: 250px;;
+  left: 600px;;
   top: 150px;
-  width: 50%;
+  width: 30%;
   max-width: 70%;
   margin: auto;
   padding: 0.5rem;
@@ -53,7 +53,36 @@
 }
 
 @media (max-width: 1480px) {
+  .av-box {
+    left: 600px;;
+    top: 150px;
+    width: 20%;
+    padding: 0.5rem;
+  }
 
+  .av-buttons {
+    margin-top: -15px;
+    margin-bottom: 5px;
+  }
+
+  .av-box .av-buttons h3 {
+    padding: 10px;
+  }
+
+  .av-box-list-item {
+    box-sizing: border-box;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding: 1rem;
+  }
+
+  .av-profile-picture {
+    padding: 1.5rem;
+    width: 10px;
+    height: 10px;
+    margin-bottom: 10px;
+    border-radius: 180px;
+  }
 }
 
 @media (max-width: 1280px) {
