@@ -61,6 +61,18 @@
   background: #C4C4C4;
   background-color: white;
   border-radius: 18px;
+  border-top: 1px solid transparent;
+}
+
+.pv-menu::before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 10px;
+    border-bottom-color: black;
+    z-index: 0;
 }
 
 .pv-menu-button1 {
@@ -106,13 +118,15 @@
   background-color: #EEEEEE;
   border-radius: 18px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: clip;
   word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .pv-bio-box p {
   padding-top: 10px;
   padding-left: 8px;
+  padding-right: 8px;
   font-size: 12px;
 }
 

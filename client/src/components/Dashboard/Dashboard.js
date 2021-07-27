@@ -15,8 +15,8 @@ const Dashboard = (history) => {
     <div className='dashboard'>
       <div className='db-text'>
         <h1>Dashboard</h1>
-        <h2>New People</h2>
-        <h3>New Projects</h3>
+        <h2>New Projects</h2>
+        <h3>New People</h3>
       </div>
         <ActionsView />
         <ProfileView />

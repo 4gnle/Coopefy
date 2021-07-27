@@ -14,9 +14,11 @@ const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
     <ul>
       <div className="general-links">
 
-          <Link to='/people'><i className= "fas fa-users fa-fw"/><span> People</span></Link>
+          <Link to='/dashboard'><i class="fas fa-columns"></i><span> Dashboard</span></Link>
 
           <Link to='/projects'><i className= "fas fa-tools fa-fw"/><span> Projects</span></Link>
+
+          <Link to='/people'><i className= "fas fa-users fa-fw"/><span> People</span></Link>
 
           <Link to='/about'><i className="fas fa-book-open"/><span> About</span></Link>
 
