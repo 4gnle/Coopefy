@@ -53,27 +53,29 @@
 }
 
 .pv-menu {
-  position: absolute;
-  height: auto;
-  width: 50%;
-  left: 75px;
-  box-shadow: 0 2px 12px grey;
-  background: #C4C4C4;
-  background-color: white;
-  border-radius: 18px;
-  border-top: 1px solid transparent;
+    /* display: none; */
+    position: absolute;
+    height: auto;
+    width: 50%;
+    left: 75px;
+    top: 215px;
+    box-shadow: 0 2px 12px grey;
+    background: #C4C4C4;
+    background-color: white;
+    border-radius: 18px;
 }
 
-.pv-menu::before {
-    display: block;
-    content: "";
+.pv-menu:before {
+    position: absolute;
+    left: 43%;
+    top: -10px;
     width: 0;
     height: 0;
-    border: solid transparent;
-    border-width: 10px;
-    border-bottom-color: black;
-    z-index: 0;
-}
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+  }
 
 .pv-menu-button1 {
   width: 100%;
@@ -124,10 +126,11 @@
 }
 
 .pv-bio-box p {
-  padding-top: 10px;
+  padding-top: 6px;
   padding-left: 8px;
   padding-right: 8px;
-  font-size: 12px;
+  font-size: 13px;
+  font-family: inherit;
 }
 
 .pv-links {

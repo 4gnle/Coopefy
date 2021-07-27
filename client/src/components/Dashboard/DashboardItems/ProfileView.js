@@ -12,26 +12,29 @@ const ProfileView = () => {
 
   const wrapper = useRef(null);
 
-  const showMenu = () => {
-
-    if (!useMenu) {
-      setUseMenu(true);
-    } else {
-      setUseMenu(false)
-    }
+  const hideMenu = () =>{
+    setUseMenu(false);
   }
 
   useEffect(() => {
      const handleClickOutside = (event) => {
          if (wrapper.current && !wrapper.current.contains(event.target)) {
-           showMenu();
+           hideMenu();
          }
      }
      document.addEventListener("mousedown", handleClickOutside);
      return () => {
          document.removeEventListener("mousedown", handleClickOutside);
      };
- }, [wrapper, showMenu]);
+ }, [wrapper, hideMenu]);
+
+ const showMenu = () => {
+   if (!useMenu) {
+     setUseMenu(true);
+   } else {
+     setUseMenu(false)
+   }
+ }
 
   const editProfile = () => {
     window.location.href='/edit-profile'
