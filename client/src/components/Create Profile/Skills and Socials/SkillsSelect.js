@@ -22,24 +22,8 @@ const SkillsSelect = (props) => {
       {id: 'UI/UX', name: 'UI/UX'}
   ]
 
-  const { search } = window.location;
-  const query = new URLSearchParams(search).get('s');
-
-  const filterSkills = (skills, query) => {
-      if (!query) {
-          return skills;
-      }
-
-      return skills.filter((skill) => {
-          const skillName = skill.name.toLowerCase();
-          return skillName.includes(query);
-      });
-  };
-
-  const filteredSkills = filterSkills(skills, query);
-
   const addSKills = () => {
-    console.log(skills)
+    console.log(searchSkills)
   }
 
   const selectSkill = (e) => {
@@ -72,7 +56,13 @@ const SkillsSelect = (props) => {
         </form>
 
         <div className='skills-list'>
-          {filteredSkills.map((skill) => (
+          {skills.filter((skill) => {
+            if (searchSkills == '') {
+              return skill
+            } else if (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
+              return skill
+            }
+          }).map((skill) => (
              <button
               className='skills-badge'
               key={skill.id}
@@ -97,7 +87,6 @@ const SkillsSelect = (props) => {
             Cancel
           </Button>
         </div>
-
       </div>
     </div>
   </div>
