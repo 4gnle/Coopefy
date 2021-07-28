@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 
 //UI CSS
 import './SkillsSelect.css'
@@ -7,6 +7,8 @@ import './SkillsSelect.css'
 import Button from '../../UI/Button'
 
 const SkillsSelect = (props) => {
+
+  const [searchSkills, setSearchSkills] = useState('')
 
   const skills = [
       {id: 'Marketing', name: 'Marketing'},
@@ -23,7 +25,7 @@ const SkillsSelect = (props) => {
   const { search } = window.location;
   const query = new URLSearchParams(search).get('s');
 
-  const filterPosts = (skills, query) => {
+  const filterSkills = (skills, query) => {
       if (!query) {
           return skills;
       }
@@ -34,8 +36,14 @@ const SkillsSelect = (props) => {
       });
   };
 
+  const filteredSkills = filterSkills(skills, query);
+
   const addSKills = () => {
     console.log(skills)
+  }
+
+  const selectSkill = (e) => {
+    console.log(e)
   }
 
   return (
@@ -53,26 +61,24 @@ const SkillsSelect = (props) => {
           Search Skills
           </label>
           <input
+            value={searchSkills}
+            onInput={e => setSearchSkills(e.target.value)}
             className='skills-search'
             type="text"
             id="header-search"
             placeholder="Write your desired skill"
             name="s"
           />
-          {' '}
-          <Button
-            className='small'
-            type="submit">
-            Search
-          </Button>
         </form>
 
         <div className='skills-list'>
-          {skills.map((skill) => (
+          {filteredSkills.map((skill) => (
              <button
               className='skills-badge'
-              key={skill.id}>{skill.name}
-
+              key={skill.id}
+              onClick={e => selectSkill(skill.name)}
+              >
+              {skill.name}
             </button>
           ))}
         </div>
