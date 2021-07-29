@@ -1,4 +1,5 @@
 import React , {useState} from 'react'
+import {skillList} from './SkillList'
 
 //UI CSS
 import './SkillsSelect.css'
@@ -8,27 +9,33 @@ import Button from '../../UI/Button'
 
 const SkillsSelect = (props) => {
 
-  const [searchSkills, setSearchSkills] = useState('')
+  const [searchSkills, setSearchSkills] = useState('');
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [skillConfirm, setSkillConfirm] = useState(false)
 
-  const skills = [
-      {id: 'Marketing', name: 'Marketing'},
-      {id: 'Content Writing', name: 'Content Writing'},
-      {id: 'SEO', name: 'SEO'},
-      {id: 'Web Development', name: 'Web Development'},
-      {id: 'Solidity', name: 'Solidity'},
-      {id: 'Community', name: 'Community'},
-      {id: 'VR/AR', name: 'VR/AR'},
-      {id: 'Social Media', name: 'Social Media'},
-      {id: 'UI/UX', name: 'UI/UX'}
-  ]
+  const skills = skillList;
 
   const addSKills = () => {
-    console.log(searchSkills)
+    console.log(selectedSkills);
   }
 
   const selectSkill = (e) => {
-    console.log(e)
-  }
+    setSelectedSkills(prevSkills => {
+      const updatedSkills = [...prevSkills];
+      updatedSkills.unshift({skill: e, id: Math.random().toString() });
+      return updatedSkills;
+    }
+  )
+  setSkillConfirm(true);
+}
+
+const deleteSkills = (e) => {
+  setSelectedSkills(prevSkills => {
+    const updatedSkills = prevSkills.filter(skill => skill.id !== e);
+    return updatedSkills;
+  });
+  console.log(selectedSkills)
+};
 
   return (
   <div>
@@ -72,6 +79,19 @@ const SkillsSelect = (props) => {
             </button>
           ))}
         </div>
+
+        {skillConfirm ?
+        <div className="selected-skills">
+          <h3>Selected Skills</h3>
+          {selectedSkills.length > 0 && selectedSkills.map(skill =>
+            <button
+              className='selected-skill-badge'
+              onClick={e => deleteSkills(e)}
+            >{skill.skill}
+            </button>)}
+        </div>
+        : null
+        }
 
         <div className='skills-buttons'>
           <Button
