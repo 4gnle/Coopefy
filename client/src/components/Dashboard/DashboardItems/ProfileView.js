@@ -26,7 +26,7 @@ const ProfileView = () => {
      return () => {
          document.removeEventListener("mousedown", handleClickOutside);
      };
- }, [wrapper, hideMenu]);
+ }, [wrapper]);
 
  const showMenu = () => {
    if (!useMenu) {

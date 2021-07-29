@@ -4,23 +4,27 @@ import React, {useState} from 'react'
 import './SkillsandSocials.css'
 
 //Components
-import SocialsSelect from './SocialsSelect'
+import LinksSelect from './LinksSelect'
 import SkillsSelect from './SkillsSelect'
 
 // UI
 import Button from '../../UI/Button'
 
 //Router
-import {Link} from 'react-router'
+// import {Link} from 'react-router'
 
 const SocialLinks = () => {
 
-  const [changeSocials, setChangeSocials] = useState(false);
+  const [changeLinks, setChangeLinks] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
 
-  const selectSocials = () => {
-    setChangeSocials(true);
+  const selectLinks = () => {
+    setChangeLinks(true);
+  }
+
+  const unSelectLinks = () => {
+    setChangeLinks(false);
   }
 
   const selectSkills = () => {
@@ -37,9 +41,10 @@ const SocialLinks = () => {
 
         <label>Social Links{' '}      <Button
           className='small'
+          onClick={selectLinks}
         >Edit+</Button></label>
 
-        {changeSocials && <SocialsSelect />}
+        {changeLinks && <LinksSelect unSelectLinks={unSelectLinks}/>}
 
         <div className='social-icons'>
           <i className="fab fa-product-hunt"></i>

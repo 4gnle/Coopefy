@@ -6,7 +6,7 @@ import {
 } from './types'
 
 import {setAlert} from './alert'
-import authToken from '../utilities/authToken'
+// import authToken from '../utilities/authToken'
 import api from '../utilities/api'
 
 //Send Profile Image
@@ -71,7 +71,7 @@ export const getProfileImage = (id) => async dispatch => {
 // Delete profile image
 export const deleteImage = () => async dispatch => {
 
-    const res = await api.delete('/profile/image/');
+    await api.delete('/profile/image/');
 
     dispatch({
       type: DELETE_IMAGE,

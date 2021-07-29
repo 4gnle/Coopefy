@@ -63,7 +63,7 @@ const deleteSkills = (e) => {
 
         <div className='skills-list'>
           {skills.filter((skill) => {
-            if (searchSkills == '') {
+            if (searchSkills === '') {
               return skill
             } else if (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
               return skill

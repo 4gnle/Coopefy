@@ -95,8 +95,10 @@
   background-color: red !important;
 }
 
-.skills-buttons {
-  margin: 10px;
+.skills-buttons button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
 }
 
 .skills-badge {
