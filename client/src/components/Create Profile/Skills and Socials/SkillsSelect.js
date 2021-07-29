@@ -33,8 +33,7 @@ const deleteSkills = (e) => {
   setSelectedSkills(prevSkills => {
     const updatedSkills = prevSkills.filter(skill => skill.id !== e);
     return updatedSkills;
-  });
-  console.log(selectedSkills)
+  })
 };
 
   return (
@@ -86,7 +85,7 @@ const deleteSkills = (e) => {
           {selectedSkills.length > 0 && selectedSkills.map(skill =>
             <button
               className='selected-skill-badge'
-              onClick={e => deleteSkills(e)}
+              onClick={e => deleteSkills(skill.id)}
             >{skill.skill}
             </button>)}
         </div>
