@@ -8,8 +8,21 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
+.links-select {
+  position: fixed;
+  left: 250px;
+  top: 10px;
+  width: auto;
+  margin: 5rem 3rem;
+  padding: 3rem;
+  z-index: 100;
+  overflow: hidden;
+}
+
 .links-box {
   float: center;
+  left: 250px;
+  top: 50px;
   width: 550px;
   height: auto;
   background-color: white;
@@ -23,23 +36,12 @@
  font-size: 20px !important;
 }
 
-.links-box  header {
+.links-box header {
  background: gray;
  padding: 1rem;
  font-size: 15px;
  font-weight: bold;
  color: white;
-}
-
-.links-select {
-  position: fixed;
-  left: auto;
-  top: auto;
-  width: 500px;
-  margin: 5rem 3rem;
-  padding: 3rem;
-  z-index: 100;
-  overflow: hidden;
 }
 
 .links p {
@@ -50,22 +52,35 @@
   font-size: 20px;
 }
 
+.links-inputs {
+  display: table;
+  margin-top: 10px;
+}
+
 .links-inputs input {
   border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
-  width: 100%;
-  height: 53px;
+  width: 60%;
+  height: 40px;
   left: 350px;
   font-size: 20px;
   font-family: 'Nunito';
   font: 20px 'Nunito';
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 .links-inputs i {
-  font-size: 30px;
+  font-size: 40px;
   margin-right: 10px;
+  vertical-align: middle;
+}
+
+.links-inputs small {
+  font-size: 10px;
+  text-align: center !important;
+  margin-bottom: 10px;
 }
 
 .links-input header {
@@ -89,9 +104,8 @@
   transition: all 0.5s ease;
 }
 
-.links button:hover {
-  background-color: black;
-  color: white;
+.links-buttons button {
+  margin: 5px;
 }
 
 @media (max-width: 768px) {
@@ -125,7 +139,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     width: 50%;
-    height: auto;
+    height: 28px;
     font-size: 15px;
     padding: 5px;
   }
