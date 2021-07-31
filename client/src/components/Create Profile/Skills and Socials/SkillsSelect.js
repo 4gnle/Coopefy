@@ -67,7 +67,7 @@ const deleteSkills = (e) => {
               return skill
             } else if (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
               return skill
-            }
+            } {return false} 
           }).map((skill) => (
              <button
               className='skills-badge'

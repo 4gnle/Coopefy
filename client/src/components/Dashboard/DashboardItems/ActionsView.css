@@ -52,7 +52,7 @@
   background-color: black;
 }
 
-@media (max-width: 1480px) {
+@media (max-width: 768px) {
   .av-box {
     left: 600px;;
     top: 150px;

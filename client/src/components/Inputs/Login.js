@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 
 // import GoogleLogin from 'react-google-login'
 
@@ -35,6 +35,8 @@ const [validData, setValidData] = useState(false);
 
 const {username, email, password} = formData;
 
+const loginDataAdded = useRef(false)
+
 useEffect(() => {
   setTimeout(() => {
     if (password.trim().length >= 8) {
@@ -45,17 +47,22 @@ useEffect(() => {
 }, [password])
 
 useEffect(() => {
-  setTimeout(() => {
-    const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const usernameRegex = /^[a-zA-Z0-9][\w-]+$/;
+  if (!loginDataAdded.current) {
+    setTimeout(() => {
+      const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      const usernameRegex = /^[a-zA-Z0-9][\w-]+$/;
 
-    if (emailRegex.test(userOrEmail)) {
-      setFormData({ ...formData, email: userOrEmail });
-    } else if (usernameRegex.test(userOrEmail)) {
-      setFormData({ ...formData, username: userOrEmail});
-    }
-}, [50]);
-}, [userOrEmail]);
+      if (emailRegex.test(userOrEmail)) {
+        setFormData({ ...formData, email: userOrEmail });
+      } else if (usernameRegex.test(userOrEmail)) {
+        setFormData({ ...formData, username: userOrEmail});
+      }
+
+      loginDataAdded.current = true;
+  }, [50]);
+}
+//eslint-disable-next-line react-hooks/exhaustive-deps
+}, [userOrEmail, formData]);
 
 const checkValidity = () => {
   setValidData(true)
@@ -67,6 +74,7 @@ setUserOrEmail(e.target.value);
 
 const onChange = (e) => {
 setFormData({ ...formData, [e.target.name]: e.target.value });
+loginDataAdded.current = false;
 }
 
 const onSubmit = (event) => {
