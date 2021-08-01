@@ -56,13 +56,13 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .bottom-section .socials {
-    margin-top: -15px;
+    margin-top: auto;
   }
 
   .bottom-section .socials label {
-    font-size: 12px;
+    font-size: 1.2vw;
   }
 
   .social-icons {
@@ -79,11 +79,11 @@
   }
 
   .bottom-section .skills {
-    margin-top: -15px;
+    margin-top: auto;
   }
 
   .bottom-section .skills label {
-    font-size: 12px;
+    font-size: 1.2vw;
     margin-right: 15px;
   }
 
@@ -95,6 +95,48 @@
 
   .skills-text p {
     font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bottom-section .socials {
+    margin-top: auto;
+  }
+
+  .bottom-section .socials label {
+    font-size: 1.5vw;
+  }
+
+  .social-icons {
+    max-width: 80%;
+    margin-left: -15px;
+  }
+
+  .social-icons i {
+    font-size: 3vw;
+  }
+
+  .social-icons i.fa-product-hunt {
+    font-size: 3vw;
+  }
+
+  .bottom-section .skills {
+    margin-top: auto;
+  }
+
+  .bottom-section .skills label {
+    font-size: 1.5vw;
+    margin-right: 15px;
+  }
+
+  .skills-text {
+    grid-auto-rows: 1.3em;
+    margin-right: 10px;
+    margin-top: 1px;
+  }
+
+  .skills-text p {
+    font-size: 1.3vw;
   }
 }
 

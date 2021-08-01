@@ -113,7 +113,7 @@
   }
 
   .createprofile-top-inputs label {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     font-weight: bold;
     float:left;
   }
@@ -124,12 +124,12 @@
   }
 
   .createprofile-top-inputs-name input {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     padding: 5px;
   }
 
   .createprofile-top-inputs-status select {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     padding: 5px;
   }
 
@@ -139,19 +139,19 @@
   }
 
   .createprofile-bottom-inputs label {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     font-weight: bold;
     float:left;
   }
 
   .createprofile-bottom-inputs input {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     padding: 5px;
     margin-bottom: 5px;
   }
 
   .createprofile-bottom-inputs textarea {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     padding: 5px;
     margin-bottom: 5px;
     height: 25%;
