@@ -51,7 +51,6 @@
   margin-top: -15px;
 }
 
-
 .button-image:hover {
   background: white;
   color: black;
@@ -65,8 +64,8 @@
   .image-upload__preview {
     margin-bottom: 0.5rem;
     margin-left: 30px;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
 
   .image-upload__preview img {
@@ -78,11 +77,16 @@
 
   .buttons {
     margin-left: 40px;
+    margin-top: -10px;
     float: left;
   }
 
+.buttons button {
+  padding: 0.3rem 0.5rem;
+}
+
   .button-image {
-    padding: 3.5rem;
+    padding: 3rem;
   }
 }
 

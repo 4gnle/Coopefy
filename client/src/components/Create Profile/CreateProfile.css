@@ -1,5 +1,5 @@
 .createprofile-edit-box {
-  height: 700px;
+  height: auto;
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -134,7 +134,7 @@
   }
 
   .createprofile-bottom-inputs {
-    margin-top: 0px;
+    margin-top: 30px;
     float: center;
   }
 
