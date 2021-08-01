@@ -50,32 +50,6 @@
   color: black;
 }
 
-.button-image {
-  border: black;
-  padding: 5rem;
-  width: 60px;
-  height: 60px;
-  border-radius: 180px;
-  background: #000000;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-}
-
-.button-image i {
-  margin-left: -5px;
-  margin-top: -15px;
-}
-
-
-.button-image:hover {
-  background: white;
-  color: black;
-  transition: all 0.5s ease;
-  float: center;
-  text-align: center;
-}
-
 .bad {
   font: inherit;
   cursor: pointer;
@@ -114,15 +88,6 @@ button:active:disabled {
     padding: 0.6rem 1.1rem;
   }
 
-  .button-image {
-    padding: 4.7rem;
-  }
-
-  .button-image i {
-    margin-left: -5px;
-    margin-top: -15px;
-  }
-
   .bad {
     padding: 0.6rem 1.1rem;
   }
@@ -137,17 +102,6 @@ button:active:disabled {
 
   .primary {
     padding: 0.6rem 1.1rem;
-  }
-
-  .button-image {
-    padding: 4rem;
-    width: 60px;
-    height: 60px;
-  }
-
-  .button-image i {
-    margin-left: -5px;
-    margin-top: -15px;
   }
 
   .bad {
@@ -165,18 +119,6 @@ button:active:disabled {
     font: inherit;
     padding: 0.5rem 0.8rem;
   }
-
-  .button-image {
-    padding: 4rem;
-    width: 60px;
-    height: 60px;
-  }
-
-  .button-image i {
-    margin-left: -5px;
-    margin-top: -15px;
-  }
-
 
   .bad {
     padding: 0.5rem 0.8rem;
@@ -196,16 +138,6 @@ button:active:disabled {
   .primary:hover {
     background-color: lightgreen;
     color: black;
-  }
-
-  .button-image {
-    padding: 3.5rem;
-    width: 60px;
-    height: 60px;
-  }
-
-  .button-image i {
-    margin-left: -5px;
   }
 
   .bad {
@@ -230,11 +162,6 @@ button:active:disabled {
     padding: 0.25rem 0.5rem;
   }
 
-  .button-image {
-    padding: 2.5rem;
-    width: 60px;
-    height: 60px;
-  }
 }
 
 @media (max-width: 380px) {
@@ -253,11 +180,4 @@ button:active:disabled {
   .bad {
     padding: 0.15rem 0.25rem;
   }
-
-  .button-image {
-    padding: 2.5rem;
-    width: 60px;
-    height: 60px;
-  }
-
 }

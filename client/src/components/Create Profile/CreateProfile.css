@@ -1,8 +1,9 @@
 .createprofile-edit-box {
-  /* display: block; */
-  height: 70%;
-  max-width: 80%;
-  margin: auto;
+  top: 10px;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 2px 12px grey;
@@ -14,12 +15,9 @@
 }
 
 .createprofile-top-inputs label {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.createprofile-bottom-inputs label {
-  font-size: 20px;
+  font-size: 1vw;
+  margin-left: 15px;
+  margin-bottom: -13px;
   font-weight: bold;
   float:left;
 }
@@ -27,36 +25,44 @@
 .createprofile-top-inputs {
   float: right;
   margin-right: 150px;
-  margin-top: -200px;
+  margin-top: -150px;
 }
 
 .createprofile-top-inputs-name input {
   border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
-  width: 120%;
-  height: 60px;
-  font-size: 20px;
+  width: 100%;
+  height: 25%;
+  font-size: 1vw;
   font-family: 'Nunito';
-  font: 20px 'Nunito';
+  font: 1vw 'Nunito';
   padding: 5px;
+  float: left;
 }
 
 .createprofile-top-inputs-status select {
+  display: inline-block;
   border-radius: 6px;
   border: 1px solid #000000;
   box-sizing: border-box;
-  width: 120%;
-  height: 60px;
-  font-size: 20px;
+  width: 100%;
+  height: 25%;
+  font-size: 1vw;
   font-family: 'Nunito';
-  font: 20px 'Nunito';
+  font: 1vw 'Nunito';
   padding: 5px;
 }
 
 .createprofile-bottom-inputs {
-  margin-top: 90px;
+  margin-top: 50px;
   float: center;
+}
+
+.createprofile-bottom-inputs label {
+  font-size: 1vw;
+  font-weight: bold;
+  float:left;
 }
 
 .createprofile-bottom-inputs input {
@@ -65,11 +71,11 @@
   box-sizing: border-box;
   margin-bottom: 20px;
   width: 100%;
-  height: 53px;
+  height: 25%;
   left: 350px;
-  font-size: 20px;
+  font-size: 1vw;
   font-family: 'Nunito';
-  font: 20px 'Nunito';
+  font: 1vw 'Nunito';
   padding: 5px;
 }
 
@@ -81,11 +87,11 @@
   border: 1px solid #000000;
   box-sizing: border-box;
   width: 100%;
-  height: 100px;
+  height: 35%;
   left: 350px;
-  font-size: 20px;
+  font-size: 1vw;
   font-style: 'Nunito';
-  font: 20px 'Nunito';
+  font: 1vw 'Nunito';
   padding: 5px;
 }
 
@@ -95,510 +101,188 @@
   left: 150px;
   display: inline-block;
 }
-
-@media (max-width: 1440px) {
+@media (max-width: 1080px) {
   .createprofile-edit-box {
-    width: 40%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 12px grey;
+    background: #C4C4C4;
+    border-radius: 28px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
     height: auto;
-    left: 350px;
-    top: 50px;
+  }
+
+  .createprofile-top-inputs label {
+    font-size: 1.5vw;
+    font-weight: bold;
+    float:left;
   }
 
   .createprofile-top-inputs {
-    margin-top: -90px;
-    margin-right: 50px;
-   }
-
-  .createprofile-top-inputs label {
-     display: block;
-     position: absolute;
-     font-size: 12px;
-   }
+    margin-right: 20px;
+    margin-top: -130px;
+  }
 
   .createprofile-top-inputs-name input {
-    width: 200px;
-    height: 35px;
-    right: 10px;
-    font-size: 12px;
+    font-size: 1.5vw;
     padding: 5px;
   }
 
   .createprofile-top-inputs-status select {
-    width: 200px;
-    height: 35px;
-    right: 10px;
-    font-size: 12px;
+    font-size: 1.5vw;
     padding: 5px;
   }
 
   .createprofile-bottom-inputs {
-    margin-bottom: 10px;
-    margin-top: 80px;
+    margin-top: 0px;
+    float: center;
   }
 
   .createprofile-bottom-inputs label {
-    font-size: 12px;
-    margin-top: -10px;
+    font-size: 1.5vw;
+    font-weight: bold;
+    float:left;
   }
 
   .createprofile-bottom-inputs input {
-    margin-top: 5px;
-    width: 100%;
-    height: 40px;
-    margin-left: 0px;
-    font-size: 12px;
+    font-size: 1.5vw;
+    padding: 5px;
+    margin-bottom: 5px;
   }
 
   .createprofile-bottom-inputs textarea {
-    margin-top: 5px;
-    border-radius: 6px;
-    margin-left: 0px;
-    width: 100%;
-    height: 60px;
-    font-size: 12px;
+    font-size: 1.5vw;
+    padding: 5px;
+    margin-bottom: 5px;
+    height: 50px;
+  }
+
+  .createprofile-buttons {
+    bottom: -10px;
+    left: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .createprofile-edit-box {
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 12px grey;
+    background: #C4C4C4;
+    border-radius: 28px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .createprofile-top-inputs label {
+    font-size: 1.5vw;
+    font-weight: bold;
+    float:left;
+  }
+
+  .createprofile-top-inputs {
+    float: right;
+    margin-right: 20px;
+    margin-top: -120px;
+  }
+
+  .createprofile-top-inputs-name input {
+    font-size: 1.5vw;
+    padding: 5px;
+  }
+
+  .createprofile-top-inputs-status select {
+    font-size: 1.5vw;
+    padding: 5px;
+  }
+
+  .createprofile-bottom-inputs {
+    margin-top: 50px;
+    float: center;
+  }
+
+  .createprofile-bottom-inputs label {
+    font-size: 1.5vw;
+    font-weight: bold;
+    float:left;
+  }
+
+  .createprofile-bottom-inputs input {
+    font-size: 1.5vw;
+    padding: 5px;
+  }
+
+  .createprofile-bottom-inputs textarea {
+    font-size: 1.5vw;
     padding: 5px;
   }
 
   .createprofile-buttons {
     bottom: -10px;
-    left: -150px;
-  }
-
-}
-
-@media (max-width: 1280px) {
-  .createprofile-edit-box {
-    width: 50%;
-    height: auto;
-    left: 250px;
-    top: 50px;
-  }
-
-  .createprofile-top-inputs {
-    margin-top: -90px;
-    margin-right: 50px;
-   }
-
-   .createprofile-top-inputs label {
-     display: block;
-     position: absolute;
-     font-size: 12px;
-   }
-
-  .createprofile-top-inputs-name input {
-    width: 200px;
-    height: 35px;
-    right: 10px;
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status select {
-    width: 200px;
-    height: 35px;
-    right: 10px;
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    margin-bottom: 10px;
-    margin-top: 80px;
-  }
-
-  .createprofile-bottom-inputs label {
-    font-size: 12px;
-    margin-top: -10px;
-  }
-
-  .createprofile-bottom-inputs input {
-    margin-top: 5px;
-    width: 100%;
-    height: 40px;
-    margin-left: 0px;
-    font-size: 12px;
-  }
-
-  .createprofile-bottom-inputs textarea {
-    margin-top: 5px;
-    border-radius: 6px;
-    margin-left: 0px;
-    width: 100%;
-    height: 60px;
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .createprofile-buttons {
-      bottom: -10px;
-      left: -25px;
-  }
-}
-
-@media (max-width: 1180px) {
-  .createprofile-edit-box {
-    width: 50%;
-    height: auto;
-    left: 175px;
-    top: 50px;
-  }
-
-  .createprofile-top-inputs label {
-    position: absolute;
-    font-size: 12px;
-    margin-top: -10px;
-    margin-left: 10px;
-  }
-
-  .createprofile-top-inputs {
-    margin-top: -100px;
-    float: right;
-    margin-right: 20px;
-  }
-
-  .createprofile-top-inputs-name input {
-    width: 90%;
-    margin-bottom: 20px;
-    height: 35px;
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status select {
-    width: 90%;
-    height: 35px;
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    margin-top: 5px;
-    float: right;
-  }
-
-  .createprofile-bottom-inputs label {
-    margin-top: -5px;
-    font-size: 12px;
-  }
-
-  .createprofile-bottom-inputs input {
-    margin-top: 0.5px;
-    margin-bottom: 15px;
-    width: 100%;
-    height: 35px;
-    margin-left: -5px;
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs textarea {
-    resize: none;
-    border-radius: 6px;
-    background: white;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    margin-left: -5px;
-    margin-bottom: 15px;
-    margin-top: 0.5px;
-    width: 100%;
-    height: 60px;
-    font-size: 12px;
-    padding: 5px;
-  }
-  .createprofile-profile-buttons {
-
-  }
-
-  .createprofile-buttons {
-
-  }
-
-}
-
-@media (max-width: 768px) {
-  .createprofile-edit-box {
-    max-width: 70%;
-    width: 50%;
-    height: auto;
     left: 150px;
-    top: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .createprofile-edit-box {
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 12px grey;
+    background: #C4C4C4;
+    border-radius: 28px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .createprofile-top-inputs label {
+    font-size: 2.5vw;
+    font-weight: bold;
+    float:left;
+  }
+
+  .createprofile-bottom-inputs label {
+    font-size: 2.5vw;
+    font-weight: bold;
+    float:left;
   }
 
   .createprofile-top-inputs {
-    margin-top: -110px;
     float: right;
-    margin-right: 25px;
-  }
-
-  .createprofile-top-inputs label {
-    position: absolute;
-    font-size: 10px;
-    z-index: 1;
+    margin-right: 150px;
+    margin-top: -140px;
   }
 
   .createprofile-top-inputs-name input {
-    width: 90%;
-    height: 30px;
-    font-size: 10px;
+    font-size: 2.5vw;
     padding: 5px;
   }
 
   .createprofile-top-inputs-status select {
-    width: 90%;
-    height: 30px;
-    font-size: 10px;
+    font-size: 2.5vw;
     padding: 5px;
   }
 
   .createprofile-bottom-inputs {
-    margin-top: 10px;
+    margin-top: 50px;
     float: center;
   }
 
-  .createprofile-bottom-inputs label {
-    margin-top: -5px;
-    font-size: 10px;
-    float:left;
-  }
-
   .createprofile-bottom-inputs input {
-    margin-top: 0.5px;
-    width: 100%;
-    height: 35px;
-    margin-left: -5px;
-    font-size: 10px;
+    font-size: 2.5vw;
     padding: 5px;
   }
 
   .createprofile-bottom-inputs textarea {
-    resize: none;
-    border-radius: 6px;
-    background: white;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    margin-left: -5px;
-    width: 100%;
-    height: 60px;
-    font-size: 10px;
+    font-size: 2.5vw;
     padding: 5px;
   }
 
   .createprofile-buttons {
-
-  }
-}
-
-@media (max-width: 580px) {
-  .createprofile-edit-box {
-    width: 65%;
-    height: auto;
-    left: 40px;
-    top: 20px;
-  }
-
-  .createprofile-top-inputs label {
-    margin-left: 25px;
-    font-size: 9px;
-    z-index: 1;
-  }
-
-  .createprofile-bottom-inputs label {
-    font-size: 9px;
-    float:left;
-    margin-left: -5px;
-  }
-
-  .createprofile-top-inputs {
-    margin-right: -35px;
-  }
-
-  .createprofile-top-inputs-name input {
-    width: 70%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status select {
-    width: 70%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    float: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .createprofile-bottom-inputs input {
-    margin-bottom: 15px;
-    width: 100%;
-    height: 25px;
-    margin-left: -10px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs textarea {
-    margin-bottom: 15px;
-    margin-top: 7px;
-    resize: none;
-    border-radius: 6px;
-    background: white;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    margin-left: -20px;
-    width: 100%;
-    height: 45px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-buttons {
-
-  }
-
-}
-
-@media (max-width: 380px) {
-  .createprofile-edit-box {
-    width: 300px;
-    height: auto;
-    left: 25px;
-    top: 10px;
-  }
-
- .createprofile-top-inputs label {
-    position:absolute;
-    font-size: 9px;
-    margin-top: -5px;;
-  }
-
-  .createprofile-bottom-inputs label {
-    font-size: 9px;
-    float:left;
-    margin-left: -5px;
-  }
-
-  .createprofile-top-inputs {
-   margin-right: -30px;
-   margin-top: -90px;
-   position: static;
-  }
-
-  .createprofile-top-inputs-name input {
-    width: 70%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status select {
-    width: 70%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    float: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .createprofile-bottom-inputs input {
-    margin-bottom: 15px;
-    margin-left: -10px;
-    width: 100%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs textarea {
-    margin-bottom: 5px;
-    margin-left: -17px;
-    resize: none;
-    border-radius: 6px;
-    width: 100%;
-    height: 45px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-buttons {
-
-  }
-}
-
-@media (max-width: 281px) {
-  .createprofile-edit-box {
-    width: 65%;
-    height: auto;
-    left: 18px;
-    top: 10px;
-  }
-
-  .createprofile-top-inputs label {
-    position:absolute;
-    margin-left: 30px;
-    font-size: 9px;
-    margin-top: -5px;;
-  }
-
-  .createprofile-bottom-inputs label {
-    font-size: 9px;
-    float:left;
-    margin-left: -5px;
-  }
-
-  .createprofile-top-inputs {
-   margin-right: -45px;
-   position: static;
-  }
-
-  .createprofile-top-inputs-name input {
-    width: 60%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status select {
-    width: 60%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    float: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .createprofile-bottom-inputs input {
-    margin-bottom: 15px;
-    margin-left: -10px;
-    width: 100%;
-    height: 25px;
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs textarea {
-    margin-bottom: 5px;
-    margin-left: -18px;
-    resize: none;
-    border-radius: 6px;
-    width: 100%;
-    height: 45px;
-    font-size: 10px;
-    padding: 5px;
-  }
-  .createprofile-buttons {
-
+    bottom: -10px;
+    left: 150px;
   }
 }
