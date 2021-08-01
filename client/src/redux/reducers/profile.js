@@ -5,8 +5,8 @@ import {
   DELETE_IMAGE,
   GET_PROFILE,
   UPDATE_PROFILE,
-  GET_PROFILES
-
+  GET_PROFILES,
+  UPDATE_FAILED
 } from '../actions/types'
 
 const initialState = {
@@ -36,6 +36,13 @@ export default function profile(state = initialState, action) {
       return {
         ...state,
         profile: payload,
+        loading: false
+      };
+
+    case UPDATE_FAILED:
+      return {
+        ...state,
+        profile: null,
         loading: false
       };
 

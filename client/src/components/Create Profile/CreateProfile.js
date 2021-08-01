@@ -6,10 +6,14 @@ import './CreateProfile.css'
 import ImageUpload from '../UI/ProfileImage'
 import SkillsandSocials from './Skills and Socials/SkillsandSocials'
 
+//Redux
+import {profileData} from '../../redux/actions/profile';
+import {connect} from 'react-redux';
+
 //UI
 import Button from '../UI/Button'
 
-const CreateProfile = ({profileImage}) => {
+const CreateProfile = ({profileData}) => {
   return (
     <div className='createprofile-edit-box'>
       <ImageUpload />
@@ -59,7 +63,7 @@ const CreateProfile = ({profileImage}) => {
           </input>
         </div>
         <div className='createprofile-skillsandsocials'>
-          <SkillsandSocials />
+          <SkillsandSocials skills={} socials={} />
         </div>
         <div className='createprofile-buttons'>
           <Button
@@ -72,6 +76,4 @@ const CreateProfile = ({profileImage}) => {
   )
 }
 
-export default CreateProfile
-
-// profileimage={formData.profileimage}
+export default connect(null, profileData)(CreateProfile)

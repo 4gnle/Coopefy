@@ -2,12 +2,52 @@ import {
   ADD_IMAGE,
   WRONG_IMAGE,
   GET_IMAGE,
-  DELETE_IMAGE
+  DELETE_IMAGE,
+  UPDATE_PROFILE,
+  UPDATE_FAILED
 } from './types'
 
 import {setAlert} from './alert'
 // import authToken from '../utilities/authToken'
 import api from '../utilities/api'
+
+//Send Profile Data
+export const profileData = (formData) => async dispatch => {
+
+    try {
+
+    const res = await api.post('/profile', formData);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data
+    });
+
+    dispatch(
+      setAlert("Profile Updated", 'success')
+    );
+
+    }catch(err) {
+
+      dispatch({
+        type: UPDATE_FAILED,
+        payload: { msg: err.response.statusText, status: err.response.status}
+      });
+
+      dispatch(
+        setAlert("Could Not Update Profile", 'danger')
+      );
+
+    console.log(err);
+
+    const errors = err.response.data.errors;
+
+    if (errors) {
+    errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+  }
+};
 
 //Send Profile Image
 export const profileImage = (formData) => async dispatch => {
