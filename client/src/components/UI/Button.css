@@ -2,7 +2,7 @@
   font: inherit;
   cursor: pointer;
   margin: 5px;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   border: 1px solid black;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   background-color: #darkgray;
@@ -19,7 +19,7 @@
 .primary {
   font: inherit;
   cursor: pointer;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 12px;
   transition: all 0.5s ease;
   border: 1px solid black;
@@ -53,7 +53,7 @@
 .bad {
   font: inherit;
   cursor: pointer;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 12px;
   transition: all 0.5s ease;
   border: 1px solid black;
@@ -78,38 +78,6 @@ button:active:disabled {
   cursor: not-allowed;
 }
 
-@media (max-width: 1440px) {
-  .button {
-    margin: 5px 5px ;
-    padding: 0.6rem 1.1rem;
-  }
-
-  .primary {
-    padding: 0.6rem 1.1rem;
-  }
-
-  .bad {
-    padding: 0.6rem 1.1rem;
-  }
-
-}
-
-@media (max-width: 1280px) {
-  .button {
-    margin: 5px 5px ;
-    padding: 0.6rem 1.1rem;
-  }
-
-  .primary {
-    padding: 0.6rem 1.1rem;
-  }
-
-  .bad {
-    padding: 0.6rem 1.1rem;
-  }
-
-}
-
 @media (max-width: 992px) {
   .button {
     padding: 0.5rem 0.8rem;
@@ -122,26 +90,6 @@ button:active:disabled {
 
   .bad {
     padding: 0.5rem 0.8rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .button {
-    padding: 0.4rem 0.7rem;
-  }
-
-  .primary {
-    padding: 0.4rem 0.7rem;
-    color: white;
-  }
-
-  .primary:hover {
-    background-color: lightgreen;
-    color: black;
-  }
-
-  .bad {
-    padding: 0.4rem 0.7rem;
   }
 }
 
@@ -162,22 +110,4 @@ button:active:disabled {
     padding: 0.25rem 0.5rem;
   }
 
-}
-
-@media (max-width: 380px) {
-  .button {
-    padding: 0.15rem 0.25rem;
-  }
-
-  .primary {
-    padding: 0.15rem 0.25rem;
-  }
-
-  .small {
-    padding: 0.1rem 0.2rem;
-  }
-
-  .bad {
-    padding: 0.15rem 0.25rem;
-  }
 }

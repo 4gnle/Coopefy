@@ -29,8 +29,9 @@
 }
 
 .buttons {
-  float: left;
+  position: absolute;
   margin-left: 60px;
+  margin-top: -15px;
 }
 
 .button-image {
