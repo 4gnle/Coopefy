@@ -10,10 +10,8 @@
 
 .links-select {
   position: fixed;
-  left: 250px;
-  top: 10px;
+  top: 100px;
   width: auto;
-  margin: 5rem 3rem;
   padding: 3rem;
   z-index: 100;
   overflow: hidden;
@@ -53,7 +51,6 @@
 }
 
 .links-inputs {
-  display: table;
   margin-top: 10px;
 }
 
