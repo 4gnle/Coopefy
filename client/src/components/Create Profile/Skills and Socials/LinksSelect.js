@@ -1,25 +1,38 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 //UI and Styles
 import './LinksSelect.css'
 import Button from '../../UI/Button'
 
 //Redux
-import {profileLinks} from '../../../redux/actions/profile';
+import {profileLinks, getProfile} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
-const LinksSelect = ({profileLinks, unSelectLinks, selectedLinks}) => {
+const initialState = {
+  twitter: '',
+  dribbble: '',
+  behance: '',
+  producthunt: '',
+  instagram: '',
+  linkedin: '',
+  facebook: '',
+  github: ''
+};
 
-  const [formData, setFormData] = useState({
-    facebook: '',
-    instagram: '',
-    github: '',
-    linkedin: '',
-    twitter: '',
-    behance: '',
-    dribbble: '',
-    producthunt: ''
-  });
+const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unSelectLinks, selectedLinks}) => {
+
+  const [formData, setFormData] = useState(initialState);
+
+  useEffect(() => {
+     if (!profile) getProfile();
+     if (!loading && profile) {
+       const profileData = { ...initialState };
+       for (const key in profile.sociallinks) {
+         if (key in profileData) profileData[key] = profile.sociallinks[key];
+       }
+       setFormData(profileData);
+     }
+   }, [loading, setFormData, profile]);
 
   const {
   github,
@@ -46,7 +59,15 @@ const LinksSelect = ({profileLinks, unSelectLinks, selectedLinks}) => {
 
       <div className='links-select'>
         <div className='links-box'>
-        <header>Add Links</header>
+
+        <header>Add Links{' '}
+        <Button
+          className='small'
+          onClick={unSelectLinks}
+          >
+            X
+        </Button></header>
+
 
           <form className='links-inputs'>
             <small>Add your ID or Username only</small>
@@ -85,7 +106,7 @@ const LinksSelect = ({profileLinks, unSelectLinks, selectedLinks}) => {
               <Button
                 className='bad'
                 onClick={unSelectLinks}>
-                Cancel
+                Close
               </Button>
             </div>
           </form>
@@ -95,4 +116,8 @@ const LinksSelect = ({profileLinks, unSelectLinks, selectedLinks}) => {
   )
 }
 
-export default connect(null, {profileLinks})(LinksSelect)
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps, {getProfile, profileLinks})(LinksSelect)

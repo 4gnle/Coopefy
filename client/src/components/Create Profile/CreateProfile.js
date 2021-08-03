@@ -37,9 +37,6 @@ useEffect(() => {
      for (const key in profile) {
        if (key in profileData) profileData[key] = profile[key];
      }
-     for (const key in profile.socialmedia) {
-       if (key in profileData) profileData[key] = profile.socialmedia[key];
-     }
      setFormData(profileData);
    }
  }, [loading, getProfile, profile]);
