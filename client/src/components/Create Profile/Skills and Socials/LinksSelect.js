@@ -32,7 +32,7 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
        }
        setFormData(profileData);
      }
-   }, [loading, setFormData, profile]);
+   }, [loading, setFormData, getProfile, profile]);
 
   const {
   github,
@@ -60,13 +60,12 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
       <div className='links-select'>
         <div className='links-box'>
 
-        <header>Add Links{' '}
+        <header>
+        Add Links{' '}
         <Button
           className='small'
-          onClick={unSelectLinks}
-          >
-            X
-        </Button></header>
+          onClick={unSelectLinks}>X</Button>
+        </header>
 
 
           <form className='links-inputs'>

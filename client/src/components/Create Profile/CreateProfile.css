@@ -95,8 +95,7 @@
 }
 
 .createprofile-buttons {
-  margin-left: 40px;
-  margin-right: auto;
+  margin-right: 200px;
   margin-top: 110px;
 }
 @media (max-width: 1080px) {
@@ -158,8 +157,8 @@
   }
 
   .createprofile-buttons {
-    bottom: -10px;
-    left: 150px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -219,8 +218,9 @@
   }
 
   .createprofile-buttons {
-    bottom: -10px;
-    left: 150px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

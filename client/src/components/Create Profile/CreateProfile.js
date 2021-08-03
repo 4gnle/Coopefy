@@ -28,8 +28,6 @@ profileData}) => {
 
 const [formData, setFormData] = useState(initialState);
 
-const [displaySocialInputs, toggleSocialInputs] = useState(false);
-
 useEffect(() => {
    if (!profile) getProfile();
    if (!loading && profile) {
@@ -80,11 +78,11 @@ useEffect(() => {
           onChange={e => onChange(e)}
           value={status}
           >
-            <option value="looking">Looking</option>
-            <option value="building">Building</option>
-            <option value="collaborating">Collaborating</option>
-            <option value="learning">Learning</option>
-            <option value="teaching">Teaching</option>
+            <option value="Looking">Looking</option>
+            <option value="Building">Building</option>
+            <option value="Collaborating">Collaborating</option>
+            <option value="Learning">Learning</option>
+            <option value="Teaching">Teaching</option>
           </select>
         </div>
       </div>
@@ -92,11 +90,11 @@ useEffect(() => {
       <div className='createprofile-bottom-inputs'>
         <label>Bio</label>
           <textarea
-          maxLength='50'
+          maxLength='250'
           cols="30"
           rows="5"
           type='text'
-          placeholder='Write about yourself (50 characters)'
+          placeholder='Write about yourself (250 characters)'
           className=''
           onChange={e => onChange(e)}
           value={bio}
