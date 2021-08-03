@@ -49,6 +49,44 @@ export const profileData = (formData) => async dispatch => {
   }
 };
 
+//Send Profile Lins
+export const profileLinks = (formData) => async dispatch => {
+
+    try {
+
+    const res = await api.post('/profile/links', formData);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data
+    });
+
+    dispatch(
+      setAlert("Links Updated", 'success')
+    );
+
+    }catch(err) {
+
+      dispatch({
+        type: UPDATE_FAILED,
+        payload: { msg: err.response.statusText, status: err.response.status}
+      });
+
+      dispatch(
+        setAlert("Could Not Update Links", 'danger')
+      );
+
+    console.log(err);
+
+    const errors = err.response.data.errors;
+
+    if (errors) {
+    errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+  }
+};
+
 //Send Profile Image
 export const profileImage = (formData) => async dispatch => {
 

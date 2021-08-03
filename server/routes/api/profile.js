@@ -64,7 +64,7 @@ router.post('/', [auth],
   check('status', 'Status is required')
     .not()
     .isEmpty(),
-  check('skills', 'Skills is required')
+  check('name', 'Name is required')
     .not()
     .isEmpty()
 ],
@@ -85,13 +85,9 @@ router.post('/', [auth],
 
     const {
     status,
+    name,
     skills,
     website,
-    twitter,
-    facebook,
-    instagram,
-    youtube,
-    linkedin,
     ...rest
   } = req.body;
 
@@ -108,15 +104,73 @@ router.post('/', [auth],
      ...rest
    };
 
-   // Build socialFields object
-   const socialfields = { youtube, twitter, instagram, linkedin, facebook };
-   profileFields.socialmedia = socialfields;
-
    try {
      // Using upsert option (creates new doc if no match is found):
      let profile = await Profile.findOneAndUpdate(
        { user: req.user.id },
        { $set: profileFields },
+       { new: true, upsert: true, setDefaultsOnInsert: true }
+     );
+     return res.json(profile);
+   } catch (err) {
+     console.error(err.message);
+     return res.status(500).send('Server Error');
+   }
+
+  }catch(err) {
+    console.error(err.message)
+    res.send('Server Error')
+  };
+});
+
+module.exports = router;
+
+//@route POST api/profile/links
+//@desc Post profile Socials
+//@access Private
+router.post('/links', [auth],
+
+ async (req, res) => {
+
+   // Variable takes errors from ValidationResult
+   const errors = validationResult(req);
+
+   //If there are errors, show a message
+   if (!errors.isEmpty()){
+     return res
+       .status(400)
+       .json({errors: errors.array() });
+   }
+
+  try {
+
+    const {
+    twitter,
+    facebook,
+    instagram,
+    youtube,
+    linkedin,
+    behance,
+    dribbble,
+    producthunt,
+    github,
+    ...rest
+  } = req.body;
+
+  // build a profile
+   const linkFields = {
+     user: req.user.id,
+     ...rest
+   }
+
+   const fieldLinks = { youtube, twitter, instagram, linkedin, facebook, github, behance, dribbble, producthunt};
+   linkFields.sociallinks = fieldLinks;
+
+   try {
+     // Using upsert option (creates new doc if no match is found):
+     let profile = await Profile.findOneAndUpdate(
+       { user: req.user.id },
+       { $set: linkFields },
        { new: true, upsert: true, setDefaultsOnInsert: true }
      );
      return res.json(profile);

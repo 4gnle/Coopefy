@@ -7,6 +7,9 @@ const ProfileSchema = new mongoose.Schema({
   },
 
   // Main info for Every user
+  name: {
+    type: String,
+  },
   profileimage: {
     type: Buffer
   },
@@ -30,9 +33,6 @@ const ProfileSchema = new mongoose.Schema({
   website: {
     type: String
     },
-  githubusername: {
-    type: String
-  },
 
 // EXPERIENCE DATA
 experience:  [{
@@ -64,7 +64,7 @@ experience:  [{
   }],
 
   // Social Media DATA for USERS
-  socialmedia:  {
+  sociallinks:  {
       twitter: {
         type: String
       },
@@ -78,6 +78,18 @@ experience:  [{
         type: String
       },
       linkedin: {
+        type: String
+      },
+      github: {
+        type: String
+      },
+      behance: {
+        type: String
+      },
+      dribbble: {
+        type: String
+      },
+      producthunt: {
         type: String
       },
     }
