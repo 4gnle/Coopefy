@@ -112,16 +112,17 @@
 @media (max-width: 768px) {
   .bottom-section .socials {
     margin-top: auto;
+    height: auto;
   }
 
   .bottom-section .socials label {
     font-size: 1.5vw;
-    margin-left: auto;
+    margin-left: 20px;
   }
 
   .social-icons {
     max-width: 80%;
-    grid-auto-rows: 7vw;
+    grid-auto-rows: 3.5vw;
   }
 
   .social-icons i {
@@ -241,25 +242,28 @@
     font-size: 2.8vh;
   }
   .bottom-section .skills {
-    margin-top: 5px;
-    margin-left: auto;
+    margin-top: 70px;
     margin-right: auto;
-    float:none;
+    margin-left:auto;
+    float: none;
     max-width: 80%;
   }
 
   .bottom-section .skills label {
-    font-size: 2vw;
+    font-size: 3vw;
     margin-left: auto;
-    margin-right: auto;  }
+    margin-right: auto;
+   }
 
   .skills-text {
+    max-width: 65%;
     grid-auto-rows: 6vw;
     margin-left: auto;
     margin-right: auto;
+    float: none;
   }
 
   .skills-text p {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 }

@@ -118,7 +118,8 @@
 
   .image-upload__preview {
     margin-bottom: 0.5rem;
-    margin-left: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .image-upload__preview img {
@@ -129,8 +130,10 @@
   }
 
   .buttons {
-    margin-left: 40px;
-    float: left;
+    position: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
   }
 
   .button-image {

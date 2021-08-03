@@ -99,15 +99,18 @@
   margin-top: 110px;
 }
 @media (max-width: 1080px) {
+  .createprofile-top-inputs {
+    margin-right: 60px;
+    margin-top: -112px;
+  }
+
   .createprofile-top-inputs label {
     font-size: 1.2vw;
     font-weight: bold;
-    float:left;
-  }
-
-  .createprofile-top-inputs {
-    margin-right: 20px;
-    margin-top: -130px;
+    margin-bottom: -7px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 10px;
   }
 
   .createprofile-top-inputs-name input {
@@ -151,17 +154,6 @@
 }
 
 @media (max-width: 768px) {
-  .createprofile-edit-box {
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 2px 12px grey;
-    background: #C4C4C4;
-    border-radius: 28px;
-    background-color: white;
-    overflow: hidden;
-    z-index: 1;
-  }
-
   .createprofile-top-inputs label {
     font-size: 1.5vw;
     font-weight: bold;
@@ -185,7 +177,7 @@
   }
 
   .createprofile-bottom-inputs {
-    margin-top: 50px;
+    margin-top: 30px;
     float: center;
   }
 
@@ -206,7 +198,7 @@
   }
 
   .createprofile-buttons {
-    margin-top: auto;
+    margin-top: 90px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -224,7 +216,7 @@
     float: left;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 35px;
+    margin-top: 25px;
   }
 
   .createprofile-top-inputs-name input {
@@ -246,7 +238,7 @@
   }
 
   .createprofile-bottom-inputs {
-    margin-top: 140px;
+    margin-top: 130px;
     float: center;
   }
 
@@ -267,6 +259,7 @@
   }
 
   .createprofile-buttons {
+    margin-top: 5px;
     bottom: -10px;
     left: 150px;
   }
@@ -274,7 +267,6 @@
 
 @media (max-width: 380px) {
   .createprofile-bottom-inputs {
-    margin-top: 135px;
     float: center;
   }
 }
