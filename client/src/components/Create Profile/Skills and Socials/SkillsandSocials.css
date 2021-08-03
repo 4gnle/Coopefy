@@ -30,10 +30,17 @@
   margin-left: 10px;
 }
 
+.social-icons i:hover {
+  font-size: 2.1rem;
+}
+
 .social-icons i.fa-product-hunt {
   font-size: 3.8vh;
 }
 
+.social-icons i.fa-product-hunt:hover {
+  font-size: 2rem;
+}
 
 .bottom-section .skills {
   max-width: 50%;
@@ -71,7 +78,7 @@
   }
 
   .social-icons {
-    grid-auto-rows: 3em;
+    grid-auto-rows: 2.3em;
   }
 
   .social-icons i {
@@ -217,7 +224,7 @@
     margin-right: auto;  }
 
   .social-icons {
-    grid-auto-rows: 6vw;
+    grid-auto-rows: 7vw;
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -231,9 +238,8 @@
   }
 
   .social-icons i.fa-product-hunt {
-  font-size: 18px;
+    font-size: 2.8vh;
   }
-
   .bottom-section .skills {
     margin-top: 5px;
     margin-left: auto;

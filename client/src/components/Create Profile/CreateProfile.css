@@ -99,18 +99,6 @@
   margin-top: 110px;
 }
 @media (max-width: 1080px) {
-  .createprofile-edit-box {
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 2px 12px grey;
-    background: #C4C4C4;
-    border-radius: 28px;
-    background-color: white;
-    overflow: hidden;
-    z-index: 1;
-    height: auto;
-  }
-
   .createprofile-top-inputs label {
     font-size: 1.2vw;
     font-weight: bold;
@@ -225,48 +213,47 @@
 }
 
 @media (max-width: 480px) {
-  .createprofile-edit-box {
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 2px 12px grey;
-    background: #C4C4C4;
-    border-radius: 28px;
-    background-color: white;
-    overflow: hidden;
-    z-index: 1;
-  }
-
   .createprofile-top-inputs label {
     font-size: 2.5vw;
-    font-weight: bold;
     float:left;
+    margin-left: auto;
+    margin-bottom: -8px;;
+  }
+
+  .createprofile-top-inputs {
+    float: left;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 35px;
+  }
+
+  .createprofile-top-inputs-name input {
+    font-size: 2.5vw;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 140%;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+  .createprofile-top-inputs-status select {
+    font-size: 2.5vw;
+    padding: 5px;
+    width: 140%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .createprofile-bottom-inputs {
+    margin-top: 140px;
+    float: center;
   }
 
   .createprofile-bottom-inputs label {
     font-size: 2.5vw;
     font-weight: bold;
     float:left;
-  }
-
-  .createprofile-top-inputs {
-    float: right;
-    margin-right: 150px;
-    margin-top: -140px;
-  }
-
-  .createprofile-top-inputs-name input {
-    font-size: 2.5vw;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status select {
-    font-size: 2.5vw;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    margin-top: 50px;
-    float: center;
   }
 
   .createprofile-bottom-inputs input {
@@ -282,5 +269,12 @@
   .createprofile-buttons {
     bottom: -10px;
     left: 150px;
+  }
+}
+
+@media (max-width: 380px) {
+  .createprofile-bottom-inputs {
+    margin-top: 135px;
+    float: center;
   }
 }

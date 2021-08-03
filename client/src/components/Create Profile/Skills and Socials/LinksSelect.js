@@ -72,13 +72,13 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
             <small>Add your ID or Username only</small>
             <br></br>
             <i className="fab fa-product-hunt"></i>
-            <input name='producthunt' value={producthunt} onChange={e => onChange(e)}></input>
+            <input placeholder='@yourusername' name='producthunt' value={producthunt} onChange={e => onChange(e)}></input>
             <br></br>
             <i className="fab fa-github-square"></i>
-            <input name='github' value={github} onChange={e => onChange(e)}></input>
+            <input placeholder='username' name='github' value={github} onChange={e => onChange(e)}></input>
             <br></br>
             <i className="fab fa-twitter-square"></i>
-            <input name='twitter' value={twitter} onChange={e => onChange(e)}></input>
+            <input placeholder='username' name='twitter' value={twitter} onChange={e => onChange(e)}></input>
             <br></br>
             <i className="fab fa-behance-square"></i>
             <input name='behance' value={behance} onChange={e => onChange(e)}></input>
@@ -90,7 +90,7 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
             <input name='facebook' value={facebook} onChange={e => onChange(e)}></input>
             <br></br>
             <i className="fab fa-instagram-square"></i>
-            <input name='instagram' value={instagram} onChange={e => onChange(e)}></input>
+            <input placeholder='username' name='instagram' value={instagram} onChange={e => onChange(e)}></input>
             <br></br>
             <i className="fab fa-linkedin-square"></i>
             <input name='linkedin' value={linkedin} onChange={e => onChange(e)}></input>
@@ -100,12 +100,12 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
                 className='primary'
                 onClick={e => onSubmit(e)}
                 >
-                Add Links
+                Update
               </Button>
               <Button
                 className='bad'
                 onClick={unSelectLinks}>
-                Close
+                Cancel
               </Button>
             </div>
           </form>
