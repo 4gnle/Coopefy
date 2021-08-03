@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import './CreateProfile.css'
 
@@ -7,25 +7,46 @@ import ImageUpload from '../UI/ProfileImage'
 import SkillsandSocials from './Skills and Socials/SkillsandSocials'
 
 //Redux
-import {profileData} from '../../redux/actions/profile';
+import {profileData, getProfile} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 //UI
 import Button from '../UI/Button'
 
-const CreateProfile = ({profileData}) => {
+const initialState = {
+  status: '',
+  profilename: '',
+  location: '',
+  bio: '',
+  website: ''
+};
 
-  const [formData, setFormData] = useState({
-    status: '',
-    name: '',
-    location: '',
-    bio: '',
-    website: ''
-  });
+const CreateProfile = ({  profile: { profile, loading },
+getProfile,
+profileData}) => {
+
+const [formData, setFormData] = useState(initialState);
+
+const [displaySocialInputs, toggleSocialInputs] = useState(false);
+
+useEffect(() => {
+   if (!profile) getProfile();
+   if (!loading && profile) {
+     const profileData = { ...initialState };
+     for (const key in profile) {
+       if (key in profileData) profileData[key] = profile[key];
+     }
+     for (const key in profile.socialmedia) {
+       if (key in profileData) profileData[key] = profile.socialmedia[key];
+     }
+     setFormData(profileData);
+   }
+ }, [loading, getProfile, profile]);
 
   const {
   status,
-  name,
+  profilename,
   location,
   bio,
   website
@@ -48,8 +69,8 @@ const CreateProfile = ({profileData}) => {
           placeholder='First and last name'
           className='m-1'
           onChange={e => onChange(e)}
-          value={name}
-          name='name'
+          value={profilename}
+          name='profilename'
           >
           </input>
         </div>
@@ -120,4 +141,16 @@ const CreateProfile = ({profileData}) => {
   )
 }
 
-export default connect(null, {profileData})(CreateProfile)
+CreateProfile.propTypes = {
+  profileData: PropTypes.func.isRequired,
+  getProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+
+  profile: state.profile
+
+})
+
+export default connect(mapStateToProps, {getProfile, profileData})(CreateProfile)

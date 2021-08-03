@@ -7,8 +7,9 @@ const ProfileSchema = new mongoose.Schema({
   },
 
   // Main info for Every user
-  name: {
+  profilename: {
     type: String,
+    require: true
   },
   profileimage: {
     type: Buffer
@@ -25,7 +26,6 @@ const ProfileSchema = new mongoose.Schema({
   },
   skills: {
     type: [String],
-    require: true
   },
   work: {
     type: String

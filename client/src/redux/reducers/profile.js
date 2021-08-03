@@ -6,7 +6,8 @@ import {
   GET_PROFILE,
   UPDATE_PROFILE,
   GET_PROFILES,
-  UPDATE_FAILED
+  UPDATE_FAILED,
+  PROFILE_ERROR
 } from '../actions/types'
 
 const initialState = {
@@ -40,6 +41,7 @@ export default function profile(state = initialState, action) {
       };
 
     case UPDATE_FAILED:
+    case PROFILE_ERROR:
       return {
         ...state,
         profile: null,

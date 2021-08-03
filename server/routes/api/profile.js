@@ -15,10 +15,23 @@ const User = require('../../models/User');
 router.get('/me', auth, async (req, res) => {
   try {
 
-  }catch(err) {
-    console.error(err.message)
-    res.send('Server Error')
-  };
+      const profile = await Profile.findOne({user: req.user.id})
+      .populate('user',['name']);
+
+      if(!profile) {
+
+        return res.status(400).json({ msg: 'There is no profile for this user'});
+
+      }
+
+      res.json(profile);
+
+    } catch (err) {
+
+      console.error(err.message);
+      res.status(500).send('Server Error');
+
+    }
 })
 
 module.exports = router;
@@ -64,7 +77,7 @@ router.post('/', [auth],
   check('status', 'Status is required')
     .not()
     .isEmpty(),
-  check('name', 'Name is required')
+  check('profilename', 'Name is required')
     .not()
     .isEmpty()
 ],
@@ -85,24 +98,22 @@ router.post('/', [auth],
 
     const {
     status,
-    name,
-    skills,
+    profilename,
     website,
-    ...rest
-  } = req.body;
+    location,
+    bio } = req.body;
 
   // build a profile
    const profileFields = {
      user: req.user.id,
+     status: status,
      website:
        website && website !== ''
          ? normalize(website, { forceHttps: true })
          : '',
-     skills: Array.isArray(skills)
-       ? skills
-       : skills.split(' ').map((skill) => skill.trim()),
-     ...rest
-   };
+    profilename: profilename,
+    location: location,
+    bio: bio   };
 
    try {
      // Using upsert option (creates new doc if no match is found):
@@ -124,6 +135,11 @@ router.post('/', [auth],
 });
 
 module.exports = router;
+
+
+// skills: Array.isArray(skills)
+//   ? skills
+//   : skills.split(' ').map((skill) => skill.trim()),
 
 //@route POST api/profile/links
 //@desc Post profile Socials
