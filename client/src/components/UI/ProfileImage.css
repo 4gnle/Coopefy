@@ -114,6 +114,33 @@
   }
 }
 
+@media (max-width: 650px) {
+
+  .image-upload__preview {
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .image-upload__preview img {
+    width: 100%;
+    height: 100%;
+    border-radius: 180px;
+    object-fit: cover;
+  }
+
+  .buttons {
+    position: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+
+  .button-image {
+    padding: 3rem;
+  }
+}
+
 @media (max-width: 480px) {
 
   .image-upload__preview {

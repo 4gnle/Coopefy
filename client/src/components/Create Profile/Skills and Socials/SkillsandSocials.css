@@ -31,7 +31,7 @@
 }
 
 .social-icons i:hover {
-  font-size: 2.1rem;
+  font-size: 2.2rem;
 }
 
 .social-icons i.fa-product-hunt {
@@ -39,7 +39,7 @@
 }
 
 .social-icons i.fa-product-hunt:hover {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 .bottom-section .skills {
@@ -131,7 +131,7 @@
   }
 
   .social-icons i.fa-product-hunt {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 
   .bottom-section .skills {
@@ -168,7 +168,7 @@
     margin-right: auto;  }
 
   .social-icons {
-    grid-auto-rows: 6vw;
+    grid-auto-rows: 7vw;
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -183,7 +183,7 @@
   }
 
   .social-icons i.fa-product-hunt {
-  font-size: 18px;
+    font-size: 5.5vw;
   }
 
   .bottom-section .skills {
@@ -210,7 +210,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .bottom-section .socials {
     margin-top: 5px;
     margin-left: auto;
@@ -220,7 +220,7 @@
   }
 
   .bottom-section .socials label {
-    font-size: 3vw;
+    font-size: 2.5vw;
     margin-left: auto;
     margin-right: auto;  }
 
@@ -239,8 +239,9 @@
   }
 
   .social-icons i.fa-product-hunt {
-    font-size: 2.8vh;
+    font-size: 5.5vw;
   }
+
   .bottom-section .skills {
     margin-top: 70px;
     margin-right: auto;
@@ -250,7 +251,7 @@
   }
 
   .bottom-section .skills label {
-    font-size: 3vw;
+    font-size: 2.5vw;
     margin-left: auto;
     margin-right: auto;
    }

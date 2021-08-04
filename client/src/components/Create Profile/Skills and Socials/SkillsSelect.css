@@ -33,6 +33,7 @@
   background-color: white;
   box-shadow: 0 2px 12px gray;
   border-radius: 10px;
+  overflow: auto;
 }
 
 .skills-window header {
@@ -61,6 +62,7 @@
   text-overflow: clip;
   word-break: break-all;
   white-space: pre-wrap;
+  overflow: auto;
 }
 
 .selected-skills {

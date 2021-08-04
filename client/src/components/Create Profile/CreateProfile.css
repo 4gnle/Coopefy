@@ -153,7 +153,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .createprofile-top-inputs label {
     font-size: 1.5vw;
     font-weight: bold;
@@ -204,7 +204,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 650px) {
   .createprofile-top-inputs label {
     font-size: 2.5vw;
     float:left;
@@ -238,7 +238,7 @@
   }
 
   .createprofile-bottom-inputs {
-    margin-top: 130px;
+    margin-top: 155px;
     float: center;
   }
 
