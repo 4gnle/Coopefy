@@ -2,7 +2,7 @@ import React, {Fragment, useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 
 //Redux
-import {deleteImage, getProfileImage, profileImage} from '../../redux/actions/profile';
+import {getProfile, deleteImage, getProfileImage, profileImage} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 import Button from '../UI/Button'
@@ -13,7 +13,7 @@ const initialState = {
   profileimage: ''
 }
 
-const ImageUpload = ({profile: { _id, loading, profileimage }, profileImage, getProfileImage, getProfile, deleteImage}) => {
+const ImageUpload = ({profile: { profile, _id, loading, profileimage }, profileImage, getProfileImage, getProfile, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -39,17 +39,17 @@ const ImageUpload = ({profile: { _id, loading, profileimage }, profileImage, get
 
   }, [file]);
 
-  useEffect(() => {
-    if (!profile) {getProfile(); getProfileImage()};
-    if (!loading && profile) {
-      const profileImageData = { ...initialState };
-
-      for (const key in profile) {
-        if (key in profileImageData) profileImageData[key] = profile[key];
-      }
-      setImagePrev(profileImageData);
-    }
-  }, [getProfileImage, profile, loading, profileimage]);
+  // useEffect(() => {
+  //   if (!profile) {getProfile(); getProfileImage()};
+  //   if (!loading && profile) {
+  //     const profileImageData = { ...initialState };
+  //
+  //     for (const key in profile) {
+  //       if (key in profileImageData) profileImageData[key] = profile[key];
+  //     }
+  //     setImagePrev(profileImageData);
+  //   }
+  // }, [getProfileImage, profile, loading, profileimage]);
 
   // This create the image preview from the input
   const imagePreview = (event) => {
@@ -101,9 +101,6 @@ const ImageUpload = ({profile: { _id, loading, profileimage }, profileImage, get
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
-        {profile && imagePrev ? (<img src={`data:image/jpeg;base64,${imagePrev}`}/>) :
-
-        <Fragment>
           {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button
           className="button-image"
@@ -112,8 +109,7 @@ const ImageUpload = ({profile: { _id, loading, profileimage }, profileImage, get
           title='Pick Image'>
           <i className="fas fa-images"></i>
           </Button>}
-        </Fragment>
-        }
+
         </div>
       </div>
 
@@ -146,8 +142,13 @@ const ImageUpload = ({profile: { _id, loading, profileimage }, profileImage, get
   )
 }
 
-const mapStateToProps = state => ({
-  profile: state.profile
-})
+export default connect(null, {profileImage, deleteImage, getProfileImage})(ImageUpload);
 
-export default connect(mapStateToProps, {getProfile, profileImage, deleteImage, getProfileImage})(ImageUpload);
+// const mapStateToProps = state => ({
+//   profile: state.profile
+// })
+// {profile && imagePrev ? (<img src={`data:image/jpeg;base64,${imagePrev}`} alt="Preview"/>) :
+//
+// <Fragment>
+// </Fragment>
+// }

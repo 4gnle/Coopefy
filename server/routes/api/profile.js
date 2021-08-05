@@ -231,11 +231,11 @@ module.exports = router;
 // @desc     Get the profile image by ID
 // @access   Public
 router.get(
-  '/user/:user_id/image',
- async ({ params: { user_id } }, res) => {
+  '/image', auth,
+ async (req, res) => {
   try {
-    const profile = await Profile.findOne({
-    user: user_id}).populate('user', ['profileimage']);
+    let profile = await Profile.findOne({
+    user: req.user.id})
 
     res.set('Content-Type', 'image/jpg');
 
