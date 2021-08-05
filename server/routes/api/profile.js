@@ -234,12 +234,15 @@ router.get(
   '/image', auth,
  async (req, res) => {
   try {
-    let profile = await Profile.findOne({
-    user: req.user.id})
+    let profile = await Profile.findOne(
+      { user: req.user.id})
 
-    res.set('Content-Type', 'image/jpg');
+    let profileimage = profile.profileimage
 
-    res.send(profile.profileimage);
+    res.set('Content-Type', 'image/jpeg').send(profileimage);
+    
+    console.log(profileimage);
+
   } catch (err) {
     res.status(500).send({error: err.message });
   }

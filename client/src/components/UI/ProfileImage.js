@@ -9,25 +9,31 @@ import Button from '../UI/Button'
 
 import './ProfileImage.css'
 
-const initialState = {
-  image: ''
-}
-
 const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
-  const [imagePrev, setImagePrev] = useState();
+  const [imagePrev, setImagePrev] = useState(false);
   const [prevURL, setprevURL] = useState({showPrev: true});
   const [valid, setValid] = useState();
 
   const filePickerRef = useRef();
 
   useEffect(() => {
-    if (!image) {getProfileImage()};
+    if (!image) getProfileImage();
     if (!loading && image) {
 
-      setImagePrev(image);
+    const filereader = new FileReader();
+
+    let retrivedFile = image
+
+    filereader.onload = () => {
+      setImagePrev(filereader.result);
+    }
+
+    filereader.readAsDataURL(retrivedFile);
+
+    setImagePrev(retrivedFile);
     }
   }, [getProfileImage, loading, image]);
 
@@ -78,6 +84,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
   const deleteFunc = (e) => {
     e.preventDefault();
     setprevURL({showPrev: false});
+    setImagePrev(false)
     setFile(null);
     deleteImage();
   }
@@ -97,7 +104,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
-        {image && imagePrev ? (<img src={`data:image/jpeg;base64,${image}`} alt="Preview"/>) :
+        {image && imagePrev ? (<img src={imagePrev} alt="Preview"/>) :
         <Fragment>
           {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button
