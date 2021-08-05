@@ -9,10 +9,15 @@ import Button from '../UI/Button'
 
 import './ProfileImage.css'
 
-const ImageUpload = ({profileImage, getProfileImage, deleteImage}) => {
+const initialState = {
+  profileimage: ''
+}
+
+const ImageUpload = ({profile: { _id, loading, profileimage }, profileImage, getProfileImage, getProfile, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
+  const [imagePrev, setImagePrev] = useState();
   const [prevURL, setprevURL] = useState({showPrev: true});
   const [valid, setValid] = useState();
 
@@ -33,6 +38,18 @@ const ImageUpload = ({profileImage, getProfileImage, deleteImage}) => {
   filereader.readAsDataURL(file);
 
   }, [file]);
+
+  useEffect(() => {
+    if (!profile) {getProfile(); getProfileImage()};
+    if (!loading && profile) {
+      const profileImageData = { ...initialState };
+
+      for (const key in profile) {
+        if (key in profileImageData) profileImageData[key] = profile[key];
+      }
+      setImagePrev(profileImageData);
+    }
+  }, [getProfileImage, profile, loading, profileimage]);
 
   // This create the image preview from the input
   const imagePreview = (event) => {
@@ -84,6 +101,9 @@ const ImageUpload = ({profileImage, getProfileImage, deleteImage}) => {
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
+        {profile && imagePrev ? (<img src={`data:image/jpeg;base64,${imagePrev}`}/>) :
+
+        <Fragment>
           {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button
           className="button-image"
@@ -92,7 +112,8 @@ const ImageUpload = ({profileImage, getProfileImage, deleteImage}) => {
           title='Pick Image'>
           <i className="fas fa-images"></i>
           </Button>}
-
+        </Fragment>
+        }
         </div>
       </div>
 
@@ -125,4 +146,8 @@ const ImageUpload = ({profileImage, getProfileImage, deleteImage}) => {
   )
 }
 
-export default connect(null, {profileImage, deleteImage, getProfileImage})(ImageUpload);
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps, {getProfile, profileImage, deleteImage, getProfileImage})(ImageUpload);

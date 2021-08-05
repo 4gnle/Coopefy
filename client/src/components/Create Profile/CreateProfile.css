@@ -266,7 +266,15 @@
 }
 
 @media (max-width: 380px) {
+  .createprofile-top-inputs {
+    float: left;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
   .createprofile-bottom-inputs {
     float: center;
+    margin-top: 100px;
   }
 }

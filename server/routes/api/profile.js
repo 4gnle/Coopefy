@@ -227,23 +227,23 @@ module.exports = router;
       }
     );
 
-    // @route    GET api/profile image by user ID
-    // @desc     Get the profile image by ID
-    // @access   Public
-    router.get(
-      '/user/:user_id/image',
-     async ({ params: { user_id } }, res) => {
-      try {
-        const profiles = await Profile.findOne({
-        user: user_id}).populate('user', ['profileimage']);
+// @route    GET api/profile image by user ID
+// @desc     Get the profile image by ID
+// @access   Public
+router.get(
+  '/user/:user_id/image',
+ async ({ params: { user_id } }, res) => {
+  try {
+    const profile = await Profile.findOne({
+    user: user_id}).populate('user', ['profileimage']);
 
-        res.set('Content-Type', 'image/jpg');
+    res.set('Content-Type', 'image/jpg');
 
-        res.send(profiles.profileimage);
-      } catch (err) {
-        res.status(500).send({error: err.message });
-      }
-    });
+    res.send(profile.profileimage);
+  } catch (err) {
+    res.status(500).send({error: err.message });
+  }
+});
 
   // @router  DELETE api/profile/image
   // @desc    DELETE Profile Image
