@@ -2,7 +2,7 @@ import React, {Fragment, useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 
 //Redux
-import {getProfile, deleteImage, getProfileImage, profileImage} from '../../redux/actions/profile';
+import {deleteImage, getProfileImage, profileImage} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 import Button from '../UI/Button'
@@ -10,10 +10,10 @@ import Button from '../UI/Button'
 import './ProfileImage.css'
 
 const initialState = {
-  profileimage: ''
+  image: ''
 }
 
-const ImageUpload = ({profile: { profile, _id, loading, profileimage }, profileImage, getProfileImage, getProfile, deleteImage}) => {
+const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -22,6 +22,14 @@ const ImageUpload = ({profile: { profile, _id, loading, profileimage }, profileI
   const [valid, setValid] = useState();
 
   const filePickerRef = useRef();
+
+  useEffect(() => {
+    if (!image) {getProfileImage()};
+    if (!loading && image) {
+
+      setImagePrev(image);
+    }
+  }, [getProfileImage, loading, image]);
 
   // Transforms the file into a URL
   useEffect(() => {
@@ -38,18 +46,6 @@ const ImageUpload = ({profile: { profile, _id, loading, profileimage }, profileI
   filereader.readAsDataURL(file);
 
   }, [file]);
-
-  // useEffect(() => {
-  //   if (!profile) {getProfile(); getProfileImage()};
-  //   if (!loading && profile) {
-  //     const profileImageData = { ...initialState };
-  //
-  //     for (const key in profile) {
-  //       if (key in profileImageData) profileImageData[key] = profile[key];
-  //     }
-  //     setImagePrev(profileImageData);
-  //   }
-  // }, [getProfileImage, profile, loading, profileimage]);
 
   // This create the image preview from the input
   const imagePreview = (event) => {
@@ -101,6 +97,8 @@ const ImageUpload = ({profile: { profile, _id, loading, profileimage }, profileI
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
+        {image && imagePrev ? (<img src={`data:image/jpeg;base64,${image}`} alt="Preview"/>) :
+        <Fragment>
           {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button
           className="button-image"
@@ -109,14 +107,14 @@ const ImageUpload = ({profile: { profile, _id, loading, profileimage }, profileI
           title='Pick Image'>
           <i className="fas fa-images"></i>
           </Button>}
-
+        </Fragment>
+        }
         </div>
       </div>
-
       <div className='buttons'>
 
 
-        {previewURL && prevURL.showPrev ?
+        {previewURL || imagePrev && prevURL.showPrev ?
         <Fragment>
             <Button
             className="button primary m"
@@ -142,13 +140,8 @@ const ImageUpload = ({profile: { profile, _id, loading, profileimage }, profileI
   )
 }
 
-export default connect(null, {profileImage, deleteImage, getProfileImage})(ImageUpload);
+const mapStateToProps = state => ({
+  profile: state.profile
+})
 
-// const mapStateToProps = state => ({
-//   profile: state.profile
-// })
-// {profile && imagePrev ? (<img src={`data:image/jpeg;base64,${imagePrev}`} alt="Preview"/>) :
-//
-// <Fragment>
-// </Fragment>
-// }
+export default connect(mapStateToProps, {profileImage, deleteImage, getProfileImage})(ImageUpload);
