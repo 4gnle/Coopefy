@@ -1,23 +1,35 @@
 import React , {useState} from 'react'
 import {skillList} from './SkillList'
 
+//Redux
+import {setProfileSkills} from '../../../redux/actions/profile';
+import {connect} from 'react-redux';
+
 //UI CSS
 import './SkillsSelect.css'
 
 //Components
 import Button from '../../UI/Button'
 
-const SkillsSelect = (props) => {
+const SkillsSelect = ({setProfileSkills, unSelectSkills}) => {
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [skillConfirm, setSkillConfirm] = useState(false)
+  const [formData, setFormData] = useState()
 
   const skills = skillList;
 
   const addSKills = () => {
-    console.log(selectedSkills);
-  }
+      let skills;
+      if (selectedSkills.length > 0) {
+        selectedSkills.map(skill => (
+
+        ))
+      }
+
+      console.log(formData)
+    }
 
   const selectSkill = (e) => {
     setSelectedSkills(prevSkills => {
@@ -38,7 +50,7 @@ const deleteSkills = (e) => {
 
   return (
   <div>
-    <div className='backdrop' onClick={props.unSelectSkills}
+    <div className='backdrop' onClick={unSelectSkills}
     >
     </div>
 
@@ -67,7 +79,7 @@ const deleteSkills = (e) => {
               return skill
             } else if (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
               return skill
-            } {return false} 
+            } {return false}
           }).map((skill) => (
              <button
               className='skills-badge'
@@ -101,7 +113,7 @@ const deleteSkills = (e) => {
           </Button>
           <Button
             className='bad'
-            onClick={props.unSelectSkills}
+            onClick={unSelectSkills}
           >
             Cancel
           </Button>
@@ -112,4 +124,4 @@ const deleteSkills = (e) => {
   )
 }
 
-export default SkillsSelect
+export default connect(null, {setProfileSkills})(SkillsSelect)

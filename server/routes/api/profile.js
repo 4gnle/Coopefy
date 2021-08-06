@@ -136,10 +136,62 @@ router.post('/', [auth],
 
 module.exports = router;
 
+// @router POST api/profile
+// @desc Post profile data
+// @access Private
 
-// skills: Array.isArray(skills)
-//   ? skills
-//   : skills.split(' ').map((skill) => skill.trim()),
+router.post('/skills', [auth],
+[
+  check('skills', 'Skills are required')
+    .not()
+    .isEmpty()
+],
+
+ async (req, res) => {
+
+   // Variable takes errors from ValidationResult
+   const errors = validationResult(req);
+
+   //If there are errors, show a message
+   if (!errors.isEmpty()){
+     return res
+       .status(400)
+       .json({errors: errors.array() });
+   }
+
+  try {
+
+    const {
+    skills} = req.body;
+
+  // build a profile
+   const profileSkills = {
+     user: req.user.id,
+     skills: Array.isArray(skills)
+       ? skills
+       : skills.split(' ').map((skill) => skill.trim()) };
+
+   try {
+     // Using upsert option (creates new doc if no match is found):
+     let profile = await Profile.findOneAndUpdate(
+       { user: req.user.id },
+       { $set: profileSkills },
+       { new: true, upsert: true, setDefaultsOnInsert: true }
+     );
+     return res.json(profile);
+   } catch (err) {
+     console.error(err.message);
+     return res.status(500).send('Server Error');
+   }
+
+  }catch(err) {
+    console.error(err.message)
+    res.send('Server Error')
+  };
+});
+
+module.exports = router;
+
 
 //@route POST api/profile/links
 //@desc Post profile Socials
@@ -240,8 +292,6 @@ router.get(
     let profileimage = profile.profileimage
 
     res.set('Content-Type', 'image/jpeg').send(profileimage);
-    
-    console.log(profileimage);
 
   } catch (err) {
     res.status(500).send({error: err.message });

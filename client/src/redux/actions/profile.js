@@ -78,7 +78,46 @@ export const profileData = (formData) => async dispatch => {
   }
 };
 
-//Send Profile Lins
+//Send Profile Skills
+export const setProfileSkills = (formData) => async dispatch => {
+
+    try {
+
+    const res = await api.post('/profile/skills', formData);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data
+    });
+
+    dispatch(
+      setAlert("Skills Updated", 'success')
+    );
+
+    }catch(err) {
+
+      dispatch({
+        type: UPDATE_FAILED,
+        payload: { msg: err.response.statusText, status: err.response.status}
+      });
+
+      dispatch(
+        setAlert("Could Not Update Skills", 'danger')
+      );
+
+    console.log(err);
+
+    const errors = err.response.data.errors;
+
+    if (errors) {
+    errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+  }
+};
+
+
+//Send Profile Links
 export const profileLinks = (formData) => async dispatch => {
 
     try {

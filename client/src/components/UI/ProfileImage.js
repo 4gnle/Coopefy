@@ -13,7 +13,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
-  const [imagePrev, setImagePrev] = useState(false);
+  const [imagePrev, setImagePrev] = useState();
   const [prevURL, setprevURL] = useState({showPrev: true});
   const [valid, setValid] = useState();
 
@@ -23,19 +23,10 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
     if (!image) getProfileImage();
     if (!loading && image) {
 
-    const filereader = new FileReader();
-
-    let retrivedFile = image
-
-    filereader.onload = () => {
-      setImagePrev(filereader.result);
-    }
-
-    filereader.readAsDataURL(retrivedFile);
-
-    setImagePrev(retrivedFile);
+      setImagePrev(image);
     }
   }, [getProfileImage, loading, image]);
+
 
   // Transforms the file into a URL
   useEffect(() => {
