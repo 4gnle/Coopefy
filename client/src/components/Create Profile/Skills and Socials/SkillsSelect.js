@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import {skillList} from './SkillList'
 
 //Redux
@@ -16,20 +16,28 @@ const SkillsSelect = ({setProfileSkills, unSelectSkills}) => {
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [skillConfirm, setSkillConfirm] = useState(false)
-  const [formData, setFormData] = useState()
+  const [formData, setFormData] = useState({
+    skills: ''
+  })
 
   const skills = skillList;
 
-  const addSKills = () => {
-      let skills;
-      if (selectedSkills.length > 0) {
-        selectedSkills.map(skill => (
+  useEffect(() => {
+    if (selectedSkills !== formData) {
 
-        ))
-      }
+    const chosenSkills = selectedSkills.map(skill => {
+        return skill.skill
+      })
 
-      console.log(formData)
+    setFormData({
+        skills: chosenSkills
+      })
     }
+  }, [formData, selectedSkills])
+
+  const addSKills = () => {
+    setProfileSkills(formData)
+  }
 
   const selectSkill = (e) => {
     setSelectedSkills(prevSkills => {

@@ -169,7 +169,7 @@ router.post('/skills', [auth],
      user: req.user.id,
      skills: Array.isArray(skills)
        ? skills
-       : skills.split(' ').map((skill) => skill.trim()) };
+       : skills.split(',').map((skill) => skill.trim()) };
 
    try {
      // Using upsert option (creates new doc if no match is found):
