@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 
 // CSS
 import './SkillsandSocials.css'
@@ -16,7 +16,7 @@ import {getProfile} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
-const initialState = {
+const stateLinks = {
   twitter: '',
   dribbble: '',
   behance: '',
@@ -27,22 +27,36 @@ const initialState = {
   github: ''
 };
 
-const SkillsandSocials = ({profile: {loading, profile}, getProfile}) => {
+const stateSkills = {
+  skills: ''
+};
+
+
+const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => {
 
   const [changeLinks, setChangeLinks] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
 
-  const [socialLinks, setSocialLinks] = useState(initialState);
+  const [socialLinks, setSocialLinks] = useState(stateLinks);
+  const [skillsData, setSkillsData] = useState(stateSkills);
+
 
   useEffect(() => {
      if (!profile) getProfile();
      if (!loading && profile) {
-       const profileData = { ...initialState };
+       const profileLinks = { ...stateLinks };
        for (const key in profile.sociallinks) {
-         if (key in profileData) profileData[key] = profile.sociallinks[key];
+         if (key in profileLinks) profileLinks[key] = profile.sociallinks[key];
        }
-       setSocialLinks(profileData);
+       setSocialLinks(profileLinks);
+
+       const profileSkills = {...stateSkills};
+       for (const key in profile) {
+         if (key in profileSkills) profileSkills[key] = profile[key];
+       }
+       setSkillsData(profileSkills)
+       console.log(skillsData)
      }
    }, [loading, getProfile, profile]);
 
@@ -103,13 +117,12 @@ const SkillsandSocials = ({profile: {loading, profile}, getProfile}) => {
           {changeSkills && <SkillsSelect unSelectSkills={unSelectSkills}/>}
 
           <div className='skills-text'>
-            <p>Marketing</p>
-            <p>SEO</p>
-            <p>Content Writing</p>
-            <p>Ethereum</p>
-            <p>HTML/CSS</p>
-            <p>React</p>
-          </div>
+          {skillsData.skills.map((skill, index) => (
+            <div key={index}>
+              <p>{skill}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
