@@ -56,7 +56,7 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
        }
        setSkillsData(profileSkills)
       }
-   }, [loading, getProfile, skillsData, profile]);
+   }, [loading, getProfile, skillsData, profile, socialLinks]);
 
   const selectLinks = () => {
     setChangeLinks(true);
@@ -72,10 +72,6 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
 
   const unSelectSkills = () => {
     setChangeSkills(false);
-  }
-
-  const showSkills = () => {
-    console.log(skillsData)
   }
 
   return (

@@ -19,7 +19,7 @@ const SkillsSelect = ({profile: {loading, profile, skills}, setProfileSkills, un
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [profileSkills, setProfileSkills] = useState([]);
+  const [profileSkills, setProfileskills] = useState([]);
   const [skillConfirm, setSkillConfirm] = useState(false)
   const [formData, setFormData] = useState({
     skills: ''
@@ -30,13 +30,13 @@ const SkillsSelect = ({profile: {loading, profile, skills}, setProfileSkills, un
   useEffect(() => {
      if (!profile) getProfile();
        if (!loading && profile) {
-         const profileSkills = {...stateSkills};
+         const profileskills = {...stateSkills};
          for (const key in profile) {
-           if (key in profileSkills) profileSkills[key] = profile[key];
+           if (key in profileskills) profileskills[key] = profile[key];
          }
-         setProfileSkills(profileSkills)
+         setProfileskills(profileskills)
         }
-  })
+  }, [profileSkills, loading, profile])
 
   useEffect(() => {
     if (selectedSkills !== formData) {
@@ -123,15 +123,17 @@ const deleteSkills = (e) => {
               className='selected-skill-badge'
               onClick={e => deleteSkills(skill)}
             >{skill}
-            </button>}
-          )} :
-            {selectedSkills.length > 0 && selectedSkills.map(skill =>
-            <button
-              className='selected-skill-badge'
-              onClick={e => deleteSkills(skill.id)}
-            >{skill.skill}
-            </button>)}
-        </div>
+            </button>
+          })}</div> :
+          <div className="selected-skills">
+          {selectedSkills.length > 0 && selectedSkills.map(skill =>
+          <button
+            className='selected-skill-badge'
+            onClick={e => deleteSkills(skill.id)}
+          >{skill.skill}
+          </button>
+        )}
+        </div>}
 
         <div className='skills-buttons'>
           <Button

@@ -22,8 +22,9 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
   useEffect(() => {
     if (!image) getProfileImage();
     if (!loading && image) {
-
-      setImagePrev(image);
+      // const image1 = atob(image)
+      // setImagePrev(image1);
+      console.log(image);
     }
   }, [getProfileImage, loading, image]);
 
@@ -109,8 +110,9 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
         }
         </div>
       </div>
-      <div className='buttons'>
+      <img src={`data:image/jpeg;base64,${imagePrev}`}/>
 
+      <div className='buttons'>
 
         {previewURL || imagePrev && prevURL.showPrev ?
         <Fragment>
