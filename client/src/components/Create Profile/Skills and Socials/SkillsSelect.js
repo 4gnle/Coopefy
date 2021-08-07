@@ -19,6 +19,7 @@ const SkillsSelect = ({profile: {loading, profile, skills}, setProfileSkills, un
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [profileSkills, setProfileSkills] = useState([]);
   const [skillConfirm, setSkillConfirm] = useState(false)
   const [formData, setFormData] = useState({
     skills: ''
@@ -33,7 +34,7 @@ const SkillsSelect = ({profile: {loading, profile, skills}, setProfileSkills, un
          for (const key in profile) {
            if (key in profileSkills) profileSkills[key] = profile[key];
          }
-         setSelectedSkills(profileSkills)
+         setProfileSkills(profileSkills)
         }
   })
 
@@ -117,15 +118,20 @@ const deleteSkills = (e) => {
         {skillConfirm ?
         <div className="selected-skills">
           <h3>Selected Skills</h3>
-          {selectedSkills.length > 0 && selectedSkills.map(skill =>
+          {profileSkills.length > 0 && profileSkills.skills.map(skill =>{
+            <button
+              className='selected-skill-badge'
+              onClick={e => deleteSkills(skill)}
+            >{skill}
+            </button>}
+          )} :
+            {selectedSkills.length > 0 && selectedSkills.map(skill =>
             <button
               className='selected-skill-badge'
               onClick={e => deleteSkills(skill.id)}
             >{skill.skill}
             </button>)}
         </div>
-        : null
-        }
 
         <div className='skills-buttons'>
           <Button
