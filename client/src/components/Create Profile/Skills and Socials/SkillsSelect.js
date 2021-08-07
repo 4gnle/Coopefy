@@ -2,7 +2,7 @@ import React , {useState, useEffect} from 'react'
 import {skillList} from './SkillList'
 
 //Redux
-import {setProfileSkills} from '../../../redux/actions/profile';
+import {getProfile, setProfileSkills} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 //UI CSS
@@ -11,7 +11,11 @@ import './SkillsSelect.css'
 //Components
 import Button from '../../UI/Button'
 
-const SkillsSelect = ({setProfileSkills, unSelectSkills}) => {
+const stateSkills = {
+  skills: ''
+};
+
+const SkillsSelect = ({profile: {loading, profile, skills}, setProfileSkills, unSelectSkills}) => {
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -20,7 +24,18 @@ const SkillsSelect = ({setProfileSkills, unSelectSkills}) => {
     skills: ''
   })
 
-  const skills = skillList;
+  const skills1 = skillList;
+
+  useEffect(() => {
+     if (!profile) getProfile();
+       if (!loading && profile) {
+         const profileSkills = {...stateSkills};
+         for (const key in profile) {
+           if (key in profileSkills) profileSkills[key] = profile[key];
+         }
+         setSelectedSkills(profileSkills)
+        }
+  })
 
   useEffect(() => {
     if (selectedSkills !== formData) {
@@ -82,7 +97,7 @@ const deleteSkills = (e) => {
         </form>
 
         <div className='skills-list'>
-          {skills.filter((skill) => {
+          {skills1.filter((skill) => {
             if (searchSkills === '') {
               return skill
             } else if (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
@@ -132,4 +147,8 @@ const deleteSkills = (e) => {
   )
 }
 
-export default connect(null, {setProfileSkills})(SkillsSelect)
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps, {getProfile, setProfileSkills})(SkillsSelect)

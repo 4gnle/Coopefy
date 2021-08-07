@@ -41,7 +41,6 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
   const [socialLinks, setSocialLinks] = useState(stateLinks);
   const [skillsData, setSkillsData] = useState(stateSkills);
 
-
   useEffect(() => {
      if (!profile) getProfile();
      if (!loading && profile) {
@@ -56,9 +55,8 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
          if (key in profileSkills) profileSkills[key] = profile[key];
        }
        setSkillsData(profileSkills)
-       console.log(skillsData)
-     }
-   }, [loading, getProfile, profile]);
+      }
+   }, [loading, getProfile, skillsData, profile]);
 
   const selectLinks = () => {
     setChangeLinks(true);
@@ -74,6 +72,10 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
 
   const unSelectSkills = () => {
     setChangeSkills(false);
+  }
+
+  const showSkills = () => {
+    console.log(skillsData)
   }
 
   return (
@@ -117,11 +119,13 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
           {changeSkills && <SkillsSelect unSelectSkills={unSelectSkills}/>}
 
           <div className='skills-text'>
-          {skillsData.skills.map((skill, index) => (
+          {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
+            <Fragment>
             <div key={index}>
-              <p>{skill}</p>
+                <p>{skill}</p>
             </div>
-          ))}
+            </Fragment>
+            ))}
         </div>
       </div>
     </div>

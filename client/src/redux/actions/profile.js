@@ -116,27 +116,6 @@ export const setProfileSkills = (formData) => async dispatch => {
   }
 };
 
-//Get Profile Skills
-export const getProfileSkills = () => async dispatch => {
-
-    try {
-
-    const res = await api.get('/profile/skills');
-
-    dispatch({
-      type: GET_PROFILE,
-      payload: res.data
-    });
-
-    }catch(err) {
-
-      dispatch({
-        type: UPDATE_FAILED,
-        payload: { msg: err.response.statusText, status: err.response.status}
-      });
-  }
-};
-
 //Send Profile Links
 export const profileLinks = (formData) => async dispatch => {
 
