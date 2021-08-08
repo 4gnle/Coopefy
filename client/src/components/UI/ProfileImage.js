@@ -76,7 +76,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
   const deleteFunc = (e) => {
     e.preventDefault();
     setprevURL({showPrev: false});
-    setImagePrev(false)
+    setImagePrev(null)
     setFile(null);
     deleteImage();
   }
@@ -96,7 +96,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
-        {image && imagePrev ? (<img src={URL.createObjectURL(image)} alt="Preview"/>) :
+        {imagePrev ? (<img src={URL.createObjectURL(image)} alt="Preview"/>) :
         <Fragment>
           {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button

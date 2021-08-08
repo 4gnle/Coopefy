@@ -59,7 +59,7 @@ export default function profile(state = initialState, action) {
     case DELETE_IMAGE:
       return {
       ...state,
-      image: null,
+      image: false,
       loading: false
       };
 
