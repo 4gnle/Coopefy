@@ -23,7 +23,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
     if (!image) getProfileImage();
     if (!loading && image) {
       // const image1 = atob(image)
-      // setImagePrev(image1);
+      setImagePrev(image);
       console.log(image);
     }
   }, [getProfileImage, loading, image]);
@@ -96,7 +96,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
-        {image && imagePrev ? (<img src={imagePrev} alt="Preview"/>) :
+        {image && imagePrev ? (<img src={URL.createObjectURL(image)} alt="Preview"/>) :
         <Fragment>
           {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button
@@ -110,7 +110,6 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
         }
         </div>
       </div>
-      <img src={`data:image/jpeg;base64,${imagePrev}`}/>
 
       <div className='buttons'>
 

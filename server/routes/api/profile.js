@@ -292,7 +292,6 @@ router.get(
     let profileimage = profile.profileimage
 
     res.set('Content-Type', 'image/jpeg').send(profileimage);
-    console.log(profileimage)
 
   } catch (err) {
     res.status(500).send({error: err.message });

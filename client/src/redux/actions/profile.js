@@ -196,7 +196,11 @@ export const profileImage = (formData) => async dispatch => {
 export const getProfileImage = (id) => async dispatch => {
   try{
 
-     const res = await api.get('/profile/image/');
+    const config = {
+      responseType: "blob"
+    }
+
+    const res = await api.get('/profile/image/', config)
 
     dispatch({
       type: GET_IMAGE,

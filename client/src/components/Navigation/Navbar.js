@@ -14,7 +14,7 @@ const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
     <ul>
       <div className="general-links">
 
-          <Link to='/dashboard'><i class="fas fa-columns"></i><span> Dashboard</span></Link>
+          <Link to='/dashboard'><i className="fas fa-columns"></i><span> Dashboard</span></Link>
 
           <Link to='/projects'><i className= "fas fa-tools fa-fw"/><span> Projects</span></Link>
 
