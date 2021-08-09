@@ -84,7 +84,6 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
   return (
 
     <div>
-
       <input
         type="file"
         ref={filePickerRef}
@@ -96,9 +95,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
-        {imagePrev ? (<img src={URL.createObjectURL(image)} alt="Preview"/>) :
-        <Fragment>
-          {previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
+        {imagePrev ? (<img src={URL.createObjectURL(image)} alt="Preview"/>) : previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button
           className="button-image"
           type="button"
@@ -106,8 +103,6 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
           title='Pick Image'>
           <i className="fas fa-images"></i>
           </Button>}
-        </Fragment>
-        }
         </div>
       </div>
 

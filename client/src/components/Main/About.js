@@ -20,7 +20,7 @@ const About = ({profile: { loading, image }, profileImage, getProfileImage, dele
 
   return (
     <div style={{display: 'inline', float: 'none', marginLeft: '0px', marginRight: '0px', top: '100px'}}>
-      <img src={URL.createObjectURL(image)}/>
+      {image ? (<img src={URL.createObjectURL(image)}/>) : null}
     </div>
   )
 }

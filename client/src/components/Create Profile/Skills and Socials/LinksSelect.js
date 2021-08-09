@@ -22,6 +22,7 @@ const initialState = {
 const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unSelectLinks, selectedLinks}) => {
 
   const [formData, setFormData] = useState(initialState);
+  const [profileInfo, setProfileInfo] = useState(initialState);
 
   useEffect(() => {
      if (!profile) getProfile();
@@ -30,9 +31,9 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
        for (const key in profile.sociallinks) {
          if (key in profileData) profileData[key] = profile.sociallinks[key];
        }
-       setFormData(profileData);
+       setProfileInfo(profileData);
      }
-   }, [loading, setFormData, getProfile, profile]);
+   }, [loading, formData, getProfile, profile]);
 
   const {
   github,
