@@ -23,7 +23,6 @@ const ImageUpload = ({profile: { loading, profileimage }, profileImage, getProfi
     if (!profileimage && !imagePrev) getProfileImage();
     if (!loading && profileimage) {
       const image1 = URL.createObjectURL(profileimage);
-      console.log(image1);
       setImagePrev(image1);
     }
   }, [getProfileImage, loading, profileimage]);

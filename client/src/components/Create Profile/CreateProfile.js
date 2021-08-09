@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 
 //UI
 import Button from '../UI/Button'
+import Spinner from '../UI/Spinner'
 
 const initialState = {
   status: '',
@@ -55,6 +56,8 @@ useEffect(() => {
   }
 
   return (
+    <>
+    {loading ? (<Spinner/>) : (
     <div className='createprofile-edit-box'>
       <ImageUpload />
       <div className='createprofile-top-inputs'>
@@ -133,7 +136,7 @@ useEffect(() => {
           >Cancel</Button>
         </div>
       </div>
-  )
+  )}</>)
 }
 
 CreateProfile.propTypes = {
