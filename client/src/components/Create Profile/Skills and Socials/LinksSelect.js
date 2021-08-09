@@ -31,9 +31,9 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
        for (const key in profile.sociallinks) {
          if (key in profileData) profileData[key] = profile.sociallinks[key];
        }
-       setProfileInfo(profileData);
+       setFormData(profileData);
      }
-   }, [loading, formData, getProfile, profile]);
+   }, [loading, getProfile, profile]);
 
   const {
   github,

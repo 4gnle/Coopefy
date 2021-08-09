@@ -289,9 +289,8 @@ router.get(
     let profile = await Profile.findOne(
       { user: req.user.id})
 
-    let profileimage = profile.profileimage
-
-    res.set('Content-Type', 'image/jpeg').send(profileimage);
+      let profileimage = profile.profileimage
+      res.set('Content-Type', 'image/jpeg').send(profileimage);
 
   } catch (err) {
     res.status(500).send({error: err.message });

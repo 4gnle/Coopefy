@@ -56,7 +56,7 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
        }
        setSkillsData(profileSkills)
       }
-   }, [loading, getProfile, skillsData, profile, socialLinks]);
+   }, [loading, getProfile, profile]);
 
   const selectLinks = () => {
     setChangeLinks(true);

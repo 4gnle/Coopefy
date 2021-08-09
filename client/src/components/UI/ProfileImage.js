@@ -14,7 +14,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
   const [imagePrev, setImagePrev] = useState();
-  const [prevURL, setprevURL] = useState({showPrev: true});
+  const [prevURL, setprevURL] = useState({showPrev: false});
   const [valid, setValid] = useState();
 
   const filePickerRef = useRef();
@@ -81,6 +81,25 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
     deleteImage();
   }
 
+  const Buttons = () => {
+    return (
+    <Fragment>
+      <Button
+        className="button primary m"
+        onClick={submitImage}
+        title='Upload Image'>
+        <i className="fas fa-upload"></i>
+        </Button>
+
+        <Button
+        onClick={deleteFunc}
+        className='button bad m'
+        title='Delete Image'>
+        <i className="fas fa-trash-alt">
+        </i>
+      </Button>
+    </Fragment>)}
+
   return (
 
     <div>
@@ -108,25 +127,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
 
       <div className='buttons'>
 
-        {previewURL || imagePrev && prevURL.showPrev ?
-        <Fragment>
-            <Button
-            className="button primary m"
-            onClick={submitImage}
-            title='Upload Image'>
-            <i className="fas fa-upload"></i>
-            </Button>
-
-            <Button
-            onClick={deleteFunc}
-            className='button bad m'
-            title='Delete Image'>
-            <i className="fas fa-trash-alt">
-            </i>
-            </Button>
-          </Fragment>
-          : null
-        }
+        {previewURL && prevURL.showPrev ? (<Buttons/>) : imagePrev ? (<Buttons/>) : null}
       </div>
 
 
