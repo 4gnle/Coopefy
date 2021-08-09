@@ -25,6 +25,7 @@ const ImageUpload = ({profile: { loading, profileimage }, profileImage, getProfi
       const image1 = URL.createObjectURL(profileimage);
       setImagePrev(image1);
     }
+    // eslint-disable-next-line
   }, [getProfileImage, loading, profileimage]);
 
 

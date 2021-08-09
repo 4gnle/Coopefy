@@ -34,9 +34,13 @@ const SkillsSelect = ({profile: {loading, profile, skills}, setProfileSkills, un
          for (const key in profile) {
            if (key in profileskills) profileskills[key] = profile[key];
          }
-         setProfileskills(profileskills)
+         if (profileskills.length > 0) {
+         setProfileskills(profileskills);
+         setSkillConfirm(true);
+         console.log(profileSkills.skills)
+       }
         }
-  }, [profileSkills, loading, profile])
+  }, [loading, profile])
 
   useEffect(() => {
     if (selectedSkills !== formData) {
@@ -49,7 +53,7 @@ const SkillsSelect = ({profile: {loading, profile, skills}, setProfileSkills, un
         skills: chosenSkills
       })
     }
-  }, [formData, selectedSkills])
+  }, [selectedSkills])
 
   const addSKills = () => {
     setProfileSkills(formData)
@@ -115,25 +119,29 @@ const deleteSkills = (e) => {
           ))}
         </div>
 
-        {skillConfirm ?
-        <div className="selected-skills">
-          <h3>Selected Skills</h3>
-          {profileSkills.length > 0 && profileSkills.skills.map(skill =>{
-            <button
-              className='selected-skill-badge'
-              onClick={e => deleteSkills(skill)}
-            >{skill}
-            </button>
-          })}</div> :
-          <div className="selected-skills">
-          {selectedSkills.length > 0 && selectedSkills.map(skill =>
-          <button
-            className='selected-skill-badge'
-            onClick={e => deleteSkills(skill.id)}
-          >{skill.skill}
-          </button>
-        )}
-        </div>}
+        {skillConfirm && selectedSkills.length > 0 ?
+         (<div className="selected-skills">
+         <h3>Selected Skills</h3>
+           {selectedSkills.length > 0 && selectedSkills.map((skill, index) =>
+           <button
+              key={index}
+             className='selected-skill-badge'
+             onClick={e => deleteSkills(skill.id)}
+           >{skill.skill}
+           </button>
+         )}
+         </div>) :
+         (<div className="selected-skills">
+           <h3>Selected Skills</h3>
+             {profileSkills.length > 0 && profileSkills.skills.map((skill, index) =>{
+               <button
+                 key={index}
+                 className='selected-skill-badge'
+                 onClick={e => deleteSkills(skill)}
+               >{skill}
+               </button>
+           }) } </div>)}
+
 
         <div className='skills-buttons'>
           <Button
