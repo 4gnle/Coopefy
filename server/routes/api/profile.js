@@ -268,9 +268,7 @@ module.exports = router;
         { user: req.user.id },
         { profileimage: req.file.buffer })
 
-      await profile.save();
-
-      res.send(profile);
+      res.send(profile.profileimage);
 
     } catch (err) {
 
@@ -289,8 +287,10 @@ router.get(
     let profile = await Profile.findOne(
       { user: req.user.id})
 
+    if (profile.profileimage) {
       let profileimage = profile.profileimage
       res.set('Content-Type', 'image/jpeg').send(profileimage);
+    }
 
   } catch (err) {
     res.status(500).send({error: err.message });

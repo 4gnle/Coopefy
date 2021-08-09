@@ -12,7 +12,7 @@ import {
 
 const initialState = {
 profile: null,
-image: null,
+profileimage: null,
 profiles:[],
 repos:[],
 loading: true,
@@ -28,7 +28,7 @@ export default function profile(state = initialState, action) {
     case GET_IMAGE:
       return {
         ...state,
-        image: payload,
+        profileimage: payload,
         loading: false
       }
 
@@ -59,7 +59,7 @@ export default function profile(state = initialState, action) {
     case DELETE_IMAGE:
       return {
       ...state,
-      image: false,
+      profileimage: null,
       loading: false
       };
 

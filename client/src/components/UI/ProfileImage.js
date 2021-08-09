@@ -9,7 +9,7 @@ import Button from '../UI/Button'
 
 import './ProfileImage.css'
 
-const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage, deleteImage}) => {
+const ImageUpload = ({profile: { loading, profileimage }, profileImage, getProfileImage, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -20,13 +20,13 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
   const filePickerRef = useRef();
 
   useEffect(() => {
-    if (!image) getProfileImage();
-    if (!loading && image) {
-      // const image1 = atob(image)
-      setImagePrev(image);
-      console.log(image);
+    if (!profileimage && !imagePrev) getProfileImage();
+    if (!loading && profileimage) {
+      const image1 = URL.createObjectURL(profileimage);
+      console.log(image1);
+      setImagePrev(image1);
     }
-  }, [getProfileImage, loading, image]);
+  }, [getProfileImage, loading, profileimage]);
 
 
   // Transforms the file into a URL
@@ -71,6 +71,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
     formData.append("profileimage", file);
     e.preventDefault()
     profileImage(formData)
+
   }
 
   const deleteFunc = (e) => {
@@ -114,7 +115,7 @@ const ImageUpload = ({profile: { loading, image }, profileImage, getProfileImage
       <div className='image-upload.center'>
         <div  className='image-upload__preview'>
 
-        {imagePrev ? (<img src={URL.createObjectURL(image)} alt="Preview"/>) : previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
+        {imagePrev ? (<img src={imagePrev} alt="Preview"/>) : previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
           <Button
           className="button-image"
           type="button"
