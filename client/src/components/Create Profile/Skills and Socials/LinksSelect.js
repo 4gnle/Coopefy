@@ -22,7 +22,6 @@ const initialState = {
 const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unSelectLinks, selectedLinks}) => {
 
   const [formData, setFormData] = useState(initialState);
-  const [profileInfo, setProfileInfo] = useState(initialState);
 
   useEffect(() => {
      if (!profile) getProfile();

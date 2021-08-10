@@ -58,6 +58,7 @@ const ImageUpload = ({profile: { loading, profileimage }, profileImage, getProfi
       return;
     } else {
       setValid(false)
+      // eslint-disable-next-line
       fileIsValid = false;
     }
   }
