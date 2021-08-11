@@ -2,7 +2,9 @@
   display: block;
   text-align: center;
   position: fixed;
-  max-width: 70%;
+  max-width: 25%;
+  top: 150px;
+  left: 50px;
   margin-left: auto;
   margin-right: auto;
   padding: 0.5rem;
@@ -54,8 +56,9 @@
 }
 
 .pv-menu {
-    /* display: none; */
     position: absolute;
+    left: 80px;
+    top: 215px;
     width: 50%;
     box-shadow: 0 2px 12px grey;
     background: #C4C4C4;

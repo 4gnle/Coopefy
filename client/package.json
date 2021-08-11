@@ -23,7 +23,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "cross-env BROWSER=firefox react-scripts start",
+    "start": "cross-env BROWSER=brave react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -47,7 +47,6 @@
     ]
   },
   "proxy": "http://localhost:5000",
-
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "devDependencies": {},
