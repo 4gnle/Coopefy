@@ -19,9 +19,7 @@ const SkillsSelect = ({profile: {loading, profile}, setProfileSkills, unSelectSk
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [profileSkills, setProfileskills] = useState({
-    skills: ''
-  });
+  const [profileSkills, setProfileskills] = useState({});
   const [skillConfirm, setSkillConfirm] = useState(false)
   const [formData, setFormData] = useState({
     skills: ''
@@ -32,9 +30,9 @@ const SkillsSelect = ({profile: {loading, profile}, setProfileSkills, unSelectSk
   useEffect(() => {
      if (!profile) getProfile();
        if (!loading && profile) {
-         const profileskills = {...profile.skills};
-         setProfileskills(profileskills);
-         console.log(profileskills)
+         const receivedSkills = {...profile.skills};
+         setProfileskills(profile.skills);
+         console.log(profileSkills)
         }
   }, [loading, profile])
 
@@ -117,28 +115,14 @@ const deleteSkills = (e) => {
 
         {skillConfirm && selectedSkills.length > 0 ?
          (<div className="selected-skills">
-            <h3>Selected Skills</h3>
-           {selectedSkills.length > 0 && selectedSkills.map((skill, index) =>
+           <h3>Selected Skills</h3>
+           {selectedSkills.length > 0 && selectedSkills.map((skill, index) => {
            <button
-              key={index}
+             key={index}
              className='selected-skill-badge'
              onClick={e => deleteSkills(skill.id)}
            >{skill.skill}
-           </button>
-         )}
-         </div>) : null}
-
-         {skillConfirm && profileSkills.length > 0 ?
-           (<div className="selected-skills">
-               <h3>Selected Skills</h3>
-                  {profileSkills.length > 0 &&
-                   profileSkills.map((skill) =>{
-                    <button
-                      className='selected-skill-badge'
-                      onClick={e => deleteSkills(skill)}
-                    >{skill}
-                    </button>
-                })} </div>) : null}
+           </button>})}</div>) : null}
 
 
         <div className='skills-buttons'>

@@ -2,12 +2,9 @@
   display: block;
   text-align: center;
   position: fixed;
-  height: auto;
-  left: 280px;
-  top: 150px;
-  width: 15%;
   max-width: 70%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
   background: #C4C4C4;
@@ -18,7 +15,8 @@
 }
 
 .pv-box button {
-  align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pv-box button:focus {
@@ -28,6 +26,8 @@
 
 .pv-box h4 {
   margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pv-box-list-item {
@@ -47,7 +47,8 @@
   width: 10px;
   height: 10px;
   margin-bottom: 10px;
-  margin-left: 90px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 180px;
   background-color: black;
 }
@@ -55,10 +56,7 @@
 .pv-menu {
     /* display: none; */
     position: absolute;
-    height: auto;
     width: 50%;
-    left: 75px;
-    top: 215px;
     box-shadow: 0 2px 12px grey;
     background: #C4C4C4;
     background-color: white;
@@ -166,7 +164,7 @@ font-size: 39px;
   border-radius: 18px;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .pv-box {
     display: block;
     width: 10%;
@@ -198,7 +196,6 @@ font-size: 39px;
   }
 
   .pv-menu {
-      /* display: none; */
       position: absolute;
       height: auto;
       width: 50%;
@@ -309,4 +306,4 @@ font-size: 39px;
     width:auto;
     border-radius: 18px;
   }
-}
+} */
