@@ -1,9 +1,10 @@
 .av-box {
+  position: relative;
   display: block;
   text-align: center;
   position: absolute;
   height: auto;
-  left: 600px;
+  left: 280px;
   top: 150px;
   margin: auto;
   padding: 0.5rem;
@@ -49,7 +50,7 @@
   border-radius: 180px;
   background-color: black;
 }
-
+/*
 @media (max-width: 768px) {
   .av-box {
     left: 600px;;
@@ -109,4 +110,4 @@
 
 @media (max-width: 280px) {
 
-}
+} */

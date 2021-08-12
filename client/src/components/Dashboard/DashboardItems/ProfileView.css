@@ -2,9 +2,10 @@
   display: block;
   text-align: center;
   position: fixed;
-  max-width: 25%;
+  max-width: 15%;
+  max-height: 80%;
   top: 150px;
-  left: 50px;
+  left: 150px;
   margin-left: auto;
   margin-right: auto;
   padding: 0.5rem;
@@ -40,7 +41,7 @@
   width:auto;
   height: auto;
   background-color: #EEEEEE;
-  border: 1px solid #lightgray;
+  border: 1px solid lightgray;
   border-radius: 18px;
 }
 
@@ -165,6 +166,13 @@ font-size: 39px;
   width:auto;
   background-color: #EEEEEE;
   border-radius: 18px;
+}
+
+@media (max-width: 900px) {
+  .pv-box {
+    font-size: 1.5vh;
+    left: 20px;
+  }
 }
 
 /* @media (max-width: 900px) {
