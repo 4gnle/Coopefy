@@ -4,8 +4,6 @@
   position: fixed;
   max-width: 15%;
   max-height: 80%;
-  top: 150px;
-  left: 150px;
   margin-left: auto;
   margin-right: auto;
   padding: 0.5rem;
@@ -171,7 +169,6 @@ font-size: 39px;
 @media (max-width: 900px) {
   .pv-box {
     font-size: 1.5vh;
-    left: 20px;
   }
 }
 

@@ -14,13 +14,21 @@ const Dashboard = (history) => {
   return (
     <div className='dashboard'>
       <div className='db-text'>
-        <h1>Dashboard</h1>
-        <h2>New Projects</h2>
-        <h3>New People</h3>
       </div>
-        <ActionsView />
-        <ProfileView />
-        <ColumnSection/>
+        <div className='profile-view'>
+          <ProfileView />
+        </div>
+
+        <div className='actions-view'>
+          <h1>Dashboard</h1>
+          <ActionsView />
+        </div>
+
+        <div className='projects-view'>
+          <h3>New People</h3>
+          <h2>New Projects</h2>
+          <ColumnSection/>
+        </div>
     </div>
   )
 }

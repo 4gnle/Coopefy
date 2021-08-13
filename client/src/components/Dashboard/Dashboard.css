@@ -1,30 +1,18 @@
 .dashboard {
-
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
 }
 
-.db-text h1 {
-  display: block;
-  height: auto;
-  width: auto;
-  margin-left: 615px;
-  margin-top: 30px;
-  color: darkgrey;
+.profile-view {
+  margin-top: 80px;
+  margin-left: -100px;
 }
 
-.db-text h2 {
-  display: block;
-  height: auto;
-  width: auto;
-  margin-left: 1220px;
-  margin-top: -55px;
-  color: darkgrey;
+.actions-view {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.db-text h3 {
-  display: block;
-  height: auto;
-  width: auto;
-  margin-left: 1220px;
-  margin-top: 325px;
-  color: darkgrey;
+.actions-view h1 {
+  top: 10px;
 }
