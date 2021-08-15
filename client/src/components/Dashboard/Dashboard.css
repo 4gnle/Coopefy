@@ -5,12 +5,11 @@
 
 .profile-view {
   margin-top: 80px;
-  margin-left: -100px;
+  margin-left: -200px;
 }
 
 .actions-view {
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 100px;
 }
 
 .actions-view h1 {
