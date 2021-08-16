@@ -31,26 +31,14 @@ const SkillsSelect = ({profile: {loading, profile}, setProfileSkills, unSelectSk
      if (!profile) getProfile();
        if (!loading && profile) {
          const receivedSkills = {...profile.skills};
-         setProfileskills(profile.skills);
-         console.log(profileSkills)
+         setSelectedSkills(...profile.skills);
+         console.log(selectedSkills)
         }
   }, [loading, profile])
 
-  useEffect(() => {
-    if (selectedSkills !== formData) {
-
-    const chosenSkills = selectedSkills.map(skill => {
-        return skill.skill
-      })
-
-    setFormData({
-        skills: chosenSkills
-      })
-    }
-  }, [selectedSkills])
-
   const addSKills = () => {
-    setProfileSkills(formData)
+    console.log(selectedSkills);
+    // setProfileSkills(formData)
   }
 
   const selectSkill = (e) => {

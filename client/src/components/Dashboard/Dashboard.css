@@ -5,13 +5,14 @@
 
 .profile-view {
   margin-top: 80px;
-  margin-left: -200px;
+  float: left;
+  left: 10px;
 }
 
 .actions-view {
-  margin-right: 100px;
+  margin-right: 200px;
 }
 
 .actions-view h1 {
-  top: 10px;
+  top: 15px;
 }

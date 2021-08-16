@@ -194,6 +194,14 @@
     font-size: 5.5vw;
   }
 
+  .social-icons i.fa-product-hunt:hover {
+    font-size: 6.5vw;
+  }
+
+  .social-icons i:hover {
+    font-size: 7vw;
+  }
+
   .bottom-section .skills {
     margin-top: 5px;
     margin-left: auto;
