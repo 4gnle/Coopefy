@@ -4,6 +4,7 @@ import {
   GET_IMAGE,
   DELETE_IMAGE,
   GET_PROFILE,
+  GET_PROFILESKILLS,
   UPDATE_PROFILE,
   GET_PROFILES,
   UPDATE_FAILED,
@@ -13,6 +14,7 @@ import {
 const initialState = {
 profile: null,
 profileimage: null,
+skills:null,
 profiles:[],
 repos:[],
 loading: true,
@@ -39,6 +41,13 @@ export default function profile(state = initialState, action) {
         profile: payload,
         loading: false
       };
+
+    case GET_PROFILESKILLS:
+      return {
+        ...state,
+        skills: payload,
+        loading: false
+      }
 
     case UPDATE_FAILED:
     case PROFILE_ERROR:

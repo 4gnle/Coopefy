@@ -192,6 +192,27 @@ router.post('/skills', [auth],
 
 module.exports = router;
 
+// @router GET api/profile/skills
+// @desc GEt Profile Skills
+// @access Private
+router.get(
+  '/skills', auth,
+ async (req, res) => {
+  try {
+    let profile = await Profile.findOne(
+      { user: req.user.id})
+
+    if (profile.skills) {
+      let profileskills = profile.skills
+      res.send(profileskills);
+    }
+
+  } catch (err) {
+    res.status(500).send({error: err.message });
+  }
+});
+
+module.exports = router;
 
 //@route POST api/profile/links
 //@desc Post profile Socials

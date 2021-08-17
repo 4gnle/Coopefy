@@ -2,7 +2,7 @@ import React , {useState, useEffect} from 'react'
 import {skillList} from './SkillList'
 
 //Redux
-import {getProfile, setProfileSkills} from '../../../redux/actions/profile';
+import {getProfileSkills, setProfileSkills} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 //UI CSS
@@ -11,15 +11,11 @@ import './SkillsSelect.css'
 //Components
 import Button from '../../UI/Button'
 
-const stateSkills = {
-  skills: ''
-};
-
-const SkillsSelect = ({profile: {loading, profile}, setProfileSkills, unSelectSkills}) => {
+const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileSkills, unSelectSkills}) => {
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [profileSkills, setProfileskills] = useState({});
+  const [profileskills, setProfileskills] = useState([]);
   const [skillConfirm, setSkillConfirm] = useState(false)
   const [formData, setFormData] = useState({
     skills: ''
@@ -28,13 +24,29 @@ const SkillsSelect = ({profile: {loading, profile}, setProfileSkills, unSelectSk
   const skills1 = skillList;
 
   useEffect(() => {
-     if (!profile) getProfile();
-       if (!loading && profile) {
-         const receivedSkills = {...profile.skills};
-         setSelectedSkills(...profile.skills);
-         console.log(selectedSkills)
-        }
-  }, [loading, profile])
+     if (!skills) getProfileSkills();
+       if (!loading && skills) {
+         const profileSkills = {...skills};
+         for (const key in skills) {
+           if (key in profileSkills) profileSkills[key] = skills[key];
+         }
+         setProfileskills(profileSkills)
+       }
+       console.log(profileskills);
+  }, [loading, skills])
+
+  useEffect(() => {
+    if (selectedSkills !== formData) {
+
+    const chosenSkills = selectedSkills.map(skill => {
+        return skill.skill
+      })
+
+    setFormData({
+        skills: chosenSkills
+      })
+    }
+  }, [selectedSkills])
 
   const addSKills = () => {
     console.log(selectedSkills);
@@ -49,6 +61,7 @@ const SkillsSelect = ({profile: {loading, profile}, setProfileSkills, unSelectSk
     }
   )
   setSkillConfirm(true);
+  console.log(selectedSkills);
 }
 
 const deleteSkills = (e) => {
@@ -104,14 +117,12 @@ const deleteSkills = (e) => {
         {skillConfirm && selectedSkills.length > 0 ?
          (<div className="selected-skills">
            <h3>Selected Skills</h3>
-           {selectedSkills.length > 0 && selectedSkills.map((skill, index) => {
+           {selectedSkills.map(skill => {
            <button
-             key={index}
              className='selected-skill-badge'
              onClick={e => deleteSkills(skill.id)}
            >{skill.skill}
            </button>})}</div>) : null}
-
 
         <div className='skills-buttons'>
           <Button
@@ -137,4 +148,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {getProfile, setProfileSkills})(SkillsSelect)
+export default connect(mapStateToProps, {getProfileSkills, setProfileSkills})(SkillsSelect)
