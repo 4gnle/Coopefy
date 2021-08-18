@@ -11,7 +11,7 @@ import './SkillsSelect.css'
 //Components
 import Button from '../../UI/Button'
 
-const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileSkills, unSelectSkills, skillsData}) => {
+const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSkills, skillsData}) => {
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -21,12 +21,12 @@ const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileS
   })
 
   useEffect(() => {
-      if (selectedSkills !== skillsData.skills) {
+      if (selectedSkills.skills !== skillsData.skills) {
         skillsData.skills.forEach(skill => {
           const e = skill
-          selectSkill(e)
+          selectSkill(e);
         })
-      }
+    }
       console.log(skillsData)
    }, [skillsData])
 
@@ -71,8 +71,7 @@ const deleteSkills = (e) => {
 
   return (
   <div>
-    <div className='backdrop' onClick={unSelectSkills}
-    >
+    <div className='backdrop' onClick={unSelectSkills}>
     </div>
 
       <div className='select-skills'>
@@ -149,14 +148,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {getProfileSkills, setProfileSkills})(SkillsSelect)
-
-
-// if (!skills) getProfileSkills();
-//   if (!loading && skills) {
-//     const profileSkills = {...skills};
-//     for (const key in skills) {
-//       if (key in profileSkills) profileSkills[key] = skills[key];
-//     }
-//     setProfileskills(profileSkills)
-//   }
+export default connect(mapStateToProps, {setProfileSkills})(SkillsSelect)
