@@ -76,17 +76,15 @@
 
 .selected-skills label {
   margin-right: 0px !important;
-
 }
 
 .selected-skill-badge {
-  margin: 1px !important;
-  width: 20% !important;
+  margin: 2.5px !important;
+  width: 40% !important;
   height: 50px !important;
   padding: 1px !important;
-  font-size: 12px;
+  font-size: 15px;
   cursor: pointer;
-  border: 1px solid grey;
   background-color: black;
   color: white;
   border-radius: 12px;

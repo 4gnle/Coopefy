@@ -32,7 +32,7 @@ const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileS
          }
          setProfileskills(profileSkills)
        }
-       console.log(profileskills);
+       console.log(selectedSkills);
   }, [loading, skills])
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileS
   const selectSkill = (e) => {
     setSelectedSkills(prevSkills => {
       const updatedSkills = [...prevSkills];
-      updatedSkills.unshift({skill: e, id: Math.random().toString() });
+      updatedSkills.unshift({skill: e, id: Math.random().toString()});
       return updatedSkills;
     }
   )
@@ -114,15 +114,18 @@ const deleteSkills = (e) => {
           ))}
         </div>
 
-        {skillConfirm && selectedSkills.length > 0 ?
-         (<div className="selected-skills">
-           <h3>Selected Skills</h3>
-           {selectedSkills.map(skill => {
-           <button
-             className='selected-skill-badge'
-             onClick={e => deleteSkills(skill.id)}
-           >{skill.skill}
-           </button>})}</div>) : null}
+        {skillConfirm && selectedSkills ? (
+          <div className='selected-skills'>
+          <h3>Selected Skills</h3>
+          {selectedSkills && selectedSkills.map(skill => (
+              <button
+                className='selected-skill-badge'
+                onClick={e => deleteSkills(skill.id)}>
+                {skill.skill}
+              </button>
+          ))}
+          </div>
+        ) : null}
 
         <div className='skills-buttons'>
           <Button
