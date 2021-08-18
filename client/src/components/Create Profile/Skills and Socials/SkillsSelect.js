@@ -11,29 +11,25 @@ import './SkillsSelect.css'
 //Components
 import Button from '../../UI/Button'
 
-const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileSkills, unSelectSkills}) => {
+const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileSkills, unSelectSkills, skillsData}) => {
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [profileskills, setProfileskills] = useState([]);
   const [skillConfirm, setSkillConfirm] = useState(false)
   const [formData, setFormData] = useState({
     skills: ''
   })
 
-  const skills1 = skillList;
-
   useEffect(() => {
-     if (!skills) getProfileSkills();
-       if (!loading && skills) {
-         const profileSkills = {...skills};
-         for (const key in skills) {
-           if (key in profileSkills) profileSkills[key] = skills[key];
-         }
-         setProfileskills(profileSkills)
-       }
-       console.log(selectedSkills);
-  }, [loading, skills])
+      if (selectedSkills !== skillsData.skills) {
+        skillsData.skills.forEach(skill => {
+          const e = skill
+          selectSkill(e)
+        })
+      }
+      console.log(skillsData)
+   }, [skillsData])
+
 
   useEffect(() => {
     if (selectedSkills !== formData) {
@@ -48,9 +44,11 @@ const SkillsSelect = ({profile: {skills, loading}, getProfileSkills, setProfileS
     }
   }, [selectedSkills])
 
+  const skills1 = skillList;
+
   const addSKills = () => {
     console.log(selectedSkills);
-    // setProfileSkills(formData)
+    setProfileSkills(formData)
   }
 
   const selectSkill = (e) => {
@@ -152,3 +150,13 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {getProfileSkills, setProfileSkills})(SkillsSelect)
+
+
+// if (!skills) getProfileSkills();
+//   if (!loading && skills) {
+//     const profileSkills = {...skills};
+//     for (const key in skills) {
+//       if (key in profileSkills) profileSkills[key] = skills[key];
+//     }
+//     setProfileskills(profileSkills)
+//   }

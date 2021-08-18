@@ -112,7 +112,7 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
             className='small'
           >Edit+</Button></label>
 
-          {changeSkills && <SkillsSelect unSelectSkills={unSelectSkills}/>}
+          {changeSkills && <SkillsSelect skillsData={skillsData} unSelectSkills={unSelectSkills}/>}
 
           <div className='skills-text'>
           {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
