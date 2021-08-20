@@ -11,7 +11,6 @@ module.exports = function(req, res, next) {
   }
 
   //Verify the token to LOG IN
-
   try {
     const decoded = jwt.verify(token, config.get('jwtSecret'));
 

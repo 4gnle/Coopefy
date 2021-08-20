@@ -6,6 +6,11 @@ import './ProfileView.css'
 //UI
 import Button from '../../UI/Button'
 
+//Redux
+import {profileData, getProfile} from '../../../redux/actions/profile';
+import {connect} from 'react-redux';
+
+
 const ProfileView = () => {
 
   const [useMenu, setUseMenu] = useState(false);

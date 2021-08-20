@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs')
 const {check, validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../../middleware/auth');
 
 const User = require('../../models/User')
 
@@ -76,10 +77,21 @@ router.post('/', [
   }
 });
 
-// @router GET api/auth
-// @desc Login User
+// @router GET api/users/username
+// @desc Get Username
 // @access Public
 
-router.get('/', (req, res) => res.send('Users Route'));
+router.get('/username', auth, async (req, res) => {
+
+  try {
+    let userName = await User.find().populate({username});
+    if(userName) {
+      res.send(userName)
+    }
+  }catch(err) {
+    console.error(err.message);
+    res.status(500).send('Server Error')
+  };
+})
 
 module.exports = router;

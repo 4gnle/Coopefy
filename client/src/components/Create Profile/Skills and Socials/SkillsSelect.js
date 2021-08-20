@@ -26,6 +26,8 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
           const e = skill
           selectSkill(e);
         })
+    } else if (selectedSkills.skills === skillsData.skills) {
+      return;
     }
       console.log(skillsData)
    }, [skillsData])
@@ -127,8 +129,7 @@ const deleteSkills = (e) => {
         <div className='skills-buttons'>
           <Button
             className='primary'
-            onClick={addSKills}
-          >
+            onClick={addSKills}>
             Add Skills
           </Button>
           <Button
