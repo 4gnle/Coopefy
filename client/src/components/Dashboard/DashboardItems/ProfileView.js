@@ -5,6 +5,7 @@ import './ProfileView.css'
 
 //UI
 import Button from '../../UI/Button'
+import Spinner from '../../UI/Spinner'
 
 //Redux and Router
 import {profileData, getProfile, getProfileImage} from '../../../redux/actions/profile';
@@ -40,7 +41,10 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
       const image1 = URL.createObjectURL(profileimage);
       setImagePrev(image1);
     }
+    // eslint-disable-next-line
+  }, [getProfileImage, loading, profileimage]);
 
+  useEffect(() => {
     if (!profile) getProfile();
     if (!loading && profile) {
       const profileData = { ...links };
@@ -50,8 +54,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
       setSocialLinks(profileData);
       console.log(profileData);
     }
-    // eslint-disable-next-line
-  }, [getProfileImage, loading, profileimage]);
+  }, [getProfile, socialLinks])
 
   useEffect(() => {
      const handleClickOutside = (event) => {
@@ -92,15 +95,17 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
         </Button>
 
         {useMenu &&
-        <div className='pv-menu' ref={wrapper}>
-          <button
-            className='pv-menu-button1'
-          >View Profile</button>
-          <button
-            className='pv-menu-button2'
-            onClick={editProfile}
-          >Edit Profile</button>
-        </div> }
+        <div className='pv-menu-wrapper' ref={wrapper}>
+          <div className='pv-menu'>
+            <button
+              className='pv-menu-button1'
+            >View Profile</button>
+            <button
+              className='pv-menu-button2'
+              onClick={editProfile}
+            >Edit Profile</button>
+          </div>
+        </div>}
 
         <div className='pv-bio'>
           <h4>Bio</h4>
@@ -110,7 +115,10 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
         </div>
 
         <div className='pv-links'>
+
+
           <h4>Links</h4>
+          {loading ? <Spinner style={{width:'1vh', height:'1vh'}}/> : (
           <div className='pv-links-icons'>
           {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
 
@@ -128,6 +136,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
 
           {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
           </div>
+          )}
         </div>
 
         <div className='pv-projects'>

@@ -2,10 +2,11 @@
   display: block;
   text-align: center;
   position: fixed;
+  width: max-content;
   max-width: 15%;
   max-height: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 20vh;
+  margin-top: 7vh;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
   background: #C4C4C4;
@@ -61,20 +62,26 @@
   object-fit: cover;
 }
 
+.pv-menu-wrapper {
+position: relative;
+margin-left: auto;
+margin-right: auto;
+}
+
 .pv-menu {
-    position: absolute;
-    left: 80px;
-    top: 215px;
-    width: 50%;
-    box-shadow: 0 2px 12px grey;
-    background: #C4C4C4;
-    background-color: white;
-    border-radius: 18px;
+  position: absolute;
+  width: 60%;
+  top: 10px;
+  left: 3vh;
+  box-shadow: 0 2px 12px grey;
+  background: #C4C4C4;
+  background-color: white;
+  border-radius: 18px;
 }
 
 .pv-menu:before {
     position: absolute;
-    left: 43%;
+    left: 40%;
     top: -10px;
     width: 0;
     height: 0;
@@ -149,17 +156,25 @@
 
 .pv-links-icons {
   text-align: center;
-  font-size: 40px;
+  font-size: 3vh;
   margin-left: -10px;
 }
 
 .pv-links i {
-  font-size: 40px;
+  font-size: 3.5vh;
   margin-left: 10px;
 }
 
 i.fa-product-hunt {
-font-size: 39px;
+font-size: 3.2vh;
+}
+
+.pv-links i:hover {
+  font-size: 3.7vh;
+}
+
+i.fa-product-hunt:hover {
+font-size: 3.5vh;
 }
 
 .pv-projects {
