@@ -23,14 +23,15 @@ const Dashboard = (history) => {
           <h1>Dashboard</h1>
           <ActionsView />
         </div>
-
-        <div className='projects-view'>
-          <h3>New People</h3>
-          <h2>New Projects</h2>
-          <ColumnSection/>
-        </div>
     </div>
   )
 }
 
 export default Dashboard
+
+
+// <div className='projects-view'>
+//   <h3>New People</h3>
+//   <h2>New Projects</h2>
+//   <ColumnSection/>
+// </div>
