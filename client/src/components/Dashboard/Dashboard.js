@@ -20,7 +20,6 @@ const Dashboard = (history) => {
         </div>
 
         <div className='actions-view'>
-          <h1>Dashboard</h1>
           <ActionsView />
         </div>
     </div>

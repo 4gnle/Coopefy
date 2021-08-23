@@ -3,8 +3,8 @@
   display: block;
   text-align: center;
   position: absolute;
+  margin-left: 30vw;
   height: auto;
-  margin-left: 40vh;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
   background: #C4C4C4;

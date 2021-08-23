@@ -28,6 +28,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
   const [useMenu, setUseMenu] = useState(false);
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(links);
+  const [profileBio, setProfileBio] = useState('');
 
   const wrapper = useRef(null);
 
@@ -53,8 +54,11 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
       }
       setSocialLinks(profileData);
       console.log(profileData);
+
+      const biog = profile.bio
+      setProfileBio(biog);
     }
-  }, [getProfile, socialLinks])
+  }, [loading, profile]);
 
   useEffect(() => {
      const handleClickOutside = (event) => {
@@ -97,20 +101,20 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
         {useMenu &&
         <div className='pv-menu-wrapper' ref={wrapper}>
           <div className='pv-menu'>
-            <button
+            <Button
               className='pv-menu-button1'
-            >View Profile</button>
-            <button
+            >View Profile</Button>
+            <Button
               className='pv-menu-button2'
               onClick={editProfile}
-            >Edit Profile</button>
+            >Edit Profile</Button>
           </div>
         </div>}
 
         <div className='pv-bio'>
           <h4>Bio</h4>
           <div className='pv-bio-box'>
-            <p>{bio}</p>
+            <p>{profileBio}</p>
           </div>
         </div>
 
@@ -118,7 +122,6 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
 
 
           <h4>Links</h4>
-          {loading ? <Spinner style={{width:'1vh', height:'1vh'}}/> : (
           <div className='pv-links-icons'>
           {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
 
@@ -136,8 +139,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
 
           {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
           </div>
-          )}
-        </div>
+          </div>
 
         <div className='pv-projects'>
           <h4>Projects</h4>
