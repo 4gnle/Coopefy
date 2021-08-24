@@ -4,6 +4,7 @@
   text-align: center;
   position: absolute;
   margin-left: 30vw;
+  width: 40vw;
   height: auto;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
@@ -48,37 +49,13 @@
   border-radius: 180px;
   background-color: black;
 }
-/*
-@media (max-width: 768px) {
+
+@media (max-width: 900px) {
   .av-box {
-    left: 600px;;
+    margin-left: 23vw;
     top: 150px;
     width: 50%;
     padding: 0.5rem;
-  }
-
-  .av-buttons {
-    margin-top: -15px;
-    margin-bottom: 5px;
-  }
-
-  .av-box .av-buttons h3 {
-    padding: 10px;
-  }
-
-  .av-box-list-item {
-    box-sizing: border-box;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    padding: 1rem;
-  }
-
-  .av-profile-picture {
-    padding: 1.5rem;
-    width: 10px;
-    height: 10px;
-    margin-bottom: 10px;
-    border-radius: 180px;
   }
 }
 
@@ -108,4 +85,4 @@
 
 @media (max-width: 280px) {
 
-} */
+}
