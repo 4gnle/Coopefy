@@ -5,7 +5,7 @@
   width: 10vw;
   max-height: 80%;
   margin-left: 17vw;
-  margin-top: 5.5vh;
+  top: 15vh;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
   background: #C4C4C4;
@@ -170,11 +170,11 @@ font-size: 3.2vh;
 }
 
 .pv-links i:hover {
-  font-size: 3.7vh;
+  font-size: 3.6vh;
 }
 
 i.fa-product-hunt:hover {
-font-size: 3.5vh;
+font-size: 3.3vh;
 }
 
 .pv-projects {
