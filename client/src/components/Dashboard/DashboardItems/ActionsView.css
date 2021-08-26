@@ -6,7 +6,7 @@
   margin-left: 30vw;
   top: 15vh;
   width: 40vw;
-  height: auto;
+  height: 100%;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
   background: #C4C4C4;
@@ -54,28 +54,17 @@
 @media (max-width: 900px) {
   .av-box {
     margin-left: 23vw;
+    top: 12vh;
     width: 50%;
     padding: 0.5rem;
   }
-}
-
-@media (max-width: 1280px) {
-
-}
-
-@media (max-width: 1080px) {
-
-}
-
-@media (max-width: 880px) {
-
 }
 
 @media (max-width: 680px) {
   .av-box {
     width: 70%;
     margin-left: auto;
-    top: 8vh;
+    top: 9.3vh;
     border-radius: 0px;
   }
 

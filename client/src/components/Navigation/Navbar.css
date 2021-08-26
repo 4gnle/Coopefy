@@ -93,3 +93,12 @@
   }
 
 }
+
+@media (max-width: 400px) {
+
+  /*Navbar*/
+  .navbar {
+    display: block;
+    text-align: center;
+  }
+}

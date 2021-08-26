@@ -71,7 +71,7 @@ margin-right: auto;
   position: absolute;
   width: 80%;
   top: 10px;
-  left: 1vh;
+  left: 1.2vw;
   box-shadow: 0 2px 12px grey;
   background: #C4C4C4;
   background-color: white;
@@ -190,6 +190,7 @@ font-size: 3.3vh;
 
 @media (max-width: 900px) {
   .pv-box {
+    top: 12vh;
     margin-left: 5vw;
     width: min-content;
   }
