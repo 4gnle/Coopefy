@@ -57,7 +57,6 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
     <div onClick={unSelectLinks} className='link-backdrop'>
     </div>
 
-      <div className='links-select'>
         <div className='links-box'>
 
         <header>
@@ -110,7 +109,6 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
             </div>
           </form>
         </div>
-    </div>
   </div>
   )
 }

@@ -58,27 +58,6 @@
     width: 50%;
     padding: 0.5rem;
   }
-
-  .av-buttons {
-    width: auto;
-    height: auto;
-    margin-top: -15px;
-    margin-bottom: 5px;
-    background-color: lightgray;
-    border-radius: 0px;
-  }
-
-  .av-box-list-item {
-    box-sizing: border-box;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
-    background-color: #EEEEEE;
-    border: 1px solid #lightgray;
-    border-radius: 0px;
-  }
 }
 
 @media (max-width: 680px) {
@@ -99,6 +78,27 @@
     width: 96%;
     margin-left: auto;
     top: 8vh;
+    border-radius: 0px;
+  }
+
+  .av-buttons {
+    width: auto;
+    height: auto;
+    margin-top: -15px;
+    margin-bottom: 5px;
+    background-color: lightgray;
+    border-radius: 0px;
+  }
+
+  .av-box-list-item {
+    box-sizing: border-box;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+    background-color: #EEEEEE;
+    border: 1px solid #lightgray;
     border-radius: 0px;
   }
 }

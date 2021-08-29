@@ -8,25 +8,19 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
-.links-select {
-  position: fixed;
-  top: 100px;
-  width: auto;
-  padding: 3rem;
-  z-index: 100;
-  overflow: hidden;
-  z-index: 1;
-}
-
 .links-box {
-  float: center;
-  left: 250px;
-  top: 50px;
-  width: 550px;
+  position: absolute;
+  top: 25vh;
+  bottom: 15vh;
+  left: 25vw;
+  right: 25vw;
+  margin: auto;
+  width: max-content;
   height: auto;
   background-color: white;
   box-shadow: 0 2px 12px gray;
   border-radius: 10px;
+  z-index: 100;
 }
 
 .links-box label {
@@ -106,15 +100,26 @@
   margin: 5px;
 }
 
+@media (max-width: 900px) {
+
+  .links-box {
+    top: -0vh;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    height: 65vh;
+  }
+}
+
 @media (max-width: 768px) {
 
   .links-box {
-    float: center;
-    width: auto;
-    height: auto;
-    background-color: white;
-    box-shadow: 0 2px 12px gray;
-    border-radius: 10px;
+    top: 10vh;
+    bottom: 10vh;
+    left: 15vw;
+    right: 20vw;
+    height: 70vh;
   }
 
   .links-box label {
