@@ -4,7 +4,7 @@
   position: fixed;
   width: 12vw;
   max-height: 80%;
-  margin-left: 15.5vw;
+  margin-left: 16vw;
   top: 15vh;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
@@ -70,8 +70,8 @@ margin-right: auto;
 .pv-menu {
   position: absolute;
   width: 80%;
-  top: 10px;
-  left: 1.5vw;
+  top: 1vh;
+  left: 1.6vw;
   box-shadow: 0 2px 12px grey;
   background: #C4C4C4;
   background-color: white;
@@ -190,7 +190,7 @@ font-size: 3.3vh;
 
 @media (max-width: 900px) {
   .pv-box {
-    top: 15vh;
+    top: 14vh;
     margin-left: 5vw;
     width: 15vw;
   }

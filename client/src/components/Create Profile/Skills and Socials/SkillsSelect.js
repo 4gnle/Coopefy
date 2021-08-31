@@ -27,10 +27,10 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
           selectSkill(e);
         })
     } else if (selectedSkills.skills === skillsData.skills) {
-      return;
+      console.log('yes')
     }
       console.log(skillsData)
-   }, [skillsData])
+   }, [ skillsData])
 
 
   useEffect(() => {
@@ -61,7 +61,6 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
     }
   )
   setSkillConfirm(true);
-  console.log(selectedSkills);
 }
 
 const deleteSkills = (e) => {
@@ -102,8 +101,9 @@ const deleteSkills = (e) => {
             } else if (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
               return skill
             } {return false};
-          }).map((skill) => (
+          }).map((skill, index) => (
              <button
+              key={index}
               className='skills-badge'
               key={skill.id}
               onClick={e => selectSkill(skill.name)}
@@ -116,8 +116,9 @@ const deleteSkills = (e) => {
         {skillConfirm && selectedSkills ? (
           <div className='selected-skills'>
           <h3>Selected Skills</h3>
-          {selectedSkills && selectedSkills.map(skill => (
+          {selectedSkills && selectedSkills.map((skill, index) => (
               <button
+                key={index}
                 className='selected-skill-badge'
                 onClick={e => deleteSkills(skill.id)}>
                 {skill.skill}
