@@ -21,7 +21,7 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
   })
 
   useEffect(() => {
-      if (selectedSkills.skills !== skillsData.skills) {
+      if (selectedSkills < 1) {
         skillsData.skills.forEach(skill => {
           const e = skill
           selectSkill(e);

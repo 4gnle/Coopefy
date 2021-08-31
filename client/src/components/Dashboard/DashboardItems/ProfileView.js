@@ -8,11 +8,11 @@ import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
 //Redux and Router
-import {profileData, getProfile, getProfileImage} from '../../../redux/actions/profile';
+import {profileData, getProfile, getProfileImage, getUsername} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
-const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfileImage, getProfile}) => {
+const ProfileView = ({profile: {profile, loading, profileimage, bio}, username, getProfileImage, getProfile, getUsername}) => {
 
   const links = {
     twitter: '',
@@ -29,6 +29,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(links);
   const [profileBio, setProfileBio] = useState('');
+  const [username1, setUsername1] = useState();
 
   const wrapper = useRef(null);
 
@@ -42,6 +43,13 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
       const image1 = URL.createObjectURL(profileimage);
       setImagePrev(image1);
     }
+
+    if (!username) getUsername();
+    if (!loading && username) {
+      setUsername1(username);
+    }
+    console.log(username)
+
     // eslint-disable-next-line
   }, [getProfileImage, loading, profileimage]);
 
@@ -84,6 +92,10 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
     window.location.href='/edit-profile'
   }
 
+  const viewProfile = () => {
+    window.location.href=`${username1}`
+  }
+
   return (
     <div className='pv-box'>
       <h4>You</h4>
@@ -103,6 +115,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, getProfile
           <div className='pv-menu'>
             <Button
               className='pv-menu-button1'
+              onClick={viewProfile}
             >View Profile</Button>
             <Button
               className='pv-menu-button2'
@@ -156,4 +169,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {getProfile, getProfileImage})(ProfileView)
+export default connect(mapStateToProps, {getUsername, getProfile, getProfileImage})(ProfileView)

@@ -26,7 +26,7 @@ const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
 
         <div className="auth-links">
 
-          <Link to='/dashboard'><i className="fas fa-user fa-fw" /><span>You</span></Link>
+          <Link to='/profile'><i className="fas fa-user fa-fw" /><span>You</span></Link>
 
           <Link to='/' className="sign" onClick={logUserOut}>
           <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>

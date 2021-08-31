@@ -8,7 +8,9 @@ import {
   UPDATE_PROFILE,
   GET_PROFILES,
   UPDATE_FAILED,
-  PROFILE_ERROR
+  PROFILE_ERROR,
+  GET_USERNAME,
+  NO_USERNAME
 } from '../actions/types'
 
 const initialState = {
@@ -18,7 +20,8 @@ skills:null,
 profiles:[],
 repos:[],
 loading: true,
-error: {}
+error: {},
+username: null
 };
 
 export default function profile(state = initialState, action) {
@@ -42,12 +45,26 @@ export default function profile(state = initialState, action) {
         loading: false
       };
 
+    case GET_USERNAME:
+      return {
+        ...state,
+        username: payload,
+        loading: false
+      };
+
+    case NO_USERNAME:
+      return {
+        ...state,
+        username: null,
+        loading: false
+      };
+
     case GET_PROFILESKILLS:
       return {
         ...state,
         skills: payload,
         loading: false
-      }
+      };
 
     case UPDATE_FAILED:
     case PROFILE_ERROR:

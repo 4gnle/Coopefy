@@ -18,3 +18,5 @@ export const PROFILE_ERROR = 'PROFILE_ERROR'
 export const GET_PROFILES = 'GET_PROFILES';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const UPDATE_FAILED = 'UPDATE_FAILED';
+export const NO_USERNAME = 'NO_USERNAME';
+export const GET_USERNAME = 'GET_USERNAME';

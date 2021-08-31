@@ -5,6 +5,8 @@ import {
   DELETE_IMAGE,
   GET_PROFILE,
   GET_PROFILESKILLS,
+  GET_USERNAME,
+  NO_USERNAME,
   UPDATE_PROFILE,
   UPDATE_FAILED,
   PROFILE_ERROR
@@ -39,6 +41,26 @@ export const getProfile = () => async dispatch => {
 
   }
 
+};
+
+//Get userName
+export const getUsername = () => async dispatch => {
+
+  try{
+    //Sends the request to the users/username using the API
+    const res = await api.get('/users/username');
+    //If the username is there, do this
+    dispatch({
+      type:  GET_USERNAME,
+      payload: res.data
+    });
+  }catch (err) {
+    //If the username is not there, do this
+    dispatch({
+      type: NO_USERNAME,
+      payload: { msg: err.response.statusText, status: err.response.status}
+    });
+  }
 };
 
 //Get Profile Skills

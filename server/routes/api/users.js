@@ -84,9 +84,11 @@ router.post('/', [
 router.get('/username', auth, async (req, res) => {
 
   try {
-    let userName = await User.find().populate({username});
-    if(userName) {
-      res.send(userName)
+    const payload = await User.findOne(
+      { id: req.id})
+
+    if(payload.username) {
+      res.send(payload.username)
     }
   }catch(err) {
     console.error(err.message);
