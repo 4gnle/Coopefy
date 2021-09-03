@@ -10,9 +10,9 @@ import {profileData, getProfile, getProfileImage, getUsername} from '../../redux
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
-const Profile = ({profile: {profile, profilename, loading, profileimage, bio, skills}, username, getProfileImage, getProfile, getUsername}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username}, getProfileImage, getProfile, getUsername}) => {
 
-  const links = {
+  const stateLinks = {
     twitter: '',
     dribbble: '',
     behance: '',
@@ -23,10 +23,34 @@ const Profile = ({profile: {profile, profilename, loading, profileimage, bio, sk
     github: ''
   };
 
+  const stateSkills = {
+    skills: ''
+  };
+
+  const profileInfo = {
+    status: '',
+    profilename: '',
+    location: '',
+    bio: '',
+    website: ''
+  };
+
   const [imagePrev, setImagePrev] = useState();
-  const [socialLinks, setSocialLinks] = useState(links);
+  const [socialLinks, setSocialLinks] = useState(stateLinks);
+  const [skillsData, setSkillsData] = useState(stateSkills);
   const [profileBio, setProfileBio] = useState('');
   const [username1, setUsername1] = useState();
+
+  useEffect(() => {
+     if (!profile) getProfile();
+     if (!loading && profile) {
+       const profileData = { ...profileInfo };
+       for (const key in profile) {
+         if (key in profileData) profileData[key] = profile[key];
+       }
+       setProfileBio(profile.bio);
+     }
+   }, [loading, getProfile, profile]);
 
   useEffect(() => {
     if (!profileimage && !imagePrev) getProfileImage();
@@ -39,25 +63,26 @@ const Profile = ({profile: {profile, profilename, loading, profileimage, bio, sk
     if (!loading && username) {
       setUsername1(username);
     }
-    console.log(username)
 
     // eslint-disable-next-line
-  }, [getProfileImage, loading, profileimage]);
+  }, [getProfileImage, loading, profileimage, username]);
 
   useEffect(() => {
-    if (!profile) getProfile();
-    if (!loading && profile) {
-      const profileData = { ...links };
-      for (const key in profile.sociallinks) {
-        if (key in profileData) profileData[key] = profile.sociallinks[key];
-      }
-      setSocialLinks(profileData);
-      console.log(profileData);
+     if (!profile) getProfile();
+     if (!loading && profile) {
+       const profileLinks = { ...stateLinks };
+       for (const key in profile.sociallinks) {
+         if (key in profileLinks) profileLinks[key] = profile.sociallinks[key];
+       }
+       setSocialLinks(profileLinks);
 
-      const biog = profile.bio
-      setProfileBio(biog);
-    }
-  }, [loading, profile]);
+       const profileSkills = {...stateSkills};
+       for (const key in profile) {
+         if (key in profileSkills) profileSkills[key] = profile[key];
+       }
+       setSkillsData(profileSkills)
+      }
+   }, [loading, getProfile, profile]);
 
   return (
     <div className='profile-box'>
@@ -65,12 +90,11 @@ const Profile = ({profile: {profile, profilename, loading, profileimage, bio, sk
         <div className='profile-picture'>
           <img src={imagePrev}/>
         </div>
+        <div className='profile-top'>
+          <strong style={{fontSize: '1.5rem', fontWeight: '900' }}>{profile && profile.profilename}</strong><p>@{username && username1}</p>
+        </div>
       </div>
-      <div className='profile-top'>
-        <p>{profilename}</p>
-        <p>@{username1}</p>
 
-      </div>
 
       <div className='profile-skills'>
 

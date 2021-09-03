@@ -12,7 +12,7 @@ import {profileData, getProfile, getProfileImage, getUsername} from '../../../re
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
-const ProfileView = ({profile: {profile, loading, profileimage, bio}, username, getProfileImage, getProfile, getUsername}) => {
+const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, getProfileImage, getProfile, getUsername}) => {
 
   const links = {
     twitter: '',
@@ -61,7 +61,6 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, username, 
         if (key in profileData) profileData[key] = profile.sociallinks[key];
       }
       setSocialLinks(profileData);
-      console.log(profileData);
 
       const biog = profile.bio
       setProfileBio(biog);
@@ -99,7 +98,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio}, username, 
   return (
     <div className='pv-box'>
       <h4>You</h4>
-      <p>@angel</p>
+      <p>@{username1}</p>
       <div className='pv-box-items'>
         <div className='pv-profile-picture'>
           <img src={imagePrev}/>
