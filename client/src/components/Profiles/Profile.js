@@ -91,7 +91,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           <img src={imagePrev}/>
         </div>
         <div className='profile-top'>
-          <strong style={{fontSize: '1.5rem', fontWeight: '900' }}>{profile && profile.profilename}</strong><p>@{username && username1}</p>
+          <p><strong>{profile && profile.profilename}</strong>&nbsp;&nbsp;
+          <span>@{username && username1}</span></p>
         </div>
       </div>
 
