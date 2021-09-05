@@ -85,6 +85,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
    }, [loading, getProfile, profile]);
 
   return (
+    <>
+    {profile ? (
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
@@ -93,18 +95,29 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
         <div className='profile-top'>
           <p><strong>{profile && profile.profilename}</strong>&nbsp;&nbsp;
           <span>@{username && username1}</span></p>
+            <em>{profile.bio && profile.bio}</em>
         </div>
       </div>
 
 
       <div className='profile-skills'>
-
+      {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
+        <>
+        <div key={index}>
+            <p><i class="fas fa-check"></i> {' '}{skill}</p>
+        </div>
+        </>
+        ))}
       </div>
+
       <div className='profile-activity'>
+      <h2>Activity</h2>
 
       </div>
 
     </div>
+  ) : (<h1>This profile doesn't exist</h1>)}
+  </>
   )
 }
 
