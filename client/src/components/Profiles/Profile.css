@@ -115,6 +115,10 @@
     left: 19vw;
   }
 
+  .profile-skills {
+    margin-left: 22.5vw;
+  }
+
   .profile-skills p {
 
   }
@@ -137,6 +141,10 @@
   }
   .profile-top > p {
     left: 19vw;
+  }
+
+  .profile-skills {
+    margin-left: 26.5vw;
   }
 
   .profile-skills p {
@@ -162,8 +170,12 @@
     left: 21vw;
   }
 
-  .profile-skills p {
+  .profile-skills {
+    margin-left: 34.5vw;
+  }
 
+  .profile-skills p {
+    font-size: 1em;
   }
   .profile-activity {
   }
@@ -179,7 +191,7 @@
   }
 
   .profile-main {
-    height: 40vh;
+    height: 30vh;
   }
 
   .profile-top {
@@ -201,6 +213,15 @@
     margin-right: auto;
   }
 
+  .profile-skills {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    grid-gap: 2.5vh;
+  }
+
+
   .profile-skills p {
 
   }
@@ -215,7 +236,7 @@
 
 @media (max-width: 380px) {
   .profile-main {
-    height: 40vh;
+    height: 32vh;
   }
 
   .profile-top {

@@ -8,49 +8,40 @@ import Spinner from '../UI/Spinner'
 //Redux and Router
 import {profileData, getProfile, getProfileImage, getUsername} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
+const stateLinks = {
+  twitter: '',
+  dribbble: '',
+  behance: '',
+  producthunt: '',
+  instagram: '',
+  linkedin: '',
+  facebook: '',
+  github: ''
+};
+
+const stateSkills = {
+  skills: ''
+};
+
+const profileInfo = {
+  status: '',
+  profilename: '',
+  location: '',
+  bio: '',
+  website: ''
+};
 
 const Profile = ({profile: {profile, loading, profileimage, bio, skills, username}, getProfileImage, getProfile, getUsername}) => {
-
-  const stateLinks = {
-    twitter: '',
-    dribbble: '',
-    behance: '',
-    producthunt: '',
-    instagram: '',
-    linkedin: '',
-    facebook: '',
-    github: ''
-  };
-
-  const stateSkills = {
-    skills: ''
-  };
-
-  const profileInfo = {
-    status: '',
-    profilename: '',
-    location: '',
-    bio: '',
-    website: ''
-  };
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
   const [skillsData, setSkillsData] = useState(stateSkills);
   const [profileBio, setProfileBio] = useState('');
+  const [profileLoading, setProfileLoading] = useState();
+  const [profileName, setProfileName] = useState('');
   const [username1, setUsername1] = useState();
-
-  useEffect(() => {
-     if (!profile) getProfile();
-     if (!loading && profile) {
-       const profileData = { ...profileInfo };
-       for (const key in profile) {
-         if (key in profileData) profileData[key] = profile[key];
-       }
-       setProfileBio(profile.bio);
-     }
-   }, [loading, getProfile, profile]);
 
   useEffect(() => {
     if (!profileimage && !imagePrev) getProfileImage();
@@ -82,44 +73,47 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
        }
        setSkillsData(profileSkills)
       }
+
+      if (!profile) getProfile();
+      if (!loading && profile) {
+        const profileData = { ...profileInfo };
+        for (const key in profile) {
+          if (key in profileData) profileData[key] = profile[key];
+        }
+        setProfileBio(profile.bio);
+        setProfileLoading(profile.loading);
+      }
    }, [loading, getProfile, profile]);
 
   return (
-    <>
-    {profile ? (
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
-          <img src={imagePrev}/>
+            <img src={imagePrev}/>
+          </div>
+          <div className='profile-top'>
+            <p><strong>{profile && profile.profilename}</strong>&nbsp;&nbsp;
+            <span>@{username1 && username1}</span></p>
+              <em>{profileBio && profileBio}</em>
+            </div>
+          </div>
+
+
+          <div className='profile-skills'>
+          {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
+            <>
+            <div key={index}>
+                <p><i class="fas fa-check"></i> {' '}{skill}</p>
+            </div>
+            </>
+            ))}
+          </div>
+
+          <div className='profile-activity'>
+          <h2>Activity</h2>
+          </div>
         </div>
-        <div className='profile-top'>
-          <p><strong>{profile && profile.profilename}</strong>&nbsp;&nbsp;
-          <span>@{username && username1}</span></p>
-            <em>{profile.bio && profile.bio}</em>
-        </div>
-      </div>
-
-
-      <div className='profile-skills'>
-      {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
-        <>
-        <div key={index}>
-            <p><i class="fas fa-check"></i> {' '}{skill}</p>
-        </div>
-        </>
-        ))}
-      </div>
-
-      <div className='profile-activity'>
-      <h2>Activity</h2>
-
-      </div>
-
-    </div>
-  ) : (<h1>This profile doesn't exist</h1>)}
-  </>
-  )
-}
+    )}
 
 const mapStateToProps = state => ({
   profile: state.profile
