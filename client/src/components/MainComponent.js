@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 
 import AuthContextProvider from './context/main-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -24,6 +24,7 @@ import Projects from './Projects/Projects'
 import Alerts from './UI/Alert'
 
 const MainComponent = () => {
+
   if (localStorage.token){
     authToken(localStorage.token)
   }
