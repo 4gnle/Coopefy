@@ -33,7 +33,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website}, getProfileImage, getProfile, getUsername}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website}, getProfileImage, getProfile, getUsername, match}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -42,6 +42,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [profileLoading, setProfileLoading] = useState();
   const [profileName, setProfileName] = useState('');
   const [username1, setUsername1] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
     if (!profileimage && !imagePrev) getProfileImage();
@@ -53,6 +54,10 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     if (!username) getUsername();
     if (!loading && username) {
       setUsername1(username);
+    }
+
+    if (username) {
+      setUser(match.params.user);
     }
 
     // eslint-disable-next-line
