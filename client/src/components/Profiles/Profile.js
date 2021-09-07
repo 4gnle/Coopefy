@@ -86,6 +86,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
    }, [loading, getProfile, profile]);
 
   return (
+    <>
+    {loading ? <Spinner/> :
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
@@ -127,7 +129,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
               {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
             </div>
             <div className='profile-links-website'>
-            {profile.website &&
+            {profile &&
               <>
               <i className="fas fa-link"></i> <Link>{profile.website}</Link>
             </>}
@@ -137,7 +139,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           <div className='profile-activity'>
           <h2>Activity</h2>
           </div>
-        </div>
+        </div>}
+        </>
     )}
 
 const mapStateToProps = state => ({

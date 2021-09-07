@@ -257,7 +257,7 @@ font-size: 3.3vh;
   }
 
   .profile-main {
-    height: 40vh;
+    height: 50vh;
   }
 
   .profile-top {
@@ -287,12 +287,48 @@ font-size: 3.3vh;
     grid-gap: 2.5vh;
   }
 
-
-  .profile-skills p {
-
+  .profile-links {
+    position: absolute;
+    margin-top: -18vh;
+    margin-left: auto;
+    left: 25%;
   }
-  .profile-activity {
+
+  .profile-links-icons {
+    text-align: center;
+    font-size: 3vh;
+    margin-left: 0px;
   }
+
+  .profile-links i {
+    font-size: 3vh;
+    margin-left: 10px;
+  }
+
+  i.fa-product-hunt {
+  font-size: 3vh;
+  }
+
+  .profile-links i:hover {
+    font-size: 3.6vh;
+  }
+
+  i.fa-product-hunt:hover {
+  font-size: 3.3vh;
+  }
+
+  .profile-links-website {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile-links-website > a {
+    font-size: 12px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 
   .profile-activity > h2 {
     margin-top: -5vh;
@@ -303,7 +339,7 @@ font-size: 3.3vh;
 
 @media (max-width: 380px) {
   .profile-main {
-    height: 40vh;
+    height: 43vh;
   }
 
   .profile-top {
