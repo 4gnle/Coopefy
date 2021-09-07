@@ -71,7 +71,10 @@ export default function profile(state = initialState, action) {
       return {
         ...state,
         profile: null,
-        loading: false
+        loading: false,
+        username: null,
+        profileimage: null,
+        skills: null
       };
 
     case GET_PROFILES:

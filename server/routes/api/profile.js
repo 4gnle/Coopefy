@@ -16,7 +16,7 @@ router.get('/me', auth, async (req, res) => {
   try {
 
       const profile = await Profile.findOne({user: req.user.id})
-      .populate('user',['name']);
+      .populate('user', ['profilename']);
 
       if(!profile) {
 
@@ -43,26 +43,11 @@ module.exports = router;
 router.get('/', async (req, res) => {
 
   try {
-    const profileData = await Profile.find().populate('user', ['name', 'profileimage']);
+    const profileData = await Profile.find().populate('user', ['profilename', 'profileimage']);
 
   }catch(err) {
     console.error(err.message)
     res.status(500).send('Server Error')
-  };
-})
-
-module.exports = router;
-
-// @router GET api/profile/me
-// @desc Get Profile by Username
-// @access Public
-
-router.get('/me', auth, async (req, res) => {
-  try {
-
-  }catch(err) {
-    console.error(err.message)
-    res.send('Server Error')
   };
 })
 

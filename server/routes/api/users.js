@@ -84,16 +84,22 @@ router.post('/', [
 router.get('/username', auth, async (req, res) => {
 
   try {
-    const payload = await User.findOne(
-      { id: req.id})
+    let profile = await User.findOne({user: req.user.id})
 
-    if(payload.username) {
-      res.send(payload.username)
+      if(profile.username) {
+        let username = profile.username;
+        res.send(username);
+
+      } else {
+        return res.status(400).json({ msg: 'There is no user'});
+      }
+
+    } catch (err) {
+
+      console.error(err.message);
+      res.status(500).send('Server Error');
+
     }
-  }catch(err) {
-    console.error(err.message);
-    res.status(500).send('Server Error')
-  };
 })
 
 module.exports = router;
