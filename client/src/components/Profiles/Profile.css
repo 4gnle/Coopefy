@@ -57,16 +57,17 @@
 }
 
 .profile-links {
-  text-align: left;
+  float: left;
+  margin-left: 1.5vh;
+  margin-top: -5vh;
   height: auto;
-  background-color: white;
   border-radius: 18px;
 }
 
 .profile-links-icons {
   text-align: center;
   font-size: 3vh;
-  margin-left: -10px;
+  margin-left: 0px;
 }
 
 .profile-links i {
@@ -84,6 +85,23 @@ font-size: 3vh;
 
 i.fa-product-hunt:hover {
 font-size: 3.3vh;
+}
+
+.profile-links-website > i {
+  font-size: 1.5vh;
+}
+
+.profile-links-website > a {
+  text-decoration: none;
+  color: #323232;
+}
+
+.profile-links-website > a:hover {
+  color: #6E6E6E;
+}
+
+.profile-links-website > i:hover {
+  font-size: inherit;
 }
 
 .profile-skills {
@@ -181,15 +199,23 @@ font-size: 3.3vh;
     margin-left: 26.5vw;
   }
 
-  .profile-skills p {
-
+  .profile-links {
+    float: left;
+    margin-left: 1.5vh;
+    margin-top: -5vh;
+    height: auto;
+    border-radius: 18px;
   }
-  .profile-activity {
+
+  .profile-links-icons {
+    text-align: center;
+    font-size: 3vh;
+    margin-left: 0px;
   }
 
-  .profile-activity > h2 {
+  .profile-links-website > a {
+    font-size: 14px;
   }
-
 
 }
 
@@ -212,11 +238,16 @@ font-size: 3.3vh;
   .profile-skills p {
     font-size: 1em;
   }
-  .profile-activity {
+  .profile-links-icons {
+    text-align: center;
+    font-size: 3vh;
+    margin-left: 0px;
   }
 
-  .profile-activity > h2 {
+  .profile-links-website > a {
+    font-size: 12px;
   }
+
 
 }
 
