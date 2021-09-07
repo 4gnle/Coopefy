@@ -56,6 +56,36 @@
   object-fit: cover;
 }
 
+.profile-links {
+  text-align: left;
+  height: auto;
+  background-color: white;
+  border-radius: 18px;
+}
+
+.profile-links-icons {
+  text-align: center;
+  font-size: 3vh;
+  margin-left: -10px;
+}
+
+.profile-links i {
+  font-size: 3vh;
+  margin-left: 10px;
+}
+
+i.fa-product-hunt {
+font-size: 3vh;
+}
+
+.profile-links i:hover {
+  font-size: 3.6vh;
+}
+
+i.fa-product-hunt:hover {
+font-size: 3.3vh;
+}
+
 .profile-skills {
   display: grid;
   grid-template-columns: repeat(3, 3fr);
@@ -97,6 +127,10 @@
     left: 38vw;
     top: 16vh;
   }
+
+  .profile-skills {
+    margin-left: 17.5vw;
+  }
 }
 
 @media (max-width: 1080px) {
@@ -137,7 +171,7 @@
 
   .profile-top {
     left: 32vw;
-    top: 14vh;
+    top: 16vh;
   }
   .profile-top > p {
     left: 19vw;
@@ -155,6 +189,7 @@
 
   .profile-activity > h2 {
   }
+
 
 }
 
@@ -191,7 +226,7 @@
   }
 
   .profile-main {
-    height: 30vh;
+    height: 40vh;
   }
 
   .profile-top {
@@ -229,6 +264,7 @@
   }
 
   .profile-activity > h2 {
+    margin-top: -5vh;
   }
 
 
@@ -236,7 +272,7 @@
 
 @media (max-width: 380px) {
   .profile-main {
-    height: 32vh;
+    height: 40vh;
   }
 
   .profile-top {
