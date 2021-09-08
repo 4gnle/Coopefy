@@ -4,6 +4,7 @@ import './Profile.css'
 
 //UI
 import Spinner from '../UI/Spinner'
+import Button from '../UI/Button'
 
 //Redux and Router
 import {profileData, getProfile, getProfileImage, getUsername} from '../../redux/actions/profile';
@@ -92,27 +93,32 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
   return (
     <>
-    {loading ? <Spinner/> :
+    {loading ? (<Spinner/>) :
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
             <img src={imagePrev}/>
           </div>
           <div className='profile-top'>
-            <p><strong>{profile && profile.profilename}</strong>&nbsp;&nbsp;
+            <p><strong>{profile && profile.profilename}
+            </strong>
+            &nbsp;&nbsp;
             <span>@{username1 && username1}</span></p>
-              <em>{profileBio && profileBio}</em>
-            </div>
+            <em>{profileBio && profileBio}</em>
           </div>
+      </div>
+
+      {!profile ? (<><div className='no-profile'>There's no profile to show</div><Link to='edit-profile'>
+      <Button className='button small'>Edit Profile</Button></Link></>) : null}
 
           <div className='profile-skills'>
-          {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
-            <>
-            <div key={index}>
-                <p><i class="fas fa-check"></i> {' '}{skill}</p>
-            </div>
-            </>
-            ))}
+            {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
+              <>
+              <div key={index}>
+                  <p><i class="fas fa-check"></i> {' '}{skill}</p>
+              </div>
+              </>
+              ))}
           </div>
 
           <div className='profile-links'>
@@ -132,18 +138,19 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
               {socialLinks.linkedin && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.linkedin.com/${socialLinks.linkedin}`}}><i className="fab fa-linkedin-square"></i></Link>}
 
               {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
-            </div>
+          </div>
             <div className='profile-links-website'>
             {profile &&
               <>
               <i className="fas fa-link"></i> <Link>{profile.website}</Link>
             </>}
             </div>
-          </div>
+        </div>
 
           <div className='profile-activity'>
           <h2>Activity</h2>
           </div>
+
         </div>}
         </>
     )}

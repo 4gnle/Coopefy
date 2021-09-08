@@ -57,9 +57,9 @@
 }
 
 .profile-links {
-  float: left;
+  position: absolute;
   margin-left: 1.5vh;
-  margin-top: -5vh;
+  margin-top: -1vh;
   height: auto;
   border-radius: 18px;
 }
@@ -201,8 +201,8 @@ font-size: 3.3vh;
 
   .profile-links {
     float: left;
-    margin-left: 1.5vh;
-    margin-top: -5vh;
+    margin-left: 3vw;
+    margin-top: -1vh;
     height: auto;
     border-radius: 18px;
   }
@@ -366,21 +366,24 @@ font-size: 3.3vh;
   }
 
   .profile-links {
-    position: static;
-    margin-top: -20vh;
+    position: absolute;
+    margin-top: -10vh;
     margin-left: auto;
     margin-right: auto;
     float: none;
   }
 
-  .profile-links > a {
+  .profile-links-website {
+    font-size: 1rem;
     float: none;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .profile-skills {
+    position: absolute;
+    top: 70vh;
     width: 95%;
-    margin-left: auto;
-    margin-right: auto;
     float: none;
     grid-gap: 2.5vh;
   }
@@ -391,7 +394,8 @@ font-size: 3.3vh;
   }
 
   .profile-activity {
-    margin-top: 20vh;
+    position:absolute;
+    top: 70vh;
   }
 
   .profile-activity > h2 {

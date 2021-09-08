@@ -48,8 +48,8 @@ const MainComponent = () => {
           <Route path='/projects' component={Projects} />
           <Route path='/people' component={People} />
           <Route path='/about' component={About} />
-          <Route path='/:user' component={Profile} />
           <Route path='/edit-profile' component={CreateProfile} />
+          <Route path='/:user' component={Profile} />
       </Switch>
 
       </Router>
