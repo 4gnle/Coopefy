@@ -34,7 +34,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website}, getProfileImage, getProfile, getUsername, match}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website}, authenticate: {isAuth}, getProfileImage, getProfile, getUsername, match}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -108,8 +108,10 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           </div>
       </div>
 
-      {!profile ? (<><div className='no-profile'>There's no profile to show</div><Link to='edit-profile'>
-      <Button className='button small'>Edit Profile</Button></Link></>) : null}
+      {!profile ? (<><div className='no-profile'>There's no profile to show
+        {isAuth && <Link to='edit-profile'>
+        <Button className='button small'>Edit Profile</Button></Link>}
+      </div></>) : null}
 
           <div className='profile-skills'>
             {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
@@ -156,7 +158,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     )}
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: state.profile,
+  authenticate: state.authenticate
 })
 
 export default connect(mapStateToProps, {getUsername, getProfile, getProfileImage})(Profile)

@@ -6,7 +6,8 @@ import {
   REG_SUCCESS,
   REG_FAILED,
   LOADED,
-  NOT_LOADED} from './types'
+  NOT_LOADED,
+  PROFILE_ERROR} from './types'
 
 import {setAlert} from './alert'
 import authToken from '../utilities/authToken'
@@ -144,7 +145,11 @@ export const loginUser = (history, {username, email, password}) => async dispatc
 
       dispatch({
         type: LOGOUT
-       })
+     })
+
+     dispatch({
+       type: PROFILE_ERROR
+    })
 
        dispatch (
          setAlert('Logged Out', 'danger')

@@ -26,6 +26,13 @@
   top: 16vh;
 }
 
+.no-profile {
+  position: absolute;
+  display: inline-block;
+  left: 35vw;
+  top: 30vh;
+}
+
 .profile-top strong {
   font-size: 1.5rem;
   font-weight: 900;
