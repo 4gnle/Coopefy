@@ -30,9 +30,7 @@ const MainComponent = () => {
   }
 
   useEffect(() => {
-
     store.dispatch(loadUser());
-
   }, [])
 
   const context = useContext(AuthContextProvider);

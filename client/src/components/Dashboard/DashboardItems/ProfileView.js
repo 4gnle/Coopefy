@@ -48,7 +48,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
     if (!loading && username) {
       setUsername1(username);
     }
-    console.log(username)
+    console.log(username1)
 
     // eslint-disable-next-line
   }, [getProfileImage, loading, profileimage]);
@@ -87,14 +87,6 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
    }
  }
 
-  const editProfile = () => {
-    window.location.href='/edit-profile'
-  }
-
-  const viewProfile = () => {
-    window.location.href=`${username1}`
-  }
-
   return (
     <div className='pv-box'>
       <h4>You</h4>
@@ -112,14 +104,12 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
         {useMenu &&
         <div className='pv-menu-wrapper' ref={wrapper}>
           <div className='pv-menu'>
-            <Button
+            <Link to={`${username1}`}><Button
               className='pv-menu-button1'
-              onClick={viewProfile}
-            >View Profile</Button>
-            <Button
+            >View Profile</Button></Link>
+            <Link to="/edit-profile"><Button
               className='pv-menu-button2'
-              onClick={editProfile}
-            >Edit Profile</Button>
+            >Edit Profile</Button></Link>
           </div>
         </div>}
 
