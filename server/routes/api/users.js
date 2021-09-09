@@ -87,7 +87,6 @@ router.get('/username', auth, async (req, res) => {
     //Bring the user information
     const user = await User.findById(req.user.id).select('-password');
 
-    //Send the username as a response
     res.json(user.username)
 
   }catch(err){

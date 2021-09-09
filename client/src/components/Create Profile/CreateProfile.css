@@ -95,7 +95,8 @@
 }
 
 .createprofile-buttons {
-  margin-right: 200px;
+  margin-right: auto;
+  margin-left: auto;
   margin-top: 110px;
 }
 @media (max-width: 1080px) {
@@ -205,6 +206,11 @@
 }
 
 @media (max-width: 650px) {
+  .createprofile-edit-box {
+    max-width: 70%;
+    box-shadow: 0;
+  }
+
   .createprofile-top-inputs label {
     font-size: 2.5vw;
     float:left;
@@ -213,7 +219,7 @@
   }
 
   .createprofile-top-inputs {
-    float: left;
+    float: none;
     margin-right: auto;
     margin-left: auto;
     margin-top: 25px;
@@ -223,7 +229,7 @@
     font-size: 2.5vw;
     box-sizing: border-box;
     padding: 5px;
-    width: 140%;
+    width: 100%;
     float: none;
     margin-left: auto;
     margin-right: auto;
@@ -232,13 +238,13 @@
   .createprofile-top-inputs-status select {
     font-size: 2.5vw;
     padding: 5px;
-    width: 140%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .createprofile-bottom-inputs {
-    margin-top: 155px;
+    margin-top: 10px;
     float: center;
   }
 
@@ -266,15 +272,38 @@
 }
 
 @media (max-width: 380px) {
+  .createprofile-edit-box {
+    max-width: 70%;
+    box-shadow: 0;
+  }
+
   .createprofile-top-inputs {
-    float: left;
+    float: none;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10px;
   }
 
+  .createprofile-top-inputs-name input {
+    font-size: 2.5vw;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+  .createprofile-top-inputs-status select {
+    font-size: 2.5vw;
+    padding: 5px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .createprofile-bottom-inputs {
     float: center;
-    margin-top: 100px;
+    margin-top: 5px;
   }
 }

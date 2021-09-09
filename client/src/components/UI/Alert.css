@@ -14,7 +14,7 @@
   position: fixed;
   margin: 5rem 3rem;
   padding: 3rem;
-  z-index: 100;
+  z-index: 1000;
   overflow: hidden;
 }
 
