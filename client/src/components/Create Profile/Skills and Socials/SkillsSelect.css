@@ -2,6 +2,9 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
   width: 100%;
   height: 100vh;
   z-index: 10;
@@ -10,12 +13,15 @@
 
 .select-skills {
   position: fixed;
-  left: 500px;
-  top: 100px;
-  margin: 5rem 3rem;
+  top: -8vh;
+  left: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
   padding: 3rem;
   z-index: 10;
   overflow: hidden;
+
 }
 
 .select-skills p {
@@ -33,7 +39,7 @@
   background-color: white;
   box-shadow: 0 2px 12px gray;
   border-radius: 10px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .skills-window header {
