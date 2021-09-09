@@ -18,10 +18,10 @@
   right: 0;
   left: 0;
   margin: 0;
+  width: 50%;
   padding: 3rem;
   z-index: 10;
   overflow: hidden;
-
 }
 
 .select-skills p {
@@ -34,7 +34,7 @@
 
 .skills-window {
   float: center;
-  width: 550px;
+  width: 100%;
   height: auto;
   background-color: white;
   box-shadow: 0 2px 12px gray;
