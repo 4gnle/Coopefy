@@ -23,7 +23,7 @@
   position: absolute;
   display: inline-block;
   left: 35vw;
-  top: 16vh;
+  top: 18vh;
 }
 
 .no-profile {
@@ -40,7 +40,7 @@
 
 .profile-top span {
   position: absolute;
-  bottom: 3vh;
+  bottom: 4vh;
 }
 
 .profile-picture {
@@ -168,10 +168,14 @@ font-size: 3.3vh;
   }
   .profile-top {
     left: 28vw;
-    top: 16vh;
+    top: 18vh;
   }
   .profile-top > p {
     left: 19vw;
+  }
+
+  .profile-top span {
+    top: 10px;
   }
 
   .profile-skills {
@@ -196,10 +200,15 @@ font-size: 3.3vh;
 
   .profile-top {
     left: 32vw;
-    top: 16vh;
+    top: 20vh;
   }
   .profile-top > p {
     left: 19vw;
+    margin-top: -1vh;
+  }
+
+  .profile-top span {
+    top: -2px;
   }
 
   .profile-skills {
@@ -235,7 +244,12 @@ font-size: 3.3vh;
     top: 16vh;
   }
   .profile-top > p {
-    left: 21vw;
+    left: 19vw;
+    margin-top: 1vh;
+  }
+
+  .profile-top span {
+    top: 12px;
   }
 
   .profile-skills {
@@ -244,6 +258,7 @@ font-size: 3.3vh;
 
   .profile-skills p {
     font-size: 1em;
+    top: 10px;
   }
   .profile-links-icons {
     text-align: center;
@@ -296,7 +311,7 @@ font-size: 3.3vh;
 
   .profile-links {
     position: absolute;
-    margin-top: -20vh;
+    margin-top: -13vh;
     margin-left: auto;
     left: 25%;
   }
