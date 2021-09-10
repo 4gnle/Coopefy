@@ -13,12 +13,15 @@ export const skillList = [
   {id: 'NodeJS', name: 'NodeJS'},
   {id: 'AWS', name: 'AWS'},
   {id: 'Solidity', name: 'Solidity'},
+  {id: 'Rust', name: 'Rust'},
+  {id: 'Hardhat', name: 'Hardhat'},
+  {id: 'Truffle', name: 'Truffle'},
   {id: 'EtherJS', name: 'EtherJS'},
   {id: 'Web3', name: 'Web3'},
   {id: 'VR/AR', name: 'VR/AR'},
   {id: 'UI/UX', name: 'UI/UX'},
   {id: 'Game Design', name: 'Game Design'},
-  {id: 'Game Development', name: 'Game Development'},
+  {id: 'Game Dev', name: 'Game Dev'},
   {id: 'Unreal', name: 'Unreal'},
   {id: 'Unity', name: 'Unity'}
 ]
