@@ -19,14 +19,6 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
   const [formData, setFormData] = useState({
     skills: ''
   })
-  const [skills1, setSkills1] = useState();
-
-  useEffect(() => {
-    if(skills1 === null) {
-      setSkills1(skillList);
-    }
-    console.log(skills1);
-  })
 
   useEffect(() => {
       if (selectedSkills < 1) {
@@ -54,6 +46,8 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
     }
   }, [selectedSkills])
 
+  let skills1 = skillList;
+
   const addSKills = () => {
     console.log(selectedSkills);
     setProfileSkills(formData)
@@ -68,12 +62,8 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
   )
   setSkillConfirm(true);
 
-  setSkills1(prevSkills1 => {
-    const updatedSkills1 = [...prevSkills1];
-    updatedSkills1.filter(skill => skill.id !== e);
-    return updatedSkills1;
-  })
-}
+    skills1.filter(skill => skill.id !== e);
+  }
 
 const deleteSkills = (e) => {
   setSelectedSkills(prevSkills => {
