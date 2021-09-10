@@ -19,10 +19,10 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
   const [formData, setFormData] = useState({
     skills: ''
   })
-  const [skills1, setSkills1] = useState('');
+  const [skills1, setSkills1] = useState();
 
   useEffect(() => {
-    if(!skills1) {
+    if(skills1 === null) {
       setSkills1(skillList);
     }
     console.log(skills1);
