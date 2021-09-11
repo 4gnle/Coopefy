@@ -2,6 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  margin: 0;
   width: 100%;
   height: 100vh;
   z-index: 10;
@@ -9,11 +11,14 @@
 }
 
 .select-skills {
-  position: fixed;
-  left: 500px;
-  top: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
   margin: 5rem 3rem;
   padding: 3rem;
+  width: 70%;
   z-index: 10;
   overflow: hidden;
 }
@@ -28,12 +33,12 @@
 
 .skills-window {
   float: center;
-  width: 550px;
+  width: 100%;
   height: auto;
   background-color: white;
   box-shadow: 0 2px 12px gray;
   border-radius: 10px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .skills-window header {
@@ -80,7 +85,7 @@
 
 .selected-skill-badge {
   margin: 2.5px !important;
-  width: 40% !important;
+  width: 8rem !important;
   height: 50px !important;
   padding: 1px !important;
   font-size: 15px;
@@ -103,12 +108,11 @@
 
 .skills-badge {
   margin: 2.5px !important;
-  width: 40% !important;
+  width: 8rem !important;
   height: 17% !important;
   padding: 1px !important;
   font-size: 15px;
   cursor: pointer;
-  /* border: 1px solid white; */
   background-color: lightblue;
   color: black;
   border-radius: 12px;
@@ -274,6 +278,7 @@
 
 @media (max-width: 380px) {
   .select-skills {
+    width: 80vh !important;
     left: -40px;
     margin: 5rem 3rem;
     padding: 3rem;

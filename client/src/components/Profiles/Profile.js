@@ -144,7 +144,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
             <div className='profile-links-website'>
             {profile &&
               <>
-              <i className="fas fa-link"></i> <Link>{profile.website}</Link>
+              <i className="fas fa-link"></i> <Link rel="noopener noreferrer" to={{pathname: `${profile.website}`}}>{profile.website}</Link>
             </>}
             </div>
         </div>

@@ -46,7 +46,7 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
     }
   }, [selectedSkills])
 
-  const skills1 = skillList;
+  let skills1 = skillList;
 
   const addSKills = () => {
     console.log(selectedSkills);
@@ -61,7 +61,9 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
     }
   )
   setSkillConfirm(true);
-}
+
+    skills1.filter(skill => skill.id !== e);
+  }
 
 const deleteSkills = (e) => {
   setSelectedSkills(prevSkills => {
@@ -103,9 +105,8 @@ const deleteSkills = (e) => {
             } {return false};
           }).map((skill, index) => (
              <button
-              key={index}
               className='skills-badge'
-              key={skill.id}
+              key={index}
               onClick={e => selectSkill(skill.name)}
               >
               {skill.name}
