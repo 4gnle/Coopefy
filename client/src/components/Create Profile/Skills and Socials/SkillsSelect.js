@@ -26,9 +26,13 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
           const e = skill
           selectSkill(e);
         })
-    } else if (selectedSkills.skills === skillsData.skills) {
-      console.log('yes')
-    }
+      }
+
+      if (selectedSkills > 1) {
+        skillsData.skills.forEach(skill => {
+          skills1.filter(skill => skill.name !== skill)
+        })
+      }
       console.log(skillsData)
    }, [ skillsData])
 
