@@ -257,8 +257,12 @@
     font-size: 5.5vw;
   }
 
+  .bottom-section .socials {
+    max-width: 50%;
+  }
+
   .bottom-section .skills {
-    margin-top: 70px;
+    margin-top: 55px;
     margin-right: auto;
     margin-left:auto;
     float: none;

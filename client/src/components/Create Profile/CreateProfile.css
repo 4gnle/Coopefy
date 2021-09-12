@@ -108,10 +108,9 @@
   .createprofile-top-inputs label {
     font-size: 1.2vw;
     font-weight: bold;
-    margin-bottom: -7px;
-    margin-left: auto;
+    margin-bottom: -10px;
     margin-right: auto;
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
   .createprofile-top-inputs-name input {
