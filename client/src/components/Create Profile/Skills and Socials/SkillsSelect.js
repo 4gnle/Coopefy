@@ -20,6 +20,7 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
     skills: ''
   })
 
+  // Receives the skills from database and adds them to the front-end
   useEffect(() => {
       if (selectedSkills < 1) {
         skillsData.skills.forEach(skill => {
@@ -37,6 +38,7 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
    }, [ skillsData])
 
 
+  // Adds the skills to the formdata so they're sent to the database
   useEffect(() => {
     if (selectedSkills !== formData) {
 
@@ -57,6 +59,7 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
     setProfileSkills(formData)
   }
 
+// Adds the selected skills to the Selected Skills section
   const selectSkill = (e) => {
     setSelectedSkills(prevSkills => {
       const updatedSkills = [...prevSkills];
@@ -65,10 +68,9 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
     }
   )
   setSkillConfirm(true);
+}
 
-    skills1.filter(skill => skill.id !== e);
-  }
-
+// Deletes the skills in the Selected Skill section on click
 const deleteSkills = (e) => {
   setSelectedSkills(prevSkills => {
     const updatedSkills = prevSkills.filter(skill => skill.id !== e);
@@ -99,7 +101,8 @@ const deleteSkills = (e) => {
             name="s"
           />
         </form>
-
+        // This is the section where skills are available
+        // To search and select
         <div className='skills-list'>
           {skills1.filter((skill) => {
             if (searchSkills === '') {
