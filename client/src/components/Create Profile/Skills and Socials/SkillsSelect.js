@@ -101,6 +101,7 @@ const deleteSkills = (e) => {
             name="s"
           />
         </form>
+
         // This is the section where skills are available
         // To search and select
         <div className='skills-list'>
@@ -121,6 +122,7 @@ const deleteSkills = (e) => {
           ))}
         </div>
 
+        // If any skills are selected SkillConfirm becomes true and the "Selected Skills" section appears
         {skillConfirm && selectedSkills ? (
           <div className='selected-skills'>
           <h3>Selected Skills</h3>
