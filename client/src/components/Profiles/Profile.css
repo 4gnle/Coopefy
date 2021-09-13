@@ -22,15 +22,15 @@
 .profile-top {
   position: absolute;
   display: inline-block;
-  left: 35vw;
-  top: 18vh;
+  left: 36vw;
+  top: 150px;
 }
 
 .no-profile {
   position: absolute;
   display: inline-block;
-  left: 35vw;
-  top: 30vh;
+  left: 300px;
+  top: 250px;
 }
 
 .profile-top strong {
@@ -40,7 +40,7 @@
 
 .profile-top span {
   position: absolute;
-  bottom: 4vh;
+  bottom: 28px;
 }
 
 .profile-picture {
@@ -116,8 +116,8 @@ font-size: 3.3vh;
   grid-template-columns: repeat(3, 3fr);
   grid-auto-rows: 2em;
   grid-gap: 2vw;
-  margin-left: 14.6vw;
-  margin-top: -5vh;
+  margin-left: 262px;
+  margin-top: -50px;
   float: left;
   width: 60%;
 }
