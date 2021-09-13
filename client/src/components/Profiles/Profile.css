@@ -22,7 +22,7 @@
 .profile-top {
   position: absolute;
   display: inline-block;
-  left: 36vw;
+  margin-left: 262px;
   top: 150px;
 }
 
@@ -149,7 +149,7 @@ font-size: 3.3vh;
 
 @media (max-width: 1240px) {
   .profile-top {
-    left: 38vw;
+    margin-left: 262px;
     top: 16vh;
   }
 
@@ -167,8 +167,8 @@ font-size: 3.3vh;
 
   }
   .profile-top {
-    left: 28vw;
-    top: 18vh;
+    margin-left: 242px;
+    top: 15vh;
   }
   .profile-top > p {
     left: 19vw;
@@ -179,7 +179,7 @@ font-size: 3.3vh;
   }
 
   .profile-skills {
-    margin-left: 22.5vw;
+    margin-left: 245px;
   }
 
   .profile-skills p {
@@ -199,8 +199,8 @@ font-size: 3.3vh;
   }
 
   .profile-top {
-    left: 32vw;
-    top: 20vh;
+    margin-left: 242px;
+    top: 16.5vh;
   }
   .profile-top > p {
     left: 19vw;
@@ -240,7 +240,7 @@ font-size: 3.3vh;
 
   }
   .profile-top {
-    left: 40vw;
+    margin-left: 242px;
     top: 16vh;
   }
   .profile-top > p {
