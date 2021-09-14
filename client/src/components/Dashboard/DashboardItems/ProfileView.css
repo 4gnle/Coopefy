@@ -197,6 +197,7 @@ font-size: 3.3vh;
 }
 
 @media (max-width: 680px) {
+
   .pv-box {
     position: fixed;
     width: 98%;
@@ -210,7 +211,7 @@ font-size: 3.3vh;
     background: #C4C4C4;
     border-radius: 0px;
     background-color: white;
-    overflow: hidden;
+    overflow: visible;
     z-index: 100;
   }
 
@@ -218,7 +219,7 @@ font-size: 3.3vh;
     position: absolute;
     width: 4rem;
     height: 4rem;
-    top: 10px;
+    top: 5px;
     float: left;
   }
 
@@ -229,7 +230,7 @@ font-size: 3.3vh;
   .pv-box-items > button {
     position: absolute;
     right: 50px;
-    top: 15px;
+    top: 10px;
     width: 50px;
     height: 50px;
     -moz-transform:rotate(-90deg);
@@ -239,37 +240,17 @@ font-size: 3.3vh;
     box-shadow: 0 0 0 0;
    }
 
-   .pv-bio {
-     display: none;
-   }
-
-   .pv-bio-box {
-     display: none;
-   }
-
-   .pv-links {
-     display: none;
-   }
-
-   .pv-projects {
-     display: none;
-   }
-
-   .pv-projects-box {
-     display: none;
-   }
-
    .pv-menu-wrapper {
-   position: relative;
-   margin-left: auto;
-   margin-right: auto;
+     position: relative;
+     margin-left: auto;
+     margin-right: auto;
    }
 
    .pv-menu {
      position: absolute;
-     width: 80%;
-     top: 1vh;
-     left: 1.6vw;
+     width: 25%;
+     top: -115px;
+     left: 73vw;
      box-shadow: 0 2px 12px grey;
      background: #C4C4C4;
      background-color: white;
@@ -277,16 +258,17 @@ font-size: 3.3vh;
    }
 
    .pv-menu:before {
-       position: absolute;
-       left: 40%;
-       top: -10px;
-       width: 0;
-       height: 0;
-       content: '';
-       border-left: 10px solid transparent;
-       border-right: 10px solid transparent;
-       border-bottom: 10px solid white;
-     }
+     position: absolute;
+     left: 40%;
+     top: 50px;
+     width: 0;
+     height: 0;
+     content: '';
+     border-left: 10px solid transparent;
+     border-right: 10px solid transparent;
+     border-top: 10px solid white;
+     border-bottom: 0px;
+   }
 
    .pv-menu-button1 {
      width: 100%;
@@ -318,4 +300,30 @@ font-size: 3.3vh;
      color: white;
      background-color: black;
    }
+
+   .pv-bio {
+     display: none;
+   }
+
+   .pv-bio-box {
+     display: none;
+   }
+
+   .pv-links {
+     display: none;
+   }
+
+   .pv-projects {
+     display: none;
+   }
+
+   .pv-projects-box {
+     display: none;
+   }
+}
+
+@media (max-width: 550px) {
+  .pv-menu {
+    left: 70vw;
+  }
 }
