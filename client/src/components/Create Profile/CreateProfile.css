@@ -206,8 +206,8 @@
 
 @media (max-width: 650px) {
   .createprofile-edit-box {
-    max-width: 70%;
-    box-shadow: 0;
+    max-width: 80%;
+    box-shadow: 0 0 0 0;
   }
 
   .createprofile-top-inputs label {
@@ -273,7 +273,7 @@
 @media (max-width: 380px) {
   .createprofile-edit-box {
     max-width: 70%;
-    box-shadow: 0;
+    box-shadow: 0px;
   }
 
   .createprofile-top-inputs {

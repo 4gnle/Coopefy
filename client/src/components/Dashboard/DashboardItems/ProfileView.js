@@ -51,7 +51,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
     console.log(username1)
 
     // eslint-disable-next-line
-  }, [getProfileImage, loading, profileimage]);
+  }, [getProfileImage, loading, username, profileimage]);
 
   useEffect(() => {
     if (!profile) getProfile();

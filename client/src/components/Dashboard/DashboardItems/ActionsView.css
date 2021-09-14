@@ -62,9 +62,9 @@
 
 @media (max-width: 680px) {
   .av-box {
-    width: 70%;
+    width: 97%;
     margin-left: auto;
-    top: 9rem;
+    top: 75px;
     border-radius: 0px;
   }
 
@@ -77,7 +77,7 @@
   .av-box {
     width: 96%;
     margin-left: auto;
-    top: 9rem;
+    top: 75px;
     border-radius: 0px;
   }
 
