@@ -29,7 +29,7 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
         })
       }
 
-      if (selectedSkills > 1) {
+      if (selectedSkills) {
         skillsData.skills.forEach(skill => {
           skills1.filter(skill => skill.name !== skill)
         })
