@@ -10,6 +10,7 @@ import './SkillsSelect.css'
 
 //Components
 import Button from '../../UI/Button'
+import Alert from '../../UI/Alert'
 
 const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSkills, skillsData}) => {
 
@@ -60,14 +61,17 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
 
 // Adds the selected skills to the Selected Skills section
   const selectSkill = (e) => {
+    const isInArray = selectedSkills.find(element => element.skill === e);
+    if (isInArray || selectedSkills.length >= 6) {return}
+
     setSelectedSkills(prevSkills => {
       const updatedSkills = [...prevSkills];
       updatedSkills.unshift({skill: e, id: Math.random().toString()});
       return updatedSkills;
     }
   )
-  setSkillConfirm(true);
-}
+    setSkillConfirm(true);
+  }
 
 // Deletes the skills in the Selected Skill section on click
 const deleteSkills = (e) => {
@@ -105,7 +109,8 @@ const deleteSkills = (e) => {
           {skills1.filter((skill) => {
             if (searchSkills === '') {
               return skill
-            } else if (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
+            } else if
+             (skill.name.toLowerCase().includes(searchSkills.toLowerCase())) {
               return skill
             } {return false};
           }).map((skill, index) => (
@@ -121,7 +126,7 @@ const deleteSkills = (e) => {
 
         {skillConfirm && selectedSkills ? (
           <div className='selected-skills'>
-          <h3>Selected Skills</h3>
+            <div><h3>Selected Skills</h3><em>(Max 6 skills)</em></div>
           {selectedSkills && selectedSkills.map((skill, index) => (
               <button
                 key={index}

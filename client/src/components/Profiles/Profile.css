@@ -65,7 +65,8 @@
 
 .profile-links {
   position: absolute;
-  margin-left: 1.5vh;
+  width: 10%;
+  margin-left: 40px;
   margin-top: -1vh;
   height: auto;
   border-radius: 18px;
@@ -99,6 +100,7 @@ font-size: 3.3vh;
 }
 
 .profile-links-website > a {
+  font-size: 14px;
   text-decoration: none;
   color: #323232;
 }

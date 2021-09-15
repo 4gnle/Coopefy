@@ -142,7 +142,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
               {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
           </div>
             <div className='profile-links-website'>
-            {profile &&
+            {profile.website && 
               <>
               <i className="fas fa-link"></i> <Link rel="noopener noreferrer" to={{pathname: `${profile.website}`}}>{profile.website}</Link>
             </>}
