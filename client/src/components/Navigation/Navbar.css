@@ -94,11 +94,13 @@
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
 
   /*Navbar*/
   .navbar {
+    position: fixed;
     display: block;
     text-align: center;
+    z-index: 1000;
   }
 }
