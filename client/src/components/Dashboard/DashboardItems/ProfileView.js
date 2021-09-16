@@ -95,29 +95,23 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
         <div className='pv-profile-picture'>
           <img src={imagePrev}/>
         </div>
+        <Button
+        className='small'
+        onClick={showMenu}>
+        +++
+        </Button>
 
+        {useMenu &&
         <div className='pv-menu-wrapper' ref={wrapper}>
-          <Button
-          className='small'
-          onClick={showMenu}>
-          +++
-          </Button>
-
-          {useMenu &&
-            <div className='pv-tooltip'>
-              <div className='pv-menu'>
-                <Link to={`${username1}`}><Button
-                  className='pv-menu-button1'
-                >View Profile</Button></Link>
-                <Link to="/edit-profile"><Button
-                  className='pv-menu-button2'
-                >Edit Profile</Button></Link>
-              </div>
-            </div>
-          }
-        </div>
-
-
+          <div className='pv-menu'>
+            <Link to={`${username1}`}><Button
+              className='pv-menu-button1'
+            >View Profile</Button></Link>
+            <Link to="/edit-profile"><Button
+              className='pv-menu-button2'
+            >Edit Profile</Button></Link>
+          </div>
+        </div>}
 
         <div className='pv-bio'>
           <h4>Bio</h4>
