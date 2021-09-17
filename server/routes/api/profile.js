@@ -53,6 +53,27 @@ router.get('/', async (req, res) => {
 
 module.exports = router;
 
+// // @route    GET api/profile/:username
+// // @desc     Get profile by username
+// // @access   Public
+// router.get(
+//   '/:username',
+//   async ({ params: { username }}, res) => {
+//     try {
+//       const profile = await Profile.findOne({
+//         user: username
+//       }).populate('user', ['username']);
+//
+//       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
+//
+//       return res.json(profile);
+//     } catch (err) {
+//       console.error(err.message);
+//       return res.status(500).json({ msg: 'Server error' });
+//     }
+//   }
+// );
+
 // @router POST api/profile
 // @desc Post profile data
 // @access Private

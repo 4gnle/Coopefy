@@ -23,14 +23,14 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
 
   // Receives the skills from database and adds them to the front-end
   useEffect(() => {
-      if (selectedSkills < 1) {
+      if (skillsData.skills && selectedSkills < 1) {
         skillsData.skills.forEach(skill => {
           const e = skill
           selectSkill(e);
         })
       }
 
-      if (selectedSkills) {
+      if (skillsData.skills && selectedSkills) {
         skillsData.skills.forEach(skill => {
           skills1.filter(skill => skill.name !== skill)
         })

@@ -17,13 +17,14 @@
   position: static;
   box-sizing: border-box;
   margin-left: 0.5vw;
+  margin-top: 30px;
 }
 
 .profile-top {
   position: absolute;
   display: inline-block;
   margin-left: 262px;
-  top: 140px;
+  top: 170px;
 }
 
 .no-profile {
@@ -65,8 +66,9 @@
 
 .profile-links {
   position: absolute;
-  width: 10%;
-  margin-left: 40px;
+  width: 15%;
+  left: 275px;
+  margin-left: 50px;
   margin-top: -1vh;
   height: auto;
   border-radius: 18px;
@@ -153,11 +155,22 @@ font-size: 3.3vh;
 @media (max-width: 1240px) {
   .profile-top {
     margin-left: 262px;
-    top: 140px;
+    top: 150px;
+  }
+
+  .profile-main {
+    box-sizing: border-box;
+    margin-left: 0.5vw;
+    margin-top: 10px;
   }
 
   .profile-skills {
     margin-left: 267px;
+  }
+
+  .profile-links {
+    width: 20%;
+    left: 190px;
   }
 }
 
@@ -167,11 +180,13 @@ font-size: 3.3vh;
   }
 
   .profile-main {
-
+    box-sizing: border-box;
+    margin-left: 0.5vw;
+    margin-top: 20px;
   }
   .profile-top {
     margin-left: 242px;
-    top: 140px;
+    top: 160px;
   }
 
   .profile-top span {
@@ -183,7 +198,8 @@ font-size: 3.3vh;
   }
 
   .profile-links {
-    width: 15%;
+    width: 20%;
+    left: 25px;
   }
 }
 
@@ -192,13 +208,19 @@ font-size: 3.3vh;
     width: 90%;
   }
 
+  .profile-main {
+    box-sizing: border-box;
+    margin-left: 0.5vw;
+    margin-top: 20px;
+  }
+
   .profile-picture {
     margin-left: 40px;
   }
 
   .profile-top {
     left: 35px;
-    top: 155px;
+    top: 175px;
   }
   .profile-top > p {
     left: 19vw;
@@ -237,7 +259,9 @@ font-size: 3.3vh;
 
 @media (max-width: 650px) {
   .profile-main {
-
+    box-sizing: border-box;
+    margin-left: 0.5vw;
+    margin-top: 20px;
   }
   .profile-top {
     margin-left: 37vw;
@@ -280,15 +304,16 @@ font-size: 3.3vh;
 @media (max-width: 480px) {
   .profile-box {
     box-shadow: 0px 0px 0px 0px;
+    margin-top: 0;
   }
 
   .profile-main {
     height: 45vh;
-    margin-top: 60px;
+    margin-top: 100px;
   }
 
   .profile-top {
-    top: 7.5rem;
+    top: 7rem;
     margin-left: 120px;
   }
 
@@ -378,7 +403,7 @@ font-size: 3.3vh;
 @media (max-width: 380px) {
   .profile-main {
     height: 35vh;
-    margin-top: 50px;
+    margin-top: 100px;
   }
 
   .profile-top {

@@ -7,6 +7,9 @@ const ProfileSchema = new mongoose.Schema({
   },
 
   // Main info for Every user
+  username: {
+    type: String
+  },
   profilename: {
     type: String,
     require: true

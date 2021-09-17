@@ -43,6 +43,28 @@ export const getProfile = () => async dispatch => {
 
 };
 
+//Get All Profiles by ID
+export const getProfileByUsername = username => async dispatch => {
+try{
+
+  const res = await api.get(`/profile/${username}`);
+
+  //If the token is there, do this
+  dispatch({
+    type: GET_PROFILE,
+    payload: res.data
+  });
+
+}catch (err) {
+
+  //If the token is not there, do this
+  dispatch({
+    type: PROFILE_ERROR,
+    payload: { msg: err.response.statusText, status: err.response.status}
+  });
+}
+};
+
 //Get userName
 export const getUsername = () => async dispatch => {
 

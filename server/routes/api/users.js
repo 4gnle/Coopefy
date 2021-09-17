@@ -7,6 +7,7 @@ const config = require('config');
 const auth = require('../../middleware/auth');
 
 const User = require('../../models/User')
+const Profile = require('../../models/Profile')
 
 // @router GET api/users
 // @desc Register User
@@ -36,8 +37,11 @@ router.post('/', [
       return  res.status(400).json({ errors: [{msg: 'Email is already registered'}]})
     }
 
-    let userName = await User.findOne({username})
-    if (userName) {
+    let findUserinUser = await User.findOne({username})
+
+    let findUserinProfile = await Profile.findOne({username})
+
+    if (findUserinUser || findUserinProfile) {
       return  res.status(400).json({ errors: [{msg: 'Username is already in use'}]})
     }
 
@@ -48,6 +52,10 @@ router.post('/', [
       password
     });
 
+    profile = new Profile({
+      username
+    });
+
     //Hashing the password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
@@ -56,6 +64,9 @@ router.post('/', [
     // Bringing the USER.ID as payload
     const payload = {
       user: {
+        id: user.id
+      },
+      profile: {
         id: user.id
       }
     };
