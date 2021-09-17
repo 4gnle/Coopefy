@@ -80,7 +80,6 @@ router.post('/', [
 // @router GET api/users/username
 // @desc Get Username
 // @access Public
-
 router.get('/username', auth, async (req, res) => {
 
   try {
@@ -93,6 +92,6 @@ router.get('/username', auth, async (req, res) => {
     res.status(500).send('Server error')
     console.error(err.message)
   }
-})
+});
 
 module.exports = router;

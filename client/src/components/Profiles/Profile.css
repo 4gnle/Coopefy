@@ -65,7 +65,7 @@
 
 .profile-links {
   position: absolute;
-  width: 12%;
+  width: 10%;
   margin-left: 40px;
   margin-top: -1vh;
   height: auto;
@@ -284,6 +284,7 @@ font-size: 3.3vh;
 
   .profile-main {
     height: 45vh;
+    margin-top: 60px;
   }
 
   .profile-top {
@@ -377,6 +378,7 @@ font-size: 3.3vh;
 @media (max-width: 380px) {
   .profile-main {
     height: 35vh;
+    margin-top: 50px;
   }
 
   .profile-top {
@@ -430,8 +432,8 @@ font-size: 3.3vh;
 
   .profile-activity {
     position:absolute;
-    bottom: 75px;
-  }
+    bottom: 15vh;
+   }
 
   .profile-activity > h2 {
     margin-top: -5vh;
