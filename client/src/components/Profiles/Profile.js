@@ -34,7 +34,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website}, authenticate: {isAuth}, getProfileImage, getProfile, getUsername, match}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth}, getProfileImage, getProfile, getUsername, match}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -118,7 +118,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
       </div></>) : null}
 
           <div className='profile-skills'>
-            {profile.skills.length === 0 ? (<><div className='no-profile'>There are no skills show
+            {profile && profile.skills.length === 0 ? (<><div className='no-profile'>There are no skills show
               {isAuth && <Link to='edit-profile'>
               <Button className='button small'>Add Skills</Button></Link>}
             </div></>) : null}
@@ -133,6 +133,11 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           </div>
 
           <div className='profile-links'>
+            {profile && profile.sociallinks.length <= 0 ? (<><div className='no-profile-links'>No links<br/>
+              {isAuth && <Link to='edit-profile'>
+              <Button className='button small'>Add Links</Button></Link>}
+            </div></>) : null}
+
             <div className='profile-links-icons'>
               {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
 
