@@ -93,11 +93,11 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
       <p>@{username1}</p>
       <div className='pv-box-items'>
         <div className='pv-profile-picture'>
-        {profile && !profile.profileimage ? (<><div className='pv-no-picture'>No image<br/>
+        {profile && !profile.profileimage ? (<><div className='pv-no-picture'><p>No image</p><br/>
          <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>
-        </div></>) : null}
-          <img src={imagePrev}/>
+        </div></>) :
+          <img src={imagePrev}/>}
         </div>
         <Button
         className='small'
@@ -125,8 +125,6 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
         </div>
 
         <div className='pv-links'>
-
-
           <h4>Links</h4>
           <div className='pv-links-icons'>
           {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}

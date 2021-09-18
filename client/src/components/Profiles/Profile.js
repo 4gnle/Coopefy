@@ -97,18 +97,24 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
-        {profile && !profile.profileimage ? (<><div className='no-profile-image'>No image<br/>
+        {profile && !profile.profileimage ? (<><div className='no-profile-image'>No picture<br/>
           {isAuth && <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>}
         </div></>) : null}
             {profile.profileimage ? <img src={imagePrev}/> : null}
           </div>
           <div className='profile-top'>
+          {profile && !profile.profilename ? (<><div className='no-profile-name'>No profile name
+            {isAuth && <Link to='edit-profile'>
+            <Button className='button small'>Add Name</Button></Link>}
+          </div></>) :
+            <>
             <p><strong>{profile && profile.profilename}
             </strong>
             &nbsp;&nbsp;
             <span>@{username1 && username1}</span></p>
             <em>{profileBio && profileBio}</em>
+            </>}
           </div>
       </div>
 
@@ -133,11 +139,6 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           </div>
 
           <div className='profile-links'>
-            {profile && profile.sociallinks.length <= 0 ? (<><div className='no-profile-links'>No links<br/>
-              {isAuth && <Link to='edit-profile'>
-              <Button className='button small'>Add Links</Button></Link>}
-            </div></>) : null}
-
             <div className='profile-links-icons'>
               {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
 

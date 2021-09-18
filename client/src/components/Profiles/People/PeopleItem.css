@@ -1,0 +1,15 @@
+.pi-box {
+  display: grid;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+  height: fit-content;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px grey;
+  background: #C4C4C4;
+  border-radius: 28px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+}

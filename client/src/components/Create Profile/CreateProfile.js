@@ -23,7 +23,7 @@ const initialState = {
   website: ''
 };
 
-const CreateProfile = ({  profile: { profile, loading },
+const CreateProfile = ({  profile: {profile, loading },
 getProfile,
 profileData}) => {
 
@@ -81,6 +81,7 @@ useEffect(() => {
           onChange={e => onChange(e)}
           value={status}
           >
+            <option value="" disabled selected hidden>Choose Status</option>
             <option value="Looking">Looking</option>
             <option value="Building">Building</option>
             <option value="Collaborating">Collaborating</option>

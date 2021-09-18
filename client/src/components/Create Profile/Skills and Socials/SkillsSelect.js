@@ -54,7 +54,8 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
 
   let skills1 = skillList;
 
-  const addSKills = () => {
+  const addSKills = (event) => {
+    event.preventDefault()
     console.log(selectedSkills);
     setProfileSkills(formData)
   }

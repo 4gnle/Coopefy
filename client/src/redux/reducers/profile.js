@@ -6,7 +6,7 @@ import {
   GET_PROFILE,
   GET_PROFILESKILLS,
   UPDATE_PROFILE,
-  GET_PROFILES,
+  GET_ALLPROFILES,
   UPDATE_FAILED,
   PROFILE_ERROR,
   GET_USERNAME,
@@ -77,7 +77,7 @@ export default function profile(state = initialState, action) {
         skills: null
       };
 
-    case GET_PROFILES:
+    case GET_ALLPROFILES:
       return {
         ...state,
         profiles: payload,

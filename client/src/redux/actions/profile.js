@@ -4,6 +4,7 @@ import {
   GET_IMAGE,
   DELETE_IMAGE,
   GET_PROFILE,
+  GET_ALLPROFILES,
   GET_PROFILESKILLS,
   GET_USERNAME,
   NO_USERNAME,
@@ -28,19 +29,34 @@ export const getProfile = () => async dispatch => {
       type: GET_PROFILE,
       payload: res.data
     });
-
-
   }catch (err) {
-
     //If the token is not there, do this
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status}
-
     });
-
   }
+};
 
+//Get ALL Profiles
+export const getPeople = () => async dispatch => {
+
+  try{
+    //Sends the request to the profile/me using the API
+    const res = await api.get('/profile');
+
+    //If the token is there, do this
+    dispatch({
+      type: GET_ALLPROFILES,
+      payload: res.data
+    });
+  }catch (err) {
+    //If the token is not there, do this
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status}
+    });
+  }
 };
 
 //Get All Profiles by ID

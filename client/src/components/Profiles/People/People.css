@@ -1,19 +1,15 @@
 .people-box {
-  position: relative;
-  display: block;
-  text-align: center;
-  position: absolute;
-  margin-left: 30vw;
-  top: 9rem;
-  width: 40vw;
-  height: fit-content;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
   background: #C4C4C4;
-  border-radius: 28px;
   background-color: white;
   overflow: hidden;
+  height: 100vh;
   z-index: 1;
+}
+
+.pb-top {
+  text-align: center;
 }
 
 .people-box-item {

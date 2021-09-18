@@ -346,6 +346,10 @@ font-size: 3.3vh;
     border-radius: 18px;
   }
 
+  .pv-no-picture {
+    display: none;
+  }
+
   .pv-menu:before {
     position: absolute;
     left: 41%;

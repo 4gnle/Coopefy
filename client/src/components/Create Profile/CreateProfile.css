@@ -270,6 +270,17 @@
   }
 }
 
+@media (max-width: 480px) {
+  .createprofile-edit-box {
+    max-width: 70%;
+    box-shadow: 0px;
+    position: absolute;
+    left: 25px;
+    top: 50px;
+    margin-top: 0px;
+  }
+}
+
 @media (max-width: 380px) {
   .createprofile-edit-box {
     max-width: 70%;
