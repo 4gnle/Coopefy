@@ -12,7 +12,6 @@ const Profile = require('../../models/Profile')
 // @router GET api/users
 // @desc Register User
 // @access Public
-
 router.post('/', [
   check('username', 'Username is required (More than 3 characters)').not().isEmpty().isLength({ min: 3}),
   check('email', 'Write a valid email').isEmail(),
@@ -85,23 +84,6 @@ router.post('/', [
 
     console.log(err.message);
     res.status(500).send('Registering Error');
-  }
-});
-
-// @router GET api/users/username
-// @desc Get Username
-// @access Public
-router.get('/username', auth, async (req, res) => {
-
-  try {
-    //Bring the user information
-    const user = await User.findById(req.user.id).select('-password');
-
-    res.json(user.username)
-
-  }catch(err){
-    res.status(500).send('Server error')
-    console.error(err.message)
   }
 });
 

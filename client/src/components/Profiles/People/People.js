@@ -1,8 +1,14 @@
 import React from 'react'
 
+import './People.css'
+
 const People = () => {
   return (
-    <div>Here is people</div>
+    <div className='people-box'>
+
+    Here is people
+
+    </div>
   )
 }
 

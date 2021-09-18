@@ -1,0 +1,38 @@
+.people-box {
+  position: relative;
+  display: block;
+  text-align: center;
+  position: absolute;
+  margin-left: 30vw;
+  top: 9rem;
+  width: 40vw;
+  height: fit-content;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px grey;
+  background: #C4C4C4;
+  border-radius: 28px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.people-box-item {
+  box-sizing: border-box;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 1rem;
+  width:auto;
+  height: auto;
+  background-color: #EEEEEE;
+  border: 1px solid #lightgray;
+  border-radius: 18px;
+}
+
+.people-box-picture {
+  padding: 1.5rem;
+  width: 1vw;
+  height: 1vw;
+  margin-bottom: 0.5vh;
+  border-radius: 180px;
+  background-color: black;
+}
