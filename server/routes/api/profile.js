@@ -43,7 +43,7 @@ module.exports = router;
 router.get('/', async (req, res) => {
 
   try {
-    const profileData = await Profile.find().populate('user', ['profilename', 'profileimage', 'username', 'username']);
+    const profileData = await Profile.find().populate('user', ['profilename', 'profileimage', 'username']);
     res.json(profileData);
   }catch(err) {
     console.error(err.message)
@@ -52,6 +52,23 @@ router.get('/', async (req, res) => {
 })
 
 module.exports = router;
+
+// @router GET api/profile/username
+// @desc Get Username
+// @access Public
+router.get('/username', auth, async (req, res) => {
+
+  try {
+    //Bring the user information
+    const profile = await Profile.findOne({user: req.user.id}).populate('user', ['username']);
+
+    res.json(profile.username)
+
+  }catch(err){
+    res.status(500).send('Server error')
+    console.error(err.message)
+  }
+});
 
 // // @route    GET api/profile/:username
 // // @desc     Get profile by username

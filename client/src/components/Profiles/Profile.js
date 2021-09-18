@@ -97,7 +97,11 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
-            <img src={imagePrev}/>
+        {profile && !profile.profileimage ? (<><div className='no-profile-image'>No image<br/>
+          {isAuth && <Link to='edit-profile'>
+          <Button className='button small'>Add Image</Button></Link>}
+        </div></>) : null}
+            {profile.profileimage ? <img src={imagePrev}/> : null}
           </div>
           <div className='profile-top'>
             <p><strong>{profile && profile.profilename}
@@ -114,6 +118,11 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
       </div></>) : null}
 
           <div className='profile-skills'>
+            {profile.skills.length === 0 ? (<><div className='no-profile'>There are no skills show
+              {isAuth && <Link to='edit-profile'>
+              <Button className='button small'>Add Skills</Button></Link>}
+            </div></>) : null}
+
             {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
               <>
               <div key={index}>

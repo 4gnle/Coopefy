@@ -88,6 +88,10 @@ button:active:disabled {
     padding: 0.5rem 0.8rem;
   }
 
+  .small {
+    padding: 0.1rem 0.2rem;
+  }
+
   .bad {
     padding: 0.5rem 0.8rem;
   }

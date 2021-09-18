@@ -55,6 +55,21 @@ router.post('/', [
       username
     });
 
+    try {
+    const profileUsername = {
+      user: user.id,
+      username: username
+    };
+
+    let profile = await Profile.findOneAndUpdate(
+      { user: user.id },
+      { $set: profileUsername },
+      { new: true, upsert: true, setDefaultsOnInsert: true }
+    );
+    } catch(err) {
+      console.error(err.message);
+      return res.status(500).send('Server Error');
+    }
     //Hashing the password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
@@ -63,9 +78,6 @@ router.post('/', [
     // Bringing the USER.ID as payload
     const payload = {
       user: {
-        id: user.id
-      },
-      profile: {
         id: user.id
       }
     };

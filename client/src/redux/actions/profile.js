@@ -70,7 +70,7 @@ export const getUsername = () => async dispatch => {
 
   try{
     //Sends the request to the users/username using the API
-    const res = await api.get('/users/username');
+    const res = await api.get('/profile/username');
     //If the username is there, do this
     dispatch({
       type:  GET_USERNAME,

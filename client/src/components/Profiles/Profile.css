@@ -34,6 +34,14 @@
   top: 250px;
 }
 
+.no-profile-image {
+  position: absolute;
+  color: white;
+  margin-top: 35px;
+  margin-left: 15px;
+  text-align:center;
+}
+
 .profile-top strong {
   font-size: 1.5rem;
   font-weight: 900;
