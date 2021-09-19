@@ -28,6 +28,7 @@ const People = ({getPeople,
 
   useEffect(() => {
     getPeople();
+    console.log(profileimage);
   }, [getPeople]);
 
   return (
