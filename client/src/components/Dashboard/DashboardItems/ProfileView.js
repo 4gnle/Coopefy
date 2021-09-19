@@ -93,7 +93,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
       <p>@{username1}</p>
       <div className='pv-box-items'>
         <div className='pv-profile-picture'>
-        {profile && !profile.profileimage ? (<><div className='pv-no-picture'><p>No image</p><br/>
+        {profile && !profile.profileimage ? (<><div className='pv-no-picture'><p>No image</p>
          <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>
         </div></>) :

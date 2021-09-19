@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 import './PeopleItem.css'
 
@@ -9,14 +9,31 @@ const PeopleItem = ({
   location,
   profilename,
   status,
-  website
+  website,
+  loading
   }) => {
+
+    const [imagePrev, setImagePrev] = useState();
+
+    useEffect(()=> {
+      if (!profileimage) {return};
+      if (profileimage & !imagePrev) {
+        const image1 = URL.createObjectURL(profileimage);
+        setImagePrev(image1);
+      }
+      console.log(imagePrev);
+    }, [profileimage])
 
   return (
     <div className='pi-box'>
-      <p>{username}</p>
-      <img src={profileimage}/>
-      <p>{profilename}</p>
+      <div className='pi-top'>
+        <p>{profilename}</p>
+        <p>@{username}</p>
+      </div>
+
+      <div className='pi-profile-picture'>
+        <img src={imagePrev}/>
+      </div>
     </div>
   )
 }
