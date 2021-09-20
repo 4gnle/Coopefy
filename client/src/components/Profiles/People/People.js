@@ -21,15 +21,15 @@ const People = ({getPeople,
     profileimage,
     bio,
     location,
-    profilename,
     status,
     website,
     loading} }) => {
 
   useEffect(() => {
     getPeople();
-    console.log(profileimage);
   }, [getPeople]);
+
+
 
   return (
     <div className='people-box'>
@@ -48,7 +48,6 @@ const People = ({getPeople,
 
           <PeopleItem
             username={profile.username}
-            profileimage={profile.profileimage}
             bio={profile.bio}
             location={profile.location}
             profilename={profile.profilename}

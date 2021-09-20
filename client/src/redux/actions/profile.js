@@ -274,7 +274,7 @@ export const profileImage = (formData) => async dispatch => {
 };
 
 // Get Profile Image
-export const getProfileImage = (id) => async dispatch => {
+export const getProfileImage = (username) => async dispatch => {
   try{
 
     const config = {
