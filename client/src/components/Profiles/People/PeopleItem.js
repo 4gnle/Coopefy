@@ -32,7 +32,7 @@ const PeopleItem = ({
       </div>
 
       <div className='pi-profile-picture'>
-        <img src={imagePrev}/>
+        <img src={`data:image/jpeg;base64,${imagePrev}`}/>
       </div>
     </div>
   )

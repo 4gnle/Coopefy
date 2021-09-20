@@ -44,7 +44,9 @@ router.get('/', async (req, res) => {
 
   try {
     const profileData = await Profile.find().populate('user', ['profilename', 'profileimage', 'username']);
+
     res.json(profileData);
+
   }catch(err) {
     console.error(err.message)
     res.status(500).send('Server Error')
