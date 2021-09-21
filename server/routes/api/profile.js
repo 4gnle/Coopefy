@@ -328,16 +328,9 @@ module.exports = router;
 // @access   Public
 router.get(
   '/image', async (req, res) => {
-
-    const {
-      username
-    } = req.body;
   try {
-
     let profile = await Profile.findOne(
-      { username: username})
-
-      console.log(profile);
+      { user: req.user.id})
 
     if (profile.profileimage) {
       let profileimage = profile.profileimage

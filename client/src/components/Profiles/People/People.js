@@ -16,6 +16,7 @@ import {Link} from 'react-router-dom';
 
 const People = ({getPeople,
   profile: {
+    _id,
     profiles,
     username,
     profileimage,
@@ -23,13 +24,12 @@ const People = ({getPeople,
     location,
     status,
     website,
+    sociallinks,
     loading} }) => {
 
   useEffect(() => {
     getPeople();
   }, [getPeople]);
-
-
 
   return (
     <div className='people-box'>
@@ -53,6 +53,8 @@ const People = ({getPeople,
             profilename={profile.profilename}
             status={profile.status}
             website={profile.website}
+            sociallinks={profile.sociallinks}
+            id={profile._id}
           />
         )
         ) : <h4>There is no profile yet</h4>}

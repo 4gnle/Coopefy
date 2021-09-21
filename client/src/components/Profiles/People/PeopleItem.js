@@ -8,9 +8,10 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
 const PeopleItem = ({
-  profile: {profileimage},
   getProfileImage,
   username,
+  profileimage,
+  id,
   bio,
   location,
   profilename,
@@ -19,18 +20,20 @@ const PeopleItem = ({
   loading
   }) => {
 
-    const [imagePrev, setImagePrev] = useState();
+  const [imagePrev, setImagePrev] = useState();
 
   useEffect(()=> {
     if (!profileimage && !imagePrev) {
-      getProfileImage(username);
+      getProfileImage(id);
     }
+    
     if (!loading && profileimage) {
       const image1 = URL.createObjectURL(profileimage);
       setImagePrev(image1);
     }
-    console.log(imagePrev);
+    console.log(profileimage);
   }, [profileimage, imagePrev])
+
 
 const base64String = btoa(String.fromCharCode(...new Uint8Array(profileimage)));
 
@@ -42,7 +45,7 @@ const base64String = btoa(String.fromCharCode(...new Uint8Array(profileimage)));
       </div>
 
       <div className='pi-profile-picture'>
-        <img src={`data:image/jpeg;base64,${imagePrev}`}/>
+        <img src={imagePrev}/>
       </div>
     </div>
   )
