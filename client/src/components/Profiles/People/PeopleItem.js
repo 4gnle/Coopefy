@@ -10,29 +10,32 @@ import {Link} from 'react-router-dom'
 const PeopleItem = ({
   getProfileImage,
   username,
-  profileimage,
   id,
   bio,
   location,
   profilename,
   status,
   website,
-  loading
+  profile: {
+    profileimage,
+    loading
+  }
   }) => {
 
   const [imagePrev, setImagePrev] = useState();
 
   useEffect(()=> {
-    if (!profileimage && !imagePrev) {
+    if (!profileimage) {
       getProfileImage(id);
     }
-    
+
     if (!loading && profileimage) {
       const image1 = URL.createObjectURL(profileimage);
       setImagePrev(image1);
     }
+
     console.log(profileimage);
-  }, [profileimage, imagePrev])
+  }, [profileimage])
 
 
 const base64String = btoa(String.fromCharCode(...new Uint8Array(profileimage)));

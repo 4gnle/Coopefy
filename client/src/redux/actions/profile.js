@@ -120,6 +120,27 @@ export const getProfileSkills = () => async dispatch => {
   }
 };
 
+//Get Profile by ID
+export const getProfileById = (userId, username) => async dispatch => {
+  try{
+
+    const res = await api.get(`/profile/${username}`, userId);
+
+    //If the token is there, do this
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+
+  }catch (err) {
+
+    //If the token is not there, do this
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status}
+    });
+  }
+};
 
 //Send Profile Data
 export const profileData = (formData) => async dispatch => {
@@ -261,7 +282,6 @@ export const profileImage = (formData) => async dispatch => {
       dispatch(
         setAlert("Wrong Image", 'danger')
       );
-
     console.log(err);
 
     const errors = err.response.data.errors;
@@ -269,12 +289,11 @@ export const profileImage = (formData) => async dispatch => {
     if (errors) {
     errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
-
   }
 };
 
 // Get Profile Image
-export const getProfileImage = (username) => async dispatch => {
+export const getProfileImage = (id) => async dispatch => {
   try{
 
     const config = {

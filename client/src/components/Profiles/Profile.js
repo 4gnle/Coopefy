@@ -7,7 +7,7 @@ import Spinner from '../UI/Spinner'
 import Button from '../UI/Button'
 
 //Redux and Router
-import {profileData, getProfile, getProfileByUsername, getProfileImage, getUsername} from '../../redux/actions/profile';
+import {profileData, getProfile, getProfileById, getProfileByUsername, getProfileImage, getUsername} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 

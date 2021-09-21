@@ -6,7 +6,6 @@ const {check, validationResult} = require('express-validator')
 const normalize = require('normalize-url');
 
 const Profile = require('../../models/Profile');
-const User = require('../../models/User');
 
 // @router GET api/profile/me
 // @desc Testing Route
@@ -43,7 +42,7 @@ module.exports = router;
 router.get('/', async (req, res) => {
 
   try {
-    const profileData = await Profile.find().populate('user', ['profilename', 'profileimage', 'username']);
+    const profileData = await Profile.find().populate('user', ['profilename', 'username']);
 
     res.json(profileData);
 
@@ -54,6 +53,26 @@ router.get('/', async (req, res) => {
 })
 
 module.exports = router;
+
+// @route    GET api/profile/:username
+// @desc     Get profile by user ID
+// @access   Public
+// router.get('/:username',
+//   async ({ params: { username } }, req, res) => {
+//     try {
+//       const profile = await Profile.findOne({
+//         user: req.userId
+//       }).populate('user', ['username']);
+//
+//       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
+//
+//       return res.json(profile);
+//     } catch (err) {
+//       console.error(err.message);
+//       return res.status(500).json({ msg: 'Server error' });
+//     }
+//   }
+// );
 
 // @router GET api/profile/username
 // @desc Get Username
@@ -71,27 +90,6 @@ router.get('/username', auth, async (req, res) => {
     console.error(err.message)
   }
 });
-
-// // @route    GET api/profile/:username
-// // @desc     Get profile by username
-// // @access   Public
-// router.get(
-//   '/:username',
-//   async ({ params: { username }}, res) => {
-//     try {
-//       const profile = await Profile.findOne({
-//         user: username
-//       }).populate('user', ['username']);
-//
-//       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
-//
-//       return res.json(profile);
-//     } catch (err) {
-//       console.error(err.message);
-//       return res.status(500).json({ msg: 'Server error' });
-//     }
-//   }
-// );
 
 // @router POST api/profile
 // @desc Post profile data
@@ -323,14 +321,14 @@ module.exports = router;
       }
     );
 
-// @route    GET api/profile image by username
-// @desc     Get the profile image by username
+// @route    GET api/profile image
+// @desc     Get the profile image
 // @access   Public
 router.get(
   '/image', async (req, res) => {
   try {
     let profile = await Profile.findOne(
-      { user: req.user.id})
+      { user: userId})
 
     if (profile.profileimage) {
       let profileimage = profile.profileimage
