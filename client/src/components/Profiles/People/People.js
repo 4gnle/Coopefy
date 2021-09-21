@@ -51,6 +51,7 @@ const People = ({getPeople,
             bio={profile.bio}
             location={profile.location}
             profilename={profile.profilename}
+            profileimage={profile.profileimage}
             status={profile.status}
             website={profile.website}
             sociallinks={profile.sociallinks}

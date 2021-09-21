@@ -2,13 +2,9 @@ import React, {useEffect, useState} from 'react'
 
 import './PeopleItem.css'
 
-//Redux and Router
-import {profileData, getProfile, getProfileImage, getUsername} from '../../../redux/actions/profile';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
 const PeopleItem = ({
-  getProfileImage,
   username,
   id,
   bio,
@@ -16,29 +12,20 @@ const PeopleItem = ({
   profilename,
   status,
   website,
-  profile: {
-    profileimage,
-    loading
-  }
+  profileimage,
+  loading
   }) => {
 
   const [imagePrev, setImagePrev] = useState();
 
   useEffect(()=> {
-    if (!profileimage) {
-      getProfileImage(id);
-    }
-
     if (!loading && profileimage) {
       const image1 = URL.createObjectURL(profileimage);
       setImagePrev(image1);
     }
 
-    console.log(profileimage);
+    console.log(imagePrev);
   }, [profileimage])
-
-
-const base64String = btoa(String.fromCharCode(...new Uint8Array(profileimage)));
 
   return (
     <div className='pi-box'>
@@ -58,4 +45,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {getProfile, getProfileImage})(PeopleItem)
+export default PeopleItem

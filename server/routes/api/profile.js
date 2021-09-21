@@ -42,9 +42,17 @@ module.exports = router;
 router.get('/', async (req, res) => {
 
   try {
-    const profileData = await Profile.find().populate('user', ['profilename', 'username']);
+    const profileData = await Profile.find().populate('user', ['profilename', "profileimage", 'username']);
 
-    res.json(profileData);
+    const profileImage = await Profile.find({profileimage: "profileimage"});
+
+    console.log(profileImage)
+
+    let profileimage = profileImage
+
+    await  res.set('Content-Type', 'image/jpeg').send(profileimage);
+
+    await res.json(profileData);
 
   }catch(err) {
     console.error(err.message)
