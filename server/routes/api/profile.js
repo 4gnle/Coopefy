@@ -44,15 +44,7 @@ router.get('/', async (req, res) => {
   try {
     const profileData = await Profile.find().populate('user', ['profilename', "profileimage", 'username']);
 
-    const profileImage = await Profile.find({profileimage: "profileimage"});
-
-    console.log(profileImage)
-
-    let profileimage = profileImage
-
-    await  res.set('Content-Type', 'image/jpeg').send(profileimage);
-
-    await res.json(profileData);
+    res.json(profileData);
 
   }catch(err) {
     console.error(err.message)
@@ -61,6 +53,29 @@ router.get('/', async (req, res) => {
 })
 
 module.exports = router;
+
+// @router GET api/profile/images
+// @desc Get All Profiles Images
+// @access Public
+router.get('/images', async (req, res) => {
+
+  try {
+    const profileImage = await Profile.find({profileimage: "buffer"});
+
+    console.log(profileImage)
+
+    if (profileImage) {
+      let profileimage = profileImage;    await  res.set('Content-Type', 'image/jpeg').send(profileimage);
+    }
+
+  }catch(err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  };
+})
+
+
+
 
 // @route    GET api/profile/:username
 // @desc     Get profile by user ID
