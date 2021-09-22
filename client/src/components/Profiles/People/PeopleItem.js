@@ -19,13 +19,21 @@ const PeopleItem = ({
   const [imagePrev, setImagePrev] = useState();
 
   useEffect(()=> {
+    console.log(profileimage);
+
     if (!loading && profileimage) {
-      const image1 = URL.createObjectURL(profileimage);
-      setImagePrev(image1);
+      setImagePrev(profileimage);
     }
 
-    console.log(imagePrev);
   }, [profileimage])
+
+  const toBase64 = (arr) => {
+     arr = new Uint8Array(arr);
+
+     return btoa(
+        arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+     );
+  }
 
   return (
     <div className='pi-box'>
@@ -35,7 +43,7 @@ const PeopleItem = ({
       </div>
 
       <div className='pi-profile-picture'>
-        <img src={imagePrev}/>
+    {profileimage &&<img src={`data:image/jpeg;base64,${toBase64(profileimage)}`}/>}
       </div>
     </div>
   )

@@ -42,7 +42,7 @@ module.exports = router;
 router.get('/', async (req, res) => {
 
   try {
-    const profileData = await Profile.find().populate('user', ['profilename', "profileimage", 'username']);
+    const profileData = await Profile.find().populate('user', ["profilename", "username", "profileimage"]);
 
     res.json(profileData);
 
