@@ -74,17 +74,15 @@ router.get('/images', async (req, res) => {
   };
 })
 
-
-
-
-// @route    GET api/profile/:username
-// @desc     Get profile by user ID
-// @access   Public
+//
+// // @route    GET api/profile/:username
+// // @desc     Get profile by user ID
+// // @access   Public
 // router.get('/:username',
 //   async ({ params: { username } }, req, res) => {
 //     try {
 //       const profile = await Profile.findOne({
-//         user: req.userId
+//         user: req.user.id
 //       }).populate('user', ['username']);
 //
 //       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
