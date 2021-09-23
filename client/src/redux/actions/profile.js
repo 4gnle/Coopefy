@@ -121,10 +121,10 @@ export const getProfileSkills = () => async dispatch => {
 };
 
 //Get Profile by ID
-export const getProfileById = (userId, username) => async dispatch => {
+export const getProfileById = (userId) => async dispatch => {
   try{
 
-    const res = await api.get(`/profile/${username}`, userId);
+    const res = await api.get(`/profile/${userId}`);
 
     //If the token is there, do this
     dispatch({

@@ -54,46 +54,26 @@ router.get('/', async (req, res) => {
 
 module.exports = router;
 
-// @router GET api/profile/images
-// @desc Get All Profiles Images
-// @access Public
-router.get('/images', async (req, res) => {
+// @route    GET api/profile/user/:user_id
+// @desc     Get profile by user ID
+// @access   Public
+router.get(
+  '/:user_id',
+  async ({ params: { user_id } }, res) => {
+    try {
+      const profile = await Profile.findOne({
+        user: user_id
+      }).populate('user', ['profilename', 'profileimage']);
 
-  try {
-    const profileImage = await Profile.find({profileimage: "buffer"});
+      if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
-    console.log(profileImage)
-
-    if (profileImage) {
-      let profileimage = profileImage;    await  res.set('Content-Type', 'image/jpeg').send(profileimage);
+      return res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).json({ msg: 'Server error' });
     }
-
-  }catch(err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  };
-})
-
-//
-// // @route    GET api/profile/:username
-// // @desc     Get profile by user ID
-// // @access   Public
-// router.get('/:username',
-//   async ({ params: { username } }, req, res) => {
-//     try {
-//       const profile = await Profile.findOne({
-//         user: req.user.id
-//       }).populate('user', ['username']);
-//
-//       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
-//
-//       return res.json(profile);
-//     } catch (err) {
-//       console.error(err.message);
-//       return res.status(500).json({ msg: 'Server error' });
-//     }
-//   }
-// );
+  }
+);
 
 // @router GET api/profile/username
 // @desc Get Username

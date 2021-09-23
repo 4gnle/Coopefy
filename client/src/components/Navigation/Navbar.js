@@ -2,13 +2,14 @@ import React from 'react'
 
 import './Navbar.css'
 
-import { Link } from 'react-router-dom';
-
-//Redux
+//Redux & Router
 import {connect} from 'react-redux'
-import {logUserOut} from '../../redux/actions/inputs'
+import {Link} from 'react-router-dom';
 
-const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
+import {logUserOut} from '../../redux/actions/inputs'
+import {getProfile} from '../../redux/actions/profile';
+
+const Navbar = ({ authenticate: {isAuth}, profile: {profile, loading, username, _id}, logUserOut }) => {
 
   const loggedIn = (
     <ul>
@@ -26,7 +27,7 @@ const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
 
         <div className="auth-links">
 
-          <Link to='/profile'><i className="fas fa-user fa-fw" /><span>You</span></Link>
+          <Link to={`/${username}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>
 
           <Link to='/' className="sign" onClick={logUserOut}>
           <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>
@@ -68,7 +69,8 @@ const Navbar = ({ authenticate: {isAuth}, logUserOut }) => {
 }
 
 const mapStateToProps = state => ({
-  authenticate: state.authenticate
+  authenticate: state.authenticate,
+  profile: state.profile
 })
 
-export default connect(mapStateToProps, {logUserOut})(Navbar);
+export default connect(mapStateToProps, {logUserOut, getProfile})(Navbar);

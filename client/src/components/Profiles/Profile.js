@@ -7,7 +7,7 @@ import Spinner from '../UI/Spinner'
 import Button from '../UI/Button'
 
 //Redux and Router
-import {profileData, getProfile, getProfileById, getProfileByUsername, getProfileImage, getUsername} from '../../redux/actions/profile';
+import {getProfileById} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -34,7 +34,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth}, getProfileImage, getProfile, getUsername, match}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks, _id}, authenticate: {isAuth}, getProfileById, match}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -46,50 +46,45 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [user, setUser] = useState();
 
   useEffect(() => {
-    if (!profileimage && !imagePrev) getProfileImage();
-    if (!loading && profileimage) {
-      const image1 = URL.createObjectURL(profileimage);
+    if (!profile) getProfileById(match.params.id);
+
+    if (!loading && profile.profileimage) {
+      const fileContents = new Buffer(profile.profileimage, 'base64');
+      let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
 
-    if (!username) getUsername();
-    if (!loading && username) {
-      setUsername1(username);
+    console.log(profile);
+
+    if (profile && !username1) {
+      setUsername1(profile.username);
     }
 
-    if (username) {
-      setUser(match.params.user);
-    }
+    if (!loading && profile) {
+      const profileLinks = { ...stateLinks };
+      for (const key in profile.sociallinks) {
+        if (key in profileLinks) profileLinks[key] = profile.sociallinks[key];
+      }
+      setSocialLinks(profileLinks);
+
+      const profileSkills = {...stateSkills};
+      for (const key in profile) {
+        if (key in profileSkills) profileSkills[key] = profile[key];
+      }
+      setSkillsData(profileSkills)
+     }
+
+     if (!loading && profile) {
+       const profileData = { ...profileInfo };
+       for (const key in profile) {
+         if (key in profileData) profileData[key] = profile[key];
+       }
+       setProfileBio(profile.bio);
+       setProfileLoading(profile.loading);
+     }
 
     // eslint-disable-next-line
-  }, [getProfileImage, loading, profileimage, username]);
-
-  useEffect(() => {
-     if (!profile) getProfile();
-     if (!loading && profile) {
-       const profileLinks = { ...stateLinks };
-       for (const key in profile.sociallinks) {
-         if (key in profileLinks) profileLinks[key] = profile.sociallinks[key];
-       }
-       setSocialLinks(profileLinks);
-
-       const profileSkills = {...stateSkills};
-       for (const key in profile) {
-         if (key in profileSkills) profileSkills[key] = profile[key];
-       }
-       setSkillsData(profileSkills)
-      }
-
-      if (!profile) getProfile();
-      if (!loading && profile) {
-        const profileData = { ...profileInfo };
-        for (const key in profile) {
-          if (key in profileData) profileData[key] = profile[key];
-        }
-        setProfileBio(profile.bio);
-        setProfileLoading(profile.loading);
-      }
-   }, [loading, getProfile, profile]);
+  }, [loading, profileimage, username]);
 
   return (
     <>
@@ -101,7 +96,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           {isAuth && <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>}
         </div></>) : null}
-            {profile.profileimage ? <img src={imagePrev}/> : null}
+            {profile && profile.profileimage ? <img src={imagePrev}/> : null}
           </div>
           <div className='profile-top'>
           {profile && !profile.profilename ? (<><div className='no-profile-name'>No profile name
@@ -177,4 +172,4 @@ const mapStateToProps = state => ({
   authenticate: state.authenticate
 })
 
-export default connect(mapStateToProps, {getUsername, getProfile, getProfileImage})(Profile)
+export default connect(mapStateToProps, {getProfileById})(Profile)
