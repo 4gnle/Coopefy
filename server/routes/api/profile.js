@@ -351,7 +351,7 @@ router.get(
   '/image', auth, async (req, res) => {
   try {
     let profile = await Profile.findOne(
-      { user: user_id})
+      {user: req.user.id})
 
     if (profile.profileimage) {
       let profileimage = profile.profileimage

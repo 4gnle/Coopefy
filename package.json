@@ -153,6 +153,7 @@
     "sshpk": "^1.16.1",
     "statuses": "^1.5.0",
     "string_decoder": "^1.1.1",
+    "styled-components": "^5.3.1",
     "toidentifier": "^1.0.0",
     "tough-cookie": "^2.5.0",
     "tunnel-agent": "^0.6.0",
@@ -167,6 +168,7 @@
     "verror": "^1.10.0"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.2",
     "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
   },

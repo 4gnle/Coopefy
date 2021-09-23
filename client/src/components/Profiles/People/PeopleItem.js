@@ -20,8 +20,10 @@ const PeopleItem = ({
 
   useEffect(()=> {
     if (!loading && profileimage) {
-      const image1 = URL.createObjectURL(profileimage.data);
-      setImagePrev(profileimage);
+      let image = new Uint8Array(profileimage);
+      let blob = new Blob([image], {type: 'image/png'});
+      let image1 = URL.createObjectURL(blob);
+      setImagePrev(image1);
     }
 
     console.log(imagePrev);
@@ -35,7 +37,7 @@ const PeopleItem = ({
       </div>
 
       <div className='pi-profile-picture'>
-        <img src={profileimage}/>
+        {imagePrev ? <img src={imagePrev}/> : null}
       </div>
     </div>
   )
