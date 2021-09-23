@@ -40,7 +40,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
   useEffect(() => {
     if (!profile) getProfile();
 
-    if (profile && !imagePrev) {
+    if (profile && profile.profileimage && !imagePrev) {
       const fileContents = new Buffer(profile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);

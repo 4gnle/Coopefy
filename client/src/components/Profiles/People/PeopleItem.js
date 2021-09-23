@@ -11,6 +11,7 @@ const PeopleItem = ({
   location,
   profilename,
   status,
+  skills,
   website,
   profileimage,
   loading
@@ -31,12 +32,29 @@ const PeopleItem = ({
   return (
     <div className='pi-box'>
       <div className='pi-top'>
-        <p>{profilename}</p>
+        <h3 style={{margin: '5px'}}>{profilename}</h3>
         <p>@{username}</p>
       </div>
 
       <div className='pi-profile-picture'>
         {imagePrev ? <img src={imagePrev}/> : null}
+      </div>
+
+      <div className='pi-bottom'>
+        <div className='pi-status'>
+
+        </div>
+
+        <div className='pi-skills'>
+          {skills && skills.map((skill, index) => (
+            <>
+              <div key={index}>
+                <i class="fas fa-check"></i>{' '}<p>{skill}</p>
+              </div>
+            </>
+          ))}
+        </div>
+
       </div>
     </div>
   )

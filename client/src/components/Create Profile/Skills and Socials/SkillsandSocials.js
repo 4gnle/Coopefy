@@ -116,11 +116,11 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
 
           <div className='skills-text'>
           {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
-            <Fragment>
+            <>
             <div key={index}>
                 <p>{skill}</p>
             </div>
-            </Fragment>
+            </>
             ))}
         </div>
       </div>

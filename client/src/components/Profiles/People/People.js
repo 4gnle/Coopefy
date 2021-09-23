@@ -25,6 +25,7 @@ const People = ({getPeople,
     status,
     website,
     sociallinks,
+    skills,
     loading} }) => {
 
   useEffect(() => {
@@ -38,13 +39,13 @@ const People = ({getPeople,
         <div className='pb-top'>
           <h1>People</h1>
           <p>
-            <i className="fab fab-connectdevelop"></i>
+            <i class="fas fa-user-friends"></i>{' '}
             Meet amazing people
           </p>
         </div>
 
-        <div>
-        {profiles.length > 0 ? (     profiles.map(profile =>
+        <div className='people-grids'>
+        {profiles.length > 0 ? (profiles.map(profile =>
 
           <PeopleItem
             username={profile.username}
@@ -53,12 +54,13 @@ const People = ({getPeople,
             profilename={profile.profilename}
             profileimage={profile.profileimage}
             status={profile.status}
+            skills={profile.skills}
             website={profile.website}
             sociallinks={profile.sociallinks}
             id={profile._id}
           />
         )
-        ) : <h4>There is no profile yet</h4>}
+      ) : <h4 style={{textAlign: 'center'}}>There is no profile yet</h4>}
         </div>
       </>
     }

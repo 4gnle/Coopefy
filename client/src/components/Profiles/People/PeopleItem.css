@@ -1,10 +1,9 @@
 .pi-box {
   display: grid;
-
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: 40vw;
+  width: 75%;
   height: fit-content;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
@@ -31,4 +30,20 @@
   height: 100%;
   border-radius: 180px;
   object-fit: cover;
+}
+
+.pi-status {
+
+}
+
+.pi-skills {
+  display: grid;
+  grid-template-columns: repeat(2, 3fr);
+  grid-auto-rows: 3rem;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.pi-skills > i {
+  font-size: rem;
 }

@@ -12,16 +12,10 @@
   text-align: center;
 }
 
-.people-box-item {
-  box-sizing: border-box;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  padding: 1rem;
-  width:auto;
-  height: auto;
-  background-color: #EEEEEE;
-  border: 1px solid #lightgray;
-  border-radius: 18px;
+.people-grids {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  grid-auto-rows: fit-content;
 }
 
 .people-box-picture {
