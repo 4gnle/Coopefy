@@ -26,3 +26,33 @@
   border-radius: 180px;
   background-color: black;
 }
+
+@media (max-width: 1280px) {
+  .people-grids {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-auto-rows: fit-content;
+  }
+}
+
+@media (max-width: 900px) {
+  .people-grids {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-auto-rows: fit-content;
+  }
+}
+
+@media (max-width: 649px) {
+  .people-box {
+    position: absolute;
+    top: 8vh;
+  }
+
+  .people-grids {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-auto-rows: fit-content;
+    grid-gap: 1rem;
+  }
+}

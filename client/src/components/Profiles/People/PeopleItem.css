@@ -33,17 +33,54 @@
 }
 
 .pi-status {
-
+  box-sizing: border-box;
+  border-radius: 12px;
+  width: min-content;
+  padding: 1px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pi-skills {
   display: grid;
-  grid-template-columns: repeat(2, 3fr);
+  box-sizing: border-box;
+  border-radius: 18px;
+  background-color: #EEEEEE;
+
+  grid-template-columns: repeat(2, 2fr);
   grid-auto-rows: 3rem;
   margin-top: 5px;
-  font-size: 1rem;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  text-align: left;
 }
 
-.pi-skills > i {
-  font-size: rem;
+.pi-links {
+  text-align: left;
+  height: auto;
+  background-color: white;
+  border-radius: 18px;
+}
+
+.pi-links-icons {
+  text-align: center;
+  font-size: 3vh;
+  margin-left: -10px;
+}
+
+.pi-links i {
+  font-size: 3.5vh;
+  margin-left: 10px;
+}
+
+i.fa-product-hunt {
+font-size: 3.2vh;
+}
+
+.pi-links i:hover {
+  font-size: 3.6vh;
+}
+
+i.fa-product-hunt:hover {
+font-size: 3.3vh;
 }

@@ -2,6 +2,10 @@ import React, {useEffect, useState} from 'react'
 
 import './PeopleItem.css'
 
+//UI
+import Spinner from '../../UI/Spinner'
+import Button from '../../UI/Button'
+
 import {Link} from 'react-router-dom'
 
 const PeopleItem = ({
@@ -12,6 +16,7 @@ const PeopleItem = ({
   profilename,
   status,
   skills,
+  socialLinks,
   website,
   profileimage,
   loading
@@ -42,20 +47,55 @@ const PeopleItem = ({
 
       <div className='pi-bottom'>
         <div className='pi-status'>
-
+          <em>{status}</em>
         </div>
 
-        <div className='pi-skills'>
-          {skills && skills.map((skill, index) => (
+        <>
+        {skills.length > 0 && (
+          <>
+          <h4 style={{textAlign: 'left', margin: '2px'}}>Skills</h4>
+          <div className='pi-skills'>
+          {skills.map((skill, index) => (
             <>
-              <div key={index}>
-                <i class="fas fa-check"></i>{' '}<p>{skill}</p>
+              <div style={{marginTop: '10px', marginLeft: '25px'}} key={index}>
+                <p><i className="fas fa-check"></i>{' '}{skill}</p>
               </div>
             </>
           ))}
-        </div>
+          </div>
+        </>)}
+        </>
 
-      </div>
+        <>
+        {socialLinks && socialLinks.length > 0 && (
+          <>
+        <h4 style={{textAlign: 'left', margin: '2px'}}>Links</h4>
+        <div className='pi-links'>
+          <div className='pi-links-icons'>
+              {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
+
+              {socialLinks.github && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.github.com/${socialLinks.github}`}}><i style={{color: 'black'}} className="fab fa-github-square"></i></Link>}
+
+              {socialLinks.twitter && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.twitter.com/${socialLinks.twitter}`}}><i className="fab fa-twitter-square"></i></Link>}
+
+              {socialLinks.instagram && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.instagram.com/${socialLinks.instagram}`}}><i className="fab fa-instagram-square"></i></Link>}
+
+              {socialLinks.behance && <Link target="_blank" rel="noopener noreferrer" style={{color: 'black'}} to={ {pathname: `https://www.behance.net/${socialLinks.behance}`}}><i className="fab fa-behance-square"></i></Link>}
+
+              {socialLinks.dribbble && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.dribbble.com/${socialLinks.dribbble}`}}><i className="fab fa-dribbble-square"></i></Link>}
+
+              {socialLinks.linkedin && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.linkedin.com/${socialLinks.linkedin}`}}><i className="fab fa-linkedin-square"></i></Link>}
+
+              {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
+            </div>
+          </div>
+        </>)}
+          </>
+
+          <Link style={{margin: '5px'}} to={`${username}`}><Button
+            className='small'>
+          View Profile</Button></Link>
+        </div>
     </div>
   )
 }
