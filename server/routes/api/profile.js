@@ -348,10 +348,10 @@ module.exports = router;
 // @desc     Get the profile image
 // @access   Public
 router.get(
-  '/image', async (req, res) => {
+  '/image', auth, async (req, res) => {
   try {
     let profile = await Profile.findOne(
-      { user: userId})
+      { user: user_id})
 
     if (profile.profileimage) {
       let profileimage = profile.profileimage
