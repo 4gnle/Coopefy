@@ -2,14 +2,14 @@ import React, {Fragment, useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 
 //Redux
-import {deleteImage, getProfileImage, profileImage} from '../../redux/actions/profile';
+import {deleteImage, getProfile, profileImage} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 import Button from '../UI/Button'
 
 import './ProfileImage.css'
 
-const ImageUpload = ({profile: { loading, profileimage }, profileImage, getProfileImage, deleteImage}) => {
+const ImageUpload = ({profile: {profile, loading, profileimage}, profileImage, getProfile, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -20,13 +20,14 @@ const ImageUpload = ({profile: { loading, profileimage }, profileImage, getProfi
   const filePickerRef = useRef();
 
   useEffect(() => {
-    if (!profileimage && !imagePrev) getProfileImage();
-    if (!loading && profileimage) {
-      const image1 = URL.createObjectURL(profileimage);
+    if (!profile && !imagePrev) getProfile();
+    if (!loading && profile.profileimage) {
+      const fileContents = new Buffer(profile.profileimage, 'base64');
+      let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
     // eslint-disable-next-line
-  }, [getProfileImage, loading, profileimage]);
+  }, [loading, profileimage]);
 
 
   // Transforms the file into a URL
@@ -141,4 +142,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {profileImage, deleteImage, getProfileImage})(ImageUpload);
+export default connect(mapStateToProps, {profileImage, deleteImage, getProfile})(ImageUpload);

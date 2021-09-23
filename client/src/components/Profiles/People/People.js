@@ -33,7 +33,7 @@ const People = ({getPeople,
 
   return (
     <div className='people-box'>
-    {loading ? <Spinner/> :
+    {loading && !profiles ? <Spinner/> :
       <>
         <div className='pb-top'>
           <h1>People</h1>

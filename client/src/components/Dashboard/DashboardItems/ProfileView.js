@@ -8,11 +8,11 @@ import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
 //Redux and Router
-import {profileData, getProfile, getProfileImage, getUsername} from '../../../redux/actions/profile';
+import {profileData, getProfile} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
-const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, getProfileImage, getProfile, getUsername}) => {
+const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, getProfile}) => {
 
   const links = {
     twitter: '',
@@ -38,20 +38,21 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
   }
 
   useEffect(() => {
-    if (!profileimage && !imagePrev) getProfileImage();
-    if (!loading && profileimage) {
-      const image1 = URL.createObjectURL(profileimage);
+    if (!profile) getProfile();
+
+    if (profile && !imagePrev) {
+      const fileContents = new Buffer(profile.profileimage, 'base64');
+      let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
 
-    if (!username) getUsername();
-    if (!loading && username) {
-      setUsername1(username);
+    if (profile && !loading && profile.username) {
+      setUsername1(profile.username);
     }
     console.log(username1)
 
     // eslint-disable-next-line
-  }, [getProfileImage, loading, username, profileimage]);
+  }, [loading, username, profileimage]);
 
   useEffect(() => {
     if (!profile) getProfile();
@@ -160,4 +161,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {getUsername, getProfile, getProfileImage})(ProfileView)
+export default connect(mapStateToProps, {getProfile})(ProfileView)

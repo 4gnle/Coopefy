@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 import './Navbar.css'
 
@@ -10,6 +10,17 @@ import {logUserOut} from '../../redux/actions/inputs'
 import {getProfile} from '../../redux/actions/profile';
 
 const Navbar = ({ authenticate: {isAuth}, profile: {profile, loading, username, _id}, logUserOut }) => {
+
+  const [username1, setUsername1] = useState();
+
+  useEffect(() => {
+    if (!profile) getProfile();
+
+    if (profile && !loading && profile.username) {
+      setUsername1(profile.username);
+    }
+  }, [loading, profile])
+
 
   const loggedIn = (
     <ul>
@@ -27,7 +38,7 @@ const Navbar = ({ authenticate: {isAuth}, profile: {profile, loading, username, 
 
         <div className="auth-links">
 
-          <Link to={`/${username}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>
+          <Link to={`/${username1}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>
 
           <Link to='/' className="sign" onClick={logUserOut}>
           <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>

@@ -195,6 +195,16 @@
   }
 }
 
+@media (max-width: 480px) {
+  .input-box-login {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
 @media (max-width: 299px) {
 
   .input-box-register {
@@ -217,7 +227,7 @@
     text-align: center;
     width: 200px;
     max-width: 100%;
-    top: 50px;
+    top: 10vh;
     height: 350px;
     margin-top: 20px;
     margin-bottom: 20px;

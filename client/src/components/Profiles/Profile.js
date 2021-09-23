@@ -48,7 +48,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   useEffect(() => {
     if (!profile) getProfileById(match.params.id);
 
-    if (!loading && profile.profileimage) {
+    if (profile && !loading && profile.profileimage) {
       const fileContents = new Buffer(profile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
@@ -56,7 +56,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
     console.log(profile);
 
-    if (profile && !username1) {
+    if (profile && !username1 && profile.username) {
       setUsername1(profile.username);
     }
 

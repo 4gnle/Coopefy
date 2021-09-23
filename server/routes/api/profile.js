@@ -322,25 +322,6 @@ module.exports = router;
       }
     );
 
-// @route    GET api/profile image
-// @desc     Get the profile image
-// @access   Public
-router.get(
-  '/image', auth, async (req, res) => {
-  try {
-    let profile = await Profile.findOne(
-      {user: req.user.id})
-
-    if (profile.profileimage) {
-      let profileimage = profile.profileimage
-      res.set('Content-Type', 'image/jpeg').send(profileimage);
-    }
-
-  } catch (err) {
-    res.status(500).send({error: err.message });
-  }
-});
-
   // @router  DELETE api/profile/image
   // @desc    DELETE Profile Image
   // @access  Private
