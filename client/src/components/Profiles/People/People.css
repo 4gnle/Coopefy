@@ -10,12 +10,14 @@
 
 .pb-top {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .people-grids {
   display: grid;
   grid-template-columns: repeat(5, 2fr);
   grid-auto-rows: fit-content;
+  grid-gap: 1rem;
 }
 
 .people-box-picture {
@@ -45,8 +47,24 @@
 
 @media (max-width: 649px) {
   .people-box {
+    top: 10vh;
+    width: 100%;
+  }
+
+  .people-grids {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-auto-rows: fit-content;
+    grid-gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .people-box {
+    box-shadow: none;
     position: absolute;
-    top: 8vh;
+    top: 10vh;
+    width: 100%;
   }
 
   .people-grids {

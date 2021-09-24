@@ -47,12 +47,14 @@
   border-radius: 18px;
   background-color: #EEEEEE;
 
-  grid-template-columns: repeat(2, 2fr);
+  grid-template-columns: repeat(1, 2fr);
   grid-auto-rows: 3rem;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 0.8rem;
   text-align: left;
+  height: 50px;
+  overflow: hidden;
 }
 
 .pi-links {

@@ -53,7 +53,7 @@ const PeopleItem = ({
         <>
         {skills.length > 0 && (
           <>
-          <h4 style={{textAlign: 'left', margin: '2px'}}>Skills</h4>
+          <h4 style={{textAlign: 'left', margin: '5px'}}>Skills</h4>
           <div className='pi-skills'>
           {skills.map((skill, index) => (
             <>
@@ -92,7 +92,7 @@ const PeopleItem = ({
         </>)}
           </>
 
-          <Link style={{margin: '5px'}} to={`${username}`}><Button
+          <Link to={`${username}`}><Button
             className='small'>
           View Profile</Button></Link>
         </div>
