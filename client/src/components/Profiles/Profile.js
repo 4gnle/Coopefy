@@ -35,17 +35,15 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth}, getProfileByUsername, match}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth, user}, getProfileByUsername, match}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
   const [skillsData, setSkillsData] = useState(stateSkills);
   const [profileLoading, setProfileLoading] = useState();
-  const [user, setUser] = useState();
 
   useEffect(() => {
     getProfileByUsername(match.params.username);
-
   }, [getProfileByUsername]);
 
   useEffect(() => {
@@ -93,7 +91,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           </div>
           <div className='profile-top'>
           {profile && !profileInfo.profilename ? (<><div className='no-profile-name'>No profile name
-            {isAuth && <Link to='edit-profile'>
+            {isAuth && user._id === profile.user._id && <Link to='edit-profile'>
             <Button className='button small'>Add Name</Button></Link>}
           </div></>) :
             <>
@@ -113,7 +111,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
           <div className='profile-skills'>
             {profile && profile.skills.length === 0 ? (<><div className='no-profile'>There are no skills show
-              {isAuth && <Link to='edit-profile'>
+              {isAuth && user._id === profile.user._id &&
+                <Link to='edit-profile'>
               <Button className='button small'>Add Skills</Button></Link>}
             </div></>) : null}
 
