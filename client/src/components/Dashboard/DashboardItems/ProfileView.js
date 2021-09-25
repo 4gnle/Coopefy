@@ -39,10 +39,11 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
 
   useEffect(() => {
     getProfile();
-  }, [loading, profile]);
+    setImagePrev(null);
+  }, [getProfile, profile.image]);
 
   useEffect(() => {
-    if (profile && profile.profileimage && !imagePrev) {
+    if (profile && profile.profileimage & !imagePrev) {
       const fileContents = new Buffer(profile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
@@ -53,14 +54,12 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
     }
 
     if (!loading && profile) {
-      const profileData = { ...links };
+      const profileLinksData = { ...links };
       for (const key in profile.sociallinks) {
-        if (key in profileData) profileData[key] = profile.sociallinks[key];
+        if (key in profileData) profileLinksData[key] = profile.sociallinks[key];
       }
-      setSocialLinks(profileData);
-
-      const biog = profile.bio
-      setProfileBio(biog);
+      setSocialLinks(profileLinksData);
+      setProfileBio(profile.bio);
     }
   }, [loading, profile, username, profileimage]);
 
