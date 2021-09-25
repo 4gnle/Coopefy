@@ -54,16 +54,19 @@ router.get('/', async (req, res) => {
 
 module.exports = router;
 
-// @route    GET api/profile/user/:user_id
+// @route    GET api/profile/user/:id
 // @desc     Get profile by user ID
 // @access   Public
 router.get(
-  '/:user_id',
-  async ({ params: { user_id } }, res) => {
+  '/:id',
+  async (req, res) => {
     try {
+      console.log(req.body.id);
+
       const profile = await Profile.findOne({
-        user: user_id
+        user: req.body.id
       }).populate('user', ['profilename', 'profileimage']);
+
 
       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 

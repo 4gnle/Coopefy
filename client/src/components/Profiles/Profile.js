@@ -34,7 +34,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks, _id}, authenticate: {isAuth}, getProfileById, match}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks, _id}, authenticate: {isAuth}, getProfileById, id, match}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -46,7 +46,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [user, setUser] = useState();
 
   useEffect(() => {
-    if (!profile) getProfileById(match.params.id);
+    if (!profile) getProfileById(id);
 
     if (profile && !loading && profile.profileimage) {
       const fileContents = new Buffer(profile.profileimage, 'base64');
@@ -84,7 +84,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
      }
 
     // eslint-disable-next-line
-  }, [loading, profileimage, username]);
+  }, [profile, loading, profileimage, id, getProfileById, username]);
 
   return (
     <>

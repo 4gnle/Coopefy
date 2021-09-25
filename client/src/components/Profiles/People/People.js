@@ -50,6 +50,7 @@ const People = ({getPeople,
           {profile.profilename && profile.profileimage ?
             <>
           <PeopleItem
+            profile={profile}
             username={profile.username}
             bio={profile.bio}
             location={profile.location}
