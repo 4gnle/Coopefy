@@ -47,15 +47,18 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
   useEffect(() => {
     console.log(id);
-    
-    if (!profile && id) getProfileById(id);
+    console.log(profile);
+
+    if (!profile && id) getProfileById(match.params.id);
 
     if (profile && !loading && profile.profileimage) {
       const fileContents = new Buffer(profile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
+  }, [profile, loading, profileimage, id, getProfileById]);
 
+  useEffect(() => {
     console.log(profile);
 
     if (profile && !username1 && profile.username) {
@@ -86,7 +89,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
      }
 
     // eslint-disable-next-line
-  }, [profile, loading, profileimage, id, getProfileById, username]);
+  }, [profile, loading, getProfileById, username]);
 
   return (
     <>

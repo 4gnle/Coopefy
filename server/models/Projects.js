@@ -3,6 +3,10 @@ mongoose = require('mongoose');
 const ProjectSchema = new.mongoose.Schema({
   projects: [
       {
+      project: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'project'
+      },
       title: {
         type: String,
         required: true

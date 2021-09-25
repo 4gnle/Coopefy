@@ -8,11 +8,7 @@ import Button from '../../UI/Button'
 
 import {Link} from 'react-router-dom'
 
-//Components
-import Profile from '../Profile'
-
 const PeopleItem = ({
-  profile,
   username,
   id,
   bio,
@@ -27,11 +23,6 @@ const PeopleItem = ({
   }) => {
 
   const [imagePrev, setImagePrev] = useState();
-  const [openProfile, setOpenProfile] = useState(false);
-
-  const goToProfile = () => {
-    setOpenProfile(true);
-  }
 
   useEffect(()=> {
     if (!loading && profileimage) {
@@ -44,8 +35,6 @@ const PeopleItem = ({
   }, [profileimage])
 
   return (
-    <>
-    {openProfile && profile ? (<Profile id={id}/>) : null}
     <div className='pi-box'>
       <div className='pi-top'>
         <h3 style={{margin: '5px'}}>{profilename}</h3>
@@ -103,13 +92,11 @@ const PeopleItem = ({
         </>)}
           </>
 
-          <Button
-            className='small'
-            onClick={goToProfile}>
-          View Profile</Button>
+          <Link to={`${id}`}><Button
+            className='small'>
+          View Profile</Button></Link>
         </div>
     </div>
-    </>
   )
 }
 

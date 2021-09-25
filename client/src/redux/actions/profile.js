@@ -121,10 +121,10 @@ export const getProfileSkills = () => async dispatch => {
 };
 
 //Get Profile by ID
-export const getProfileById = (userId) => async dispatch => {
+export const getProfileById = (id) => async dispatch => {
   try{
 
-    const res = await api.get(`/profile/${userId}`);
+    const res = await api.get(`/profile/${id}`);
 
     //If the token is there, do this
     dispatch({
@@ -136,8 +136,7 @@ export const getProfileById = (userId) => async dispatch => {
 
     //If the token is not there, do this
     dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status}
+      type: PROFILE_ERROR
     });
   }
 };

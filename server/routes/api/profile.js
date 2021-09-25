@@ -59,13 +59,13 @@ module.exports = router;
 // @access   Public
 router.get(
   '/:id',
-  async (req, res) => {
+  async ({params: {id}}, res) => {
     try {
-      console.log(req.body.id);
+      console.log(id);
 
       const profile = await Profile.findOne({
-        user: req.body.id
-      }).populate('user', ['profilename', 'profileimage']);
+        user: id
+      }).populate('user', ['username','profilename', 'profileimage']);
 
       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
