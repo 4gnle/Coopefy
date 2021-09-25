@@ -51,17 +51,6 @@ const People = ({getPeople,
             <>
           <PeopleItem
             profile={profile}
-            username={profile.username}
-            bio={profile.bio}
-            location={profile.location}
-            profilename={profile.profilename}
-            profileimage={profile.profileimage}
-            status={profile.status}
-            skills={profile.skills}
-            socialLinks={profile.sociallinks}
-            website={profile.website}
-            sociallinks={profile.sociallinks}
-            id={profile._id}
           />
           </> : null}</>
         )

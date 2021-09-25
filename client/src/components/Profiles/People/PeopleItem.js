@@ -9,8 +9,8 @@ import Button from '../../UI/Button'
 import {Link} from 'react-router-dom'
 
 const PeopleItem = ({
+  profile: {
   username,
-  id,
   bio,
   location,
   profilename,
@@ -19,12 +19,14 @@ const PeopleItem = ({
   socialLinks,
   website,
   profileimage,
-  loading
+  loading}
   }) => {
 
   const [imagePrev, setImagePrev] = useState();
 
   useEffect(()=> {
+    console.log(username);
+
     if (!loading && profileimage) {
       const fileContents = new Buffer(profileimage, 'base64');
 
@@ -92,7 +94,7 @@ const PeopleItem = ({
         </>)}
           </>
 
-          <Link to={`${id}`}><Button
+          <Link to={`${username}`}><Button
             className='small'>
           View Profile</Button></Link>
         </div>

@@ -59,26 +59,25 @@ export const getPeople = () => async dispatch => {
   }
 };
 
-//Get All Profiles by ID
-export const getProfileByUsername = username => async dispatch => {
-try{
+//Get Profile by Username
+export const getProfileByUsername = (username) => async dispatch => {
+  try{
 
-  const res = await api.get(`/profile/${username}`);
+    const res = await api.get(`/profile/${username}`);
 
-  //If the token is there, do this
-  dispatch({
-    type: GET_PROFILE,
-    payload: res.data
-  });
+    //If the token is there, do this
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
 
-}catch (err) {
+  }catch (err) {
 
-  //If the token is not there, do this
-  dispatch({
-    type: PROFILE_ERROR,
-    payload: { msg: err.response.statusText, status: err.response.status}
-  });
-}
+    //If the token is not there, do this
+    dispatch({
+      type: PROFILE_ERROR
+    });
+  }
 };
 
 //Get userName
@@ -116,27 +115,6 @@ export const getProfileSkills = () => async dispatch => {
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status}
-    });
-  }
-};
-
-//Get Profile by ID
-export const getProfileById = (id) => async dispatch => {
-  try{
-
-    const res = await api.get(`/profile/${id}`);
-
-    //If the token is there, do this
-    dispatch({
-      type: GET_PROFILE,
-      payload: res.data
-    });
-
-  }catch (err) {
-
-    //If the token is not there, do this
-    dispatch({
-      type: PROFILE_ERROR
     });
   }
 };

@@ -7,7 +7,7 @@ import Spinner from '../UI/Spinner'
 import Button from '../UI/Button'
 
 //Redux and Router
-import {getProfileById} from '../../redux/actions/profile';
+import {getProfileByUsername} from '../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -34,7 +34,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks, _id}, authenticate: {isAuth}, getProfileById, id, match}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth}, getProfileByUsername, match}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -46,20 +46,17 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [user, setUser] = useState();
 
   useEffect(() => {
-    console.log(id);
-    console.log(profile);
+    getProfileByUsername(match.params.username);
 
-    if (!profile && id) getProfileById(match.params.id);
+  }, [getProfileByUsername]);
+
+  useEffect(() => {
 
     if (profile && !loading && profile.profileimage) {
       const fileContents = new Buffer(profile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
-  }, [profile, loading, profileimage, id, getProfileById]);
-
-  useEffect(() => {
-    console.log(profile);
 
     if (profile && !username1 && profile.username) {
       setUsername1(profile.username);
@@ -89,7 +86,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
      }
 
     // eslint-disable-next-line
-  }, [profile, loading, getProfileById, username]);
+  }, [profile, loading, username, profileimage]);
 
   return (
     <>
@@ -177,4 +174,4 @@ const mapStateToProps = state => ({
   authenticate: state.authenticate
 })
 
-export default connect(mapStateToProps, {getProfileById})(Profile)
+export default connect(mapStateToProps, {getProfileByUsername})(Profile)
