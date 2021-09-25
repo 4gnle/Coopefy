@@ -5,7 +5,6 @@ const ProfileSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
-
   // Main info for Every user
   username: {
     type: String

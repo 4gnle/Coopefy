@@ -28,6 +28,7 @@ const stateSkills = {
 
 const profileInfo = {
   status: '',
+  username: '',
   profilename: '',
   location: '',
   bio: '',
@@ -39,10 +40,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
   const [skillsData, setSkillsData] = useState(stateSkills);
-  const [profileBio, setProfileBio] = useState('');
   const [profileLoading, setProfileLoading] = useState();
-  const [profileName, setProfileName] = useState('');
-  const [username1, setUsername1] = useState();
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -58,10 +56,6 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
       setImagePrev(image1);
     }
 
-    if (profile && !username1 && profile.username) {
-      setUsername1(profile.username);
-    }
-
     if (!loading && profile) {
       const profileLinks = { ...stateLinks };
       for (const key in profile.sociallinks) {
@@ -74,14 +68,11 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
         if (key in profileSkills) profileSkills[key] = profile[key];
       }
       setSkillsData(profileSkills)
-     }
 
-     if (!loading && profile) {
        const profileData = { ...profileInfo };
        for (const key in profile) {
-         if (key in profileData) profileData[key] = profile[key];
+         if (key in profileData) profileInfo[key] = profile[key];
        }
-       setProfileBio(profile.bio);
        setProfileLoading(profile.loading);
      }
 
@@ -90,27 +81,27 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
   return (
     <>
-    {loading ? (<Spinner/>) :
+    {profileLoading ? (<Spinner/>) :
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
-        {profile && !profile.profileimage ? (<><div className='no-profile-image'>No picture<br/>
+        {profile && !imagePrev ? (<><div className='no-profile-image'>No picture<br/>
           {isAuth && <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>}
         </div></>) : null}
-            {profile && profile.profileimage ? <img src={imagePrev}/> : null}
+            {profile && imagePrev ? <img src={imagePrev}/> : null}
           </div>
           <div className='profile-top'>
-          {profile && !profile.profilename ? (<><div className='no-profile-name'>No profile name
+          {profile && !profileInfo.profilename ? (<><div className='no-profile-name'>No profile name
             {isAuth && <Link to='edit-profile'>
             <Button className='button small'>Add Name</Button></Link>}
           </div></>) :
             <>
-            <p><strong>{profile && profile.profilename}
+            <p><strong>{profileInfo.profilename}
             </strong>
             &nbsp;&nbsp;
-            <span>@{username1 && username1}</span></p>
-            <em>{profileBio && profileBio}</em>
+            <span>@{profileInfo.username}</span></p>
+            <em>{profileInfo.bio}</em>
             </>}
           </div>
       </div>
@@ -154,9 +145,9 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
               {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
           </div>
             <div className='profile-links-website'>
-            {profile && profile.website ?
+            {profile && profileInfo.website ?
               <>
-            <Link rel="noopener noreferrer" to={{pathname: `${profile.website}`}}>{profile.website}</Link>
+            <Link rel="noopener noreferrer" to={{pathname: `${profileInfo.website}`}}>{profileInfo.website}</Link>
             </> : null}
             </div>
         </div>

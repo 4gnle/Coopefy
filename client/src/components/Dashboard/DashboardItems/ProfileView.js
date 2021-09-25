@@ -38,8 +38,10 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
   }
 
   useEffect(() => {
-    if (!profile) getProfile();
+    getProfile();
+  }, [loading, profile]);
 
+  useEffect(() => {
     if (profile && profile.profileimage && !imagePrev) {
       const fileContents = new Buffer(profile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
@@ -49,13 +51,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
     if (profile && !loading && profile.username) {
       setUsername1(profile.username);
     }
-    console.log(username1)
 
-    // eslint-disable-next-line
-  }, [loading, profile, username, profileimage]);
-
-  useEffect(() => {
-    if (!profile) getProfile();
     if (!loading && profile) {
       const profileData = { ...links };
       for (const key in profile.sociallinks) {
@@ -66,7 +62,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
       const biog = profile.bio
       setProfileBio(biog);
     }
-  }, [loading, profile]);
+  }, [loading, profile, username, profileimage]);
 
   useEffect(() => {
      const handleClickOutside = (event) => {

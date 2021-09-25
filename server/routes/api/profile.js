@@ -61,8 +61,6 @@ router.get(
   '/:username',
   async ({params: {username}}, res) => {
     try {
-      console.log(username);
-
       const profile = await Profile.findOne({
         username: username
       }).populate('user', ['username','profilename', 'profileimage']);
