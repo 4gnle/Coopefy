@@ -46,7 +46,9 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [user, setUser] = useState();
 
   useEffect(() => {
-    if (!profile) getProfileById(id);
+    console.log(id);
+    
+    if (!profile && id) getProfileById(id);
 
     if (profile && !loading && profile.profileimage) {
       const fileContents = new Buffer(profile.profileimage, 'base64');

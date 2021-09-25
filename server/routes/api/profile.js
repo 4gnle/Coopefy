@@ -67,7 +67,6 @@ router.get(
         user: req.body.id
       }).populate('user', ['profilename', 'profileimage']);
 
-
       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
       return res.json(profile);
