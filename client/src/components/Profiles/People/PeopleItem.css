@@ -3,7 +3,7 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 90%;
   height: fit-content;
   padding: 0.5rem;
   box-shadow: 0 2px 5px grey;
@@ -47,14 +47,14 @@
   border-radius: 18px;
   background-color: #EEEEEE;
 
-  grid-template-columns: repeat(1, 2fr);
+  grid-template-columns: repeat(2, 2fr);
   grid-auto-rows: 3rem;
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 0.8rem;
   text-align: left;
-  height: 50px;
-  overflow: hidden;
+  height: fit-content;
+  overflow: visible;
 }
 
 .pi-links {

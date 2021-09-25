@@ -46,7 +46,9 @@ const People = ({getPeople,
 
         <div className='people-grids'>
         {profiles.length > 0 ? (profiles.map(profile =>
-
+          <>
+          {profile.profilename && profile.profileimage ?
+            <>
           <PeopleItem
             username={profile.username}
             bio={profile.bio}
@@ -60,6 +62,7 @@ const People = ({getPeople,
             sociallinks={profile.sociallinks}
             id={profile._id}
           />
+          </> : null}</>
         )
       ) : <h4 style={{textAlign: 'center'}}>There is no profile yet</h4>}
         </div>
