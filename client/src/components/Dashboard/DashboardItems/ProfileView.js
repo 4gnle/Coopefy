@@ -52,7 +52,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
     console.log(username1)
 
     // eslint-disable-next-line
-  }, [loading, username, profileimage]);
+  }, [loading, profile, username, profileimage]);
 
   useEffect(() => {
     if (!profile) getProfile();
@@ -90,6 +90,8 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
 
   return (
     <div className='pv-box'>
+    {loading && !profile ? <Spinner/> :
+      <>
       <h4>You</h4>
       <p>@{username1}</p>
       <div className='pv-box-items'>
@@ -98,7 +100,8 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
          <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>
         </div></>) :
-          <img src={imagePrev}/>}
+          <img src={imagePrev}/>
+        }
         </div>
         <Button
         className='small'
@@ -153,6 +156,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
         </div>
 
       </div>
+      </>}
     </div>
   )
 }
