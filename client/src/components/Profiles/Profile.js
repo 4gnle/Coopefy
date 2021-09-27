@@ -44,7 +44,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
   useEffect(() => {
     getProfileByUsername(match.params.username);
-  }, [getProfileByUsername]);
+  }, [getProfileByUsername, match.params.username]);
 
   useEffect(() => {
 
@@ -87,7 +87,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           {isAuth && <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>}
         </div></>) : null}
-            {profile && imagePrev ? <img src={imagePrev}/> : null}
+            {profile && imagePrev ? <img alt='Profile' src={imagePrev}/> : null}
           </div>
           <div className='profile-top'>
           {profile && !profileInfo.profilename ? (<><div className='no-profile-name'>No profile name

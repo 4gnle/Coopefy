@@ -2,7 +2,7 @@ import React , {useState, useEffect} from 'react'
 import {skillList} from './SkillList'
 
 //Redux
-import {getProfileSkills, setProfileSkills} from '../../../redux/actions/profile';
+import {setProfileSkills} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 //UI CSS
@@ -10,7 +10,7 @@ import './SkillsSelect.css'
 
 //Components
 import Button from '../../UI/Button'
-import Alert from '../../UI/Alert'
+// import Alert from '../../UI/Alert'
 
 const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSkills, skillsData}) => {
 

@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import './PeopleItem.css'
 
 //UI
-import Spinner from '../../UI/Spinner'
 import Button from '../../UI/Button'
 
 import {Link} from 'react-router-dom'
@@ -34,7 +33,7 @@ const PeopleItem = ({
 
       setImagePrev(image1);
     }
-  }, [profileimage])
+  }, [profileimage, username, loading])
 
   return (
     <div className='pi-box'>
@@ -44,7 +43,7 @@ const PeopleItem = ({
       </div>
 
       <div className='pi-profile-picture'>
-        {imagePrev ? <img src={imagePrev}/> : null}
+        {imagePrev ? <img alt='Profile'  src={imagePrev}/> : null}
       </div>
 
       <div className='pi-bottom'>
@@ -101,9 +100,5 @@ const PeopleItem = ({
     </div>
   )
 }
-
-const mapStateToProps = state => ({
-  profile: state.profile
-})
 
 export default PeopleItem

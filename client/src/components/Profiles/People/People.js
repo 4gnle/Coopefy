@@ -7,12 +7,10 @@ import PeopleItem from './PeopleItem'
 
 //UI
 import Spinner from '../../UI/Spinner'
-import Button from '../../UI/Button'
 
 //Redux and Router
 import {getPeople} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 
 const People = ({getPeople,
   profile: {
@@ -50,6 +48,7 @@ const People = ({getPeople,
           {profile.profilename && profile.profileimage ?
             <>
           <PeopleItem
+            key={_id}
             profile={profile}
           />
           </> : null}</>

@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 
 import AuthContextProvider from './context/main-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
