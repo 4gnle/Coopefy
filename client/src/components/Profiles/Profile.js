@@ -84,7 +84,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
       <div className='profile-main'>
         <div className='profile-picture'>
         {profile && !imagePrev ? (<><div className='no-profile-image'>No picture<br/>
-          {isAuth && <Link to='edit-profile'>
+          {isAuth && user._id === profile.user._id && <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>}
         </div></>) : null}
             {profile && imagePrev ? <img alt='Profile' src={imagePrev}/> : null}

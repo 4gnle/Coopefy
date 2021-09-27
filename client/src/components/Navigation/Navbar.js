@@ -9,17 +9,17 @@ import {Link} from 'react-router-dom';
 import {logUserOut} from '../../redux/actions/inputs'
 import {getProfile} from '../../redux/actions/profile';
 
-const Navbar = ({ authenticate: {isAuth}, profile: {profile, loading, username, _id}, logUserOut }) => {
+const Navbar = ({ authenticate: {isAuth}, profile: {signedprofile, loading, username, _id}, logUserOut }) => {
 
   const [username1, setUsername1] = useState();
 
   useEffect(() => {
-    if (!profile) getProfile();
+    if (!signedprofile) getProfile();
 
-    if (profile && !loading && profile.username) {
-      setUsername1(profile.username);
+    if (signedprofile && !loading && signedprofile.username) {
+      setUsername1(signedprofile.username);
     }
-  }, [loading, profile])
+  }, [loading, signedprofile])
 
 
   const loggedIn = (

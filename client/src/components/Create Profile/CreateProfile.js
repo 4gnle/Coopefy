@@ -23,22 +23,22 @@ const initialState = {
   website: ''
 };
 
-const CreateProfile = ({  profile: {profile, loading },
+const CreateProfile = ({  profile: {signedprofile, loading },
 getProfile,
 profileData}) => {
 
 const [formData, setFormData] = useState(initialState);
 
 useEffect(() => {
-   if (!profile) getProfile();
-   if (!loading && profile) {
+   if (!signedprofile) getProfile();
+   if (!loading && signedprofile) {
      const profileData = { ...initialState };
-     for (const key in profile) {
-       if (key in profileData) profileData[key] = profile[key];
+     for (const key in signedprofile) {
+       if (key in profileData) profileData[key] = signedprofile[key];
      }
      setFormData(profileData);
    }
- }, [loading, getProfile, profile]);
+ }, [loading, getProfile, signedprofile]);
 
   const {
   status,

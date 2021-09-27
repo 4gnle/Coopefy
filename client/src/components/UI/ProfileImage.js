@@ -9,7 +9,7 @@ import Button from '../UI/Button'
 
 import './ProfileImage.css'
 
-const ImageUpload = ({profile: {profile, loading, profileimage}, profileImage, getProfile, deleteImage}) => {
+const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileImage, getProfile, deleteImage}) => {
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -20,9 +20,9 @@ const ImageUpload = ({profile: {profile, loading, profileimage}, profileImage, g
   const filePickerRef = useRef();
 
   useEffect(() => {
-    if (!profile && !imagePrev) getProfile();
-    if (!loading && profile.profileimage) {
-      const fileContents = new Buffer(profile.profileimage, 'base64');
+    if (!signedprofile && !imagePrev) getProfile();
+    if (!loading && signedprofile.profileimage) {
+      const fileContents = new Buffer(signedprofile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
