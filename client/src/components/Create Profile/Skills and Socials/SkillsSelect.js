@@ -35,8 +35,7 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
           skills1.filter(skill => skill.name !== skill)
         })
       }
-      console.log(skillsData)
-   }, [ skillsData])
+   }, [skillsData])
 
   // Adds the skills to the formdata so they're sent to the database
   useEffect(() => {

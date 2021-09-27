@@ -4,6 +4,7 @@ import {
   GET_IMAGE,
   DELETE_IMAGE,
   GET_PROFILE,
+  GET_SIGNEDPROFILE,
   GET_PROFILESKILLS,
   UPDATE_PROFILE,
   GET_ALLPROFILES,
@@ -15,6 +16,7 @@ import {
 
 const initialState = {
 profile: null,
+signedprofile: null,
 profileimage: null,
 skills:null,
 profiles:[],
@@ -38,12 +40,19 @@ export default function profile(state = initialState, action) {
       }
 
     case GET_PROFILE:
-    case UPDATE_PROFILE:
       return {
         ...state,
         profile: payload,
         loading: false
       };
+
+    case GET_SIGNEDPROFILE:
+    case UPDATE_PROFILE:
+    return {
+      ...state,
+      signedprofile: payload,
+      loading: false
+    };
 
     case GET_USERNAME:
       return {
@@ -71,6 +80,7 @@ export default function profile(state = initialState, action) {
       return {
         ...state,
         profile: null,
+        signedprofile: null,
         loading: false,
         username: null,
         profileimage: null,

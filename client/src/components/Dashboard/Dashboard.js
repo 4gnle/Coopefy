@@ -3,7 +3,7 @@ import React from 'react'
 //Components
 import ActionsView from './DashboardItems/ActionsView'
 import ProfileView from './DashboardItems/ProfileView'
-import ColumnSection from './DashboardItems/ColumnSection'
+// import ColumnSection from './DashboardItems/ColumnSection'
 
 //UI and CSS
 import './Dashboard.css'

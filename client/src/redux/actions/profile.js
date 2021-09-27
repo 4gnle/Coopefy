@@ -4,6 +4,7 @@ import {
   GET_IMAGE,
   DELETE_IMAGE,
   GET_PROFILE,
+  GET_SIGNEDPROFILE,
   GET_ALLPROFILES,
   GET_PROFILESKILLS,
   GET_USERNAME,
@@ -26,7 +27,7 @@ export const getProfile = () => async dispatch => {
 
     //If the token is there, do this
     dispatch({
-      type: GET_PROFILE,
+      type: GET_SIGNEDPROFILE,
       payload: res.data
     });
   }catch (err) {

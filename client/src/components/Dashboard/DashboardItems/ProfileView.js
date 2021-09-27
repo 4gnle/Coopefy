@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect, useMemo} from 'react'
 
 //Styles
 import './ProfileView.css'
@@ -12,7 +12,7 @@ import {profileData, getProfile} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
-const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, getProfile}) => {
+const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, username}, getProfile}) => {
 
   const links = {
     twitter: '',
@@ -42,25 +42,25 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
   }, [getProfile]);
 
   useEffect(() => {
-    if (profile && profile.profileimage & !imagePrev) {
-      const fileContents = new Buffer(profile.profileimage, 'base64');
+    if (signedprofile && signedprofile.profileimage && !imagePrev) {
+      const fileContents = new Buffer(signedprofile.profileimage, 'base64');
       let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
 
-    if (profile && !loading && profile.username) {
-      setUsername1(profile.username);
+    if (signedprofile && !loading && signedprofile.username) {
+      setUsername1(signedprofile.username);
     }
 
-    if (!loading && profile) {
+    if (!loading && signedprofile) {
       const profileLinksData = { ...links };
-      for (const key in profile.sociallinks) {
-        if (key in profileData) profileLinksData[key] = profile.sociallinks[key];
+      for (const key in signedprofile.sociallinks) {
+        if (key in profileData) profileLinksData[key] = signedprofile.sociallinks[key];
       }
       setSocialLinks(profileLinksData);
-      setProfileBio(profile.bio);
+      setProfileBio(signedprofile.bio);
     }
-  }, [loading, profile, username, profileimage]);
+  }, [loading, signedprofile, username, profileimage, imagePrev]);
 
   useEffect(() => {
      const handleClickOutside = (event) => {
@@ -84,13 +84,13 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
 
   return (
     <div className='pv-box'>
-    {loading && !profile ? <Spinner/> :
+    {loading && !signedprofile ? <Spinner/> :
       <>
       <h4>You</h4>
       <p>@{username1}</p>
       <div className='pv-box-items'>
         <div className='pv-profile-picture'>
-        {profile && !profile.profileimage ? (<><div className='pv-no-picture'><p>No image</p>
+        {signedprofile && !signedprofile.profileimage ? (<><div className='pv-no-picture'><p>No image</p>
          <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>
         </div></>) :
