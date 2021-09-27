@@ -39,8 +39,7 @@ const ProfileView = ({profile: {profile, loading, profileimage, bio, username}, 
 
   useEffect(() => {
     getProfile();
-    setImagePrev(null);
-  }, [getProfile, profile.image]);
+  }, [getProfile]);
 
   useEffect(() => {
     if (profile && profile.profileimage & !imagePrev) {
