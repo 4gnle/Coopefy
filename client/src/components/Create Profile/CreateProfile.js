@@ -5,6 +5,7 @@ import './CreateProfile.css'
 //Components
 import ImageUpload from '../UI/ProfileImage'
 import SkillsandSocials from './Skills and Socials/SkillsandSocials'
+import Error404 from '../UI/Error404'
 
 //Redux
 import {profileData, getProfile} from '../../redux/actions/profile';
@@ -25,7 +26,8 @@ const initialState = {
 
 const CreateProfile = ({  profile: {signedprofile, loading },
 getProfile,
-profileData}) => {
+profileData,
+authenticate: {isAuth}}) => {
 
 const [formData, setFormData] = useState(initialState);
 
@@ -58,6 +60,8 @@ useEffect(() => {
   return (
     <>
     {loading ? (<Spinner/>) : (
+      <>
+    {signedprofile && isAuth ?
     <div className='createprofile-edit-box'>
       <ImageUpload />
       <div className='createprofile-top-inputs'>
@@ -136,7 +140,8 @@ useEffect(() => {
             className="bad"
           >Cancel</Button>
         </div>
-      </div>
+      </div> : (<Error404/>)}
+      </>
   )}</>)
 }
 
@@ -148,8 +153,8 @@ CreateProfile.propTypes = {
 
 const mapStateToProps = state => ({
 
-  profile: state.profile
-
+  profile: state.profile,
+  authenticate: state.authenticate
 })
 
 export default connect(mapStateToProps, {getProfile, profileData})(CreateProfile)

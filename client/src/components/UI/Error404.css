@@ -3,10 +3,37 @@
   box-sizing: border-box;
   background-color: white;
   width: 100%;
-  z-index: 1000;
+  z-index: 999;
   text-align: center;
 }
 
 .error-404 img {
-  width: 100%;
+  position: relative;
+  width: 70%;
+  top: -50px;
+}
+
+@media (max-width: 900px) {
+  .error-404 {
+    top: 70px;
+  }
+
+  .error-404 img {
+    width: 160%;
+    height: 90vh;
+    right: 250px;
+  }
+}
+
+@media (max-width: 650px) {
+  .error-text {
+    position: relative;
+    z-index: 9999;
+  }
+
+  .error-404 img {
+    width: 170%;
+    height: 90vh;
+    right: 130px;
+  }
 }

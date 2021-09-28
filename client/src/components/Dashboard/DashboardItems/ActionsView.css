@@ -68,7 +68,7 @@
     border-radius: 0px;
   }
 
-  h1 {
+  .av-box > h1 {
     display: none;
   }
 }

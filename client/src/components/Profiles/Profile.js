@@ -82,7 +82,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     <>
     {profileLoading ? (<Spinner/>) :
       <>
-      {!profile && <Error404/>}
+      {!profile && !loading && <Error404/>}
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
@@ -159,7 +159,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           <h2>Activity</h2>
           </div>
 
-        </div>}
+        </div>
         </>}
         </>
     )
