@@ -41,11 +41,16 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
   const [skillsData, setSkillsData] = useState(stateSkills);
-  const [profileLoading, setProfileLoading] = useState();
+  const [profileLoading, setProfileLoading] = useState(true);
 
   useEffect(() => {
-    getProfileByUsername(match.params.username);
+    loadProfile();
   }, [getProfileByUsername, match.params.username]);
+
+  const loadProfile = async () => {
+    await getProfileByUsername(match.params.username);
+    setProfileLoading(false);
+  }
 
   useEffect(() => {
 
@@ -72,7 +77,6 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
        for (const key in profile) {
          if (key in profileData) profileInfo[key] = profile[key];
        }
-       setProfileLoading(profile.loading);
      }
 
     // eslint-disable-next-line
@@ -82,7 +86,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     <>
     {profileLoading ? (<Spinner/>) :
       <>
-      {!profile && !loading && <Error404/>}
+      {!profile && <Error404/>}
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
