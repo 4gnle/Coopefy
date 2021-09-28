@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import './People.css'
 
@@ -26,13 +26,20 @@ const People = ({getPeople,
     skills,
     loading} }) => {
 
+  const [peopleReady, setPeopleReady] = useState(false);
+
   useEffect(() => {
-    getPeople();
+    gettingPeople();
   }, [getPeople]);
+
+  const gettingPeople = async () => {
+    await getPeople();
+    setPeopleReady(true)
+  }
 
   return (
     <div className='people-box'>
-    {loading && !profiles ? <Spinner/> :
+    {loading && !peopleReady ? <Spinner/> :
       <>
         <div className='pb-top'>
           <h1>People</h1>

@@ -32,7 +32,7 @@ const stateSkills = {
 };
 
 
-const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => {
+const SkillsandSocials = ({profile: {loading, signedprofile, skills}, getProfile}) => {
 
   const [changeLinks, setChangeLinks] = useState(false);
 
@@ -42,21 +42,24 @@ const SkillsandSocials = ({profile: {loading, profile, skills}, getProfile}) => 
   const [skillsData, setSkillsData] = useState(stateSkills);
 
   useEffect(() => {
-     if (!profile) getProfile();
-     if (!loading && profile) {
+     if (!signedprofile) getProfile();
+
+     if (!loading && signedprofile) {
        const profileLinks = { ...stateLinks };
-       for (const key in profile.sociallinks) {
-         if (key in profileLinks) profileLinks[key] = profile.sociallinks[key];
+       for (const key in signedprofile.sociallinks) {
+         if (key in profileLinks) profileLinks[key] = signedprofile.sociallinks[key];
        }
        setSocialLinks(profileLinks);
 
        const profileSkills = {...stateSkills};
-       for (const key in profile) {
-         if (key in profileSkills) profileSkills[key] = profile[key];
+       for (const key in signedprofile) {
+         if (key in profileSkills) profileSkills[key] = signedprofile[key];
        }
        setSkillsData(profileSkills)
-      }
-   }, [loading, getProfile, profile]);
+     }
+
+     console.log(skillsData);
+   }, [loading, getProfile, signedprofile]);
 
   const selectLinks = () => {
     setChangeLinks(true);

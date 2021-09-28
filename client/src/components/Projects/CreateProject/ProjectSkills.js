@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import {skillList} from '../../Utils/SkillList'
 
 //Redux
-import {setProjectData} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 //UI CSS
-import './SkillsSelect.css'
-
-//Components
+import './ProjectSkills.css'
 import Button from '../../UI/Button'
-// import Alert from '../../UI/Alert'
-const ProjectSkills = () => {
+import Alert from '../../UI/Alert'
+
+//Components and Utils
+import {skillList} from '../../Utils/SkillList'
+
+const ProjectSkills = ({skillsData, unSelectSkills}) => {
 
     const [searchSkills, setSearchSkills] = useState('');
     const [selectedSkills, setSelectedSkills] = useState([]);
@@ -55,7 +55,7 @@ const ProjectSkills = () => {
     const addSKills = (event) => {
       event.preventDefault()
       console.log(selectedSkills);
-      setProfileSkills(formData)
+      // setProjectSkills(formData);
     }
 
   // Adds the selected skills to the Selected Skills section
