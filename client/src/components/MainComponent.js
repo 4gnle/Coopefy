@@ -21,6 +21,7 @@ import People from './Profiles/People/People'
 import Profile from './Profiles/Profile'
 import CreateProfile from './Create Profile/CreateProfile'
 import Projects from './Projects/Projects'
+import CreateProject from './Projects/CreateProject/CreateProject'
 import Alerts from './UI/Alert'
 
 const MainComponent = () => {
@@ -46,6 +47,7 @@ const MainComponent = () => {
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
           <Route path='/projects' component={Projects} />
+          <Route path='/create-project' component={CreateProject} />
           <Route path='/people' component={People} />
           <Route path='/about' component={About} />
           <Route path='/edit-profile' component={CreateProfile} />

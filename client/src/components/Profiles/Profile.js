@@ -80,6 +80,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   return (
     <>
     {profileLoading ? (<Spinner/>) :
+      <>
+      {!profile && <Error404/>}
     <div className='profile-box'>
       <div className='profile-main'>
         <div className='profile-picture'>
@@ -95,10 +97,11 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
             <Button className='button small'>Add Name</Button></Link>}
           </div></>) :
             <>
+            {profile &&
             <p><strong>{profileInfo.profilename}
             </strong>
             &nbsp;&nbsp;
-            <span>@{profileInfo.username}</span></p>
+            <span>@{profileInfo.username}</span></p>}
             <em>{profileInfo.bio}</em>
             </>}
           </div>
@@ -158,6 +161,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
         </div>}
         </>
     )}
+
 
 const mapStateToProps = state => ({
   profile: state.profile,
