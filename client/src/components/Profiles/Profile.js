@@ -154,7 +154,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
             <div className='profile-links-website'>
             {profile && profileInfo.website ?
               <>
-            <Link rel="noopener noreferrer" to={{pathname: `${profileInfo.website}`}}>{profileInfo.website}</Link>
+            <Link target="_blank" rel="noopener noreferrer" to={{pathname: `${profileInfo.website}`}}>{profileInfo.website}</Link>
             </> : null}
             </div>
         </div>

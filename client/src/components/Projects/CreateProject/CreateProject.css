@@ -47,7 +47,7 @@
   position: relative;
   border-radius: 6px;
   border: 1px solid #000000;
-  width: 88%;
+  width: 89%;
   height: 50px;
   font-size: 1rem;
   font-family: 'Nunito';
@@ -61,7 +61,7 @@
   border: 1px solid #000000;
   box-sizing: border-box;
   width: 90%;
-  height: 10rem;
+  height: 8rem;
   font: 1rem 'Nunito';
   padding: 5px;
  }

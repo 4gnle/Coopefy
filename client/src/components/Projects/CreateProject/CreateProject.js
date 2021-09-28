@@ -10,14 +10,24 @@ import './CreateProject.css';
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
+//Components
+import DetailsSection from './DetailsSection';
+
 const CreateProject = () => {
 
   const [nextPage1, setNextPage] = useState(false);
 
-  const nextPage = (e) => {
+  const nextPage = () => {
     setNextPage(true);
   }
+
+  const goBack = () => {
+    setNextPage(false);
+  }
+
   return (
+    <>
+    {nextPage1 && <DetailsSection goBack={goBack}/>}
     <div className='create-project-box'>
       <div className='cp-top'>
         <h1>Project Basics</h1>
@@ -53,11 +63,12 @@ const CreateProject = () => {
           className="bad"
         >Cancel</Button>
         <Button
-          onClick={e => nextPage(e)}
+          onClick={nextPage}
           className='primary'
         >Continue</Button>
     </div>
   </div>
+  </>
   )
 }
 
