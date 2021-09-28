@@ -1,3 +1,17 @@
 .dashboard {
   display: block;
 }
+
+.db-text {
+  text-align: center;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+@media (max-width: 650px) {
+  .db-text > h1 {
+    display: none;
+    font-size: 1000px;
+  }
+}

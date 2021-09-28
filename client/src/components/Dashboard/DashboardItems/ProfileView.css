@@ -210,7 +210,7 @@ font-size: 3.3vh;
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 650px) {
 
   .pv-box {
     position: fixed;

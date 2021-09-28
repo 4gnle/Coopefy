@@ -11,7 +11,6 @@ import {Link} from 'react-router-dom'
 const ActionsView = () => {
   return (
     <div>
-    <h1 style={{textAlign: 'center', marginBottom: '0px', marginLeft: '0px', marginRight: '0px'}}>Dashboard</h1>
     <div className='av-box'>
       <div className='av-buttons'>
         <h3>What are you looking for?</h3>

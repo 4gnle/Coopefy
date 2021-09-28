@@ -14,7 +14,9 @@ const Dashboard = (history) => {
   return (
     <div className='dashboard'>
       <div className='db-text'>
+          <h1>Dashboard</h1>
       </div>
+      
         <div className='profile-view'>
           <ProfileView />
         </div>

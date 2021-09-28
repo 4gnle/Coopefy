@@ -7,7 +7,7 @@
   width: 80%;
   height: min-content;
   padding: 5%;
-  top: 100px;
+  top: 50px;
   right: 0;
   left: 0;
   bottom: 50%;
@@ -17,27 +17,25 @@
 .cp-top {
   position: relative;
   top: 10%;
-  left: 5%;
   font-size: 60%;
+  text-align: center;
 }
 
 .cp-description {
   position: relative;
   top: 20%;
-  left: 5%;
   margin-right: 5%;
   font-size: 80%;
   text-align: justify;
 }
 
 .cp-description > ul {
-  padding-left: 10px;
+  padding-left: 12px;
 }
 
 .cp-input-section {
   position: relative;
   top: 50%;
-  left: 5%;
 }
 
 .cp-input-titles {
@@ -49,7 +47,7 @@
   position: relative;
   border-radius: 6px;
   border: 1px solid #000000;
-  width: 80%;
+  width: 88%;
   height: 50px;
   font-size: 1rem;
   font-family: 'Nunito';
@@ -57,30 +55,34 @@
 }
 
 .cp-input-section > textarea {
-  resize: none;
-  margin-bottom: 20px;
+  resize: vertical;
   border-radius: 6px;
   background: white;
   border: 1px solid #000000;
   box-sizing: border-box;
   width: 90%;
-  height: 100px;
+  height: 10rem;
   font: 1rem 'Nunito';
   padding: 5px;
  }
 
-.cp-button-section {
+ .cp-button-section {
+   position: relative;
+   margin: 0;
+   bottom: -5%;
+   top: 30px;
+   width: 100%;
+   text-align: center;
+ }
+
+.cp-button-section > button {
   position: relative;
-  bottom: 10%;
-  left: 0;
-  right: 0;
-  top: 0;
-  margin: 0;
+  margin: 10px;
 }
 
 @media (max-width: 650px) {
   .create-project-box {
-    top: 100px;
+    top: 50px;
     width: 100%;
     border: 0;
     box-shadow: 0 0 0 0;
@@ -88,6 +90,16 @@
 
   .cp-input-section > input {
     font-size: 0.8rem;
-    width: 90%;
+    width: 92%;
+  }
+
+  .cp-input-section > textarea {
+    font-size: 0.8rem;
+    width: 95%;
+    height: 10rem;
+  }
+
+  .cp-button-section {
+    top: 10px;
   }
 }
