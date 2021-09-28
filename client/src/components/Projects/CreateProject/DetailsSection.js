@@ -47,7 +47,7 @@ const DetailsSection = ({goBack}) => {
           <br/>
           <li>Decide whether it's a remote or location-specific project</li>
         </ul>
-        <p>Catch your perfect collaborator attention's with a great first impression!</p>
+        <p>Catch your perfect collaborator's attention with clear details!</p>
       </div>
 
         <div className='cp-input-section'>
@@ -59,7 +59,7 @@ const DetailsSection = ({goBack}) => {
           </Button>
 
           <h2 className='cp-input-titles'>Describe your project clearly</h2>
-          <textarea
+          <select
             placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
           />
         </div>

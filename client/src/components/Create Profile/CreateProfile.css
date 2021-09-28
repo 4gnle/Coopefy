@@ -88,18 +88,16 @@
   box-sizing: border-box;
   width: 100%;
   left: 350px;
-  font-size: 1vw;
-  font-style: 'Nunito';
   font: 1vw 'Nunito';
   padding: 5px;
 }
 
 .createprofile-buttons {
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 125px;
+  position: static;
+  margin-top: 15%;
 }
-@media (max-width: 1080px) {
+
+@media (max-width: 1300px) {
   .createprofile-top-inputs {
     margin-right: 60px;
     margin-top: -112px;
@@ -148,8 +146,8 @@
   }
 
   .createprofile-buttons {
-    margin-left: auto;
-    margin-right: auto;
+    position: static;
+    margin-top: 22%;
   }
 }
 
@@ -198,12 +196,17 @@
   }
 
   .createprofile-buttons {
-    margin-top: 90px;
-    margin-left: auto;
-    margin-right: auto;
+    position: static;
+    margin-top: 27%;
   }
 }
 
+@media (max-width: 1000px) {
+  .createprofile-buttons {
+    position: static;
+    margin-top: 30%;
+  }
+}
 @media (max-width: 650px) {
   .createprofile-edit-box {
     max-width: 80%;
@@ -264,9 +267,8 @@
   }
 
   .createprofile-buttons {
-    margin-top: 5px;
-    bottom: -10px;
-    left: 150px;
+    position: static;
+    margin-top: 5%;
   }
 }
 
