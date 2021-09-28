@@ -1,5 +1,5 @@
 import React , {useState, useEffect} from 'react'
-import {skillList} from './SkillList'
+import {skillList} from '../../Utils/SkillList'
 
 //Redux
 import {setProfileSkills} from '../../../redux/actions/profile';
