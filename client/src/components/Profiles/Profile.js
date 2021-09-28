@@ -5,6 +5,7 @@ import './Profile.css'
 //UI
 import Spinner from '../UI/Spinner'
 import Button from '../UI/Button'
+import Error404 from '../UI/Error404'
 
 //Redux and Router
 import {getProfileByUsername} from '../../redux/actions/profile';
@@ -159,8 +160,10 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           </div>
 
         </div>}
+        </>}
         </>
-    )}
+    )
+  }
 
 
 const mapStateToProps = state => ({
