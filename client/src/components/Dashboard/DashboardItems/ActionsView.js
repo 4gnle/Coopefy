@@ -6,6 +6,8 @@ import './ActionsView.css'
 // UI
 import Button from '../../UI/Button'
 
+import {Link} from 'react-router-dom'
+
 const ActionsView = () => {
   return (
     <div>
@@ -13,9 +15,9 @@ const ActionsView = () => {
     <div className='av-box'>
       <div className='av-buttons'>
         <h3>What are you looking for?</h3>
-        <Button>
+        <Link to='/create-project'><Button>
         Create a Project
-        </Button>
+        </Button></Link>
         <Button>
         Find Projects
         </Button>

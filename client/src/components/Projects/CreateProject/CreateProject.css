@@ -1,21 +1,43 @@
-.create-project {
-  
+.create-project-box {
+  position: fixed;
+  box-sizing: border-box;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  width: 80%;
+  height: min-content;
+  padding: 5%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 50%;
+  margin: auto;
 }
 
 .cp-top {
-
+  position: relative;
+  top: 10%;
+  left: 5%;
+  font-size: 60%;
 }
 
 .cp-description {
-
+  position: relative;
+  top: 20%;
+  left: 5%;
+  font-size: 80%;
+  text-align: left;
 }
 
 .cp-input-section {
-
+  position: relative;
+  top: 50%;
+  left: 10%;
 }
 
 .cp-input-titles {
-
+  position: relative;
 }
 
 .cp-input-section > input {
@@ -23,5 +45,14 @@
 }
 
 .cp-button-section {
+  position: relative;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+}
+
+@media (max-width: 650px) {
 
 }

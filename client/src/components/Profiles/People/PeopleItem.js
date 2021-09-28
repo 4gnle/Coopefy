@@ -24,8 +24,6 @@ const PeopleItem = ({
   const [imagePrev, setImagePrev] = useState();
 
   useEffect(()=> {
-    console.log(username);
-
     if (!loading && profileimage) {
       const fileContents = new Buffer(profileimage, 'base64');
 
