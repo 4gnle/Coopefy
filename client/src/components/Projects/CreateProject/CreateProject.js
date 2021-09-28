@@ -20,13 +20,25 @@ const CreateProject = () => {
       <div className='cp-description'>
         <p>Follow these guidelines for project creation</p>
         <ul>
-          <li>{'Choose a clear and descriptive project name (what you are building and who you need)'}</li>
+          <li>Choose a <em>clear</em> and <em>brief</em> project name {'('}<strong>what</strong> you are building and <strong>who</strong> you need{')'}</li>
           <br/>
-          <li>{'Write a comprehensive description possible (describe your project in-depth, explain your ideas, guidelines, and requirements)'}</li>
+          <li>Write a <em>comprehensive</em> description {'('}describe your project in-depth, explain your <b>ideas</b>, <b>timeframe</b>, <b>guidelines</b>, and <b>requirements</b>{')'}</li>
         </ul>
         <p>Catch your perfect collaborator attention's with a great first impression!</p>
       </div>
-    </div>
+
+        <div className='cp-input-section'>
+          <h2 className='cp-input-titles'>Pick the best name for your project</h2>
+          <input
+            placeholder='e.g. Looking for Smart Contract Developer for an NFT Project'
+          />
+
+          <h2 className='cp-input-titles'>Describe your project clearly</h2>
+          <textarea
+            placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
+          />
+        </div>
+  </div>
   )
 }
 

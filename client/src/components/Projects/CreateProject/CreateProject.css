@@ -1,14 +1,13 @@
 .create-project-box {
-  position: fixed;
+  position: relative;
   box-sizing: border-box;
   border: 0px solid #000000;
-  box-sizing: border-box;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
   width: 80%;
   height: min-content;
   padding: 5%;
-  top: 0;
+  top: 100px;
   right: 0;
   left: 0;
   bottom: 50%;
@@ -26,23 +25,49 @@
   position: relative;
   top: 20%;
   left: 5%;
+  margin-right: 5%;
   font-size: 80%;
-  text-align: left;
+  text-align: justify;
+}
+
+.cp-description > ul {
+  padding-left: 10px;
 }
 
 .cp-input-section {
   position: relative;
   top: 50%;
-  left: 10%;
+  left: 5%;
 }
 
 .cp-input-titles {
   position: relative;
+  font-size: 16px;
 }
 
 .cp-input-section > input {
-
+  position: relative;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  width: 80%;
+  height: 50px;
+  font-size: 1rem;
+  font-family: 'Nunito';
+  padding: 5px;
 }
+
+.cp-input-section > textarea {
+  resize: none;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 90%;
+  height: 100px;
+  font: 1rem 'Nunito';
+  padding: 5px;
+ }
 
 .cp-button-section {
   position: relative;
@@ -54,5 +79,15 @@
 }
 
 @media (max-width: 650px) {
+  .create-project-box {
+    top: 100px;
+    width: 100%;
+    border: 0;
+    box-shadow: 0 0 0 0;
+  }
 
+  .cp-input-section > input {
+    font-size: 0.8rem;
+    width: 90%;
+  }
 }
