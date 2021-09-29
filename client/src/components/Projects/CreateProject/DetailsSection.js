@@ -60,7 +60,7 @@ const DetailsSection = ({goBack}) => {
 
           <h2 className='cp-input-titles'>Describe your project clearly</h2>
           <select
-            placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
+
           />
         </div>
 
