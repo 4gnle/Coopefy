@@ -7,26 +7,25 @@ const ProjectSchema = new.mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'project'
       },
-      title: {
+      projectname: {
         type: String,
         required: true
+      },
+      projectdescription: {
+        type: String,
+        required: true
+      },
+      projectskills: {
+        type: String,
+        required: true
+      },
+      projectstate: {
+        type: String,
+        default: false
       },
       website: {
-        type: String,
-        required: true
+        type: String
       },
-      description: {
-        type: String,
-        required: true
-      },
-      helpneeded: {
-        type: String,
-        required: true
-      },
-      currentState: {
-        type: Boolean,
-        default: false
-      }
   }]
 })
 

@@ -5,7 +5,19 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const BasicsSection = () => {
+const BasicsSection = ({goToDetails, formData}) => {
+
+  const [data, setData] = useState();
+
+  const nextPage = async () => {
+    await setFormData();
+    goToDetails();
+  }
+
+  const setFormData = () => {
+
+  }
+  
   return (
     <div>
     <div className='cp-top'>

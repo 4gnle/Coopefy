@@ -13,29 +13,64 @@ import Spinner from '../../UI/Spinner'
 //Components
 import DetailsSection from './DetailsSection';
 import BasicsSection from './BasicsSection';
+import SummarySection from './SummarySection';
+
+const projectData = {
+  projectname: '',
+  projectdescription: '',
+  projectskills: '',
+  projectwebsite: ''
+}
 
 const CreateProject = () => {
 
-  const [firstPage, setFirstPage] = useState(true);
-  const [secondPage, setSecondPage] = useState(false);
-  const [thirdPage, setThirdPage] = useState(false);
+  //Data States
+  const [formData, setFormData] = useState(projectData)
 
-  const goForward = () => {
-    setFirstPage(true);
+  //Page States
+  const [basicsPage, setBasicsPage] = useState(true);
+  const [detailsPage, setDetailsPage] = useState(false);
+  const [summaryPage, setSummaryPage] = useState(false);
+
+  const goToBasics = () => {
+    setBasicsPage(true);
+    setDetailsPage(false);
   }
 
-  const goBack = () => {
-    setFirstPage(false);
+  const goToDetails = () => {
+    setDetailsPage(true);
+    setBasicsPage(false);
   }
+
+  const goToSummary = () => {
+    setSummaryPage(true);
+    setDetailsPage(false);
+  }
+
 
   return (
   <>
     <div className='create-project-box'>
-      {firstPage && !secondPage || !thirdPage ? <BasicsSection goBack={goBack} /> : null}
+      <form>
+        {basicsPage && !detailsPage || !summaryPage ? <BasicsSection
+          goToDetails={goToDetails} 
+          formData={formData}
+          /> : null}
 
-      {secondPage && !thirdPage ? <DetailsSection goBack={goBack}/> : null}
+        {detailsPage && !summaryPage ? <DetailsSection
+          goToBasics={goToBasics}
+          goToSummary={goToSummary}
+          formData={formData}
 
-      {secondPage && !thirdPage ? <DetailsSection /> : null}
+          /> : null}
+
+        {summaryPage ?
+          <SummarySection
+          formData={formData}
+          goToDetails={goToDetails}
+          formData={formData}
+          /> : null}
+      </form>
     </div>
   </>
   )
