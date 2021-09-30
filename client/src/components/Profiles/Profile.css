@@ -271,6 +271,18 @@ font-size: 3.3vh;
     margin-left: 0.5vw;
     margin-top: 20px;
   }
+
+  .pb-top-buttons {
+    position: absolute;
+    top: 10%;
+  }
+
+  .pb-top-buttons button {
+    height: 32px !important;
+    width: fit-content;
+    left: 0%;
+  }
+
   .profile-top {
     margin-left: 37vw;
     top: 16vh;
