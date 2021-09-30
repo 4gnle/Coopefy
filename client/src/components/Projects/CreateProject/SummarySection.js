@@ -1,8 +1,33 @@
 import React from 'react'
 
-const SummarySection = ({formData, createProject, goToDetails}) => {
+// UI & CSS
+import './CreateProject.css'
+import Button from '../../UI/Button'
+import Spinner from '../../UI/Spinner'
+
+const SummarySection = ({projectData, goToDetails}) => {
+
+  const {
+    projectname,
+    projectdescription,
+    projectskills,
+    projectwebsite,
+    projectreward
+  } = projectData;
+
   return (
-    <div>MyComponent</div>
+    <div>
+
+    <div className='cp-button-section'>
+      <Button
+        onClick={goToDetails}
+        className="bad"
+      >Cancel</Button>
+      <Button
+        type='submit'
+      >Create Project</Button>
+    </div>
+    </div>
   )
 }
 

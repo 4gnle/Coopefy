@@ -15,17 +15,16 @@ import DetailsSection from './DetailsSection';
 import BasicsSection from './BasicsSection';
 import SummarySection from './SummarySection';
 
-const projectData = {
-  projectname: '',
-  projectdescription: '',
-  projectskills: '',
-  projectwebsite: ''
-}
-
 const CreateProject = ({history}) => {
 
   //Data States
-  const [formData, setFormData] = useState(projectData)
+  const [projectData, setProjectData] = useState({
+    projectname: '',
+    projectdescription: '',
+    projectskills: '',
+    projectwebsite: '',
+    projectreward: ''
+  });
 
   //Page States
   const [basicsPage, setBasicsPage] = useState(true);
@@ -34,16 +33,19 @@ const CreateProject = ({history}) => {
 
   const goToBasics = () => {
     setBasicsPage(true);
+    console.log(projectData);
     setDetailsPage(false);
   }
 
   const goToDetails = () => {
     setDetailsPage(true);
+    console.log(projectData);
     setBasicsPage(false);
   }
 
   const goToSummary = () => {
     setSummaryPage(true);
+    console.log(projectData);
     setDetailsPage(false);
   }
 
@@ -51,30 +53,48 @@ const CreateProject = ({history}) => {
     history.goBack();
   }
 
-  const createProject = () => {
-    console.log('Perform Redux Action')
+  const updateProjectData = async newData => {
+    await setProjectData(prevData => {
+      const updatedData = [...prevData];
+      updatedData.unshift({
+          projectname: newData.projectname,
+          projectdescription: newData.projectdescription,
+          projectskills: newData.projectskills,
+          projectwebsite: newData.projectwebsite,
+          projectreward: newData.projectreward
+        })
+      return updatedData;
+    });
+    console.log(projectData)
+  }
+
+  const createProject = async (e) => {
+    e.preventDefault()
+    console.log(projectData)
   }
 
   return (
   <>
     <div className='create-project-box'>
-      <form>
+      <form onSubmit={e => createProject(e)}>
         {basicsPage ? <BasicsSection
           goToDetails={goToDetails}
           goBack={goBack}
-          formData={formData}
+          projectData={projectData}
+          updateProjectData={updateProjectData}
           /> : null}
 
         {detailsPage ?
         <DetailsSection
           goToBasics={goToBasics}
           goToSummary={goToSummary}
-          formData={formData}
+          projectData={projectData}
+          updateProjectData={updateProjectData}
           /> : null}
 
         {summaryPage ?
           <SummarySection
-          formData={formData}
+          projectData={projectData}
           goToDetails={goToDetails}
           createProject={createProject}
           /> : null}

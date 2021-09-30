@@ -15,9 +15,19 @@ const stateSkills = {
 const DetailsSection = ({goToBasics, goToSummary}) => {
   const [nextPage1, setNextPage] = useState(false);
 
-    const [changeSkills, setChangeSkills] = useState(false);
+  const [changeSkills, setChangeSkills] = useState(false);
 
-    const [skillsData, setSkillsData] = useState(stateSkills);
+  const [skillsData, setSkillsData] = useState(stateSkills);
+
+  const [formData, setFormData] = ({
+    projectskills: '',
+    projectreward: ''
+  })
+
+  const {
+    projectskills,
+    projectreward
+  } = formData;
 
   const nextPage = () => {
     goToSummary();

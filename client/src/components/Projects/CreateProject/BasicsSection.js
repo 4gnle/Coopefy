@@ -5,18 +5,27 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const BasicsSection = ({goToDetails, goBack, formData, history}) => {
+const BasicsSection = ({goToDetails, goBack, projectData, updateProjectData,
+history}) => {
 
-  const [data, setData] = useState();
+  const [formData, setFormData] = ({
+    projectname: '',
+    projectdescription: '',
+    projectwebsite: ''
+  })
+
+  const {
+    projectname,
+    projectdescription,
+    projectwebsite
+  } = formData;
 
   const nextPage = async () => {
-    await setFormData();
+    await updateProjectData(formData);
     goToDetails();
   }
 
-  const setFormData = () => {
-    console.log('YAY')
-  }
+  const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
   return (
     <div>
@@ -41,11 +50,15 @@ const BasicsSection = ({goToDetails, goBack, formData, history}) => {
         <h2 className='cp-input-titles'>Pick the best name for your project</h2>
         <input
           placeholder='e.g. Looking for Smart Contract Developer for an NFT Project'
+          name='projectname'
+          value={projectname}
         />
 
         <h2 className='cp-input-titles'>Describe your project clearly</h2>
         <textarea
           placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
+          name='projectdescription'
+          value={projectdescription}
         />
       </div>
 

@@ -23,6 +23,9 @@ const ProjectSchema = new.mongoose.Schema({
         type: String,
         default: false
       },
+      projectreward: {
+        type: String
+      },
       website: {
         type: String
       },
