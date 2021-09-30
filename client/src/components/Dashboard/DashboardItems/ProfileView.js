@@ -30,6 +30,7 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
   const [socialLinks, setSocialLinks] = useState(links);
   const [profileBio, setProfileBio] = useState('');
   const [username1, setUsername1] = useState();
+  const [profileReady, setProfileReady] = useState(false);
 
   const wrapper = useRef(null);
 
@@ -38,9 +39,13 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
   }
 
   useEffect(() => {
-    getProfile();
+    profileGet();
   }, [getProfile]);
 
+  const profileGet = async () => {
+    await getProfile();
+    setProfileReady(true);
+  }
   useEffect(() => {
     if (signedprofile && signedprofile.profileimage && !imagePrev) {
       const fileContents = new Buffer(signedprofile.profileimage, 'base64');
@@ -84,7 +89,7 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
 
   return (
     <div className='pv-box'>
-    {loading && !signedprofile ? <Spinner/> :
+    {loading && !profileReady ? <Spinner/> :
       <>
       <h4>You</h4>
       <p>@{username1}</p>

@@ -36,7 +36,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth, user}, getProfileByUsername, match}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth, user}, getProfileByUsername, match, history}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -82,12 +82,20 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     // eslint-disable-next-line
   }, [profile, loading, username, profileimage]);
 
+  const goBack = () =>{
+    history.goBack();
+  }
+
   return (
     <>
     {profileLoading ? (<Spinner/>) :
       <>
       {!profile && <Error404/>}
     <div className='profile-box'>
+        <div className='pb-top-buttons'>
+        <Button onClick={goBack} className='button small bad'>Back</Button>
+        {isAuth && user._id === profile.user._id && <Link to='edit-profile'><Button className='button small'>Edit Profile</Button></Link>}
+        </div>
       <div className='profile-main'>
         <div className='profile-picture'>
         {profile && !imagePrev ? (<><div className='no-profile-image'>No picture<br/>

@@ -7,16 +7,21 @@ import ProfileView from './DashboardItems/ProfileView'
 
 //UI and CSS
 import './Dashboard.css'
-// import Button from '../UI/Button'
+import Error404 from '../UI/Error404'
 
-const Dashboard = (history) => {
+import {connect} from 'react-redux';
+
+
+const Dashboard = ({authenticate: {isAuth, user}, history}) => {
 
   return (
+    <>
+    {!isAuth ? <Error404/> :
     <div className='dashboard'>
       <div className='db-text'>
           <h1>Dashboard</h1>
       </div>
-      
+
         <div className='profile-view'>
           <ProfileView />
         </div>
@@ -24,11 +29,16 @@ const Dashboard = (history) => {
         <div className='actions-view'>
           <ActionsView />
         </div>
-    </div>
+    </div>}
+    </>
   )
 }
 
-export default Dashboard
+const mapStateToProps = state => ({
+  authenticate: state.authenticate
+})
+
+export default connect(mapStateToProps)(Dashboard)
 
 
 // <div className='projects-view'>

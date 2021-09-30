@@ -20,9 +20,9 @@ const ActionsView = () => {
         <Button>
         Find Projects
         </Button>
-        <Button>
+        <Link to='/people'><Button>
         Find People
-        </Button>
+        </Button></Link>
       </div>
 
       <div className='av-box-list-item'>
