@@ -5,7 +5,7 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const BasicsSection = ({goToDetails, formData}) => {
+const BasicsSection = ({goToDetails, goBack, formData, history}) => {
 
   const [data, setData] = useState();
 
@@ -15,9 +15,9 @@ const BasicsSection = ({goToDetails, formData}) => {
   }
 
   const setFormData = () => {
-
+    console.log('YAY')
   }
-  
+
   return (
     <div>
     <div className='cp-top'>
@@ -52,6 +52,7 @@ const BasicsSection = ({goToDetails, formData}) => {
     <div className='cp-button-section'>
       <Button
         className="bad"
+        onClick={goBack}
       >Cancel</Button>
       <Button
         onClick={nextPage}

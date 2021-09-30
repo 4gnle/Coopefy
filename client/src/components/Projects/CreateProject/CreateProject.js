@@ -22,7 +22,7 @@ const projectData = {
   projectwebsite: ''
 }
 
-const CreateProject = () => {
+const CreateProject = ({history}) => {
 
   //Data States
   const [formData, setFormData] = useState(projectData)
@@ -47,28 +47,36 @@ const CreateProject = () => {
     setDetailsPage(false);
   }
 
+  const goBack = () => {
+    history.goBack();
+  }
+
+  const createProject = () => {
+    console.log('Perform Redux Action')
+  }
 
   return (
   <>
     <div className='create-project-box'>
       <form>
-        {basicsPage && !detailsPage || !summaryPage ? <BasicsSection
-          goToDetails={goToDetails} 
+        {basicsPage ? <BasicsSection
+          goToDetails={goToDetails}
+          goBack={goBack}
           formData={formData}
           /> : null}
 
-        {detailsPage && !summaryPage ? <DetailsSection
+        {detailsPage ?
+        <DetailsSection
           goToBasics={goToBasics}
           goToSummary={goToSummary}
           formData={formData}
-
           /> : null}
 
         {summaryPage ?
           <SummarySection
           formData={formData}
           goToDetails={goToDetails}
-          formData={formData}
+          createProject={createProject}
           /> : null}
       </form>
     </div>

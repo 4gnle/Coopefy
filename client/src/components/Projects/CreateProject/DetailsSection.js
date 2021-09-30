@@ -12,7 +12,7 @@ const stateSkills = {
   skills: ''
 };
 
-const DetailsSection = ({goBack}) => {
+const DetailsSection = ({goToBasics, goToSummary}) => {
   const [nextPage1, setNextPage] = useState(false);
 
     const [changeSkills, setChangeSkills] = useState(false);
@@ -20,7 +20,7 @@ const DetailsSection = ({goBack}) => {
     const [skillsData, setSkillsData] = useState(stateSkills);
 
   const nextPage = () => {
-    setNextPage(true);
+    goToSummary();
   }
 
   const selectSkills = () => {
@@ -79,7 +79,7 @@ const DetailsSection = ({goBack}) => {
 
       <div className='cp-button-section'>
         <Button
-          onClick={goBack}
+          onClick={goToBasics}
           className="bad"
         >Cancel</Button>
         <Button
