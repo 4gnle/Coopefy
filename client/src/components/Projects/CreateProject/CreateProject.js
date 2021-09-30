@@ -54,8 +54,8 @@ const CreateProject = ({history}) => {
   }
 
   const updateProjectData = async newData => {
-    await setProjectData(prevData => {
-      const updatedData = [...prevData];
+    await setProjectData(prevProjectData => {
+      const updatedData = {...prevProjectData}
       updatedData.unshift({
           projectname: newData.projectname,
           projectdescription: newData.projectdescription,
@@ -63,9 +63,8 @@ const CreateProject = ({history}) => {
           projectwebsite: newData.projectwebsite,
           projectreward: newData.projectreward
         })
-      return updatedData;
     });
-    console.log(projectData)
+    console.log(newData)
   }
 
   const createProject = async (e) => {
