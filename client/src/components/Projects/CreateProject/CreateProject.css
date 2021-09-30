@@ -16,7 +16,7 @@
 
 .cp-top {
   position: relative;
-  top: -3%;
+  top: -10%;
   font-size: 60%;
   text-align: center;
 }
@@ -101,5 +101,11 @@
 
   .cp-button-section {
     top: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .create-project-box {
+    top: 60px;
   }
 }

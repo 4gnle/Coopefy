@@ -58,10 +58,21 @@ const DetailsSection = ({goBack}) => {
             Select Skills
           </Button>
 
-          <h2 className='cp-input-titles'>Describe your project clearly</h2>
-          <select
+          <h2 className='cp-input-titles'>Explain reward method {'(optional)'}</h2>
+          <select>
+            <option value="" disabled selected hidden>Token</option>
+            <option value="ETH">ETH</option>
+            <option value="SOL">SOL</option>
+            <option value="BTC">BTC</option>
+            <option value="DBUCKS">DBUCKS</option>
+            <option value="USDC">USDC</option>
+            <option value="USDC">USDT</option>
+          </select>
 
+          <input
+            placeholder='Amount'
           />
+          
         </div>
 
       {changeSkills && <ProjectSkills skillsData={skillsData} unSelectSkills={unSelectSkills}/>}
