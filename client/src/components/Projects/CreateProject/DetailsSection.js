@@ -32,7 +32,7 @@ const DetailsSection = ({goBack}) => {
   }
 
   return (
-    <div className='create-project-box'>
+    <div>
       <div className='cp-top'>
         <h1>Project Details</h1>
         <h2><em>Who you want and what you're offering</em></h2>
@@ -72,7 +72,7 @@ const DetailsSection = ({goBack}) => {
           <input
             placeholder='Amount'
           />
-          
+
         </div>
 
       {changeSkills && <ProjectSkills skillsData={skillsData} unSelectSkills={unSelectSkills}/>}

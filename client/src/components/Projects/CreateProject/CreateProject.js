@@ -12,62 +12,31 @@ import Spinner from '../../UI/Spinner'
 
 //Components
 import DetailsSection from './DetailsSection';
+import BasicsSection from './BasicsSection';
 
 const CreateProject = () => {
 
-  const [nextPage1, setNextPage] = useState(false);
+  const [firstPage, setFirstPage] = useState(true);
+  const [secondPage, setSecondPage] = useState(false);
+  const [thirdPage, setThirdPage] = useState(false);
 
-  const nextPage = () => {
-    setNextPage(true);
+  const goForward = () => {
+    setFirstPage(true);
   }
 
   const goBack = () => {
-    setNextPage(false);
+    setFirstPage(false);
   }
 
   return (
-    <>
-    {nextPage1 && <DetailsSection goBack={goBack}/>}
+  <>
     <div className='create-project-box'>
-      <div className='cp-top'>
-        <h1>Project Basics</h1>
-        <h2><em>Let everyone know what you're looking for!</em></h2>
-      </div>
+      {firstPage && !secondPage || !thirdPage ? <BasicsSection goBack={goBack} /> : null}
 
-      <div className='cp-description'>
-        <p>Follow these guidelines for project creation</p>
-        <ul>
-          <li>Choose a <em>clear</em> and <em>brief</em> project name {'('}<strong>what</strong> you are building and <strong>who</strong> you need{')'}</li>
-          <br/>
-          <li>Write a <em>comprehensive</em> description {'('}describe your project in-depth, explain your <b>ideas</b>, <b>timeframe</b>, <b>guidelines</b>, and <b>requirements</b>{')'}</li>
-          <br/>
-          <li>Add relevant links to resources and examples. Make it clear <b>what</b> you want done and <b>how</b>.</li>
-        </ul>
-        <p>Catch your perfect collaborator attention's with a great first impression!</p>
-      </div>
+      {secondPage && !thirdPage ? <DetailsSection goBack={goBack}/> : null}
 
-        <div className='cp-input-section'>
-          <h2 className='cp-input-titles'>Pick the best name for your project</h2>
-          <input
-            placeholder='e.g. Looking for Smart Contract Developer for an NFT Project'
-          />
-
-          <h2 className='cp-input-titles'>Describe your project clearly</h2>
-          <textarea
-            placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
-          />
-        </div>
-
-      <div className='cp-button-section'>
-        <Button
-          className="bad"
-        >Cancel</Button>
-        <Button
-          onClick={nextPage}
-          className='primary'
-        >Continue</Button>
+      {secondPage && !thirdPage ? <DetailsSection /> : null}
     </div>
-  </div>
   </>
   )
 }
