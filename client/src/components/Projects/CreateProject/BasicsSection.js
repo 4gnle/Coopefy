@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 // UI & CSS
 import './CreateProject.css'
@@ -8,11 +8,15 @@ import Spinner from '../../UI/Spinner'
 const BasicsSection = ({goToDetails, goBack, projectData, updateProjectData,
 history}) => {
 
-  const [formData, setFormData] = ({
+  const [formData, setFormData] = useState({
     projectname: '',
     projectdescription: '',
     projectwebsite: ''
   })
+
+  useEffect(() => {
+    console.log(formData)
+  }, [formData])
 
   const {
     projectname,
@@ -52,14 +56,17 @@ history}) => {
           placeholder='e.g. Looking for Smart Contract Developer for an NFT Project'
           name='projectname'
           value={projectname}
+          onChange={e => onChange(e)}
         />
-
+        <small>Max 15 words</small>
         <h2 className='cp-input-titles'>Describe your project clearly</h2>
         <textarea
           placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
           name='projectdescription'
           value={projectdescription}
+          onChange={e => onChange(e)}
         />
+        <small>Max 200 words</small>
       </div>
 
     <div className='cp-button-section'>

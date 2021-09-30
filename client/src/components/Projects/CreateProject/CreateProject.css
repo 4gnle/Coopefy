@@ -38,6 +38,11 @@
   top: 50%;
 }
 
+.cp-input-section > small {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
 .cp-input-titles {
   position: relative;
   font-size: 16px;
