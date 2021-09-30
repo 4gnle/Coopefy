@@ -18,13 +18,13 @@ import SummarySection from './SummarySection';
 const CreateProject = ({history}) => {
 
   //Data States
-  const [projectData, setProjectData] = useState({
+  const [projectData, setProjectData] = useState([{
     projectname: '',
     projectdescription: '',
     projectskills: '',
     projectwebsite: '',
     projectreward: ''
-  });
+  }]);
 
   //Page States
   const [basicsPage, setBasicsPage] = useState(true);
@@ -55,7 +55,7 @@ const CreateProject = ({history}) => {
 
   const updateProjectData = async newData => {
     await setProjectData(prevProjectData => {
-      const updatedData = {...prevProjectData}
+      const updatedData = [...prevProjectData]
       updatedData.unshift({
           projectname: newData.projectname,
           projectdescription: newData.projectdescription,
@@ -63,8 +63,9 @@ const CreateProject = ({history}) => {
           projectwebsite: newData.projectwebsite,
           projectreward: newData.projectreward
         })
+        return updatedData;
     });
-    console.log(newData)
+    console.log(projectData)
   }
 
   const createProject = async (e) => {

@@ -12,14 +12,14 @@ const stateSkills = {
   skills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary}) => {
+const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
   const [nextPage1, setNextPage] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
 
   const [skillsData, setSkillsData] = useState(stateSkills);
 
-  const [formData, setFormData] = ({
+  const [formData, setFormData] = useState({
     projectskills: '',
     projectreward: ''
   })
@@ -34,7 +34,8 @@ const DetailsSection = ({goToBasics, goToSummary}) => {
   }
 
   const selectSkills = () => {
-    setChangeSkills(true);
+    console.log(projectData)
+    // setChangeSkills(true);
   }
 
   const unSelectSkills = () => {
