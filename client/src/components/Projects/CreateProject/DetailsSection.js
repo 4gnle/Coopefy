@@ -29,8 +29,8 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
     projectreward
   } = formData;
 
-  const addProjectSkills = newSkills => {
-    if (newSkills.projectskills !== formData.projectskills) {
+  const addProjectSkills = (newSkills) => {
+    if (newSkills !== formData.projectskills) {
 
     const chosenSkills = newSkills.map(skill => {
         return skill.skill
@@ -78,10 +78,20 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
         <div className='cp-input-section'>
           <h2 className='cp-input-titles'>Pick the skills you need for the project</h2>
 
-          <Button
-            onClick={selectSkills}>
-            Select Skills
-          </Button>
+          <div className='cp-skills-section'>
+            <Button
+              onClick={selectSkills}>
+              Select Skills
+            </Button>
+
+            {formData.projectskills.length > 0 && formData.projectskills.map((skill, index) => (
+              <>
+              <div key={index}>
+                  <p>{skill}</p>
+              </div>
+              </>
+              ))}
+          </div>
 
           <h2 className='cp-input-titles'>Explain reward method {'(optional)'}</h2>
           <select>
@@ -101,7 +111,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
 
         </div>
 
-      {changeSkills && <ProjectSkills skillsData={skillsData} selectSkills={selectSkills} unSelectSkills={unSelectSkills}/>}
+      {changeSkills && <ProjectSkills skillsData={skillsData} addProjectSkills={addProjectSkills} unSelectSkills={unSelectSkills}/>}
 
       <div className='cp-button-section'>
         <Button

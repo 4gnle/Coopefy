@@ -18,13 +18,7 @@ import SummarySection from './SummarySection';
 const CreateProject = ({history}) => {
 
   //Data States
-  const [projectData, setProjectData] = useState([{
-    projectname: '',
-    projectdescription: '',
-    projectskills: '',
-    projectwebsite: '',
-    projectreward: ''
-  }]);
+  const [projectData, setProjectData] = useState([]);
 
   //Page States
   const [basicsPage, setBasicsPage] = useState(true);
