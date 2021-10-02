@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData}) => {
+const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDetails}) => {
   const [nextPage1, setNextPage] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
@@ -64,6 +64,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
   const nextPage = async () => {
     await unifyForm();
     console.log(formData)
+    updateProjectDetails(formData);
   }
 
   const unifyForm = () => {
@@ -153,6 +154,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
             name='amount'
             value={amount}
             onChange={e => onChange(e)}
+            type='number'
           />
 
         </div>

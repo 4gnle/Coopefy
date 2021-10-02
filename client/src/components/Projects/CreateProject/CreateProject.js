@@ -47,14 +47,23 @@ const CreateProject = ({history}) => {
     history.goBack();
   }
 
-  const updateProjectData = async newData => {
+  const updateProjectBasics = async newData => {
     await setProjectData(prevProjectData => {
       const updatedData = [...prevProjectData]
       updatedData.unshift({
           projectname: newData.projectname,
-          projectdescription: newData.projectdescription,
+          projectdescription: newData.projectdescription
+        })
+        return updatedData;
+    });
+    console.log(projectData)
+  }
+
+  const updateProjectDetails = async newData => {
+    await setProjectData(prevProjectData => {
+      const updatedData = [...prevProjectData]
+      updatedData.unshift({
           projectskills: newData.projectskills,
-          projectwebsite: newData.projectwebsite,
           projectreward: newData.projectreward
         })
         return updatedData;
@@ -75,7 +84,7 @@ const CreateProject = ({history}) => {
           goToDetails={goToDetails}
           goBack={goBack}
           projectData={projectData}
-          updateProjectData={updateProjectData}
+          updateProjectBasics={updateProjectBasics}
           /> : null}
 
         {detailsPage ?
@@ -83,7 +92,7 @@ const CreateProject = ({history}) => {
           goToBasics={goToBasics}
           goToSummary={goToSummary}
           projectData={projectData}
-          updateProjectData={updateProjectData}
+          updateProjectDetails={updateProjectDetails}
           /> : null}
 
         {summaryPage ?

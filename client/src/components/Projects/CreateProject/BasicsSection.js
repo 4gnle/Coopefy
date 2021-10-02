@@ -5,7 +5,7 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const BasicsSection = ({goToDetails, goBack, projectData, updateProjectData,
+const BasicsSection = ({goToDetails, goBack, projectData, updateProjectBasics,
 history}) => {
 
   const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ history}) => {
   } = formData;
 
   const nextPage = async () => {
-    await updateProjectData(formData);
+    await updateProjectBasics(formData);
     goToDetails();
   }
 
