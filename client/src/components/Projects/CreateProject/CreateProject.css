@@ -48,6 +48,22 @@
   font-size: 16px;
 }
 
+.cp-skills-section {
+  display: inline;
+  height: 40px;
+}
+
+.cp-skills-section .cp-skill-buttons > button {
+  background-color: black;
+  color: white;
+}
+
+.cp-skills-section .cp-skill-buttons > button:hover {
+  background-color: red;
+  color: white;
+  border-color: red;
+}
+
 .cp-input-section > input {
   position: relative;
   border-radius: 6px;

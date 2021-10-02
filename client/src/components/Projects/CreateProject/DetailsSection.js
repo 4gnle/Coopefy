@@ -36,12 +36,16 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
         return skill.skill
       })
 
-    setFormData({
+    setSkillsData({
         projectskills: chosenSkills
       })
     }
     console.log(formData);
   }
+
+  const deleteSkills = (e) => {
+    console.log(skillsData.projectskills)
+  };
 
   const nextPage = () => {
     goToSummary();
@@ -84,10 +88,12 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
               Select Skills
             </Button>
 
-            {formData.projectskills.length > 0 && formData.projectskills.map((skill, index) => (
+            {skillsData.projectskills.length > 0 && skillsData.projectskills.map((skill, index) => (
               <>
-              <div key={index}>
-                  <p>{skill}</p>
+              <div className='cp-skill-buttons' key={index}>
+                  <Button
+                    onClick={e => deleteSkills(e)}
+                    >{skill}</Button>
               </div>
               </>
               ))}
