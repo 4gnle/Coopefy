@@ -9,7 +9,7 @@ import Spinner from '../../UI/Spinner'
 import ProjectSkills from './ProjectSkills'
 
 const stateSkills = {
-  skills: ''
+  projectskills: ''
 };
 
 const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
@@ -34,8 +34,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
   }
 
   const selectSkills = () => {
-    console.log(projectData)
-    // setChangeSkills(true);
+    setChangeSkills(true);
   }
 
   const unSelectSkills = () => {
@@ -77,7 +76,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
             <option value="BTC">BTC</option>
             <option value="DBUCKS">DBUCKS</option>
             <option value="USDC">USDC</option>
-            <option value="USDC">USDT</option>
+            <option value="USDT">USDT</option>
           </select>
 
           <input
@@ -87,7 +86,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
 
         </div>
 
-      {changeSkills && <ProjectSkills skillsData={skillsData} unSelectSkills={unSelectSkills}/>}
+      {changeSkills && <ProjectSkills skillsData={skillsData} selectSkills={selectSkills} unSelectSkills={unSelectSkills}/>}
 
       <div className='cp-button-section'>
         <Button
