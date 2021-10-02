@@ -22,16 +22,10 @@ const ProjectSkills = ({skillsData, unSelectSkills}) => {
 
     // Receives the skills from state and adds them to the front-end
     useEffect(() => {
-        if (skillsData.skills && selectedSkills < 1) {
+        if (skillsData.skills > 1) {
           skillsData.skills.forEach(skill => {
             const e = skill
             selectSkill(e);
-          })
-        }
-
-        if (skillsData.skills && selectedSkills) {
-          skillsData.skills.forEach(skill => {
-            skills1.filter(skill => skill.name !== skill)
           })
         }
      }, [skillsData])
@@ -55,7 +49,7 @@ const ProjectSkills = ({skillsData, unSelectSkills}) => {
     const addSKills = (event) => {
       event.preventDefault()
       console.log(selectedSkills);
-      // setProjectSkills(formData);
+      setProjectSkills(formData);
     }
 
   // Adds the selected skills to the Selected Skills section
