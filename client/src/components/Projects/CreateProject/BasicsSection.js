@@ -58,6 +58,7 @@ history}) => {
           value={projectname}
           onChange={e => onChange(e)}
         />
+      <br/>
         <small>Max 15 words</small>
         <h2 className='cp-input-titles'>Describe your project clearly</h2>
         <textarea
@@ -66,6 +67,7 @@ history}) => {
           value={projectdescription}
           onChange={e => onChange(e)}
         />
+      <br/>
         <small>Max 200 words</small>
       </div>
 
