@@ -30,7 +30,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
   } = formData;
 
   const addProjectSkills = (newSkills) => {
-    if (newSkills !== formData.projectskills) {
+    if (newSkills !== skillsData.projectskills) {
 
     const chosenSkills = newSkills.map(skill => {
         return skill.skill
@@ -44,10 +44,12 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
   }
 
   const deleteSkills = (e) => {
-    setSkillsData(prevSkills => {
-      const updatedSkills = prevSkills.projectskills.filter(skill => skill.id !== e);
-      return updatedSkills;
-    })
+    if (skillsData.projectskills) {
+      setSkillsData(prevSkills => {
+        const updatedSkills = prevSkills.projectskills.filter(skill => skill.id !== e);
+        return updatedSkills;
+      })
+    }
   };
 
   const nextPage = () => {

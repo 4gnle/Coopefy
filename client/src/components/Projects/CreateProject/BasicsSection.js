@@ -14,10 +14,6 @@ history}) => {
     projectwebsite: ''
   })
 
-  useEffect(() => {
-    console.log(formData)
-  }, [formData])
-
   const {
     projectname,
     projectdescription,
