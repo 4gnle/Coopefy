@@ -50,7 +50,6 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
         projectskills: chosenSkills
       })
     }
-    console.log(formData);
   }
 
   const deleteSkills = (e) => {
@@ -63,26 +62,20 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
   };
 
   const nextPage = async () => {
-    await convertRewardtoForm();
+    await unifyForm();
     console.log(formData)
   }
 
-  const convertRewardtoForm = () => {
+  const unifyForm = () => {
+
     console.log(projectReward);
-    let reward = JSON.stringify(projectReward.rewardtype);
+    let reward = JSON.stringify(projectReward.rewardtype).replace(/[^a-zA-Z0-9]/g, "");
 
-    let amount = JSON.stringify(projectReward.amount);
+    let amount = JSON.stringify(projectReward.amount).replace(/[^a-zA-Z0-9]/g, "");
 
-    console.log(amount);
-    console.log(reward);
+    setFormData({...formData, [projectreward]: reward + ',' + amount})
 
-    let projectRewardAndAmount = reward + amount;
-
-    let cleanedReward = reward.replace(/[^a-zA-Z0-9]/g, "");
-
-    let cleanedAmount = amount.replace(/[^a-zA-Z0-9]/g, "");
-
-    setFormData({...formData, [projectreward]: cleanedReward + ',' + cleanedAmount})
+    setFormData({...formData, [projectskills]: skillsData})
   }
 
   const selectSkills = () => {
