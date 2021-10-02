@@ -16,18 +16,19 @@ const SummarySection = ({projectData, goToDetails}) => {
   } = projectData;
 
   return (
-    <div>
+    <>
+      <div className='cp-button-section'>
 
-    <div className='cp-button-section'>
-      <Button
-        onClick={goToDetails}
-        className="bad"
-      >Cancel</Button>
-      <Button
-        type='submit'
-      >Create Project</Button>
-    </div>
-    </div>
+
+        <Button
+          onClick={goToDetails}
+          className="bad"
+        >Cancel</Button>
+        <Button
+          type='submit'
+        >Create Project</Button>
+      </div>
+    </>
   )
 }
 

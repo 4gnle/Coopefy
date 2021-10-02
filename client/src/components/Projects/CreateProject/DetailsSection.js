@@ -81,6 +81,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
           </select>
 
           <input
+            className='input-amount'
             placeholder='Amount'
           />
 
