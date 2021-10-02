@@ -44,7 +44,10 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
   }
 
   const deleteSkills = (e) => {
-    console.log(skillsData.projectskills)
+    setSkillsData(prevSkills => {
+      const updatedSkills = prevSkills.projectskills.filter(skill => skill.id !== e);
+      return updatedSkills;
+    })
   };
 
   const nextPage = () => {
