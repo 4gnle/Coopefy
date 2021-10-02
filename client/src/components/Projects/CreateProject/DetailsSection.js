@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 // UI & CSS
 import './CreateProject.css';
@@ -23,6 +23,16 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
     projectskills: '',
     projectreward: ''
   })
+
+  const [projectReward, setProjectReward] =useState({
+    amount: '',
+    rewardtype: ''
+  })
+
+  const {
+    amount,
+    rewardtype
+  } = projectReward;
 
   const {
     projectskills,
@@ -52,9 +62,27 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
     }
   };
 
-  const nextPage = () => {
-    goToSummary();
-    updateProjectData(formData)
+  const nextPage = async () => {
+    await convertRewardtoForm();
+    console.log(formData)
+  }
+
+  const convertRewardtoForm = () => {
+    console.log(projectReward);
+    let reward = JSON.stringify(projectReward.rewardtype);
+
+    let amount = JSON.stringify(projectReward.amount);
+
+    console.log(amount);
+    console.log(reward);
+
+    let projectRewardAndAmount = reward + amount;
+
+    let cleanedReward = reward.replace(/[^a-zA-Z0-9]/g, "");
+
+    let cleanedAmount = amount.replace(/[^a-zA-Z0-9]/g, "");
+
+    setFormData({...formData, [projectreward]: cleanedReward + ',' + cleanedAmount})
   }
 
   const selectSkills = () => {
@@ -64,6 +92,13 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
   const unSelectSkills = () => {
     setChangeSkills(false);
   }
+
+  const onChange = (e) => setProjectReward({...projectReward, [e.target.name]: e.target.value});
+
+  useEffect(() => {
+    console.log(projectReward);
+  }, [projectReward])
+
 
   return (
     <div>
@@ -105,7 +140,11 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
           </div>
 
           <h2 className='cp-input-titles'>Explain reward method {'(optional)'}</h2>
-          <select>
+          <select
+            name='rewardtype'
+            value={rewardtype}
+            onChange={e => onChange(e)}
+            >
             <option value="" disabled selected hidden>Token</option>
             <option value="ETH">ETH</option>
             <option value="SOL">SOL</option>
@@ -118,6 +157,9 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
           <input
             className='input-amount'
             placeholder='Amount'
+            name='amount'
+            value={amount}
+            onChange={e => onChange(e)}
           />
 
         </div>

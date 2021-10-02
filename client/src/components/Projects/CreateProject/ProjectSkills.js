@@ -77,6 +77,10 @@ const ProjectSkills = ({skillsData, unSelectSkills, addProjectSkills}) => {
     })
   };
 
+  useEffect(() => {
+    console.log(formData)
+  }, [formData])
+
     return (
     <div>
       <div className='backdrop' onClick={unSelectSkills}>
