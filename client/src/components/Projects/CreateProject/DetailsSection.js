@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
+const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData}) => {
   const [nextPage1, setNextPage] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
@@ -29,8 +29,23 @@ const DetailsSection = ({goToBasics, goToSummary, projectData}) => {
     projectreward
   } = formData;
 
+  const addProjectSkills = newSkills => {
+    if (newSkills.projectskills !== formData.projectskills) {
+
+    const chosenSkills = newSkills.map(skill => {
+        return skill.skill
+      })
+
+    setFormData({
+        projectskills: chosenSkills
+      })
+    }
+    console.log(formData);
+  }
+
   const nextPage = () => {
     goToSummary();
+    updateProjectData(formData)
   }
 
   const selectSkills = () => {

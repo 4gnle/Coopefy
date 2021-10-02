@@ -11,13 +11,13 @@ import Alert from '../../UI/Alert'
 //Components and Utils
 import {skillList} from '../../Utils/SkillList'
 
-const ProjectSkills = ({skillsData, unSelectSkills}) => {
+const ProjectSkills = ({skillsData, unSelectSkills, addProjectSkills}) => {
 
     const [searchSkills, setSearchSkills] = useState('');
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [skillConfirm, setSkillConfirm] = useState(false)
     const [formData, setFormData] = useState({
-      skills: ''
+      projectskills: ''
     })
 
     // Receives the skills from state and adds them to the front-end
@@ -31,30 +31,30 @@ const ProjectSkills = ({skillsData, unSelectSkills}) => {
      }, [skillsData])
 
     // Adds the skills to the formdata so they're sent to the database
-    useEffect(() => {
-      if (selectedSkills !== formData) {
-
-      const chosenSkills = selectedSkills.map(skill => {
-          return skill.skill
-        })
-
-      setFormData({
-          skills: chosenSkills
-        })
-      }
-    }, [selectedSkills])
+    // useEffect(() => {
+    //   if (selectedSkills !== formData) {
+    //
+    //   const chosenSkills = selectedSkills.map(skill => {
+    //       return skill.skill
+    //     })
+    //
+    //   setFormData({
+    //       skills: chosenSkills
+    //     })
+    //   }
+    // }, [selectedSkills])
 
     let skills1 = skillList;
 
-    const addSKills = (event) => {
+    const addSkills = (event) => {
       event.preventDefault()
       console.log(selectedSkills);
-      setProjectSkills(formData);
+      addProjectSkills(selectedSkills);
     }
 
   // Adds the selected skills to the Selected Skills section
     const selectSkill = (e) => {
-      const isInArray = selectedSkills.find(element => element.skill === e);
+      const isInArray = selectedSkills.find(skill => skill.skill === e);
       if (isInArray || selectedSkills.length >= 6) {return}
 
       setSelectedSkills(prevSkills => {
@@ -64,6 +64,7 @@ const ProjectSkills = ({skillsData, unSelectSkills}) => {
       }
     )
       setSkillConfirm(true);
+      console.log(selectedSkills);
     }
 
   // Deletes the skills in the Selected Skill section on click
@@ -134,7 +135,7 @@ const ProjectSkills = ({skillsData, unSelectSkills}) => {
           <div className='skills-buttons'>
             <Button
               className='primary'
-              onClick={addSKills}>
+              onClick={addSkills}>
               Add Skills
             </Button>
             <Button
