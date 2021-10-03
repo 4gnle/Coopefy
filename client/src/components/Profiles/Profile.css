@@ -58,7 +58,6 @@
   height: 10rem;
   object-fit: cover;
   border: 2px solid black;
-  margin-bottom: 2vh;
   margin-left: 6rem;
   border-radius: 180px;
   background-color: black;
@@ -156,7 +155,7 @@ font-size: 3.3vh;
   margin-top: -4vh;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 900px) {
   .profile-box {
     width: 90%;
   }
@@ -164,7 +163,7 @@ font-size: 3.3vh;
   .profile-picture {
     width: 8rem;
     height: 8rem;
-    margin-left: 5rem;
+    margin-left: 3rem;
   }
 
   .profile-main {
@@ -172,9 +171,10 @@ font-size: 3.3vh;
     margin-left: 0.5vw;
     margin-top: 20px;
   }
+
   .profile-top {
     margin-left: 242px;
-    top: 160px;
+    top: 190px;
   }
 
   .profile-top span {
@@ -187,65 +187,16 @@ font-size: 3.3vh;
 
   .profile-links {
     width: 9rem;
-    margin-left: 4.5rem;
+    margin-left: 3rem;
   }
-}
-
-@media (max-width: 900px) {
-  .profile-box {
-    width: 90%;
-  }
-
-  .profile-main {
-    box-sizing: border-box;
-    margin-left: 0.5vw;
-    margin-top: 20px;
-  }
-
-  .profile-picture {
-    margin-left: 40px;
-  }
-
-  .profile-top {
-    left: 35px;
-    top: 175px;
-  }
-  .profile-top > p {
-    left: 19vw;
-    margin-top: -1vh;
-  }
-
-  .profile-top span {
-    top: -2px;
-  }
-
-  .profile-skills {
-    margin-left: 233px;
-  }
-
-  .profile-links {
-    float: left;
-    width: 18%;
-    margin-left: 3vw;
-    margin-top: -1vh;
-    height: auto;
-    border-radius: 18px;
-  }
-
-  .profile-links-icons i {
-    text-align: center;
-    font-size: 30px;
-    margin-left: 5px;
-  }
-
-  .profile-links-website a {
-    font-size: 14px;
-    text-align: center;
-  }
-
 }
 
 @media (max-width: 650px) {
+  .profile-box {
+    box-shadow: 0px 0px 0px 0px;
+    margin-top: 0;
+  }
+
   .profile-main {
     box-sizing: border-box;
     margin-left: 0.5vw;
@@ -263,10 +214,15 @@ font-size: 3.3vh;
     left: 0%;
   }
 
+  .profile-picture {
+    margin-top: 4rem;
+  }
+
   .profile-top {
     margin-left: 37vw;
-    top: 16vh;
+    top: 10rem;
   }
+
   .profile-top > p {
     left: 19vw;
     margin-top: 1vh;
@@ -277,7 +233,8 @@ font-size: 3.3vh;
   }
 
   .profile-skills {
-    margin-left: 37vw;
+    margin-left: 14.5rem;
+    margin-top: 0;
   }
 
   .profile-skills p {
@@ -286,7 +243,8 @@ font-size: 3.3vh;
   }
 
   .profile-links {
-    width: 20%;
+    width: 30%;
+    margin-left: 1.7rem;
   }
   .profile-links-icons {
     text-align: center;
@@ -302,19 +260,14 @@ font-size: 3.3vh;
 }
 
 @media (max-width: 480px) {
-  .profile-box {
-    box-shadow: 0px 0px 0px 0px;
-    margin-top: 0;
-  }
-
   .profile-main {
     height: 45vh;
     margin-top: 100px;
   }
 
   .profile-top {
-    top: 7rem;
-    margin-left: 120px;
+    top: 10rem;
+    margin-left: 160px;
   }
 
   .profile-top span {
@@ -343,34 +296,23 @@ font-size: 3.3vh;
 
   .profile-links {
     position: absolute;
-    margin-top: 0px;
-    top: 200px;
-    margin-left: 20vw;
+    margin-top: 2.2rem;
+    top: 230px;
+    margin-left: 5rem;
     margin-right: auto;
     width: 70%;
   }
 
-  .profile-links-icons {
-    text-align: center;
-    font-size: 3vh;
-    margin-left: 0px;
-  }
-
-  .profile-links i {
-    font-size: 4vh;
-    margin-left: 10px;
-  }
-
   i.fa-product-hunt {
-  font-size: 3.8vh;
+  font-size: 1.8rem;
   }
 
   .profile-links i:hover {
-    font-size: 4.2vh;
+    font-size: 1.9rem;
   }
 
   i.fa-product-hunt:hover {
-  font-size: 4vh;
+  font-size: 2rem;
   }
 
   .profile-links-website {
