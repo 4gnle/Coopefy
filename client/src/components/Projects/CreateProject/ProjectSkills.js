@@ -29,21 +29,7 @@ const ProjectSkills = ({skillsData, unSelectSkills, addProjectSkills}) => {
             selectSkill(e);
           })
         }
-     }, [])
-
-    // Adds the skills to the formdata so they're sent to the database
-    // useEffect(() => {
-    //   if (selectedSkills !== formData) {
-    //
-    //   const chosenSkills = selectedSkills.map(skill => {
-    //       return skill.skill
-    //     })
-    //
-    //   setFormData({
-    //       skills: chosenSkills
-    //     })
-    //   }
-    // }, [selectedSkills])
+     }, [skillsData])
 
     let skills1 = skillList;
 
