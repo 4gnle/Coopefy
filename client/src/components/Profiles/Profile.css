@@ -23,8 +23,8 @@
 .profile-top {
   position: absolute;
   display: inline-block;
-  margin-left: 262px;
-  top: 170px;
+  margin-left: 362px;
+  top: 13rem;
 }
 
 .no-profile {
@@ -54,13 +54,12 @@
 
 .profile-picture {
   display: block;
-  width: 8em;
-  height: 8em;
+  width: 10rem;
+  height: 10rem;
   object-fit: cover;
   border: 2px solid black;
   margin-bottom: 2vh;
-  margin-left: 5vh;
-  margin-top: 2vh;
+  margin-left: 6rem;
   border-radius: 180px;
   background-color: black;
 }
@@ -73,7 +72,8 @@
 }
 
 .profile-links {
-  width: 8em;
+  width: 10rem;
+  margin-left: 6rem;
   height: auto;
   border-radius: 18px;
   text-align: center;
@@ -125,7 +125,7 @@ font-size: 3.3vh;
   grid-template-columns: repeat(3, 3fr);
   grid-auto-rows: 2em;
   grid-gap: 2vh;
-  margin-left: 267px;
+  margin-left: 367px;
   margin-top: -50px;
   float: left;
   width: 60%;
@@ -156,31 +156,15 @@ font-size: 3.3vh;
   margin-top: -4vh;
 }
 
-@media (max-width: 1240px) {
-  .profile-top {
-    margin-left: 262px;
-    top: 150px;
-  }
-
-  .profile-main {
-    box-sizing: border-box;
-    margin-left: 0.5vw;
-    margin-top: 10px;
-  }
-
-  .profile-skills {
-    margin-left: 267px;
-  }
-
-  .profile-links {
-    width: 20%;
-    left: 190px;
-  }
-}
-
 @media (max-width: 1080px) {
   .profile-box {
     width: 90%;
+  }
+
+  .profile-picture {
+    width: 8rem;
+    height: 8rem;
+    margin-left: 5rem;
   }
 
   .profile-main {
@@ -202,8 +186,8 @@ font-size: 3.3vh;
   }
 
   .profile-links {
-    width: 20%;
-    left: 25px;
+    width: 9rem;
+    margin-left: 4.5rem;
   }
 }
 
