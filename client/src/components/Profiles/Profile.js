@@ -93,8 +93,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
       {!profile && <Error404/>}
     <div className='profile-box'>
         <div className='pb-top-buttons'>
-        <Button onClick={goBack} className='button small bad'>Back</Button>
-        {isAuth && profile.user && user._id === profile.user._id && <Link to='edit-profile'><Button className='button small'>Edit Profile</Button></Link>}
+        <Button onClick={goBack} className='button bad'>Back</Button>
+        {isAuth && profile.user && user._id === profile.user._id && <Link to='edit-profile'><Button className='button random'>Edit Profile</Button></Link>}
         </div>
       <div className='profile-main'>
         <div className='profile-picture'>

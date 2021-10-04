@@ -92,7 +92,7 @@ const PeopleItem = ({
           </>
 
           <Link to={`${username}`}><Button
-            className='small'>
+            className='random'>
           View Profile</Button></Link>
         </div>
     </div>

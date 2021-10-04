@@ -1,14 +1,21 @@
 .button {
-  font: inherit;
-  cursor: pointer;
-  margin: 5px;
-  padding: 0.5rem 1rem;
-  border: 1px solid black;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: #darkgray;
+  align-items: center;
+  background-color: #E5E5E5;
+  border-radius: 12px;
+  border-style: none;
+  box-sizing: border-box;
   color: black;
+  cursor: pointer;
+  font-size: 14px;
+  height: 2rem;
+  line-height: normal;
+  padding: 0.5rem 1rem;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
   border-radius: 12px;
   transition: all 0.5s ease;
+  margin: 5px;
 }
 
 .button:hover {
@@ -17,20 +24,56 @@
 }
 
 .primary {
-  font: inherit;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  border: 1px solid black;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  align-items: center;
   background-color: green;
+  border-radius: 12px;
+  border-style: none;
+  box-sizing: border-box;
   color: white;
+  cursor: pointer;
+  font-size: 14px;
+  height: 2rem;
+  line-height: normal;
+  padding: 0.5rem 1rem;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .primary:hover {
   background-color: lightgreen;
   color: black;
+}
+
+.random {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  font-size: 14px;
+  height: 2rem;
+  line-height: normal;
+  padding: 0.5rem 1rem;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.random:hover {
+  background: #EEEEEE;
+  color: #000000;
+}
+
+.random:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.random:focus {
+  outline: none;
+  border: 2px solid #4285f4;
 }
 
 .small {
@@ -51,15 +94,20 @@
 }
 
 .bad {
-  font: inherit;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  border: 1px solid black;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  align-items: center;
   background-color: red;
+  border-radius: 12px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
   color: white;
+  cursor: pointer;
+  font-size: 14px;
+  height: 2rem;
+  line-height: normal;
+  padding: 0.5rem 1rem;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .bad:hover {
