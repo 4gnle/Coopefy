@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 //Redux
 import {profileData, getProfile} from '../../../redux/actions/profile';
+import {setAlert} from '../../../redux/actions/alert'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -15,7 +16,7 @@ import DetailsSection from './DetailsSection';
 import BasicsSection from './BasicsSection';
 import SummarySection from './SummarySection';
 
-const CreateProject = ({history}) => {
+const CreateProject = ({setAlert, history}) => {
 
   //Data States
   const [projectData, setProjectData] = useState({
@@ -95,6 +96,7 @@ const CreateProject = ({history}) => {
           goBack={goBack}
           projectData={projectData}
           updateProjectBasics={updateProjectBasics}
+          setAlert={setAlert}
           /> : null}
 
         {detailsPage ?
@@ -103,6 +105,7 @@ const CreateProject = ({history}) => {
           goToSummary={goToSummary}
           projectData={projectData}
           updateProjectDetails={updateProjectDetails}
+          setAlert={setAlert}
           /> : null}
 
         {summaryPage ?
@@ -110,6 +113,7 @@ const CreateProject = ({history}) => {
           projectData={projectData}
           goToDetails={goToDetails}
           createProject={createProject}
+          setAlert={setAlert}
           /> : null}
       </form>
     </div>
@@ -117,4 +121,8 @@ const CreateProject = ({history}) => {
   )
 }
 
-export default CreateProject
+const mapStateToProps = state => ({
+  alert: state.alert
+})
+
+export default connect(mapStateToProps, {setAlert})(CreateProject)

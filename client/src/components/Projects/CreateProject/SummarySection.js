@@ -19,17 +19,23 @@ const SummarySection = ({projectData, goToDetails}) => {
   } = projectData;
 
   useEffect(() => {
-    if (projectreward) {
-      let result = projectreward.split(',')[1].trim();
-      console.log(result);
+    if (projectData) {
+      let amount = projectskills.split(',')[1].trim();
+
+      let reward = projectskills.split(',')[0].trim();
+
+      setRewardAmount(amount);
+      setRewardType(reward);
+      console.log(rewardType)
     }
-  }, [projectreward])
+  }, [projectreward]);
 
   return (
     <>
     <div className='create-project-box'>
       <div className='cp-summary-reward'>
-
+        {rewardType}
+        {rewardAmount}
       </div>
       <div className='cp-button-section'>
         <Button

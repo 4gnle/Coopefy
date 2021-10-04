@@ -12,7 +12,8 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDetails}) => {
+const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDetails, setAlert}) => {
+
   const [nextPage1, setNextPage] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
@@ -55,15 +56,19 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
   const deleteSkills = (e) => {
     if (skillsData.projectskills) {
       setSkillsData(prevSkills => {
-        const updatedSkills = prevSkills.projectskills.filter(skill => skill.id !== e);
+        const updatedSkills = prevSkills.projectskills.filter(skill => skill !== e);
         return updatedSkills;
       })
     }
   };
 
   const nextPage = async () => {
-    await unifyForm();
-    updateProjectDetails(formData);
+    if (!skillsData.projectskills) {
+      setAlert('You added no skills', 'danger')
+    } else {
+      await unifyForm();
+      updateProjectDetails(formData);
+    }
   }
 
   const unifyForm = async () => {
@@ -159,11 +164,11 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
       <div className='cp-button-section'>
         <Button
           onClick={goToBasics}
-          className="bad"
+          className="button bad"
         >Cancel</Button>
         <Button
           onClick={nextPage}
-          className='primary'
+          className='button primary'
         >Continue</Button>
     </div>
   </div>

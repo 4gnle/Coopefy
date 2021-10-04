@@ -76,12 +76,12 @@ history}) => {
 
     <div className='cp-button-section'>
       <Button
-        className="bad"
+        className="button bad"
         onClick={goBack}
       >Cancel</Button>
       <Button
         onClick={nextPage}
-        className='primary'
+        className='button primary'
       >Continue</Button>
   </div>
     </div>

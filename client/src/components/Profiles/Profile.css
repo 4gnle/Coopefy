@@ -85,20 +85,20 @@
 }
 
 .profile-links i {
-  font-size: 3vh;
+  font-size: 1.8rem;
   margin-left: 10px;
 }
 
 i.fa-product-hunt {
-font-size: 3vh;
+font-size: 1.7rem;
 }
 
 .profile-links i:hover {
-  font-size: 3.6vh;
+  font-size: 1.9rem;
 }
 
 i.fa-product-hunt:hover {
-font-size: 3.3vh;
+font-size: 1.8rem;
 }
 
 .profile-links-website > i {
@@ -146,7 +146,7 @@ font-size: 3.3vh;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 12vh;
+  margin-top: 2rem;
   padding: 5px;
 }
 
@@ -255,7 +255,6 @@ font-size: 3.3vh;
   .profile-links-website > a {
     font-size: 12px;
   }
-
 
 }
 
@@ -400,12 +399,12 @@ font-size: 3.3vh;
   }
 
   .profile-activity {
-    position:absolute;
-    bottom: 2rem;
+    position: relative;
+    bottom: -16rem;
    }
 
   .profile-activity > h2 {
-    margin-top: -6vh;
+    margin-top: -3rem;
   }
 
 }
