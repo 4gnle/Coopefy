@@ -5,7 +5,7 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const BasicsSection = ({goToDetails, goBack, projectData, updateProjectBasics,
+const BasicsSection = ({goToDetails, goBack, projectData, updateProjectData,
 history}) => {
 
   const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ history}) => {
   } = formData;
 
   const nextPage = async () => {
-    await updateProjectBasics(formData);
+    await updateProjectData(formData);
     goToDetails();
   }
 
@@ -65,6 +65,13 @@ history}) => {
         />
       <br/>
         <small>Max 200 words</small>
+        <h2 className='cp-input-titles'>Have a website? {'(optional)'}</h2>
+        <input
+          placeholder='e.g. www.projectsite.com'
+          name='projectwebsite'
+          value={projectwebsite}
+          onChange={e => onChange(e)}
+        />
       </div>
 
     <div className='cp-button-section'>
