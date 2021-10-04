@@ -18,7 +18,21 @@ import SummarySection from './SummarySection';
 const CreateProject = ({history}) => {
 
   //Data States
-  const [projectData, setProjectData] = useState([]);
+  const [projectData, setProjectData] = useState({
+    projectname: '',
+    projectwebsite: '',
+    projectdescription: '',
+    projectskills: '',
+    projectreward: ''
+  });
+
+  const {
+    projectname,
+    projectwebsite,
+    projectdescription,
+    projectskills,
+    projectreward
+  } = projectData;
 
   //Page States
   const [basicsPage, setBasicsPage] = useState(true);
@@ -47,19 +61,24 @@ const CreateProject = ({history}) => {
     history.goBack();
   }
 
-  const updateProjectData = async newData => {
-    await setProjectData(prevProjectData => {
-      const updatedData = [...prevProjectData]
-      updatedData.unshift({
-          projectname: newData.projectname,
-          projectdescription: newData.projectdescription,
-          projectskills: newData.projectskills,
-          projectreward: newData.projectreward,
-          projectwebsite: newData.projectwebsite
-        })
-        return updatedData;
-    });
-    console.log(projectData)
+  const updateProjectBasics = async newData => {
+    await setProjectData({...projectData, [projectname]: newData.projectname})
+
+    await setProjectData({...projectData, [projectwebsite]: newData.projectwebsite})
+
+    await setProjectData({...projectData, [projectdescription]: newData.projectdescription})
+
+    console.log(projectData);
+  }
+
+  const updateProjectDetails = async newData => {
+    console.log(newData)
+
+    await setProjectData({...projectData, [projectskills]: newData.projectskills})
+
+    await setProjectData({...projectData, [projectreward]: newData.projectreward})
+
+    console.log(projectData);
   }
 
   const createProject = async (e) => {
@@ -75,7 +94,7 @@ const CreateProject = ({history}) => {
           goToDetails={goToDetails}
           goBack={goBack}
           projectData={projectData}
-          updateProjectData={updateProjectData}
+          updateProjectBasics={updateProjectBasics}
           /> : null}
 
         {detailsPage ?
@@ -83,7 +102,7 @@ const CreateProject = ({history}) => {
           goToBasics={goToBasics}
           goToSummary={goToSummary}
           projectData={projectData}
-          updateProjectData={updateProjectData}
+          updateProjectDetails={updateProjectDetails}
           /> : null}
 
         {summaryPage ?

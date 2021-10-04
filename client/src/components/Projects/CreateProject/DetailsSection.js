@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData}) => {
+const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDetails}) => {
   const [nextPage1, setNextPage] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
@@ -24,7 +24,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
     projectreward: ''
   })
 
-  const [projectReward, setProjectReward] =useState({
+  const [projectReward, setProjectReward] = useState({
     amount: '',
     rewardtype: ''
   })
@@ -63,20 +63,20 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
 
   const nextPage = async () => {
     await unifyForm();
-    console.log(formData)
-    updateProjectData(formData);
+    updateProjectDetails(formData);
   }
 
-  const unifyForm = () => {
+  const unifyForm = async () => {
 
-    console.log(projectReward);
     let reward = JSON.stringify(projectReward.rewardtype).replace(/[^a-zA-Z0-9]/g, "");
 
     let amount = JSON.stringify(projectReward.amount).replace(/[^a-zA-Z0-9]/g, "");
 
-    setFormData({...formData, [projectreward]: reward + ',' + amount})
+    await setFormData({...formData, [projectreward]: reward + ',' + amount})
 
-    setFormData({...formData, [projectskills]: skillsData})
+    await setFormData({...formData, [projectskills]: skillsData})
+
+    console.log(formData)
   }
 
   const selectSkills = () => {
@@ -88,11 +88,6 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectData
   }
 
   const onChange = (e) => setProjectReward({...projectReward, [e.target.name]: e.target.value});
-
-  useEffect(() => {
-    console.log(projectReward);
-  }, [projectReward])
-
 
   return (
     <div>
