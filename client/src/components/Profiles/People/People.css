@@ -64,13 +64,13 @@
     box-shadow: none;
     position: absolute;
     top: 10vh;
-    width: 100%;
+    width: 95%;
   }
 
   .people-grids {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     grid-auto-rows: fit-content;
-    grid-gap: 1rem;
+    grid-gap: 0.5rem;
   }
 }

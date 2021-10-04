@@ -56,7 +56,7 @@ const PeopleItem = ({
           <div className='pi-skills'>
           {skills.map((skill, index) => (
             <>
-              <div style={{marginTop: '10px', marginLeft: '25px'}} key={index}>
+              <div style={{marginTop: '10px', marginLeft: '15px'}} key={index}>
                 <p><i className="fas fa-check"></i>{' '}{skill}</p>
               </div>
             </>
