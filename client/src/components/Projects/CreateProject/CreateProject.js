@@ -24,7 +24,8 @@ const CreateProject = ({setAlert, history}) => {
     projectwebsite: '',
     projectdescription: '',
     projectskills: '',
-    projectreward: ''
+    projectreward: '',
+    projectlocation: ''
   });
 
   const {
@@ -32,8 +33,11 @@ const CreateProject = ({setAlert, history}) => {
     projectwebsite,
     projectdescription,
     projectskills,
-    projectreward
+    projectreward,
+    projectlocation
   } = formData;
+
+  const [locationActive, setLocationActive] = useState(false)
 
   //Page States
   const [basicsPage, setBasicsPage] = useState(true);
@@ -61,6 +65,10 @@ const CreateProject = ({setAlert, history}) => {
 
   const goBack = () => {
     history.goBack();
+  }
+
+  const addLocation = () => {
+    setLocationActive(true);
   }
 
   const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
@@ -104,6 +112,8 @@ const CreateProject = ({setAlert, history}) => {
           setFormData={setFormData}
           updateProjectSkills={updateProjectSkills}
           deleteSkills={deleteSkills}
+          locationActive={locationActive}
+          addLocation={addLocation}
           onChange={onChange}
           setAlert={setAlert}
           /> : null}

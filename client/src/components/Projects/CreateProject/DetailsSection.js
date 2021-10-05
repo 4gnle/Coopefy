@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData, deleteSkills}) => {
+const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData, deleteSkills, addLocation, locationActive}) => {
 
   const [nextPage1, setNextPage] = useState(false);
 
@@ -21,7 +21,8 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
   const {
     projectskills,
     projectreward,
-    projectamount
+    projectamount,
+    projectlocation
   } = formData;
 
   const addProjectSkills = async (newSkills) => {
@@ -108,6 +109,24 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
             onChange={e => onChange(e)}
             type='number'
           />
+          <h2 className='cp-input-titles'>Location {'(optional)'}</h2>
+          <div className='cp-input-checkbox'>
+            <input
+            type='checkbox'
+            onClick={addLocation}
+            /> <label>Location specific?</label>
+          </div>
+          <br/>
+          {locationActive &&
+            <input
+              style={{width: '50%'}}
+              type='string'
+              onChange={e => onChange(e)}
+              value={projectlocation}
+              name='projectlocation'
+              placeholder='e.g California, US'
+            />
+          }
 
         </div>
 

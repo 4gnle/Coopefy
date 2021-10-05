@@ -16,7 +16,8 @@ const SummarySection = ({formData, goToDetails, createProject}) => {
     projectskills,
     projectwebsite,
     projectreward,
-    projectamount
+    projectamount,
+    projectlocation
   } = formData;
 
   return (
@@ -27,8 +28,8 @@ const SummarySection = ({formData, goToDetails, createProject}) => {
         <h4>Website</h4> {projectwebsite}
       </div>
 
-      <div className='cp-project-skills'>
         <h4>Skills</h4>
+        <div className='cp-skills-section'>
         {projectskills.length > 0 && projectskills.map((skill, index) => (
           <>
           <div key={index}>
@@ -36,10 +37,16 @@ const SummarySection = ({formData, goToDetails, createProject}) => {
           </div>
           </>
         ))}
-      </div>
+        </div>
+
       {formData && projectreward && projectamount ? (<div className='cp-summary-reward'>
         <h4>Project Reward</h4>
         <p>{projectamount}{' '}{projectreward}</p>
+      </div>) : null}
+
+      {formData && projectlocation ? (<div className='cp-summary-location'>
+        <h4>Location</h4>
+        <p>{projectlocation}</p>
       </div>) : null}
 
       <div className='cp-button-section'>
@@ -49,6 +56,7 @@ const SummarySection = ({formData, goToDetails, createProject}) => {
         >Cancel</Button>
         <Button
           type='submit'
+          className='button primary'
           onClick={createProject}
         >Create Project</Button>
       </div>
