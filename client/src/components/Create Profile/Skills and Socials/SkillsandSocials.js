@@ -31,7 +31,6 @@ const stateSkills = {
   skills: ''
 };
 
-
 const SkillsandSocials = ({profile: {loading, signedprofile, skills}, getProfile}) => {
 
   const [changeLinks, setChangeLinks] = useState(false);

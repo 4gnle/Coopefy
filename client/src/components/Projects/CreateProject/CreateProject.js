@@ -50,6 +50,7 @@ const CreateProject = ({setAlert, history}) => {
     setDetailsPage(true);
     console.log(formData);
     setBasicsPage(false);
+    setSummaryPage(false);
   }
 
   const goToSummary = () => {
@@ -87,6 +88,7 @@ const CreateProject = ({setAlert, history}) => {
           goToSummary={goToSummary}
           formData={formData}
           onChange={onChange}
+          setFormData={setFormData}
           setAlert={setAlert}
           /> : null}
 

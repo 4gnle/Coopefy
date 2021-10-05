@@ -11,25 +11,22 @@ import Alert from '../../UI/Alert'
 //Components and Utils
 import {skillList} from '../../Utils/SkillList'
 
-const ProjectSkills = ({skillsData, unSelectSkills, addProjectSkills}) => {
+const ProjectSkills = ({formData, unSelectSkills, addProjectSkills}) => {
 
     const [searchSkills, setSearchSkills] = useState('');
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [skillConfirm, setSkillConfirm] = useState(false)
-    const [formData, setFormData] = useState({
-      projectskills: ''
-    })
 
     // Receives the skills from state and adds them to the front-end
     useEffect(() => {
-        if (skillsData.projectskills) {
-          console.log(skillsData)
-          skillsData.projectskills.forEach(skill => {
+        if (formData.projectskills) {
+          console.log(formData)
+          formData.projectskills.forEach(skill => {
             const e = skill
             selectSkill(e);
           })
         }
-     }, [skillsData])
+     }, [formData])
 
     let skills1 = skillList;
 

@@ -5,7 +5,7 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const SummarySection = ({projectData, goToDetails}) => {
+const SummarySection = ({formData, goToDetails, createProject}) => {
 
   const [rewardAmount, setRewardAmount] = useState();
   const [rewardType, setRewardType] = useState();
@@ -15,27 +15,16 @@ const SummarySection = ({projectData, goToDetails}) => {
     projectdescription,
     projectskills,
     projectwebsite,
-    projectreward
-  } = projectData;
-
-  useEffect(() => {
-    if (projectData) {
-      let amount = projectskills.split(',')[1].trim();
-
-      let reward = projectskills.split(',')[0].trim();
-
-      setRewardAmount(amount);
-      setRewardType(reward);
-      console.log(rewardType)
-    }
-  }, [projectreward]);
+    projectreward,
+    projectamount
+  } = formData;
 
   return (
     <>
     <div className='create-project-box'>
       <div className='cp-summary-reward'>
-        {rewardType}
-        {rewardAmount}
+        {projectreward}
+        {projectamount}
       </div>
       <div className='cp-button-section'>
         <Button
@@ -44,6 +33,7 @@ const SummarySection = ({projectData, goToDetails}) => {
         >Cancel</Button>
         <Button
           type='submit'
+          onClick={createProject}
         >Create Project</Button>
       </div>
     </div>
