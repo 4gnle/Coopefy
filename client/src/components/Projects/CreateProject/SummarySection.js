@@ -3,14 +3,10 @@ import React, {useEffect, useState} from 'react'
 // UI & CSS
 import './CreateProject.css'
 import Button from '../../UI/Button'
-import Spinner from '../../UI/Spinner'
 
 const SummarySection = ({formData, goToDetails, createProject, goToBasics}) => {
 
-  const [rewardAmount, setRewardAmount] = useState();
-  const [rewardType, setRewardType] = useState();
-
-  const {
+const {
     projectname,
     projectdescription,
     projectskills,

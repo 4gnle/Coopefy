@@ -15,7 +15,6 @@ import {
 } from './types'
 
 import {setAlert} from './alert'
-// import authToken from '../utilities/authToken'
 import api from '../utilities/api'
 
 //Get Profile

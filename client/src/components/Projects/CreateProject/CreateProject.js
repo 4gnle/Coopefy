@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 //Redux
-import {profileData, getProfile} from '../../../redux/actions/profile';
+import {postProject} from '../../../redux/actions/project';
 import {setAlert} from '../../../redux/actions/alert'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -16,7 +16,7 @@ import DetailsSection from './DetailsSection';
 import BasicsSection from './BasicsSection';
 import SummarySection from './SummarySection';
 
-const CreateProject = ({setAlert, history}) => {
+const CreateProject = ({setAlert, postProject, history}) => {
 
   //Data States
   const [formData, setFormData] = useState({
@@ -38,6 +38,8 @@ const CreateProject = ({setAlert, history}) => {
   } = formData;
 
   const [locationActive, setLocationActive] = useState(false)
+
+  const [spinner, setSpinner] = useState(false);
 
   //Page States
   const [basicsPage, setBasicsPage] = useState(true);
@@ -89,11 +91,17 @@ const CreateProject = ({setAlert, history}) => {
 
   const createProject = async (e) => {
     e.preventDefault()
-    console.log(formData)
+    if (formData) {
+      setSpinner(true);
+      await postProject(formData);
+      setSpinner(false);
+      console.log(formData);
+    }
   }
 
   return (
   <>
+    {spinner && <Spinner/>}
     <div className='create-project-box'>
       <form onSubmit={e => createProject(e)}>
         {basicsPage ? <BasicsSection
@@ -136,4 +144,4 @@ const mapStateToProps = state => ({
   alert: state.alert
 })
 
-export default connect(mapStateToProps, {setAlert})(CreateProject)
+export default connect(mapStateToProps, {setAlert, postProject})(CreateProject)
