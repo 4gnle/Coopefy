@@ -20,9 +20,11 @@ const Projects = ({project: {project, projects, projectname, projectlocation, pr
 
   return (
     <div className='projects-page'>
-    <div>{! loading && projects.length > 0 ? (projects.map(project1 =>
+    <div className='projects-grids'>{! loading && projects.length > 0 ? (projects.map(project =>
       <>
-      <h1>Name:</h1><p>{project1.projectname}</p>
+      <ProjectItem
+        project={project}
+      />
       </>
     )): null}</div>
 

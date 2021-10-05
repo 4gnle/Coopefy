@@ -9,3 +9,10 @@
   margin-top: 5vh;
   padding: 5px;
 }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  grid-auto-rows: fit-content;
+  grid-gap: 1rem;
+}
