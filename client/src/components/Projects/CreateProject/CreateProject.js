@@ -4,7 +4,6 @@ import React, {useState} from 'react';
 import {postProject} from '../../../redux/actions/project';
 import {setAlert} from '../../../redux/actions/alert'
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 
 //UI
 import './CreateProject.css';
@@ -91,7 +90,7 @@ const CreateProject = ({setAlert, postProject, history}) => {
 
   const createProject = async (e) => {
     e.preventDefault()
-    if (formData) {
+    if (projectname && projectdescription && projectskills) {
       setSpinner(true);
       await postProject(formData);
       setSpinner(false);

@@ -44,12 +44,8 @@ export default function project(state = initialState, action) {
     case PROJECT_ERROR:
       return {
         ...state,
-        profile: null,
-        signedprofile: null,
-        loading: false,
-        username: null,
-        profileimage: null,
-        skills: null
+        project: null,
+        loading: false
       };
 
     case GET_ALLPROJECTS:

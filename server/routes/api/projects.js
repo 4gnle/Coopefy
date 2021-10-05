@@ -5,21 +5,32 @@ const {check, validationResult} = require('express-validator')
 const normalize = require('normalize-url');
 
 //Models
-const Project = require('../../models/Projects');
+const Projects = require('../../models/Projects');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
 // @router GET api/projects
-// @desc Testing Route
+// @desc Get all projects
 // @access Public
 
-router.get('/', (req, res) => res.send('Projects Route'));
+router.get('/', async (req, res) => {
+
+  try {
+    const projectData = await Projects.find().populate('user', ["projectname", "projectdescription"]);
+
+    res.json(projectData);
+
+  }catch(err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  };
+})
 
 module.exports = router;
 
 // @router Post api/projects
 // @desc Posting Projects
-// @access Private
+// @access Public
 
 router.post('/', [auth],
 [
@@ -75,9 +86,8 @@ router.post('/', [auth],
 
    try {
      // Using upsert option (creates new doc if no match is found):
-     let project = await Project.findOneAndUpdate(
+     let project = await Projects.findOneAndUpdate(
        { projectowner: req.user.id },
-       { projectstate: true},
        { $set: projectFields },
        { new: true, upsert: true, setDefaultsOnInsert: true }
      );
@@ -92,9 +102,5 @@ router.post('/', [auth],
     res.send('Server Error')
   };
 });
-
-module.exports = router;
-
-
 
 module.exports = router;
