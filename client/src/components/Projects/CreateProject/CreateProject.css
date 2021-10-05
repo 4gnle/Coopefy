@@ -49,13 +49,18 @@
 }
 
 .cp-skills-section {
-  display: inline;
-  height: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  grid-auto-rows: 2rem;
+  grid-gap: 1.5rem;
+  width: 100%;
 }
 
 .cp-skills-section .cp-skill-buttons > button {
   background-color: black;
   color: white;
+  width: 100%;
+  height: fit-content;
 }
 
 .cp-skills-section .cp-skill-buttons > button:hover {

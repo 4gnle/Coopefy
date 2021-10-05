@@ -70,6 +70,15 @@ const CreateProject = ({setAlert, history}) => {
     setFormData({...formData, projectskills: e})
   }
 
+  const deleteSkills = (e) => {
+    if (formData.projectskills) {
+      setFormData(prevSkills => {
+        const updatedSkills = prevSkills.projectskills.filter(skill => skill !== e);
+        return updatedSkills;
+      })
+    }
+  };
+
   const createProject = async (e) => {
     e.preventDefault()
     console.log(formData)
@@ -94,6 +103,7 @@ const CreateProject = ({setAlert, history}) => {
           formData={formData}
           setFormData={setFormData}
           updateProjectSkills={updateProjectSkills}
+          deleteSkills={deleteSkills}
           onChange={onChange}
           setAlert={setAlert}
           /> : null}

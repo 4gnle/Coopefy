@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData}) => {
+const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData, deleteSkills}) => {
 
   const [nextPage1, setNextPage] = useState(false);
 
@@ -33,15 +33,6 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
     updateProjectSkills(chosenSkills)
     }
   }
-
-  const deleteSkills = (e) => {
-    if (formData.projectskills) {
-      setFormData(prevSkills => {
-        const updatedSkills = prevSkills.projectskills.filter(skill => skill !== e);
-        return updatedSkills;
-      })
-    }
-  };
 
   const nextPage = async () => {
     await console.log(formData);
@@ -78,13 +69,12 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
         <div className='cp-input-section'>
           <h2 className='cp-input-titles'>Pick the skills you need for the project</h2>
 
+          <Button
+            onClick={selectSkills}>
+            Select Skills
+          </Button>
           <div className='cp-skills-section'>
-            <Button
-              onClick={selectSkills}>
-              Select Skills
-            </Button>
-
-            {formData.projectskills.length > 0 && formData.projectskills.map((skill, index) => (
+              {formData.projectskills.length > 0 && formData.projectskills.map((skill, index) => (
               <>
               <div className='cp-skill-buttons' key={index}>
                   <Button
