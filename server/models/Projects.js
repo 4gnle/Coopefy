@@ -1,4 +1,4 @@
-mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const ProjectSchema = new.mongoose.Schema({
   projects: [
@@ -16,7 +16,7 @@ const ProjectSchema = new.mongoose.Schema({
         required: true
       },
       projectskills: {
-        type: String,
+        type: [String],
         required: true
       },
       projectstate: {
@@ -27,6 +27,9 @@ const ProjectSchema = new.mongoose.Schema({
         type: String
       },
       projectamount: {
+        type: String
+      },
+      projectlocation: {
         type: String
       },
       projectwebsite: {

@@ -4,16 +4,96 @@ const auth = require('../../middleware/auth');
 const {check, validationResult} = require('express-validator')
 const normalize = require('normalize-url');
 
+//Models
+const Projects = require('../../models/Projects');
+const Profile = require('../../models/Profile');
+const User = require('../../models/User');
+
 // @router GET api/projects
 // @desc Testing Route
 // @access Public
 
 router.get('/', (req, res) => res.send('Projects Route'));
 
+module.exports = router;
+
 // @router Post api/projects
 // @desc Posting Projects
 // @access Private
 
-router.post('/', (req, res) => res.send('Projects Route'));
+router.post('/', [auth],
+[
+  check('projectname', 'Name is required')
+    .not()
+    .isEmpty(),
+  check('projectdescription', 'Description is required')
+    .not()
+    .isEmpty(),
+  check('projectskills', 'Skills is required')
+    .not()
+    .isEmpty()
+],
+
+ async (req, res) => {
+
+   // Variable takes errors from ValidationResult
+   const errors = validationResult(req);
+
+   //If there are errors, show a message
+   if (!errors.isEmpty()){
+     return res
+       .status(400)
+       .json({errors: errors.array() });
+   }
+
+  try {
+
+    const {
+    projectname,
+    projectwebsite,
+    projectdescription,
+    projectskills,
+    projectreward,
+    projectlocation
+   } = req.body;
+
+  // build a profile
+   const projectFields = {
+    user: req.user.id,
+    projectname: projectname,
+    projectdescription: projectdescription,
+    projectlocation: projectlocation,
+    projectreward: projectreward,
+    projectwebsite:
+      projectwebsite && projectwebsite !== ''
+        ? normalize(projectwebsite, { forceHttps: true })
+        : '',
+    projectskills: Array.isArray(projectskills)
+      ? projectskills
+      : projectskills.split(',').map((skill) => skill.trim())
+   };
+
+   try {
+     // Using upsert option (creates new doc if no match is found):
+     let project = await Project.findOneAndUpdate(
+       { user: req.user.id },
+       { $set: projectFields },
+       { new: true, upsert: true, setDefaultsOnInsert: true }
+     );
+     return res.json(profile);
+   } catch (err) {
+     console.error(err.message);
+     return res.status(500).send('Server Error');
+   }
+
+  }catch(err) {
+    console.error(err.message)
+    res.send('Server Error')
+  };
+});
+
+module.exports = router;
+
+
 
 module.exports = router;
