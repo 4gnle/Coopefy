@@ -26,7 +26,10 @@ const ProjectSchema = new.mongoose.Schema({
       projectreward: {
         type: String
       },
-      website: {
+      projectamount: {
+        type: String
+      },
+      projectwebsite: {
         type: String
       },
   }]

@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDetails, setAlert}) => {
+const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert}) => {
 
   const [nextPage1, setNextPage] = useState(false);
 
@@ -20,24 +20,10 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
 
   const [skillsData, setSkillsData] = useState(stateSkills);
 
-  const [formData, setFormData] = useState({
-    projectskills: '',
-    projectreward: ''
-  })
-
-  const [projectReward, setProjectReward] = useState({
-    amount: '',
-    rewardtype: ''
-  })
-
-  const {
-    amount,
-    rewardtype
-  } = projectReward;
-
   const {
     projectskills,
-    projectreward
+    projectreward,
+    projectamount
   } = formData;
 
   const addProjectSkills = (newSkills) => {
@@ -51,6 +37,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
         projectskills: chosenSkills
       })
     }
+    onChange(skillsData.projectskills);
   }
 
   const deleteSkills = (e) => {
@@ -63,25 +50,7 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
   };
 
   const nextPage = async () => {
-    if (!skillsData.projectskills) {
-      setAlert('You added no skills', 'danger')
-    } else {
-      await unifyForm();
-      updateProjectDetails(formData);
-    }
-  }
-
-  const unifyForm = async () => {
-
-    let reward = JSON.stringify(projectReward.rewardtype).replace(/[^a-zA-Z0-9]/g, "");
-
-    let amount = JSON.stringify(projectReward.amount).replace(/[^a-zA-Z0-9]/g, "");
-
-    await setFormData({...formData, [projectreward]: reward + ',' + amount})
-
-    await setFormData({...formData, [projectskills]: skillsData})
-
-    console.log(formData)
+    console.log(formData);
   }
 
   const selectSkills = () => {
@@ -91,8 +60,6 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
   const unSelectSkills = () => {
     setChangeSkills(false);
   }
-
-  const onChange = (e) => setProjectReward({...projectReward, [e.target.name]: e.target.value});
 
   return (
     <div>
@@ -135,8 +102,8 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
 
           <h2 className='cp-input-titles'>Explain reward method {'(optional)'}</h2>
           <select
-            name='rewardtype'
-            value={rewardtype}
+            name='projectreward'
+            value={projectreward}
             onChange={e => onChange(e)}
             >
             <option value="" disabled selected hidden>Token</option>
@@ -151,8 +118,8 @@ const DetailsSection = ({goToBasics, goToSummary, projectData, updateProjectDeta
           <input
             className='input-amount'
             placeholder='Amount'
-            name='amount'
-            value={amount}
+            name='projectamount'
+            value={projectamount}
             onChange={e => onChange(e)}
             type='number'
           />

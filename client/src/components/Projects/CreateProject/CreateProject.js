@@ -19,7 +19,7 @@ import SummarySection from './SummarySection';
 const CreateProject = ({setAlert, history}) => {
 
   //Data States
-  const [projectData, setProjectData] = useState({
+  const [formData, setFormData] = useState({
     projectname: '',
     projectwebsite: '',
     projectdescription: '',
@@ -33,7 +33,7 @@ const CreateProject = ({setAlert, history}) => {
     projectdescription,
     projectskills,
     projectreward
-  } = projectData;
+  } = formData;
 
   //Page States
   const [basicsPage, setBasicsPage] = useState(true);
@@ -42,19 +42,19 @@ const CreateProject = ({setAlert, history}) => {
 
   const goToBasics = () => {
     setBasicsPage(true);
-    console.log(projectData);
+    console.log(formData);
     setDetailsPage(false);
   }
 
   const goToDetails = () => {
     setDetailsPage(true);
-    console.log(projectData);
+    console.log(formData);
     setBasicsPage(false);
   }
 
   const goToSummary = () => {
     setSummaryPage(true);
-    console.log(projectData);
+    console.log(formData);
     setDetailsPage(false);
   }
 
@@ -62,29 +62,11 @@ const CreateProject = ({setAlert, history}) => {
     history.goBack();
   }
 
-  const updateProjectBasics = async newData => {
-    await setProjectData({...projectData, [projectname]: newData.projectname})
-
-    await setProjectData({...projectData, [projectwebsite]: newData.projectwebsite})
-
-    await setProjectData({...projectData, [projectdescription]: newData.projectdescription})
-
-    console.log(projectData);
-  }
-
-  const updateProjectDetails = async newData => {
-    console.log(newData)
-
-    await setProjectData({...projectData, [projectskills]: newData.projectskills})
-
-    await setProjectData({...projectData, [projectreward]: newData.projectreward})
-
-    console.log(projectData);
-  }
+  const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
   const createProject = async (e) => {
     e.preventDefault()
-    console.log(projectData)
+    console.log(formData)
   }
 
   return (
@@ -94,8 +76,8 @@ const CreateProject = ({setAlert, history}) => {
         {basicsPage ? <BasicsSection
           goToDetails={goToDetails}
           goBack={goBack}
-          projectData={projectData}
-          updateProjectBasics={updateProjectBasics}
+          formData={formData}
+          onChange={onChange}
           setAlert={setAlert}
           /> : null}
 
@@ -103,14 +85,14 @@ const CreateProject = ({setAlert, history}) => {
         <DetailsSection
           goToBasics={goToBasics}
           goToSummary={goToSummary}
-          projectData={projectData}
-          updateProjectDetails={updateProjectDetails}
+          formData={formData}
+          onChange={onChange}
           setAlert={setAlert}
           /> : null}
 
         {summaryPage ?
           <SummarySection
-          projectData={projectData}
+          formData={formData}
           goToDetails={goToDetails}
           createProject={createProject}
           setAlert={setAlert}

@@ -5,14 +5,8 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const BasicsSection = ({goToDetails, goBack, projectData, updateProjectBasics,
+const BasicsSection = ({goToDetails, goBack, formData, onChange,
 history}) => {
-
-  const [formData, setFormData] = useState({
-    projectname: '',
-    projectdescription: '',
-    projectwebsite: ''
-  })
 
   const {
     projectname,
@@ -21,11 +15,9 @@ history}) => {
   } = formData;
 
   const nextPage = async () => {
-    await updateProjectBasics(formData);
+    await console.log(formData);
     goToDetails();
   }
-
-  const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
   return (
     <div>
