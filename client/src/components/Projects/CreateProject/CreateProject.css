@@ -142,6 +142,10 @@
   display: inline;
 }
 
+.cp-summary-sections > h2 {
+  text-decoration: underline;
+}
+
 @media (max-width: 650px) {
   .create-project-box {
     top: 50px;

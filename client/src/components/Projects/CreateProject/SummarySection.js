@@ -33,14 +33,20 @@ const SummarySection = ({formData, goToDetails, createProject, goToBasics}) => {
           onClick={goToBasics}
           className='button random'
         >Edit</Button>
+        </div>
         <br/>
-        <h4>Name:</h4><p>{projectname}</p>
+          <div className='cp-summary-sections'>
+          <h4>Name:</h4>{' '}<p>{projectname}</p>
+        </div>
         <br/>
-        <h4>Description:</h4> {projectdescription}
+        <div className='cp-summary-sections'>
+          <h4>Description:</h4>{' '}{projectdescription}
+        </div>
         <br/>
-        <h4>Website:</h4> {projectwebsite}
+        <div className='cp-summary-sections'>
+          <h4>Website:</h4>{' '}{projectwebsite}
+        </div>
         <br/>
-      </div>
 
       <div className='cp-summary-sections'>
         <h2>Project Details</h2>
