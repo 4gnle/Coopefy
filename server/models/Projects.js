@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const ProjectSchema = new.mongoose.Schema({
-  projects: [
-      {
-      project: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'project'
+const ProjectSchema = new Schema({
+      projectowner: {
+      type: Schema.Types.ObjectId,
+      ref: 'projectowner'
       },
       projectname: {
         type: String,
@@ -35,7 +34,6 @@ const ProjectSchema = new.mongoose.Schema({
       projectwebsite: {
         type: String
       },
-  }]
 })
 
-module.exports = Projects = mongoose.model('project', ProjectSchema)
+module.exports = Project = mongoose.model('project', ProjectSchema)

@@ -5,7 +5,7 @@ const {check, validationResult} = require('express-validator')
 const normalize = require('normalize-url');
 
 //Models
-const Projects = require('../../models/Projects');
+const Project = require('../../models/Projects');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
@@ -50,16 +50,16 @@ router.post('/', [auth],
 
     const {
     projectname,
-    projectwebsite,
     projectdescription,
-    projectskills,
+    projectlocation,
     projectreward,
-    projectlocation
+    projectwebsite,
+    projectskills
    } = req.body;
 
   // build a profile
    const projectFields = {
-    user: req.user.id,
+    projectowner: req.user.id,
     projectname: projectname,
     projectdescription: projectdescription,
     projectlocation: projectlocation,
@@ -76,11 +76,12 @@ router.post('/', [auth],
    try {
      // Using upsert option (creates new doc if no match is found):
      let project = await Project.findOneAndUpdate(
-       { user: req.user.id },
+       { projectowner: req.user.id },
+       { projectstate: true},
        { $set: projectFields },
        { new: true, upsert: true, setDefaultsOnInsert: true }
      );
-     return res.json(profile);
+     return res.json(project);
    } catch (err) {
      console.error(err.message);
      return res.status(500).send('Server Error');
