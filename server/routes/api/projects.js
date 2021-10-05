@@ -30,9 +30,9 @@ module.exports = router;
 
 // @router Post api/projects
 // @desc Posting Projects
-// @access Public
+// @access Private
 
-router.post('/', [auth],
+router.post('/', auth,
 [
   check('projectname', 'Name is required')
     .not()
