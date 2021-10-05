@@ -65,6 +65,11 @@ const CreateProject = ({setAlert, history}) => {
 
   const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
+  const updateProjectSkills = (e) => {
+    console.log(e);
+    setFormData({...formData, projectskills: e})
+  }
+
   const createProject = async (e) => {
     e.preventDefault()
     console.log(formData)
@@ -87,8 +92,9 @@ const CreateProject = ({setAlert, history}) => {
           goToBasics={goToBasics}
           goToSummary={goToSummary}
           formData={formData}
-          onChange={onChange}
           setFormData={setFormData}
+          updateProjectSkills={updateProjectSkills}
+          onChange={onChange}
           setAlert={setAlert}
           /> : null}
 

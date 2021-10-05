@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, setFormData}) => {
+const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData}) => {
 
   const [nextPage1, setNextPage] = useState(false);
 
@@ -30,10 +30,7 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
     const chosenSkills = newSkills.map(skill => {
         return skill.skill
       })
-
-    await console.log(chosenSkills)
-
-    setFormData({...formData, [projectskills]: chosenSkills})
+    updateProjectSkills(chosenSkills)
     }
   }
 
