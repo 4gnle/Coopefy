@@ -136,7 +136,7 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
         <Button
           onClick={goToBasics}
           className="button bad"
-        >Cancel</Button>
+        >Back</Button>
         <Button
           onClick={nextPage}
           className='button primary'

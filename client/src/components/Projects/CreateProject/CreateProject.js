@@ -122,6 +122,7 @@ const CreateProject = ({setAlert, history}) => {
           <SummarySection
           formData={formData}
           goToDetails={goToDetails}
+          goToBasics={goToBasics}
           createProject={createProject}
           setAlert={setAlert}
           /> : null}

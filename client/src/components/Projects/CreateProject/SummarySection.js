@@ -5,7 +5,7 @@ import './CreateProject.css'
 import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
-const SummarySection = ({formData, goToDetails, createProject}) => {
+const SummarySection = ({formData, goToDetails, createProject, goToBasics}) => {
 
   const [rewardAmount, setRewardAmount] = useState();
   const [rewardType, setRewardType] = useState();
@@ -22,13 +22,35 @@ const SummarySection = ({formData, goToDetails, createProject}) => {
 
   return (
     <>
-      <div className='cp-project-basics'>
-        <h3>Name</h3> {projectname}
-        <h4>Description</h4> {projectdescription}
-        <h4>Website</h4> {projectwebsite}
+    <div className='cp-top'>
+      <h1>Project Summary</h1>
+      <h2><em>Check that everything is correct {'(click edit if not)'}</em></h2>
+    </div>
+
+      <div className='cp-summary-sections'>
+        <h2>Project Basics</h2>
+        <Button
+          onClick={goToBasics}
+          className='button random'
+        >Edit</Button>
+        <br/>
+        <h4>Name:</h4><p>{projectname}</p>
+        <br/>
+        <h4>Description:</h4> {projectdescription}
+        <br/>
+        <h4>Website:</h4> {projectwebsite}
+        <br/>
       </div>
 
-        <h4>Skills</h4>
+      <div className='cp-summary-sections'>
+        <h2>Project Details</h2>
+        <Button
+          onClick={goToDetails}
+          className='button random'
+        >Edit</Button>
+      </div>
+
+        <h4>Skills:</h4>
         <div className='cp-skills-section'>
         {projectskills.length > 0 && projectskills.map((skill, index) => (
           <>
@@ -38,22 +60,20 @@ const SummarySection = ({formData, goToDetails, createProject}) => {
           </>
         ))}
         </div>
-
-      {formData && projectreward && projectamount ? (<div className='cp-summary-reward'>
-        <h4>Project Reward</h4>
-        <p>{projectamount}{' '}{projectreward}</p>
+      <br/>
+      {formData && projectreward && projectamount ? (<div className='cp-summary-sections'>
+        <h4>Project Reward:</h4>{' '} <p>{projectamount}{' '}{projectreward}</p>
       </div>) : null}
-
-      {formData && projectlocation ? (<div className='cp-summary-location'>
-        <h4>Location</h4>
-        <p>{projectlocation}</p>
+      <br/>
+      {formData && projectlocation ? (<div className='cp-summary-sections'>
+        <h4>Location:</h4>{' '}<p>{projectlocation}</p>
       </div>) : null}
 
       <div className='cp-button-section'>
         <Button
           onClick={goToDetails}
           className="bad"
-        >Cancel</Button>
+        >Back</Button>
         <Button
           type='submit'
           className='button primary'

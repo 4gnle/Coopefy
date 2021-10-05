@@ -129,6 +129,19 @@
   margin: 10px;
 }
 
+.cp-edit-button {
+  position: absolute;
+  top: 130px;
+  left: 200px;
+}
+
+.cp-summary-sections > h4,
+.cp-summary-sections > p,
+.cp-summary-sections > h2,
+.cp-summary-sections > button {
+  display: inline;
+}
+
 @media (max-width: 650px) {
   .create-project-box {
     top: 50px;
