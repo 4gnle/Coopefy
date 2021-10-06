@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 //UI & CSS
-// import './Project.css'
+import './Project.css'
 import Spinner from '../../UI/Spinner'
 import Error404 from '../../UI/Error404'
 
@@ -9,7 +9,7 @@ import Error404 from '../../UI/Error404'
 import {getProjectById} from '../../../redux/actions/project';
 import {connect} from 'react-redux';
 
-const Project = ({project: {project, projectname}, match, getProjectById}) => {
+const Project = ({project: {project, loading, projectname}, match, getProjectById}) => {
 
   const [loadProject, setLoadProject] = useState(false);
 
@@ -27,7 +27,14 @@ const Project = ({project: {project, projectname}, match, getProjectById}) => {
     <div>
       {!loadProject ? <Spinner/> :
         <>
-        {project ? projectname : <Error404/>}
+        {project ?
+
+        <div className='project-box'>
+
+          projectname
+
+        </div>
+         : <Error404/>}
         </>
       }
     </div>
