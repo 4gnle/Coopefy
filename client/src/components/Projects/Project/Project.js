@@ -9,7 +9,7 @@ import Error404 from '../../UI/Error404'
 import {getProjectById} from '../../../redux/actions/project';
 import {connect} from 'react-redux';
 
-const Project = ({project: {project, loading, projectname}, match, getProjectById}) => {
+const Project = ({project: {project, loading}, match, getProjectById}) => {
 
   const [loadProject, setLoadProject] = useState(false);
 
@@ -18,6 +18,7 @@ const Project = ({project: {project, loading, projectname}, match, getProjectByI
   }, [])
 
   const getProjectData = async () => {
+    console.log(match.params.id)
     await getProjectById(match.params.id);
     setLoadProject(true);
     console.log(project);
@@ -31,7 +32,7 @@ const Project = ({project: {project, loading, projectname}, match, getProjectByI
 
         <div className='project-box'>
 
-          projectname
+          {project.projectname}
 
         </div>
          : <Error404/>}
