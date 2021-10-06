@@ -19,9 +19,9 @@ app.use('/api/projects', require('./server/routes/api/projects'));
 app.use('/api/auth', require('./server/routes/api/auth'));
 
 // Setting the static folder
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static('client/build'));
 
-app.get('/*', function(req, res) {
+app.get('*', (req, res) => {
 res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
