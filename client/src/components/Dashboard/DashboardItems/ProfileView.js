@@ -103,7 +103,7 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
         }
         </div>
         <Button
-        className='small'
+        className='button small'
         onClick={showMenu}>
         +++
         </Button>
