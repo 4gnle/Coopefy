@@ -12,16 +12,8 @@
 }
 
 .pi-projectname {
-  position: relative;
   width: 80%;
   margin-left: 5%;
-}
-
-.pi-seemore {
-  position: absolute;
-  right: 26%;
-  top: 20.5%;
-  z-index: 10;
 }
 
 .pi-projectdescription {

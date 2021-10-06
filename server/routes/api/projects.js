@@ -36,7 +36,7 @@ router.get('/:id', async ({params: {id}}, res) => {
 
     try {
       const project = await Projects.findOne({
-        id: id
+      _id: id
       }).populate('projectowner', ['projectname','projectdescription', 'projectskills']);
 
       if (!project) return res.status(400).json({
