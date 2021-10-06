@@ -1,9 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-const Project = () => {
+import {getProjectById} from '../../../redux/actions/project';
+
+const Project = ({project: {project, projectname}, match, getProjectById}) => {
+
+  useEffect(() => {
+    getProjectById(match.params.id);
+  }, [getProjectById])
+
   return (
-    <div>MyComponent</div>
+    <div>
+      {project && projectname}
+    </div>
   )
 }
 
-export default Project
+const mapStateToProps = state => ({
+  project: state.project
+})
+export default (mapStateToProps, {getProjectById})(Project)

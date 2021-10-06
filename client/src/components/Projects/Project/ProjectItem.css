@@ -21,6 +21,7 @@
   position: absolute;
   right: 26%;
   top: 20.5%;
+  z-index: 10;
 }
 
 .pi-projectdescription {

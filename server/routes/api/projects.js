@@ -28,6 +28,30 @@ router.get('/', async (req, res) => {
 
 module.exports = router;
 
+// @router GET api/projects/:id
+// @desc Get Project by ID
+// @access Public
+
+router.get('/:id', async ({params: {id}}, res) => {
+
+    try {
+      const project = await Projects.findOne({
+        id: id
+      }).populate('projectowner', ['projectname','projectdescription', 'projectskills']);
+
+      if (!project) return res.status(400).json({
+       msg: 'Project not found' });
+
+      return res.json(project);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).json({ msg: 'Server error' });
+    }
+  }
+);
+
+module.exports = router;
+
 // @router Post api/projects
 // @desc Posting Projects
 // @access Private

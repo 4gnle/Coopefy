@@ -15,14 +15,16 @@ const ProjectItem = ({project}) => {
     projectlocation,
     projectwebsite,
     projectreward,
-    projectamount
+    projectamount,
+    _id
   } = project;
 
   return (
     <div className='projectitem-box'>
       <div className='pi-seemore'>
+        <Link to={`/project/${_id}`}><Button>See More</Button></Link>
       </div>
-        <Link to='/project'><Button>See More</Button></Link>
+
       <div className='pi-projectname'>
         <h2>{projectname}</h2>
       </div>

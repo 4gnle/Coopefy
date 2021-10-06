@@ -21,6 +21,7 @@ import People from './Profiles/People/People'
 import Profile from './Profiles/Profile'
 import CreateProfile from './Create Profile/CreateProfile'
 import Projects from './Projects/Projects'
+import Project from './Projects/Project/Project'
 import CreateProject from './Projects/CreateProject/CreateProject'
 import Alerts from './UI/Alert'
 
@@ -51,7 +52,8 @@ const MainComponent = () => {
           <Route path='/people' component={People} />
           <Route path='/about' component={About} />
           <Route path='/edit-profile' component={CreateProfile} />
-          <Route path='/:username' component={Profile} />
+          <Route path='/u/:username' component={Profile} />
+          <Route path='/project/:id' component={Project} />
       </Switch>
 
       </Router>

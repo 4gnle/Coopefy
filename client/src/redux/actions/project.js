@@ -69,3 +69,20 @@ export const getProjects = () => async dispatch => {
     });
   }
 };
+
+//Get Project by ID
+export const getProjectById = (id) => async dispatch => {
+  try {
+    const res = await api.get(`/projects/${id}`);
+
+    dispatch({
+      type: GET_PROJECT,
+      payload: res.data
+    });
+  } catch(err) {
+    dispatch({
+      type: PROJECT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status}
+    });
+  }
+}

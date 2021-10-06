@@ -65,7 +65,7 @@ const PeopleItem = ({
         </>)}
         </>
 
-          <Link to={`${username}`}><Button
+          <Link to={`/u/${username}`}><Button
             className='button random'>
           View Profile</Button></Link>
         </div>
