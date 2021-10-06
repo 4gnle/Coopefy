@@ -15,7 +15,9 @@ const Projects = ({project: {project, projects, projectname, projectlocation, pr
   useEffect(() => {
     if (!project) {
       getProjects();
+      console.log(projects);
     }
+
   }, [getProjects])
 
   return (

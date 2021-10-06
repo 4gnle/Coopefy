@@ -64,34 +64,31 @@ router.post('/', auth,
     projectdescription,
     projectlocation,
     projectreward,
+    projectamount,
     projectwebsite,
     projectskills
    } = req.body;
 
-  // build a profile
-   const projectFields = {
-    projectowner: req.user.id,
-    projectname: projectname,
-    projectdescription: projectdescription,
-    projectlocation: projectlocation,
-    projectreward: projectreward,
-    projectwebsite:
-      projectwebsite && projectwebsite !== ''
-        ? normalize(projectwebsite, { forceHttps: true })
-        : '',
-    projectskills: Array.isArray(projectskills)
-      ? projectskills
-      : projectskills.split(',').map((skill) => skill.trim())
-   };
-
    try {
-     // Using upsert option (creates new doc if no match is found):
-     let project = await Projects.findOneAndUpdate(
-       { projectowner: req.user.id },
-       { $set: projectFields },
-       { new: true, upsert: true, setDefaultsOnInsert: true }
-     );
+     const newProject = new Projects({
+       projectowner: req.user.id,
+       projectname: projectname,
+       projectdescription: projectdescription,
+       projectlocation: projectlocation,
+       projectreward: projectreward,
+       projectamount: projectamount,
+       projectwebsite:
+         projectwebsite && projectwebsite !== ''
+           ? normalize(projectwebsite, { forceHttps: true })
+           : '',
+       projectskills: Array.isArray(projectskills)
+         ? projectskills
+         : projectskills.split(',').map((skill) => skill.trim())
+     })
+
+    const project = await newProject.save();
      return res.json(project);
+
    } catch (err) {
      console.error(err.message);
      return res.status(500).send('Server Error');
