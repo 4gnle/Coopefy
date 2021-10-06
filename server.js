@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require ('./config/db')
+const path = require('path');
 
 const app = express();
 
@@ -17,6 +18,12 @@ app.use('/api/profile', require('./server/routes/api/profile'));
 app.use('/api/projects', require('./server/routes/api/projects'));
 app.use('/api/auth', require('./server/routes/api/auth'));
 
+// Setting the static folder
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.get('/*', function(req, res) {
+res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
 
