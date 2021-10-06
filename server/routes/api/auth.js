@@ -5,9 +5,11 @@ const bcrypt = require('bcryptjs')
 const {check, oneOf, validationResult} = require('express-validator')
 const validator = require('validator')
 const jwt = require('jsonwebtoken');
-const config = require('config');
-const { OAuth2Client } = require('google-auth-library')
-const client = new OAuth2Client(process.env.CLIENT_ID)
+const dotenv = require('dotenv');
+dotenv.config();
+
+// const { OAuth2Client } = require('google-auth-library')
+// const client = new OAuth2Client(process.env.CLIENT_ID)
 
 const User = require('../../models/User')
 
@@ -111,7 +113,7 @@ router.post('/', validateLogin,
     //Sending the JWT token
     jwt.sign(
       payload,
-      config.get('jwtSecret'),
+      process.env.JWT_SECRET,
       {expiresIn: 360000},
       (err, token) => {
       if(err) throw err;

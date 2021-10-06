@@ -111,7 +111,7 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
         {useMenu &&
         <div className='pv-menu-wrapper' ref={wrapper}>
           <div className='pv-menu'>
-            <Link to={`${username1}`}><Button
+            <Link to={`/u/${username1}`}><Button
               className='pv-menu-button1'
             >View Profile</Button></Link>
             <Link to="/edit-profile"><Button
