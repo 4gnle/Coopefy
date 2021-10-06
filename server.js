@@ -21,7 +21,7 @@ app.use('/api/auth', require('./server/routes/api/auth'));
 // Setting the static folder
 app.use(express.static('client/build'));
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
 res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
