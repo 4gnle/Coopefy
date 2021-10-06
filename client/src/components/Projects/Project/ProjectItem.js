@@ -22,7 +22,8 @@ const ProjectItem = ({project}) => {
   return (
     <div className='projectitem-box'>
       <div className='pi-projectname'>
-        <h2>{projectname}{' '}<Link to={`/project/${_id}`}><Button>See More</Button></Link></h2>
+        <h2>{projectname}{' '}<Link to={`/project/${_id}`}>
+        <Button className='button random'>See More</Button></Link></h2>
       </div>
       <div className='pi-projectdescription'>
         <p>{projectdescription}</p>
