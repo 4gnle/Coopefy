@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
 
 module.exports = router;
 
-// @route    GET api/profile/user/:username
+// @route    GET api/profile/:username
 // @desc     Get profile by user username
 // @access   Public
 router.get(
@@ -78,7 +78,9 @@ router.get(
 // @router GET api/profile/:id
 // @desc Get Username by ID
 // @access Public
-router.get('/:id', auth, async ({params: {id}}, res) => {
+router.get('/id/:id', auth, async ({params: {id}}, res) => {
+
+  console.log(id)
 
   try {
     //Bring the user information

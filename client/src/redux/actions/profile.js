@@ -84,8 +84,8 @@ export const getProfileByUsername = (username) => async dispatch => {
 export const getUsernamebyID = (id) => async dispatch => {
 
   try{
-    //Sends the request to the users/username using the API
-    const res = await api.get(`/profile/${id}`);
+    //Sends the request to the profile/username using the API
+    const res = await api.get(`/profile/id/${id}`);
     //If the username is there, do this
     dispatch({
       type:  GET_USERNAME,

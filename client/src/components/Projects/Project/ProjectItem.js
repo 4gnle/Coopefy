@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {getUsernamebyID} from '../../../redux/actions/profile';
 
-const ProjectItem = ({project, profile: {profile, username}}) => {
+const ProjectItem = ({project, username, getUsernamebyID}) => {
 
   const {
     projectname,
@@ -24,14 +24,21 @@ const ProjectItem = ({project, profile: {profile, username}}) => {
   } = project;
 
   useEffect(() => {
-    getUsernamebyID(projectowner);
+    console.log(projectowner);
+    if(projectowner) {
+      getUsername();
+    }
+  }, [username, getUsernamebyID])
+
+  const getUsername = async () => {
+    await getUsernamebyID(projectowner);
     console.log(username)
-  }, [getUsernamebyID])
+  }
 
   return (
     <div className='projectitem-box'>
       <div className='pi-projectname'>
-        <h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={`/project/${_id}`}>
+        <h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={`${username}/project/${projectname}`}>
         <Button className='button random'>See More</Button></Link></h2>
       </div>
       <h4>{projectowner}</h4>
