@@ -9,10 +9,10 @@ import Error404 from '../../UI/Error404'
 import {getProjectById} from '../../../redux/actions/project';
 import {connect} from 'react-redux';
 
-const Project = ({project: {project, loading}, location, getProjectById}) => {
+const Project = ({project: {project, loading}, match, getProjectById}) => {
 
   const getProjectData = async () => {
-    getProjectById(location.state._id);
+    getProjectById(match.params._id);
     setLoadProject(true)
     console.log(project);
   }

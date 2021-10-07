@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 //Redux
 import {postProject} from '../../../redux/actions/project';
+import {getProfile} from '../../../redux/actions/profile';
 import {setAlert} from '../../../redux/actions/alert'
 import {connect} from 'react-redux';
 
@@ -15,7 +16,16 @@ import DetailsSection from './DetailsSection';
 import BasicsSection from './BasicsSection';
 import SummarySection from './SummarySection';
 
-const CreateProject = ({setAlert, postProject, history}) => {
+const CreateProject = ({profile: {signedprofile, username}, setAlert, postProject, getProfile, history}) => {
+
+  useEffect(() => {
+    if (!signedprofile) {
+      getProfile()
+    }
+    if (signedprofile) {
+      console.log(signedprofile.username);
+    }
+  }, [signedprofile, getProfile])
 
   //Data States
   const [formData, setFormData] = useState({
@@ -96,17 +106,15 @@ const CreateProject = ({setAlert, postProject, history}) => {
   };
 
   const createProject = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
     if (projectname && projectdescription && projectskills) {
       setSpinner(true);
       await postProject(formData);
+      await history.push(`/@${signedprofile.username}/projects`);
       setSpinner(false);
-      let newName = projectname;
-      newName = newName.replace(/\s+/g, '-').toLowerCase();
-      history.push(`/project/${newName}`)
-      console.log(formData);
     }
-  }
+    }
 
   return (
   <>
@@ -152,7 +160,8 @@ const CreateProject = ({setAlert, postProject, history}) => {
 }
 
 const mapStateToProps = state => ({
-  alert: state.alert
+  alert: state.alert,
+  profile: state.profile
 })
 
-export default connect(mapStateToProps, {setAlert, postProject})(CreateProject)
+export default connect(mapStateToProps, {setAlert, postProject, getProfile})(CreateProject)

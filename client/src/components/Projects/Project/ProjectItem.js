@@ -46,10 +46,7 @@ const ProjectItem = ({project, profile: {username}, getUsernamebyID}) => {
     <div className='projectitem-box'>
       <div className='pi-projectname'>
         {projectName && projectreward ?
-        (<><h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={{
-          pathname:`/project/${projectName}`,
-          state: {_id}
-        }}>
+        (<><h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={`/project/${_id}/${projectName}`}>
         <Button className='button random'>Learn More</Button></Link></h2></>)
         : null}
       </div>
