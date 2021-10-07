@@ -8,11 +8,11 @@ import LinksSelect from './LinksSelect'
 import SkillsSelect from './SkillsSelect'
 
 // UI
-import Button from '../../UI/Button'
+import Button from '../../../UI/Button'
 
 // Router and Redux
 // import {Link} from 'react-router'
-import {getProfile} from '../../../redux/actions/profile';
+import {getProfile} from '../../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 

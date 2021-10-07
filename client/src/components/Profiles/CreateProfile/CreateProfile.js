@@ -3,18 +3,18 @@ import React, {useState, useEffect} from 'react'
 import './CreateProfile.css'
 
 //Components
-import ImageUpload from '../UI/ProfileImage'
 import SkillsandSocials from './Skills and Socials/SkillsandSocials'
-import Error404 from '../UI/Error404'
+import Error404 from '../../UI/Error404'
 
 //Redux
-import {profileData, getProfile} from '../../redux/actions/profile';
+import {profileData, getProfile} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 //UI
-import Button from '../UI/Button'
-import Spinner from '../UI/Spinner'
+import Button from '../../UI/Button'
+import Spinner from '../../UI/Spinner'
+import ImageUpload from '../../UI/ProfileImage'
 
 const initialState = {
   status: '',

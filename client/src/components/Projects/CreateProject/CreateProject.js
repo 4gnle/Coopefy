@@ -94,6 +94,9 @@ const CreateProject = ({setAlert, postProject, history}) => {
       setSpinner(true);
       await postProject(formData);
       setSpinner(false);
+      let newName = projectname;
+      newName = newName.replace(/\s+/g, '-').toLowerCase();
+      history.push(`/project/${newName}`)
       console.log(formData);
     }
   }

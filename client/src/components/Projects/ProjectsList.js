@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-import './Projects.css'
+import './ProjectsList.css'
 
 //Components
 import ProjectItem from './Project/ProjectItem'
@@ -25,7 +25,7 @@ const Projects = ({project: {project, projects, loading},
         <h1>Projects</h1>
         <p>
           <i class="fas fa-project-diagram"></i>{' '}
-          Find the best project to work on!
+          Find the best projects to collaborate!
         </p>
       </div>
       <div className='projects-grids'>{! loading && projects.length > 0 ? (projects.map(project =>

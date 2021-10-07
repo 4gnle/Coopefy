@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 //UI & CSS
-import './Project.css'
+import './ProjectPage.css'
 import Spinner from '../../UI/Spinner'
 import Error404 from '../../UI/Error404'
 
@@ -9,19 +9,19 @@ import Error404 from '../../UI/Error404'
 import {getProjectById} from '../../../redux/actions/project';
 import {connect} from 'react-redux';
 
-const Project = ({project: {project, loading}, history, _id, getProjectById}) => {
+const Project = ({project: {project, loading}, location, getProjectById}) => {
+
+  const getProjectData = async () => {
+    getProjectById(location.state._id);
+    setLoadProject(true)
+    console.log(project);
+  }
 
   const [loadProject, setLoadProject] = useState(false);
 
   useEffect(() => {
     getProjectData();
   }, [getProjectData])
-
-  const getProjectData = async () => {
-    console.log(_id)
-
-    console.log(project);
-  }
 
   return (
     <div>

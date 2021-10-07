@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react'
 
 //UI and Styles
 import './LinksSelect.css'
-import Button from '../../UI/Button'
+import Button from '../../../UI/Button'
 
 //Redux
-import {profileLinks, getProfile} from '../../../redux/actions/profile';
+import {profileLinks, getProfile} from '../../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 const initialState = {

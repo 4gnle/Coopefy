@@ -18,10 +18,10 @@ import Dashboard from './Dashboard/Dashboard'
 import Landing from './Main/Landing'
 import About from './Main/About'
 import People from './Profiles/People/People'
-import Profile from './Profiles/Profile'
-import CreateProfile from './Create Profile/CreateProfile'
-import Projects from './Projects/Projects'
-import Project from './Projects/Project/Project'
+import Profile from './Profiles/Profile/Profile'
+import CreateProfile from './Profiles/CreateProfile/CreateProfile'
+import Projects from './Projects/ProjectsList'
+import Project from './Projects/Project/ProjectPage'
 import CreateProject from './Projects/CreateProject/CreateProject'
 import Alerts from './UI/Alert'
 
@@ -52,7 +52,7 @@ const MainComponent = () => {
           <Route path='/people' component={People} />
           <Route path='/about' component={About} />
           <Route path='/edit-profile' component={CreateProfile} />
-          <Route path='/u/:username' component={Profile} />
+          <Route path='/@:username' component={Profile} />
           <Route path='/project/:projectname' component={Project} />
       </Switch>
 

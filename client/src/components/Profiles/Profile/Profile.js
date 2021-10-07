@@ -3,12 +3,12 @@ import React, {useState, useEffect} from 'react'
 import './Profile.css'
 
 //UI
-import Spinner from '../UI/Spinner'
-import Button from '../UI/Button'
-import Error404 from '../UI/Error404'
+import Spinner from '../../UI/Spinner'
+import Button from '../../UI/Button'
+import Error404 from '../../UI/Error404'
 
 //Redux and Router
-import {getProfileByUsername} from '../../redux/actions/profile';
+import {getProfileByUsername} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
