@@ -22,7 +22,7 @@ const ProjectItem = ({project}) => {
   return (
     <div className='projectitem-box'>
       <div className='pi-projectname'>
-        <h2>{projectname}{' '}<Link to={`/project/${_id}`}>
+        <h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={`/project/${_id}`}>
         <Button className='button random'>See More</Button></Link></h2>
       </div>
       <div className='pi-projectdescription'>
@@ -39,12 +39,8 @@ const ProjectItem = ({project}) => {
         ))}
       </div>
 
-      <div className='pi-projectreward'>
-        <h3>{projectreward}{' '}{projectamount}</h3>
-      </div>
-
       <div className='pi-projectlocation'>
-        {projectlocation ? projectlocation : <h3>Worldwide</h3>}
+        {projectlocation ? <h4>{projectlocation}</h4> : <h4>Remote</h4>}
       </div>
 
     </div>

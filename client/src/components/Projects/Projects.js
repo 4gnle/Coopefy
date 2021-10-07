@@ -22,14 +22,20 @@ const Projects = ({project: {project, projects, projectname, projectlocation, pr
 
   return (
     <div className='projects-page'>
-    <div className='projects-grids'>{! loading && projects.length > 0 ? (projects.map(project =>
-      <>
-      <ProjectItem
-        project={project}
-      />
-      </>
-    )): null}</div>
-
+      <div className='projects-top'>
+        <h1>Projects</h1>
+        <p>
+          <i class="fas fa-project-diagram"></i>{' '}
+          Find the best project to work on!
+        </p>
+      </div>
+      <div className='projects-grids'>{! loading && projects.length > 0 ? (projects.map(project =>
+        <>
+        <ProjectItem
+          project={project}
+        />
+        </>
+      )): null}</div>
     </div>
   )
 }

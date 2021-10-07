@@ -16,12 +16,18 @@
   margin-left: 5%;
 }
 
+.pi-projectname > h2 > span {
+  opacity: 0.5;
+}
+
 .pi-projectdescription {
-  width: 90%;
-  height: 50px;
+  width: 70%;
+  height: 30px;
   margin-left: 5%;
   overflow: hidden;
   text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .pi-projectskills {
@@ -34,12 +40,16 @@
 }
 
 .pi-projectreward {
+  position: relative;
   width: 40%;
   margin-left: 5%;
 }
 
 .pi-projectlocation {
-  position: relative;
   width: 20%;
   margin-left: 5%;
+}
+
+.pi-projectlocation > h4 {
+  opacity: 0.5;
 }
