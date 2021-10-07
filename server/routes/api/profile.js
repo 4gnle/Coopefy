@@ -78,9 +78,7 @@ router.get(
 // @router GET api/profile/:id
 // @desc Get Username by ID
 // @access Public
-router.get('/id/:id', auth, async ({params: {id}}, res) => {
-
-  console.log(id)
+router.get('/id/:id', async ({params: {id}}, res) => {
 
   try {
     //Bring the user information

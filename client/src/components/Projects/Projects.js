@@ -9,7 +9,7 @@ import ProjectItem from './Project/ProjectItem'
 import {getProjects} from '../../redux/actions/project';
 import {connect} from 'react-redux';
 
-const Projects = ({project: {project, projects, projectname, projectlocation, projectskills, projectowner, loading},
+const Projects = ({project: {project, projects, loading},
    getProjects}) => {
 
   useEffect(() => {

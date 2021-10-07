@@ -38,7 +38,7 @@ const Navbar = ({ authenticate: {isAuth}, profile: {signedprofile, loading, user
 
         <div className="auth-links">
 
-          <Link to={`/${username1}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>
+          <Link to={`/u/${username1}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>
 
           <Link to='/' className="sign" onClick={logUserOut}>
           <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>

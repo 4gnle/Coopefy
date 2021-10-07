@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 //UI && CSS
 import Button from '../../UI/Button'
@@ -9,7 +9,9 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {getUsernamebyID} from '../../../redux/actions/profile';
 
-const ProjectItem = ({project, username, getUsernamebyID}) => {
+const ProjectItem = ({project, profile: {username}, getUsernamebyID}) => {
+
+  const [projectName, setProjectName] = useState();
 
   const {
     projectname,
@@ -24,9 +26,14 @@ const ProjectItem = ({project, username, getUsernamebyID}) => {
   } = project;
 
   useEffect(() => {
-    console.log(projectowner);
-    if(projectowner) {
+    if(!username) {
       getUsername();
+    }
+
+    if(projectname) {
+      let newName = projectname;
+      newName = newName.replace(/\s+/g, '-').toLowerCase();
+      setProjectName(newName);
     }
   }, [username, getUsernamebyID])
 
@@ -38,10 +45,14 @@ const ProjectItem = ({project, username, getUsernamebyID}) => {
   return (
     <div className='projectitem-box'>
       <div className='pi-projectname'>
-        <h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={`${username}/project/${projectname}`}>
-        <Button className='button random'>See More</Button></Link></h2>
+        {projectName && projectreward ?
+        (<><h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={{
+          pathname:`/project/${projectName}`,
+          state: {_id}
+        }}>
+        <Button className='button random'>Learn More</Button></Link></h2></>)
+        : null}
       </div>
-      <h4>{projectowner}</h4>
       <div className='pi-projectdescription'>
         <p>{projectdescription}</p>
       </div>

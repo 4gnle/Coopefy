@@ -9,18 +9,17 @@ import Error404 from '../../UI/Error404'
 import {getProjectById} from '../../../redux/actions/project';
 import {connect} from 'react-redux';
 
-const Project = ({project: {project, loading}, match, getProjectById}) => {
+const Project = ({project: {project, loading}, history, _id, getProjectById}) => {
 
   const [loadProject, setLoadProject] = useState(false);
 
   useEffect(() => {
     getProjectData();
-  }, [])
+  }, [getProjectData])
 
   const getProjectData = async () => {
-    console.log(match.params.id)
-    await getProjectById(match.params.id);
-    setLoadProject(true);
+    console.log(_id)
+
     console.log(project);
   }
 

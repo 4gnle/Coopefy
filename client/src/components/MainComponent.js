@@ -53,7 +53,7 @@ const MainComponent = () => {
           <Route path='/about' component={About} />
           <Route path='/edit-profile' component={CreateProfile} />
           <Route path='/u/:username' component={Profile} />
-          <Route path=':username/project/:projectname' component={Project} />
+          <Route path='/project/:projectname' component={Project} />
       </Switch>
 
       </Router>
