@@ -24,7 +24,8 @@ const CreateProject = ({setAlert, postProject, history}) => {
     projectdescription: '',
     projectskills: '',
     projectreward: '',
-    projectlocation: ''
+    projectlocation: '',
+    projectduration: ''
   });
 
   const {
@@ -33,10 +34,13 @@ const CreateProject = ({setAlert, postProject, history}) => {
     projectdescription,
     projectskills,
     projectreward,
-    projectlocation
+    projectlocation,
+    projectduration
   } = formData;
 
   const [locationActive, setLocationActive] = useState(false)
+  const [durationActive, setDurationActive] = useState(false)
+
 
   const [spinner, setSpinner] = useState(false);
 
@@ -70,6 +74,9 @@ const CreateProject = ({setAlert, postProject, history}) => {
 
   const addLocation = () => {
     setLocationActive(true);
+  }
+  const addDuration = () => {
+    setDurationActive(true);
   }
 
   const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
@@ -123,7 +130,9 @@ const CreateProject = ({setAlert, postProject, history}) => {
           updateProjectSkills={updateProjectSkills}
           deleteSkills={deleteSkills}
           locationActive={locationActive}
+          durationActive={durationActive}
           addLocation={addLocation}
+          addDuration={addDuration}
           onChange={onChange}
           setAlert={setAlert}
           /> : null}

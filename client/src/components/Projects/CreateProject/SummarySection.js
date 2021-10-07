@@ -13,7 +13,8 @@ const {
     projectwebsite,
     projectreward,
     projectamount,
-    projectlocation
+    projectlocation,
+    projectduration
   } = formData;
 
   return (
@@ -40,7 +41,7 @@ const {
         </div>
         <br/>
         <div className='cp-summary-sections'>
-          <h4>Website:</h4>{' '}{projectwebsite}
+          <h4>Link to Project:</h4>{' '}{projectwebsite}
         </div>
         <br/>
 
@@ -70,6 +71,12 @@ const {
       {formData && projectlocation ? (<div className='cp-summary-sections'>
         <h4>Location:</h4>{' '}<p>{projectlocation}</p>
       </div>) : null}
+      <br/>
+      {formData && projectduration || projectduration ? (<div className='cp-summary-sections'>
+      <h4>Duration:</h4>{' '}<p>{projectduration}</p>
+      </div>) : null}
+
+
 
       <div className='cp-button-section'>
         <Button

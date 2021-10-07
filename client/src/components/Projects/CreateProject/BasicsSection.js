@@ -47,7 +47,7 @@ history}) => {
           onChange={e => onChange(e)}
         />
       <br/>
-        <small>Max 15 words</small>
+        <small>Max 20 words</small>
         <h2 className='cp-input-titles'>Describe your project clearly</h2>
         <textarea
           placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
@@ -56,8 +56,8 @@ history}) => {
           onChange={e => onChange(e)}
         />
       <br/>
-        <small>Max 200 words</small>
-        <h2 className='cp-input-titles'>Have a website? {'(optional)'}</h2>
+        <small>Max 300 words</small>
+        <h2 className='cp-input-titles'>Have a website or repo? {'(optional)'}</h2>
         <input
           placeholder='e.g. www.projectsite.com'
           name='projectwebsite'

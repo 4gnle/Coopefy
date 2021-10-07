@@ -12,7 +12,7 @@ const stateSkills = {
   projectskills: ''
 };
 
-const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData, deleteSkills, addLocation, locationActive}) => {
+const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData, deleteSkills, addLocation, locationActive, addDuration, durationActive}) => {
 
   const [nextPage1, setNextPage] = useState(false);
 
@@ -22,7 +22,8 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
     projectskills,
     projectreward,
     projectamount,
-    projectlocation
+    projectlocation,
+    projectduration
   } = formData;
 
   const addProjectSkills = async (newSkills) => {
@@ -126,6 +127,25 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
               name='projectlocation'
               placeholder='e.g California, US'
             />
+          }
+          <div className='cp-input-checkbox'>
+            <input
+            type='checkbox'
+            onClick={addDuration}
+            /> <label>Specific duration?</label>
+          </div>
+          {durationActive &&
+            <select
+              onChange={e => onChange(e)}
+              value={projectduration}
+              name='projectduration'>
+            <option value="" disabled selected hidden>Duration</option>
+            <option value="0-30 Days">0-30 Days</option>
+            <option value="1-3 Months">1-3 Months</option>
+            <option value="3-6 Months">3-6 Months</option>
+            <option value="6-12 Months">6-12 Months</option>
+            <option value="+12 Months">+12 Months</option>
+          </select>
           }
 
         </div>
