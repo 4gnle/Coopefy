@@ -53,3 +53,9 @@
 .pi-projectlocation > h4 {
   opacity: 0.5;
 }
+
+@media (max-width: 650px) {
+  .projectitem-box {
+
+  }
+}

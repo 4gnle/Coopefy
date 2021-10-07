@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
 
-
 import './Projects.css'
 
 //Components
@@ -8,16 +7,18 @@ import ProjectItem from './Project/ProjectItem'
 
 //Redux
 import {getProjects} from '../../redux/actions/project';
+import {getProfileByUsername} from '../../redux/actions/profile';
+
 import {connect} from 'react-redux';
 
-const Projects = ({project: {project, projects, projectname, projectlocation, projectskills, loading}, getProjects}) => {
+const Projects = ({project: {project, projects, projectname, projectlocation, projectskills, projectowner, loading},
+   getProjects}) => {
 
   useEffect(() => {
     if (!project) {
       getProjects();
       console.log(projects);
     }
-
   }, [getProjects])
 
   return (

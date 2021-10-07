@@ -16,6 +16,7 @@ const ProjectItem = ({project}) => {
     projectwebsite,
     projectreward,
     projectamount,
+    projectowner,
     _id
   } = project;
 
@@ -25,6 +26,7 @@ const ProjectItem = ({project}) => {
         <h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={`/project/${_id}`}>
         <Button className='button random'>See More</Button></Link></h2>
       </div>
+      <h4>{projectowner}</h4>
       <div className='pi-projectdescription'>
         <p>{projectdescription}</p>
       </div>

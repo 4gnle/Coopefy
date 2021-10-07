@@ -93,9 +93,10 @@ router.post('/', auth,
     projectskills
    } = req.body;
 
+   console.log(req.username);
    try {
      const newProject = new Projects({
-       projectowner: req.user.id,
+       projectowner: req.user.username,
        projectname: projectname,
        projectdescription: projectdescription,
        projectlocation: projectlocation,
