@@ -54,8 +54,8 @@ router.get('/', async (req, res) => {
 
 module.exports = router;
 
-// @route    GET api/profile/user/:id
-// @desc     Get profile by user ID
+// @route    GET api/profile/user/:username
+// @desc     Get profile by user username
 // @access   Public
 router.get(
   '/:username',
@@ -75,14 +75,14 @@ router.get(
   }
 );
 
-// @router GET api/profile/username
-// @desc Get Username
+// @router GET api/profile/:id
+// @desc Get Username by ID
 // @access Public
-router.get('/username', auth, async (req, res) => {
+router.get('/:id', auth, async ({params: {id}}, res) => {
 
   try {
     //Bring the user information
-    const profile = await Profile.findOne({user: req.user.id}).populate('user', ['username']);
+    const profile = await Profile.findOne({user: id}).populate('user', ['username']);
 
     res.json(profile.username)
 

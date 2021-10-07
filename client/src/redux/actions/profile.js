@@ -81,11 +81,11 @@ export const getProfileByUsername = (username) => async dispatch => {
 };
 
 //Get userName
-export const getUsername = () => async dispatch => {
+export const getUsernamebyID = (id) => async dispatch => {
 
   try{
     //Sends the request to the users/username using the API
-    const res = await api.get('/profile/username');
+    const res = await api.get(`/profile/${id}`);
     //If the username is there, do this
     dispatch({
       type:  GET_USERNAME,

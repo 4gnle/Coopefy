@@ -5,10 +5,8 @@ import './Projects.css'
 //Components
 import ProjectItem from './Project/ProjectItem'
 
-//Redux
+//Redux and Router
 import {getProjects} from '../../redux/actions/project';
-import {getProfileByUsername} from '../../redux/actions/profile';
-
 import {connect} from 'react-redux';
 
 const Projects = ({project: {project, projects, projectname, projectlocation, projectskills, projectowner, loading},

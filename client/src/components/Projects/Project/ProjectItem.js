@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 //UI && CSS
 import Button from '../../UI/Button'
 import './ProjectItem.css'
 
+// Redux and Router
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux';
+import {getUsernamebyID} from '../../../redux/actions/profile';
 
-const ProjectItem = ({project}) => {
+const ProjectItem = ({project, profile: {profile, username}}) => {
 
   const {
     projectname,
@@ -19,6 +22,11 @@ const ProjectItem = ({project}) => {
     projectowner,
     _id
   } = project;
+
+  useEffect(() => {
+    getUsernamebyID(projectowner);
+    console.log(username)
+  }, [getUsernamebyID])
 
   return (
     <div className='projectitem-box'>
@@ -49,4 +57,8 @@ const ProjectItem = ({project}) => {
   )
 }
 
-export default ProjectItem
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps, {getUsernamebyID})(ProjectItem)
