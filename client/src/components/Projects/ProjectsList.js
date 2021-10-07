@@ -1,6 +1,8 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 
+// UI & CSS
 import './ProjectsList.css'
+import Spinner from '../UI/Spinner'
 
 //Components
 import ProjectItem from './Project/ProjectItem'
@@ -12,12 +14,16 @@ import {connect} from 'react-redux';
 const Projects = ({project: {project, projects, loading},
    getProjects}) => {
 
+  const [projectsReady, setProjectsReady] = useState(false);
+
   useEffect(() => {
-    if (!project) {
-      getProjects();
-      console.log(projects);
-    }
-  }, [getProjects])
+    gettingProjects();
+  })
+
+  const gettingProjects = async () => {
+    await getProjects();
+    setProjectsReady(true)
+  }
 
   return (
     <div className='projects-page'>
@@ -28,13 +34,16 @@ const Projects = ({project: {project, projects, loading},
           Find the best projects to collaborate!
         </p>
       </div>
-      <div className='projects-grids'>{! loading && projects.length > 0 ? (projects.map(project =>
+      {!projectsReady ? <Spinner/> :
+      <div className='projects-grids'>
+      {!loading && projects.length > 0 ? (projects.map(project =>
         <>
         <ProjectItem
           project={project}
         />
         </>
-      )): null}</div>
+      )): null}
+      </div>}
     </div>
   )
 }

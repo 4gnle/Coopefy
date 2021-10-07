@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 const Project = ({project: {project, loading}, match, getProjectById}) => {
 
   const getProjectData = async () => {
-    getProjectById(match.params._id);
+    getProjectById(match.params.id);
     setLoadProject(true)
     console.log(project);
   }
@@ -21,7 +21,7 @@ const Project = ({project: {project, loading}, match, getProjectById}) => {
 
   useEffect(() => {
     getProjectData();
-  }, [getProjectData])
+  }, [project])
 
   return (
     <div>

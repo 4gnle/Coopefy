@@ -30,7 +30,7 @@ const People = ({getPeople,
 
   useEffect(() => {
     gettingPeople();
-  }, [getPeople]);
+  });
 
   const gettingPeople = async () => {
     await getPeople();
