@@ -6,7 +6,7 @@ import './Profile.css'
 import Spinner from '../../UI/Spinner'
 import Button from '../../UI/Button'
 import Error404 from '../../UI/Error404'
-import placeholder from '../../Utils/placeholder.png'
+import placeholder from '../../UI/placeholder.png'
 
 //Redux and Router
 import {getProfileByUsername} from '../../../redux/actions/profile';
@@ -38,7 +38,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth, user}, getProfileByUsername, cleanProfile, match, history}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks, location}, authenticate: {isAuth, user}, getProfileByUsername, cleanProfile, match, history}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -104,26 +104,27 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
       <div className='profile-main'>
         <div className='profile-picture'>
-        {profile && !imagePrev ? (<><img alt='Profile' src={placeholder}/><br/>
-          {isAuth && user._id === profile.user._id && <Link to='edit-profile'>
-          <Button className='button small'>Add Image</Button></Link>}
-        </>) : <><img alt='Profile' src={imagePrev}/></>}
+          {profile && !imagePrev ? (<><img alt='Profile' src={placeholder}/><br/></>)
+          : <><img alt='Profile' src={imagePrev}/></>}
+          {profile && profile.location ? (
+            <div className='profile-location'><p>{profile.location}</p></div>
+          ) : null}
         </div>
 
-          <div className='profile-top'>
+        <div className='profile-top'>
           {profile && !profileInfo.profilename ? (<><div className='no-profile-name'>No profile name
             {isAuth && user._id === profile.user._id && <Link to='edit-profile'>
             <Button className='button small'>Add Name</Button></Link>}
-          </div></>) :
-            <>
-            {profile &&
-            <p><strong>{profileInfo.profilename}
-            </strong>
-            &nbsp;&nbsp;
-            <span>@{profileInfo.username}</span></p>}
-            <em>{profileInfo.bio}</em>
-            </>}
-          </div>
+        </div></>) :
+          <>
+          {profile &&
+          <p><strong>{profileInfo.profilename}
+          </strong>
+          &nbsp;&nbsp;
+          <span>@{profileInfo.username}</span></p>}
+          <em>{profileInfo.bio}</em>
+          </>}
+        </div>
       </div>
 
       {!profile ? (<><div className='no-profile'>There's no profile to show
@@ -141,7 +142,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
             {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
               <>
               <div key={index}>
-                  <p><i class="fas fa-check"></i> {' '}{skill}</p>
+                  <Button className='show'>{' '}{skill}</Button>
               </div>
               </>
               ))}

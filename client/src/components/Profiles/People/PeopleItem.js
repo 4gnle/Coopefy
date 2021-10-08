@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 
 // UI & CSS
 import './PeopleItem.css'
-import placeholder from '../../Utils/placeholder.png'
+import placeholder from '../../UI/placeholder.png'
 
 //UI
 import Button from '../../UI/Button'
@@ -47,17 +47,15 @@ const PeopleItem = ({
 
           {imagePrev ? <img alt='Profile'  src={imagePrev}/>: <img alt='Profile' src={placeholder}/>}
 
-          <div className='pi-status'>
-            <em>{status}</em>
-          </div>
+
         </div>
       </Link>
-
-
+      <br/>
 
       <div className='pi-bottom'>
-
-
+      <div className='pi-status'>
+        <em>{status}</em>
+      </div>
         <>
         {skills.length > 0 && (
           <>
@@ -65,9 +63,7 @@ const PeopleItem = ({
           <div className='pi-skills'>
           {skills.map((skill, index) => (
             <>
-              <div style={{marginTop: '10px', marginLeft: '15px'}} key={index}>
-                <p><i className="fas fa-check"></i>{' '}{skill}</p>
-              </div>
+            <Button className='show'>{' '}{skill}</Button>
             </>
           ))}
           </div>

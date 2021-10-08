@@ -48,7 +48,7 @@ const ProjectItem = ({project, profile: {username}}) => {
         {projectskills && projectskills.map((skill, index) => (
           <>
             <div key={index}>
-                <p><i class="fas fa-check"></i> {' '}{skill}</p>
+                <Button className='show'>{' '}{skill}</Button>
             </div>
           </>
         ))}

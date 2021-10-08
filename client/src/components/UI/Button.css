@@ -44,6 +44,19 @@
   color: black;
 }
 
+.show {
+  align-items: center;
+  border-radius: 12px;
+  border-style: none;
+  box-sizing: border-box;
+  cursor: default;
+  font-size: 14px;
+  height: fit-content;
+  width: fit-content;
+  line-height: normal;
+  padding: 0.5rem 0.5rem;
+}
+
 .random {
   align-items: center;
   background-color: #fff;
