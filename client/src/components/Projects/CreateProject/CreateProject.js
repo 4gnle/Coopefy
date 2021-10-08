@@ -107,15 +107,14 @@ const CreateProject = ({profile: {signedprofile, username}, setAlert, postProjec
 
   const createProject = async (e) => {
     e.preventDefault();
-
     if (projectname && projectdescription && projectskills) {
       setSpinner(true);
       await postProject(formData);
       await history.push(`/@${signedprofile.username}/projects`);
       setSpinner(false);
     }
-    }
-
+  }
+  
   return (
   <>
     {spinner && <Spinner/>}

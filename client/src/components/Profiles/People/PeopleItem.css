@@ -50,7 +50,7 @@
   display: grid;
   box-sizing: border-box;
   border-radius: 18px;
-  grid-template-columns: repeat(2, 2fr);
+  grid-template-columns: repeat(3, 2fr);
   grid-auto-rows: 3rem;
   margin-top: 5px;
   margin-bottom: 10px;

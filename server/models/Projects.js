@@ -30,6 +30,9 @@ const ProjectSchema = new Schema({
       projectlocation: {
         type: String
       },
+      projectduration: {
+        type: String
+      },
       projectwebsite: {
         type: String
       },
