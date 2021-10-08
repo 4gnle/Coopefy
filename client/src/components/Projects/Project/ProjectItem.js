@@ -3,6 +3,12 @@ import React, {useEffect, useState} from 'react'
 //UI && CSS
 import Button from '../../UI/Button'
 import './ProjectItem.css'
+import eth from '../../UI/crypto-icons/eth.svg'
+import btc from '../../UI/crypto-icons/btc.svg'
+import sol from '../../UI/crypto-icons/sol.svg'
+import bnb from '../../UI/crypto-icons/bnb.svg'
+import usdt from '../../UI/crypto-icons/usdt.svg'
+import usdc from '../../UI/crypto-icons/usdc.svg'
 
 // Redux and Router
 import {Link} from 'react-router-dom'
@@ -32,11 +38,43 @@ const ProjectItem = ({project, profile: {username}}) => {
     }
   }, [username])
 
+  const projecticon = () => {
+    if (projectreward === 'ETH') {
+      return eth
+    }
+
+    if (projectreward === 'BTC') {
+    return btc
+    }
+
+    if (projectreward === 'SOL') {
+      return sol
+    }
+
+    if (projectreward === 'USDC') {
+      return usdc
+    }
+
+    if (projectreward === 'USDT') {
+      return usdt
+    }
+
+    if (projectreward === 'BNB') {
+      return bnb
+    }
+  }
+
   return (
     <div className='projectitem-box'>
       <div className='pi-projectname'>
         {projectName && projectreward ?
-        (<><h2>{projectname}{' - '}<span>{projectreward}</span>{' '}<Link to={`/project/${_id}/${projectName}`}>
+        (<><h2>{projectname}{' - '}
+        <img src={projecticon()}
+          width='24px'
+          height='24px'
+        />
+
+        <span>{projectreward}</span>{' '}<Link to={`/project/${_id}/${projectName}`}>
         <Button className='button random'>Learn More</Button></Link></h2></>)
         : null}
       </div>
