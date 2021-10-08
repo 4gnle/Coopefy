@@ -66,16 +66,20 @@ const ProjectItem = ({project, profile: {username}}) => {
 
   return (
     <div className='projectitem-box'>
+      <Link to={`/project/${_id}/${projectName}`}>
       <div className='pi-projectname'>
         {projectName &&
-        (<><h2>{projectname}{' - '}
+        (<><h3>{projectname}{' - '}
         {projectreward ?       <img src={projecticon()}
-                width='24px'
-                height='24px'
+                width='21px'
+                height='21px'
               /> : null}
-        <Link to={`/project/${_id}/${projectName}`}>
-        <Button className='button random'>Learn More</Button></Link></h2></>)}
+              {' - '}
+        {projectlocation ? <span>{projectlocation}</span> : <span><i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
+        </h3></>)}
       </div>
+      </Link>
+
       <div className='pi-projectdescription'>
         <p>{projectdescription}</p>
       </div>
@@ -89,11 +93,7 @@ const ProjectItem = ({project, profile: {username}}) => {
           </>
         ))}
       </div>
-
-      <div className='pi-projectbottom'>
-        {projectlocation ? <h4>{projectlocation}</h4> : <h4>Remote</h4>}
-      </div>
-
+    <br/>
     </div>
   )
 }

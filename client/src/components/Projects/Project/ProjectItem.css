@@ -11,18 +11,34 @@
   padding: 5px;
 }
 
+.projectitem-box > a {
+  text-decoration: none;
+  color: black;
+}
+
+.projectitem-box > a:hover {
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+
 .pi-projectname {
   width: 80%;
   margin-left: 5%;
 }
 
-.pi-projectname > h2 > span {
+.pi-projectname > h3 > span {
   opacity: 0.5;
 }
 
-.pi-projectname > h2 > img {
+.pi-projectname > h3 > img {
   position: relative;
   top: 5px;
+}
+
+.pi-projectname .location-icon {
+  position: relative;
+  top: 1px;
 }
 
 .pi-projectdescription {
@@ -51,7 +67,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 2rem;
   grid-gap: 1rem;
-  width: 20%;
+  width: 50%;
   margin-left: 5%;
   margin-bottom: 2%;
   height: fit-content;
