@@ -9,6 +9,7 @@ import Error404 from '../../UI/Error404'
 
 //Redux and Router
 import {getProfileByUsername} from '../../../redux/actions/profile';
+import {cleanProfile} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -36,7 +37,7 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth, user}, getProfileByUsername, match, history}) => {
+const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks}, authenticate: {isAuth, user}, getProfileByUsername, cleanProfile, match, history}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -44,6 +45,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [profileLoading, setProfileLoading] = useState(true);
 
   useEffect(() => {
+    cleanProfile();
     loadProfile();
     console.log(profile);
 

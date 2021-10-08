@@ -38,6 +38,13 @@ export const getProfile = () => async dispatch => {
   }
 };
 
+export const cleanProfile = () = async dispatch => {
+  dispatch({
+    type: PROFILE_ERROR,
+    payload: { msg: err.response.statusText, status: err.response.status}
+  });
+}
+
 //Get ALL Profiles
 export const getPeople = () => async dispatch => {
 
