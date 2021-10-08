@@ -94,7 +94,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
     <>
     {profileLoading ? (<Spinner/>) :
       <>
-      {!profile && <Error404/>}
+      {!profile ? <Error404/> :
     <div className='profile-box'>
         <div className='pb-top-buttons'>
         <Button onClick={goBack} className='button bad'>Back</Button>
@@ -105,7 +105,10 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
         <div className='profile-picture'>
           {profile && !imagePrev ? (<><img alt='Profile' src={placeholder}/><br/></>)
           : <><img alt='Profile' src={imagePrev}/></>}
-          {profile && profile.location ? (
+          {profile.status ? (
+            <div className='profile-location'><b><em>{profile.status}</em></b></div>
+          ) : null}
+          {profile.location ? (
             <div className='profile-location'><p>{profile.location}</p></div>
           ) : null}
         </div>
@@ -177,7 +180,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
           <h2>Activity</h2>
           </div>
 
-        </div>
+        </div>}
         </>}
         </>
     )

@@ -63,6 +63,7 @@ const CreateProject = ({profile: {signedprofile, username}, setAlert, postProjec
     setBasicsPage(true);
     console.log(formData);
     setDetailsPage(false);
+    setSummaryPage(false);
   }
 
   const goToDetails = () => {
@@ -114,7 +115,7 @@ const CreateProject = ({profile: {signedprofile, username}, setAlert, postProjec
       setSpinner(false);
     }
   }
-  
+
   return (
   <>
     {spinner && <Spinner/>}

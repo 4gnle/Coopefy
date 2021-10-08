@@ -50,6 +50,7 @@ history}) => {
         <small>Max 20 words</small>
         <h2 className='cp-input-titles'>Describe your project clearly</h2>
         <textarea
+          minlength='30'
           placeholder='e.g. I am an NFT artist looking for a Solidity developer with experience in NFTs (minting, airdrops, etc.)...'
           name='projectdescription'
           value={projectdescription}

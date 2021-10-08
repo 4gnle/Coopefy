@@ -24,9 +24,10 @@ const initialState = {
   website: ''
 };
 
-const CreateProfile = ({  profile: {signedprofile, loading },
+const CreateProfile = ({  profile: {signedprofile, loading},
 getProfile,
 profileData,
+history,
 authenticate: {isAuth}}) => {
 
 const [formData, setFormData] = useState(initialState);
@@ -55,6 +56,10 @@ useEffect(() => {
   const onSubmit = (e) => {
     e.preventDefault();
     profileData(formData);
+  }
+
+  const goBack = () => {
+    history.goBack();
   }
 
   return (
@@ -135,6 +140,7 @@ useEffect(() => {
         <div className='createprofile-buttons'>
           <Button
             className="button bad"
+            onClick={goBack}
           >Cancel</Button>
           <Button
           className='button primary'
