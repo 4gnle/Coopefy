@@ -53,10 +53,11 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
 
   let skills1 = skillList;
 
-  const addSKills = (event) => {
+  const addSKills = async (event) => {
     event.preventDefault()
     console.log(selectedSkills);
-    setProfileSkills(formData)
+    await setProfileSkills(formData)
+    unSelectSkills();
   }
 
 // Adds the selected skills to the Selected Skills section
