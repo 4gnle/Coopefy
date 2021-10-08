@@ -7,9 +7,8 @@ import './ProjectItem.css'
 // Redux and Router
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
-import {getUsernamebyID} from '../../../redux/actions/profile';
 
-const ProjectItem = ({project, profile: {username}, getUsernamebyID}) => {
+const ProjectItem = ({project, profile: {username}}) => {
 
   const [projectName, setProjectName] = useState();
 
@@ -26,21 +25,12 @@ const ProjectItem = ({project, profile: {username}, getUsernamebyID}) => {
   } = project;
 
   useEffect(() => {
-    if(!username) {
-      getUsername();
-    }
-
     if(projectname) {
       let newName = projectname;
       newName = newName.replace(/\s+/g, '-').toLowerCase();
       setProjectName(newName);
     }
-  }, [username, getUsernamebyID])
-
-  const getUsername = async () => {
-    await getUsernamebyID(projectowner);
-    console.log(username)
-  }
+  }, [username])
 
   return (
     <div className='projectitem-box'>
@@ -76,4 +66,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {getUsernamebyID})(ProjectItem)
+export default connect(mapStateToProps)(ProjectItem)

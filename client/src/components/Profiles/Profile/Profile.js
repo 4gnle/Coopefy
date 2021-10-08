@@ -45,6 +45,8 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
   useEffect(() => {
     loadProfile();
+    console.log(profile);
+
   }, [getProfileByUsername, match.params.username]);
 
   const loadProfile = async () => {

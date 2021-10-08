@@ -18,7 +18,7 @@ const Projects = ({project: {project, projects, loading},
 
   useEffect(() => {
     gettingProjects();
-  })
+  }, [getProjects])
 
   const gettingProjects = async () => {
     await getProjects();

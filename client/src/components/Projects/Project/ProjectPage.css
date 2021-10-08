@@ -10,3 +10,18 @@
   margin-top: 5vh;
   padding: 5px;
 }
+
+.pp-title {
+
+}
+
+.pp-description {
+
+}
+
+.pp-details {
+  display: grid;
+  grid-template-columns: repeat(5, 6fr);
+  grid-auto-rows: fit-content;
+  grid-gap: 1rem;
+}

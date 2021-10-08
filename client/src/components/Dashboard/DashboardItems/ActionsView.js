@@ -17,9 +17,10 @@ const ActionsView = () => {
         <Link to='/create-project'><Button>
         Create a Project
         </Button></Link>
+        <Link to='projects'>
         <Button>
         Find Projects
-        </Button>
+        </Button></Link>
         <Link to='/people'><Button>
         Find People
         </Button></Link>
