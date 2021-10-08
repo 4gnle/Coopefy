@@ -134,11 +134,12 @@ useEffect(() => {
         </div>
         <div className='createprofile-buttons'>
           <Button
+            className="button bad"
+          >Cancel</Button>
+          <Button
+          className='button primary'
           onClick={e => onSubmit(e)}
           >Save</Button>
-          <Button
-            className="bad"
-          >Cancel</Button>
         </div>
       </div> : (<Error404/>)}
       </>

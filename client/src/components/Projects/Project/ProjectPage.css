@@ -28,6 +28,7 @@
   grid-gap: 1rem;
   width: 100%;
   margin-left: 5%;
+  margin-top: -5px;
 }
 
 .pp-details > p > img {
@@ -53,4 +54,13 @@
   width: 90%;
   font-size: 14px;
   padding: 2%;
+}
+
+.pp-bottom-section {
+  text-align: center;
+}
+
+.pp-bottom-section > button {
+  width: 5rem;
+  height: 3rem;
 }

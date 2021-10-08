@@ -80,7 +80,7 @@ const Project = ({project: {
             {project.projectlocation ? <span>{project.projectlocation}</span> : <span><i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
             </>
             <>
-            {project.projectduration && <span><p>{project.projectduration}</p></span>}
+            {project.projectduration && <span>{project.projectduration}</span>}
             </>
           </div>
           <hr/>
@@ -96,6 +96,11 @@ const Project = ({project: {
               </div>
             </>
           ))}
+          </div>
+
+          <div className='pp-bottom-section'>
+            <Button className='button primary'>
+            Apply</Button>
           </div>
         </div>
          : <Error404/>}
