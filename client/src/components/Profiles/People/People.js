@@ -52,7 +52,7 @@ const People = ({getPeople,
         <div className='people-grids'>
         {profiles.length > 0 ? (profiles.map(profile =>
           <>
-          {profile.profilename && profile.profileimage ?
+          {profile.profilename && profile.username ?
             <>
           <PeopleItem
             key={_id}
