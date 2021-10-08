@@ -29,7 +29,7 @@ const Project = ({project: {
 
   useEffect(() => {
     getProjectData();
-  })
+  }, [getProjectById])
 
   const projecticon = () => {
     if (project.projectreward === 'ETH') {

@@ -73,12 +73,18 @@
   height: fit-content;
 }
 
-.pi-projectbottom {
-  opacity: 0.5;
-}
-
 @media (max-width: 650px) {
   .projectitem-box {
+    height: fit-content;
+  }
 
+  .pi-projectskills {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-auto-rows: 2rem;
+    grid-gap: 1rem;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 14px;
   }
 }
