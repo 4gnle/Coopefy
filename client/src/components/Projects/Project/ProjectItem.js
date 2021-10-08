@@ -74,8 +74,7 @@ const ProjectItem = ({project, profile: {username}}) => {
                 width='21px'
                 height='21px'
               /> : null}
-              {' - '}
-        {projectlocation ? <span>{projectlocation}</span> : <span><i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
+        {projectlocation ? <span>{' - '}{projectlocation}</span> : <span><i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
         </h3></>)}
       </div>
       </Link>

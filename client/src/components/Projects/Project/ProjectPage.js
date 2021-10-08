@@ -77,10 +77,10 @@ const Project = ({project: {
                />{' '}{project.projectamount}{' '}{project.projectreward}</p></> : null}
            <>{' '}</>
             <>
-            {project.projectlocation ? <span>{project.projectlocation}</span> : <span><i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
+            {project.projectlocation ? <span><i class="fas fa-map-marker-alt"></i>{' '}{project.projectlocation}</span> : <span><i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
             </>
             <>
-            {project.projectduration && <span>{project.projectduration}</span>}
+            {project.projectduration && <span><i class="far fa-clock"></i>{' '}{project.projectduration}</span>}
             </>
           </div>
           <hr/>

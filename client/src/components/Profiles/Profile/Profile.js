@@ -46,13 +46,12 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [profileLoading, setProfileLoading] = useState(true);
 
   useEffect(() => {
-    cleanProfile();
     loadProfile();
     console.log(profile);
-
   }, [getProfileByUsername, match.params.username]);
 
   const loadProfile = async () => {
+    await cleanProfile();
     await getProfileByUsername(match.params.username);
     setProfileLoading(false);
   }
