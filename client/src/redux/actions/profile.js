@@ -38,7 +38,7 @@ export const getProfile = () => async dispatch => {
   }
 };
 
-export const cleanProfile = () = async dispatch => {
+export const cleanProfile = () => async dispatch => {
   dispatch({
     type: PROFILE_ERROR
   });

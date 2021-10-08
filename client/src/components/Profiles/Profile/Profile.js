@@ -187,4 +187,4 @@ const mapStateToProps = state => ({
   authenticate: state.authenticate
 })
 
-export default connect(mapStateToProps, {getProfileByUsername})(Profile)
+export default connect(mapStateToProps, {getProfileByUsername, cleanProfile})(Profile)
