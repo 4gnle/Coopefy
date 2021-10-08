@@ -6,6 +6,7 @@ import './Profile.css'
 import Spinner from '../../UI/Spinner'
 import Button from '../../UI/Button'
 import Error404 from '../../UI/Error404'
+import placeholder from '../../Utils/placeholder.png'
 
 //Redux and Router
 import {getProfileByUsername} from '../../../redux/actions/profile';
@@ -100,14 +101,15 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
         <Button onClick={goBack} className='button bad'>Back</Button>
         {isAuth && profile.user && user._id === profile.user._id && <Link to='/edit-profile'><Button className='button random'>Edit Profile</Button></Link>}
         </div>
+
       <div className='profile-main'>
         <div className='profile-picture'>
-        {profile && !imagePrev ? (<><div className='no-profile-image'>No picture<br/>
+        {profile && !imagePrev ? (<><img alt='Profile' src={placeholder}/><br/>
           {isAuth && user._id === profile.user._id && <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>}
-        </div></>) : null}
-            {profile && imagePrev ? <img alt='Profile' src={imagePrev}/> : null}
-          </div>
+        </>) : <><img alt='Profile' src={imagePrev}/></>}
+        </div>
+
           <div className='profile-top'>
           {profile && !profileInfo.profilename ? (<><div className='no-profile-name'>No profile name
             {isAuth && user._id === profile.user._id && <Link to='edit-profile'>

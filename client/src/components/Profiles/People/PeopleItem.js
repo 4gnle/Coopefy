@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 
+// UI & CSS
 import './PeopleItem.css'
+import placeholder from '../../Utils/placeholder.png'
 
 //UI
 import Button from '../../UI/Button'
@@ -35,19 +37,26 @@ const PeopleItem = ({
 
   return (
     <div className='pi-box'>
-      <div className='pi-top'>
+    <Link to={`/@${username}`}>
+        <div className='pi-top'>
         <h3 style={{margin: '5px'}}>{profilename}</h3>
-        <p>@{username}</p>
-      </div>
+          <p>@{username}</p>
+        </div>
 
-      <div className='pi-profile-picture'>
-        {imagePrev ? <img alt='Profile'  src={imagePrev}/> : null}
-      </div>
+        <div className='pi-profile-picture'>
+
+          {imagePrev ? <img alt='Profile'  src={imagePrev}/>: <img alt='Profile' src={placeholder}/>}
+
+          <div className='pi-status'>
+            <em>{status}</em>
+          </div>
+        </div>
+      </Link>
+
+
 
       <div className='pi-bottom'>
-        <div className='pi-status'>
-          <em>{status}</em>
-        </div>
+
 
         <>
         {skills.length > 0 && (

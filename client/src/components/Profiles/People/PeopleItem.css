@@ -14,6 +14,11 @@
   z-index: 1;
 }
 
+.pi-box > a {
+  text-decoration: none;
+  color: black;
+}
+
 .pi-profile-picture {
   width: 6rem;
   height: 6rem;
