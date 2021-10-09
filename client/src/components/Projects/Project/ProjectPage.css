@@ -68,7 +68,7 @@
   .project-box {
     position: absolute;
     box-shadow: 0 0 0 0;
-    width: 100%;
+    width: 96%;
     top: 10%;
     left: 0;
     right: 0;
@@ -83,5 +83,11 @@
     grid-gap: 1rem;
     width: 90%;
     padding: 2%;
+  }
+
+  .project-box > hr {
+    opacity: 0.25;
+    width: 105%;
+    margin-left: -0.5%
   }
 }
