@@ -40,12 +40,8 @@ const CreateProject = ({profile: {signedprofile, username}, setAlert, postProjec
 
   const {
     projectname,
-    projectwebsite,
     projectdescription,
     projectskills,
-    projectreward,
-    projectlocation,
-    projectduration
   } = formData;
 
   const [locationActive, setLocationActive] = useState(false)

@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
 // UI & CSS
 import './CreateProject.css'
 import Button from '../../UI/Button'
-import Spinner from '../../UI/Spinner'
 
 const BasicsSection = ({goToDetails, goBack, formData, onChange,
 history}) => {

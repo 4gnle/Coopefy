@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 // UI & CSS
 import './CreateProject.css'
@@ -72,7 +72,7 @@ const {
         <h4>Location:</h4>{' '}<p>{projectlocation}</p>
       </div>) : null}
       <br/>
-      {formData && projectduration || projectduration ? (<div className='cp-summary-sections'>
+      {formData && projectduration ? (<div className='cp-summary-sections'>
       <h4>Duration:</h4>{' '}<p>{projectduration}</p>
       </div>) : null}
 

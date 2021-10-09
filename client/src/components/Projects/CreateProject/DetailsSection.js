@@ -1,26 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 
 // UI & CSS
 import './CreateProject.css';
 import Button from '../../UI/Button'
-import Spinner from '../../UI/Spinner'
-import eth from '../../UI/crypto-icons/eth.svg'
-import btc from '../../UI/crypto-icons/btc.svg'
-import sol from '../../UI/crypto-icons/sol.svg'
-import bnb from '../../UI/crypto-icons/bnb.svg'
-import usdt from '../../UI/crypto-icons/usdt.svg'
-import usdc from '../../UI/crypto-icons/usdc.svg'
 
 //Components and Utils
 import ProjectSkills from './ProjectSkills'
 
-const stateSkills = {
-  projectskills: ''
-};
-
 const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, updateProjectSkills, setFormData, deleteSkills, addLocation, locationActive, addDuration, durationActive}) => {
-
-  const [nextPage1, setNextPage] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
 
@@ -100,12 +87,12 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
             onChange={e => onChange(e)}
             >
             <option value="" disabled selected hidden>Token</option>
-            <option data-content={eth} value="ETH">ETH</option>
-            <option data-content={sol} value="SOL">SOL</option>
-            <option data-content={btc} value="BTC">BTC</option>
+            <option value="ETH">ETH</option>
+            <option value="SOL">SOL</option>
+            <option value="BTC">BTC</option>
             <option value="DBUCKS">DBUCKS</option>
-            <option data-content={usdc} value="USDC">USDC</option>
-            <option data-content={usdt} value="USDT">USDT</option>
+            <option value="USDC">USDC</option>
+            <option value="USDT">USDT</option>
           </select>
 
           <input

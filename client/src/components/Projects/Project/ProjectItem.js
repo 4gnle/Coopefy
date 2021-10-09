@@ -23,10 +23,7 @@ const ProjectItem = ({project, profile: {username}}) => {
     projectdescription,
     projectskills,
     projectlocation,
-    projectwebsite,
     projectreward,
-    projectamount,
-    projectowner,
     _id
   } = project;
 

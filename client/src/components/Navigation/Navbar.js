@@ -14,7 +14,7 @@ const Navbar = ({ authenticate: {isAuth}, profile: {signedprofile, loading, user
   const [username1, setUsername1] = useState();
 
   useEffect(() => {
-    if (!signedprofile) getProfile();
+    getProfile();
 
     if (signedprofile && !loading && signedprofile.username) {
       setUsername1(signedprofile.username);
@@ -38,7 +38,7 @@ const Navbar = ({ authenticate: {isAuth}, profile: {signedprofile, loading, user
 
         <div className="auth-links">
 
-          <Link to={`/@${username1}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>
+          {signedprofile && username1 && <Link to={`/@${username1}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>}
 
           <Link to='/' className="sign" onClick={logUserOut}>
           <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>

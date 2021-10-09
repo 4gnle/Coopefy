@@ -72,7 +72,7 @@ const Project = ({project: {
           <div className='pp-details'>
           {project.projectreward && project.projectamount ?
               <>
-              <p><img src={projecticon()}
+              <p><img alt='coin icon' src={projecticon()}
                            width='21px'
                />{' '}{project.projectamount}{' '}{project.projectreward}</p></> : null}
            <>{' '}</>

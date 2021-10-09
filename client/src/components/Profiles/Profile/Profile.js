@@ -43,7 +43,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
   const [skillsData, setSkillsData] = useState(stateSkills);
-  const [profileLoading, setProfileLoading] = useState(true);
+  const [profileLoaded, setProfileLoaded] = useState(false);
 
   useEffect(() => {
     loadProfile();
@@ -53,7 +53,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   const loadProfile = async () => {
     await cleanProfile();
     await getProfileByUsername(match.params.username);
-    setProfileLoading(false);
+    setProfileLoaded(true);
   }
 
   useEffect(() => {
@@ -92,7 +92,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
   return (
     <>
-    {profileLoading ? (<Spinner/>) :
+    {!profileLoaded ? (<Spinner/>) :
       <>
       {!profile ? <Error404/> :
     <div className='profile-box'>
@@ -103,7 +103,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
 
       <div className='profile-main'>
         <div className='profile-picture'>
-          {profile && !imagePrev ? (<><img alt='Profile' src={placeholder}/><br/></>)
+          {profileLoaded && !imagePrev ? (<><img alt='Profile' src={placeholder}/><br/></>)
           : <><img alt='Profile' src={imagePrev}/></>}
           {profile.status ? (
             <div className='profile-location'><b><em>{profile.status}</em></b></div>

@@ -1,12 +1,8 @@
 import React, {useState, useEffect} from 'react'
 
-//Redux
-import {connect} from 'react-redux';
-
 //UI CSS
 import './ProjectSkills.css'
 import Button from '../../UI/Button'
-import Alert from '../../UI/Alert'
 
 //Components and Utils
 import {skillList} from '../../Utils/SkillList'

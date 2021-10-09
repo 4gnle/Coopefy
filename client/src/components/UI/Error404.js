@@ -9,8 +9,8 @@ const Error404 = () => {
     <div className='error-404'>
       <div className='error-text'>
         <h1>There's nothing here!</h1>
-      </div>    
-      <img src={errorimage}/>
+      </div>
+      <img alt='error 404' src={errorimage}/>
     </div>
   )
 }
