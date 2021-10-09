@@ -181,4 +181,8 @@ button:active:disabled {
     padding: 0.25rem 0.5rem;
   }
 
+  .show {
+    font-size: 12px;  
+  }
+
 }

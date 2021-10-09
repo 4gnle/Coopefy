@@ -85,6 +85,10 @@
     grid-gap: 1rem;
     width: 90%;
     margin-left: 5%;
-    font-size: 14px;
+    font-size: 10px;
+  }
+
+  .pi-projectskills > button > .show {
+    font-size: 10px !important;
   }
 }

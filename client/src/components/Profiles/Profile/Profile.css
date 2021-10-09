@@ -85,7 +85,7 @@
 
 .profile-links-icons {
   text-align: center;
-  font-size: 3vh;
+  font-size: 1.5rem;
   margin-left: 0px;
 }
 
@@ -291,7 +291,7 @@ font-size: 1.8rem;
   .profile-skills {
     position: absolute;
     width: 95%;
-    top: 350px;
+    top: 380px;
     margin-left: auto;
     margin-right: auto;
     float: none;
@@ -336,80 +336,10 @@ font-size: 1.8rem;
   }
 
   .profile-activity {
-    margin-top: 10px;
+    margin-top: 50px;
   }
 
   .profile-activity > h2 {
-    margin-top: -5vh;
+    margin-top: -2.5rem;
   }
-}
-
-@media (max-width: 380px) {
-  .profile-main {
-    height: 35vh;
-    margin-top: 100px;
-  }
-
-  .pb-top-buttons {
-    top: 13%;
-  }
-
-  .profile-top {
-    top: 19rem;
-    left: 7rem;
-    margin: auto;
-  }
-
-  .profile-top span {
-    bottom: 1.8rem;
-  }
-
-  .profile-top > p {
-    left: 12vw;
-    top: 3vh;
-  }
-
-  .profile-picture {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .profile-links {
-    position: absolute;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-left: 20px;
-    top: 390px;
-    float: none;
-  }
-
-  .profile-links-website {
-    font-size: 1rem;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .profile-skills {
-    position: absolute;
-    top: 475px;
-    width: 95%;
-    float: none;
-    grid-gap: 2.5vh;
-  }
-
-  .profile-skills p {
-    font-size: 0.8em;
-    text-align: center;
-  }
-
-  .profile-activity {
-    position: relative;
-    bottom: -16rem;
-   }
-
-  .profile-activity > h2 {
-    margin-top: -3rem;
-  }
-
 }

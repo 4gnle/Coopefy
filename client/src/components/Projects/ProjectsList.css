@@ -20,3 +20,10 @@
   grid-auto-rows: fit-content;
   grid-gap: 1rem;
 }
+
+@media (max-width: 650px) {
+  .projects-page {
+    position:absolute;
+    top: 10%;
+  }
+}
