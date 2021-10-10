@@ -63,6 +63,7 @@ const ProjectItem = ({project, profile: {username}}) => {
 
   return (
     <div className='projectitem-box'>
+      <hr/>
       <Link to={`/project/${_id}/${projectName}`}>
       <div className='pi-projectname'>
         {projectName &&

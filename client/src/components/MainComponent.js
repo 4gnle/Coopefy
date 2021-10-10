@@ -8,6 +8,7 @@ import {Provider} from 'react-redux';
 import store from '../redux/store/store'
 import authToken from '../redux/utilities/authToken'
 import {loadUser} from '../redux/actions/inputs'
+import {getProfile} from '../redux/actions/profile'
 
 //Components
 import Navbar from './Navigation/Navbar'
@@ -33,6 +34,7 @@ const MainComponent = () => {
 
   useEffect(() => {
     store.dispatch(loadUser());
+    getProfile();
   }, [])
 
   const context = useContext(AuthContextProvider);
