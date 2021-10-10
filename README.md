@@ -29,5 +29,6 @@ No manual intermediary, just code.
 
 ## **Incentives**
 If you're an indie creator, DAO member, entrepreneur, or hiring executive looking for talented people to collaborate on your project/company/ideas, you can find exactly that kind of collaborator here.
+
 If you're a talented person in search of an opportunity to collaborate and be rewarded for output, you can find exactly that kind of opportunity here.
 
