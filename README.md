@@ -27,7 +27,7 @@ Harnessing the power of tokenomics (decentralization and no constraints), we all
 Every reward goes through a smart contract that works as an arbitrator. Help-seekers can deposit the rewards safely on project creation, and collaborators can expect the reward to reach their wallet on successful delivery.
 No manual intermediary, just code. 
 
-##**Incentives**
+## **Incentives**
 If you're an indie creator, DAO member, entrepreneur, or hiring executive looking for talented people to collaborate on your project/company/ideas, you can find exactly that kind of collaborator here.
 If you're a talented person in search of an opportunity to collaborate and be rewarded for output, you can find exactly that kind of opportunity here.
 
