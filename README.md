@@ -17,7 +17,11 @@ Now, the internet allows anyone to connect with fellow dreamers from any part of
  
 # **How Does Coopefy Make it Happen?**
 
-Harnessing the power of tokenomics (decentralization and no constraints), we allow people to collaborate with each other by promoting better incentive alignment and safety. Those who need help can share their project's demands, offering a reward for a successful job. Those who want to help can apply their knowledge and skills on these projects in exchange for the reward. 
+Harnessing the power of tokenomics (decentralization and no constraints), we allow people to collaborate with each other by promoting better incentive alignment and safety in two ways:
+
+- Those who need help can share their project's demands, offering a reward for a successful job. 
+
+- Those who want to help can apply their knowledge and skills on these projects in exchange for the reward. 
 
 ## **Safety**
 Every reward goes through a smart contract that works as an arbitrator. Help-seekers can deposit the rewards safely on project creation, and collaborators can expect the reward to reach their wallet on successful delivery.
