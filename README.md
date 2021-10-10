@@ -19,13 +19,14 @@ Now, the internet allows anyone to connect with fellow dreamers from any part of
 
 Harnessing the power of tokenomics (decentralization and no constraints), we allow people to collaborate with each other by promoting better incentive alignment and safety in two ways:
 
-- Those who need help can share their project's demands, offering a reward for a successful job. 
+- Those who need help can share their project's demands, offering a reward for a successful job. Those who want to help can apply their knowledge and skills on these projects in exchange for the reward. 
 
-- Those who want to help can apply their knowledge and skills on these projects in exchange for the reward. 
+- A smart contract takes over the reward distribution, making sure the help-seeker can receive quality work for their money, and the collaborator receives the reward as long as their work meets the standards. 
 
 ## **Safety**
-Every reward goes through a smart contract that works as an arbitrator. Help-seekers can deposit the rewards safely on project creation, and collaborators can expect the reward to reach their wallet on successful delivery.
-No manual intermediary, just code. 
+Every reward goes through a smart contract that works as an arbitrator. Help-seekers can deposit the rewards safely on project creation, the arbitrating contract holds the reward as the project proceeds. Collaborators can expect the reward to reach their wallet on successful delivery.
+
+No intermediary, just code. 
 
 ## **Incentives**
 An indie creator, DAO member, entrepreneur, or hiring executive looking for talented people to collaborate on any project/company/ideas can find exactly that kind of collaborator here.
