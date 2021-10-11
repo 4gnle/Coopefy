@@ -1,6 +1,8 @@
 # Coopefy
 Website that allows people to collaborate building cool stuff on the internet 
 
+[Website](https://www.coopefy.com)
+
 
 # **What is DevDAO's Coopefy?** (name can be changed)
 The innovators who created the internet had a clear goal in mind: release the untapped potential of the world via collaboration regardless of geographical constraints, skin color, or academic background. As long as you had the talent and the willingness to pursue something of value alongside like-minded people, the internet could become the place to achieve your wildest dreams. 
@@ -32,4 +34,14 @@ No intermediary, just code.
 An indie creator, DAO member, entrepreneur, or individual looking for help can find exactly the kind of collaborator they need here.
 
 A talented person in search of an opportunity to collaborate, learn, teach and be rewarded for their output can find exactly that kind of opportunity here.
+
+# **The Nitty-Gritty**
+
+You should have a better idea of what Coopefy is or what it may become. With that in mind - let's explain what it still needs to achieve its full potential (these are the main ideas on which Coopefy was based but you can give your own):
+
+[ ] Application system - every project/job posted on the site needs to allow possible collaborators to apply. Each project creator should have in mind that only people with the specific skills selected can apply (that is, if the person looking for help needs a Solidity developer, collaborators without Solidity on their profile won't be able to apply).
+
+[ ] Better design - while the app is still in development without even a working MVP, it would be ideal to have designers or experienced UI/UX developers collaborating on the project. The landing page, for example, is still inexistent.
+
+
 
