@@ -218,10 +218,16 @@
   }
 
   .createprofile-top-inputs > label {
-    font-size: 2.5vw;
+    font-size: 0.7rem;
     float:left;
     margin-left: auto;
     margin-bottom: -8px;;
+  }
+
+  .createprofile-top-inputs-status > label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    float: left;
   }
 
   .createprofile-top-inputs {
@@ -232,7 +238,7 @@
   }
 
   .createprofile-top-inputs-name > input {
-    font-size: 2.5vw;
+    font-size: 0.7rem;
     box-sizing: border-box;
     padding: 5px;
     width: 100%;
@@ -242,7 +248,7 @@
     }
 
   .createprofile-top-inputs-status > select {
-    font-size: 2.5vw;
+    font-size: 0.7rem;
     padding: 5px;
     width: 100%;
     margin-left: auto;
@@ -255,7 +261,7 @@
   }
 
   .createprofile-bottom-inputs > label {
-    font-size: 2.5vw;
+    font-size: 0.7rem;
     font-weight: bold;
     float:left;
   }
@@ -289,8 +295,9 @@
 
 @media (max-width: 380px) {
   .createprofile-edit-box {
-    max-width: 70%;
+    max-width: 80%;
     box-shadow: 0px;
+    left: 0px;
   }
 
   .createprofile-top-inputs {

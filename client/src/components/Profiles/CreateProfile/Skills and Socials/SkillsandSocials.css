@@ -236,8 +236,8 @@
     max-width: 65%;
   }
 
-  .bottom-section .socials label {
-    font-size: 2.5vw;
+  .bottom-section .socials > label {
+    font-size: 0.8rem;
     margin-left: auto;
     margin-right: auto;  }
 
@@ -264,15 +264,13 @@
   }
 
   .bottom-section .skills {
-    margin-top: 55px;
-    margin-right: auto;
-    margin-left:auto;
+    margin-top: 4rem;
     float: none;
-    max-width: 80%;
+    max-width: 100%;
   }
 
-  .bottom-section .skills label {
-    font-size: 2.5vw;
+  .bottom-section .skills > label {
+    font-size: 0.8rem;
     margin-left: auto;
     margin-right: auto;
    }
@@ -285,7 +283,7 @@
     float: none;
   }
 
-  .skills-text p {
-    font-size: 2.5vw;
+  .skills-text > p {
+    font-size: 0.7rem;
   }
 }
