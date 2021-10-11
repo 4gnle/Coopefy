@@ -29,7 +29,7 @@ Every reward goes through a smart contract that works as an arbitrator. Help-see
 No intermediary, just code. 
 
 ## **Incentives**
-An indie creator, DAO member, entrepreneur, or hiring executive looking for talented people to collaborate on any project/company/ideas can find exactly that kind of collaborator here.
+An indie creator, DAO member, entrepreneur, or individual looking for help can find exactly the kind of collaborator they need here.
 
 A talented person in search of an opportunity to collaborate, learn, teach and be rewarded for their output can find exactly that kind of opportunity here.
 
