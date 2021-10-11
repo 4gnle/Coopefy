@@ -86,7 +86,6 @@ useEffect(() => {
        <label>Status</label>
           <select
           name='status'
-          className='m-1'
           onChange={e => onChange(e)}
           value={status}
           >

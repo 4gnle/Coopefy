@@ -56,9 +56,10 @@
 .skills-text {
   display: grid;
   grid-template-columns: repeat(2, 3fr);
-  grid-auto-rows: 1.5em;
-  margin-right: 50px;
+  grid-auto-rows: 2rem;
+  margin-right: 55px;
   margin-top: 5px;
+  width: 90%;
 }
 
 .skills-text p {
