@@ -119,7 +119,7 @@ const SkillsandSocials = ({profile: {loading, signedprofile, skills}, getProfile
           <div className='skills-text'>
           {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
             <>
-            <div key={index}>
+            <div className='skill-each' key={index}>
                 <p>{skill}</p>
             </div>
             </>

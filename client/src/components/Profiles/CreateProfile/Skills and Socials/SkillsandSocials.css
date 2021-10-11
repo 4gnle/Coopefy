@@ -157,8 +157,8 @@
     margin-top: 1px;
   }
 
-  .skills-text p {
-    font-size: 1.3vw;
+  .skills-text > p {
+    font-size: 1rem;
   }
 }
 
@@ -222,7 +222,7 @@
     margin-right: auto;
   }
 
-  .skills-text p {
+  .skills-text > p {
     font-size: 0.5rem;
   }
 }
@@ -242,15 +242,15 @@
     margin-right: auto;  }
 
   .social-icons {
-    grid-auto-rows: 7vw;
+    grid-auto-rows: 1.5rem;
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
   }
 
-  .social-icons i {
-    font-size: 6vw;
+  .social-icons > i {
+    font-size: 3rem;
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -277,7 +277,7 @@
 
   .skills-text {
     max-width: 65%;
-    grid-auto-rows: 6vw;
+    grid-auto-rows: 1.5rem;
     margin-left: auto;
     margin-right: auto;
     float: none;
