@@ -164,14 +164,14 @@
 
 @media (max-width: 650px) {
   .bottom-section .socials {
-    margin-top: 5px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     float:none;
   }
 
-  .bottom-section .socials label {
-    font-size: 2vw;
+  .bottom-section .socials > label {
+    font-size: 0.8rem;
     margin-left: auto;
     margin-right: auto;  }
 
@@ -209,19 +209,21 @@
     float:none;
   }
 
-  .bottom-section .skills label {
-    font-size: 2vw;
+  .bottom-section .skills > label {
+    font-size: 0.8rem;
     margin-left: auto;
     margin-right: auto;  }
 
   .skills-text {
-    grid-auto-rows: 6vw;
+    grid-auto-rows: 10px;
+    grid-gap: 5px;
+    width: max-content;
     margin-left: auto;
     margin-right: auto;
   }
 
   .skills-text p {
-    font-size: 2vw;
+    font-size: 0.5rem;
   }
 }
 

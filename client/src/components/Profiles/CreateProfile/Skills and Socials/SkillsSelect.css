@@ -312,21 +312,23 @@
     left: 10%;
   }
 
-  .select-skills p {
+  .select-skills > p {
     padding: 10px;
     font-size: 20px;
   }
 
   .skills-window {
+    position: relative;
     max-width: 80%;
+    top: 20%;
   }
 
-  .skills-window header {
+  .skills-window > header {
    padding: 1rem;
    font-size: 15px;
   }
 
-  .skills-window button {
+  .skills-window > button {
     margin: 10px;
     font-size: 15px;
     padding: 1rem 2rem;
