@@ -16,9 +16,13 @@ import usdc from '../../UI/crypto-icons/usdc.svg'
 import {getProjectById} from '../../../redux/actions/project';
 import {connect} from 'react-redux';
 
-const Project = ({project: {
+const Project = ({
+  project: {
   project,
-  loading}, match, getProjectById}) => {
+  loading},
+  match,
+  history,
+  getProjectById}) => {
 
   const [loadProject, setLoadProject] = useState(false);
 
@@ -57,6 +61,10 @@ const Project = ({project: {
     }
   }
 
+  const goBack = () => {
+    history.goBack();
+  }
+
   return (
     <div>
       {!loadProject ? <Spinner/> :
@@ -64,7 +72,11 @@ const Project = ({project: {
         {project ?
 
         <div className='project-box'>
-
+        <Button
+        className='button bad'
+        onClick={goBack}
+        >
+        Go Back</Button>
           <div className='pp-title'>
             <h2>{project.projectname}</h2>
           </div>
@@ -99,6 +111,7 @@ const Project = ({project: {
           </div>
 
           <div className='pp-bottom-section'>
+
             <Button className='button primary'>
             Apply</Button>
           </div>

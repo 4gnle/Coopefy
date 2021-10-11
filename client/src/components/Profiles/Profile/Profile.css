@@ -343,3 +343,9 @@ font-size: 1.8rem;
     margin-top: -2.5rem;
   }
 }
+
+@media (max-width: 380px) {
+  .profile-activity {
+    margin-top: 100px;
+  }
+}

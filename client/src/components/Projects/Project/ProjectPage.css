@@ -62,6 +62,7 @@
 .pp-bottom-section > button {
   width: 5rem;
   height: 3rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 650px) {
