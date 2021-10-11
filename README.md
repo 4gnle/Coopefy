@@ -19,7 +19,7 @@ Now, the internet allows anyone to connect with fellow dreamers from any part of
  
  DevDAO's Coopefy makes it possible to change that - allowing people from anywhere to collaborate on anything as long as incentives align.  
  
-# **How Does Coopefy Make it Happen?**
+# **How Does Coopefy Make it Happen?** (this may all pivot eventually)
 
 Harnessing the power of tokenomics (decentralization and no constraints), we allow people to collaborate with each other in two ways:
 
