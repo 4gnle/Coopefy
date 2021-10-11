@@ -2,11 +2,11 @@
 
 ## **What is this repo?**
 
-This is the code for the DevDAO job board [Website](https://www.coopefy.com) (still to be named)
+This is the code for the job board [Website](https://www.coopefy.com) (name could be changed later)
 
 It allows people to collaborate building cool stuff on the internet 
 
-# **What is DevDAO's Coopefy?** (name can be changed)
+# **What is Coopefy?** 
 The innovators who created the internet had a clear goal in mind: release the untapped potential of the world via collaboration regardless of geographical constraints, skin color, or academic background. As long as you had the talent and the willingness to pursue something of value alongside like-minded people, the internet could become the place to achieve your wildest dreams. 
 
 The goal was achieved over time, but partially. 
