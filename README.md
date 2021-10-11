@@ -39,9 +39,9 @@ A talented person in search of an opportunity to collaborate, learn, teach and b
 
 You should have a better idea of what Coopefy is or what it may become. With that in mind - let's explain what it still needs to achieve its full potential (these are the main ideas on which Coopefy was based but you can give your own):
 
- [] Application system - every project/job posted on the site needs to allow possible collaborators to apply. Each project creator should have in mind that only people with the specific skills selected can apply (that is, if the person looking for help needs a Solidity developer, collaborators without Solidity on their profile won't be able to apply).
+ [ ] Application system - every project/job posted on the site needs to allow possible collaborators to apply. Each project creator should have in mind that only people with the specific skills selected can apply (that is, if the person looking for help needs a Solidity developer, collaborators without Solidity on their profile won't be able to apply).
 
- [] Better design - while the app is still in development without even a working MVP, it would be ideal to have designers or experienced UI/UX developers collaborating on the project. The landing page, for example, is still inexistent.
+ [ ] Better design - while the app is still in development without even a working MVP, it would be ideal to have designers or experienced UI/UX developers collaborating on the project. The landing page, for example, is still inexistent.
 
 
 
