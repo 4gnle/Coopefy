@@ -76,7 +76,7 @@
   width: 89%;
   height: 50px;
   font-size: 1rem;
-  font-family: 'Nunito';
+  font-family: 'Inter';
   padding: 5px;
 }
 
@@ -87,7 +87,7 @@
   height: 63px;
   padding: 5px;
   margin-right: 5px;
-  font-family: 'Nunito';
+  font-family: 'Inter';
 }
 
 .cp-input-checkbox > input {
@@ -111,7 +111,7 @@
   box-sizing: border-box;
   width: 90%;
   height: 8rem;
-  font: 1rem 'Nunito';
+  font: 1rem 'Inter';
   padding: 5px;
  }
 

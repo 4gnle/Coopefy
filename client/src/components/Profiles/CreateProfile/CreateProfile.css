@@ -35,8 +35,8 @@
   width: 100%;
   height: 25%;
   font-size: 1vw;
-  font-family: 'Nunito';
-  font: 1vw 'Nunito';
+  font-family: 'Inter';
+  font: 1vw 'Inter';
   padding: 5px;
   float: left;
 }
@@ -49,8 +49,8 @@
   width: 100%;
   height: 25%;
   font-size: 1vw;
-  font-family: 'Nunito';
-  font: 1vw 'Nunito';
+  font-family: 'Inter';
+  font: 1vw 'Inter';
   padding: 5px;
 }
 
@@ -78,8 +78,8 @@
   height: 25%;
   left: 350px;
   font-size: 1vw;
-  font-family: 'Nunito';
-  font: 1vw 'Nunito';
+  font-family: 'Inter';
+  font: 1vw 'Inter';
   padding: 5px;
 }
 
@@ -92,7 +92,7 @@
   box-sizing: border-box;
   width: 100%;
   left: 350px;
-  font: 1vw 'Nunito';
+  font: 1vw 'Inter';
   padding: 5px;
 }
 

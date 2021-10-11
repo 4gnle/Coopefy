@@ -1,7 +1,7 @@
 html,
 body {
 height: 100%;
-font-family: 'Nunito', 'FontAwesome', sans-serif;
+font-family: 'Inter', 'FontAwesome', sans-serif;
 background-color: #FFFCFC;
 }
 
@@ -44,58 +44,95 @@ right:0;
 }
 
 /* Padding */
-.p {
+.pad {
   padding: 0.5rem;
 }
-.p-1 {
+.pad-1 {
   padding: 1rem;
 }
-.p-2 {
+.pad-2 {
   padding: 2rem;
 }
-.p-3 {
+.pad-3 {
   padding: 3rem;
 }
-.py {
+.paddy {
   padding: 0.5rem 0;
 }
-.py-1 {
+.paddy-1 {
   padding: 1rem 0;
 }
-.py-2 {
+.paddy-2 {
   padding: 2rem 0;
 }
-.py-3 {
+.paddy-3 {
   padding: 3rem 0;
 }
 
 /* Margin */
-.m {
+.marg {
   margin: 0.5rem;
 }
-.m-1 {
+.marg-1 {
   margin: 1rem;
 }
-.m-2 {
+.marg-2 {
   margin: 2rem;
 }
-.m-3 {
+.marg-3 {
   margin: 3rem;
 }
-.my {
+.margy {
   margin: 0.5rem 0;
 }
-.my-1 {
+.margy-1 {
   margin: 1rem 0;
 }
-.my-2 {
+.margy-2 {
   margin: 2rem 0;
 }
-.my-3 {
+.margy-3 {
   margin: 3rem 0;
 }
 
-/* ICons */
+/* Radii */
+.rad-none {
+  border-radius: 0rem;
+}
+
+.rad-sm {
+  border-radius: 0.125rem;
+}
+
+.rad-base {
+  border-radius: 0.25rem;
+}
+
+.rad-md {
+  border-radius: 0.375rem;
+}
+
+.rad-lg {
+  border-radius: 0.5rem;
+}
+
+.rad-xl {
+  border-radius: 0.75rem;
+}
+
+.rad-2xl {
+  border-radius: 1rem;
+}
+
+.rad-3xl {
+  border-radius: 1.5rem;
+}
+
+.rad-full {
+  border-radius: 9999px;
+}
+
+/* Icons */
 i.fa-instagram-square {
   color: transparent;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -134,22 +171,6 @@ i.fa-facebook-square {
   body,
   html {
     height: 80%;
-  }
-
-  .container {
-    margin-top: 8rem;
-  }
-
-  .hide-sm {
-    display: none;
-  }
-
-  .lower-sm {
-    font-size: 0.75rem;
-  }
-
-  .icon-sm {
-    font-size: 1rem;
   }
 
   /* Text Styles */
