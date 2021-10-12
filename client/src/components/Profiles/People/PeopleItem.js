@@ -28,10 +28,7 @@ const PeopleItem = ({
   useEffect(()=> {
     if (!loading && profileimage) {
       const fileContents = new Buffer(profileimage, 'base64');
-
-      let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
-
-      setImagePrev(image1);
+      setImagePrev(fileContents);
     }
   }, [profileimage, username, loading])
 

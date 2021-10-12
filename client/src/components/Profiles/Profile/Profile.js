@@ -69,8 +69,8 @@ const Profile = ({
   useEffect(() => {
 
     if (profile && !loading && profile.profileimage) {
-      let image1 = URL.createObjectURL(new Blob([profile.profileimage]), {type: 'image/jpeg'});
-      setImagePrev(image1);
+      const fileContents = new Buffer(profile.profileimage, 'base64');
+      setImagePrev(fileContents);
     }
 
     if (!loading && profile) {
