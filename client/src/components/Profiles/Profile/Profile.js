@@ -57,7 +57,6 @@ const Profile = ({
 
   useEffect(() => {
     loadProfile();
-    console.log(profile);
   }, [getProfileByUsername, match.params.username]);
 
   const loadProfile = async () => {
@@ -96,7 +95,7 @@ const Profile = ({
   }, [profile, loading, username, profileimage]);
 
   const goBack = () =>{
-    console.log(imagePrev)
+    history.goBack();
   }
 
   return (

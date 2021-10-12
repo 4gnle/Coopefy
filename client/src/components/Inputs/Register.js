@@ -45,8 +45,6 @@ const Register = ({history, registerUser, setAlert }) => {
       checkValidity();
     }
   }, [500])
-
-  console.log('Testing useEffect')
 }, [password, password2]);
 
   const checkValidity = () => {

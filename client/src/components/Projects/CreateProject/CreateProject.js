@@ -22,9 +22,6 @@ const CreateProject = ({profile: {signedprofile, username}, setAlert, postProjec
     if (!signedprofile) {
       getProfile()
     }
-    if (signedprofile) {
-      console.log(signedprofile.username);
-    }
   }, [signedprofile, getProfile])
 
   //Data States
@@ -57,21 +54,18 @@ const CreateProject = ({profile: {signedprofile, username}, setAlert, postProjec
 
   const goToBasics = () => {
     setBasicsPage(true);
-    console.log(formData);
     setDetailsPage(false);
     setSummaryPage(false);
   }
 
   const goToDetails = () => {
     setDetailsPage(true);
-    console.log(formData);
     setBasicsPage(false);
     setSummaryPage(false);
   }
 
   const goToSummary = () => {
     setSummaryPage(true);
-    console.log(formData);
     setDetailsPage(false);
   }
 
@@ -89,7 +83,6 @@ const CreateProject = ({profile: {signedprofile, username}, setAlert, postProjec
   const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
   const updateProjectSkills = (e) => {
-    console.log(e);
     setFormData({...formData, projectskills: e})
   }
 

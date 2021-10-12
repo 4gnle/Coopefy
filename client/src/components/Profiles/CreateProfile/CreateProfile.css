@@ -146,12 +146,12 @@
     font-size: 1.2vw;
     padding: 5px;
     margin-bottom: 5px;
-    height: 25%;
+    height: 30%;
   }
 
   .createprofile-buttons {
     position: static;
-    margin-top: 22%;
+    margin-top: 25%;
   }
 }
 

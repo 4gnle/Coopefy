@@ -14,7 +14,6 @@ history}) => {
   } = formData;
 
   const nextPage = async () => {
-    await console.log(formData);
     goToDetails();
   }
 

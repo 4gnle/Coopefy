@@ -11,34 +11,27 @@ import SkillsSelect from './SkillsSelect'
 import Button from '../../../UI/Button'
 
 // Router and Redux
-// import {Link} from 'react-router'
 import {getProfile} from '../../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
-const stateLinks = {
-  twitter: '',
-  dribbble: '',
-  behance: '',
-  producthunt: '',
-  instagram: '',
-  linkedin: '',
-  facebook: '',
-  github: ''
-};
-
-const stateSkills = {
-  skills: ''
-};
-
-const SkillsandSocials = ({profile: {loading, signedprofile, skills}, getProfile}) => {
+const SkillsandSocials = (
+  {profile: {
+  loading,
+  signedprofile,
+  skills},
+  getProfile,
+  skillsData,
+  setSkills,
+  stateSkills,
+  setLinks,
+  stateLinks,
+  linksData
+  }) => {
 
   const [changeLinks, setChangeLinks] = useState(false);
 
   const [changeSkills, setChangeSkills] = useState(false);
-
-  const [socialLinks, setSocialLinks] = useState(stateLinks);
-  const [skillsData, setSkillsData] = useState(stateSkills);
 
   useEffect(() => {
      if (!signedprofile) getProfile();
@@ -48,16 +41,14 @@ const SkillsandSocials = ({profile: {loading, signedprofile, skills}, getProfile
        for (const key in signedprofile.sociallinks) {
          if (key in profileLinks) profileLinks[key] = signedprofile.sociallinks[key];
        }
-       setSocialLinks(profileLinks);
+       setLinks(profileLinks);
 
        const profileSkills = {...stateSkills};
        for (const key in signedprofile) {
          if (key in profileSkills) profileSkills[key] = signedprofile[key];
        }
-       setSkillsData(profileSkills)
+       setSkills(profileSkills);
      }
-
-     console.log(skillsData);
    }, [loading, getProfile, signedprofile]);
 
   const selectLinks = () => {
@@ -72,37 +63,52 @@ const SkillsandSocials = ({profile: {loading, signedprofile, skills}, getProfile
     setChangeSkills(true);
   }
 
-  const unSelectSkills = () => {
+  const unSelectSkills = (e) => {
+    e.preventDefault()
     setChangeSkills(false);
+  }
+
+  const settingSkills = (data) => {
+    setSkills(data);
+  }
+
+  const settingLinks = (data) => {
+    setLinks(data);
   }
 
   return (
     <div className="bottom-section">
       <div className='socials'>
 
-        <label>Social Links{' '}      <Button
-          className='small'
+        <label>Social Links{' '}
+        <Button
+          className='button small'
           onClick={selectLinks}
         >Edit+</Button></label>
 
-        {changeLinks && <LinksSelect unSelectLinks={unSelectLinks}/>}
+        {changeLinks && <LinksSelect
+          unSelectLinks={unSelectLinks}
+          settingLinks={settingLinks}
+          linksData={linksData}
+          stateLinks={stateLinks}
+          />}
 
         <div className='social-icons'>
-          {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
+          {linksData.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${linksData.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
 
-          {socialLinks.github && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.github.com/${socialLinks.github}`}}><i style={{color: 'black'}} className="fab fa-github-square"></i></Link>}
+          {linksData.github && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.github.com/${linksData.github}`}}><i style={{color: 'black'}} className="fab fa-github-square"></i></Link>}
 
-          {socialLinks.twitter && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.twitter.com/${socialLinks.twitter}`}}><i className="fab fa-twitter-square"></i></Link>}
+          {linksData.twitter && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.twitter.com/${linksData.twitter}`}}><i className="fab fa-twitter-square"></i></Link>}
 
-          {socialLinks.instagram && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.instagram.com/${socialLinks.instagram}`}}><i className="fab fa-instagram-square"></i></Link>}
+          {linksData.instagram && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.instagram.com/${linksData.instagram}`}}><i className="fab fa-instagram-square"></i></Link>}
 
-          {socialLinks.behance && <Link target="_blank" rel="noopener noreferrer" style={{color: 'black'}} to={ {pathname: `https://www.behance.net/${socialLinks.behance}`}}><i className="fab fa-behance-square"></i></Link>}
+          {linksData.behance && <Link target="_blank" rel="noopener noreferrer" style={{color: 'black'}} to={ {pathname: `https://www.behance.net/${linksData.behance}`}}><i className="fab fa-behance-square"></i></Link>}
 
-          {socialLinks.dribbble && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.dribbble.com/${socialLinks.dribbble}`}}><i className="fab fa-dribbble-square"></i></Link>}
+          {linksData.dribbble && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.dribbble.com/${linksData.dribbble}`}}><i className="fab fa-dribbble-square"></i></Link>}
 
-          {socialLinks.linkedin && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.linkedin.com/${socialLinks.linkedin}`}}><i className="fab fa-linkedin-square"></i></Link>}
+          {linksData.linkedin && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.linkedin.com/${linksData.linkedin}`}}><i className="fab fa-linkedin-square"></i></Link>}
 
-          {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
+          {linksData.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${linksData.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
 
         </div>
       </div>
@@ -111,10 +117,14 @@ const SkillsandSocials = ({profile: {loading, signedprofile, skills}, getProfile
           <label>Skills{' '}
           <Button
             onClick={selectSkills}
-            className='small'
+            className='button small'
           >Edit+</Button></label>
 
-          {changeSkills && <SkillsSelect skillsData={skillsData} unSelectSkills={unSelectSkills}/>}
+          {changeSkills && <SkillsSelect
+            skillsData={skillsData}
+            unSelectSkills={unSelectSkills}
+            settingSkills={settingSkills}
+            />}
 
           <div className='skills-text'>
           {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (

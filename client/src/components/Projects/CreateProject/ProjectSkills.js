@@ -7,7 +7,11 @@ import Button from '../../UI/Button'
 //Components and Utils
 import {skillList} from '../../Utils/SkillList'
 
-const ProjectSkills = ({formData, unSelectSkills, addProjectSkills}) => {
+const ProjectSkills = ({
+  formData,
+  unSelectSkills,
+  addProjectSkills
+}) => {
 
     const [searchSkills, setSearchSkills] = useState('');
     const [selectedSkills, setSelectedSkills] = useState([]);
@@ -16,7 +20,6 @@ const ProjectSkills = ({formData, unSelectSkills, addProjectSkills}) => {
     // Receives the skills from state and adds them to the front-end
     useEffect(() => {
         if (formData.projectskills) {
-          console.log(formData)
           formData.projectskills.forEach(skill => {
             const e = skill
             selectSkill(e);
@@ -28,7 +31,6 @@ const ProjectSkills = ({formData, unSelectSkills, addProjectSkills}) => {
 
     const addSkills = (event) => {
       event.preventDefault()
-      console.log(selectedSkills);
       addProjectSkills(selectedSkills);
       unSelectSkills();
     }
@@ -45,7 +47,6 @@ const ProjectSkills = ({formData, unSelectSkills, addProjectSkills}) => {
       }
     )
       setSkillConfirm(true);
-      console.log(selectedSkills);
     }
 
   // Deletes the skills in the Selected Skill section on click
@@ -55,10 +56,6 @@ const ProjectSkills = ({formData, unSelectSkills, addProjectSkills}) => {
       return updatedSkills;
     })
   };
-
-  useEffect(() => {
-    console.log(formData)
-  }, [formData])
 
     return (
     <div>

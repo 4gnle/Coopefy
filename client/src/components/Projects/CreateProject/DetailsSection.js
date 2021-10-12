@@ -30,7 +30,6 @@ const DetailsSection = ({goToBasics, goToSummary, formData, onChange, setAlert, 
   }
 
   const nextPage = async () => {
-    await console.log(formData);
     goToSummary();
   }
 

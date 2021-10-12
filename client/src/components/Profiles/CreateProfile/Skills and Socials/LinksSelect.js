@@ -5,34 +5,30 @@ import './LinksSelect.css'
 import Button from '../../../UI/Button'
 
 //Redux
-import {profileLinks, getProfile} from '../../../../redux/actions/profile';
+import {getProfile} from '../../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
-const initialState = {
-  twitter: '',
-  dribbble: '',
-  behance: '',
-  producthunt: '',
-  instagram: '',
-  linkedin: '',
-  facebook: '',
-  github: ''
-};
+const LinksSelect = ({
+  profile: {signedprofile, loading},
+  getProfile,
+  unSelectLinks,
+  selectedLinks,
+  stateLinks,
+  settingLinks
+  }) => {
 
-const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unSelectLinks, selectedLinks}) => {
-
-  const [formData, setFormData] = useState(initialState);
+  const [formData, setFormData] = useState(stateLinks);
 
   useEffect(() => {
-     if (!profile) getProfile();
-     if (!loading && profile) {
-       const profileData = { ...initialState };
-       for (const key in profile.sociallinks) {
-         if (key in profileData) profileData[key] = profile.sociallinks[key];
+     if (!signedprofile) getProfile();
+     if (!loading && signedprofile) {
+       const profileData = { ...stateLinks };
+       for (const key in signedprofile.sociallinks) {
+         if (key in profileData) profileData[key] = signedprofile.sociallinks[key];
        }
        setFormData(profileData);
      }
-   }, [loading, getProfile, profile]);
+   }, [loading, getProfile, signedprofile]);
 
   const {
   github,
@@ -49,7 +45,8 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
 
   const onSubmit = (e) => {
     e.preventDefault();
-    profileLinks(formData);
+    settingLinks(formData);
+    unSelectLinks();
   }
 
   return (
@@ -95,17 +92,17 @@ const LinksSelect = ({profile: {profile, loading}, getProfile, profileLinks, unS
             <input name='linkedin' value={linkedin} onChange={e => onChange(e)}></input>
 
             <div className='links-buttons'>
-              <Button
-                className='primary'
-                onClick={e => onSubmit(e)}
-                >
-                Update
-              </Button>
-              <Button
-                className='bad'
-                onClick={unSelectLinks}>
-                Cancel
-              </Button>
+            <Button
+              className='button bad'
+              onClick={unSelectLinks}>
+              Cancel
+            </Button>
+            <Button
+              className='button primary'
+              onClick={e => onSubmit(e)}
+              >
+              Update
+            </Button>
             </div>
           </form>
         </div>
@@ -117,4 +114,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {getProfile, profileLinks})(LinksSelect)
+export default connect(mapStateToProps, {getProfile})(LinksSelect)

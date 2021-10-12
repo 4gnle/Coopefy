@@ -7,7 +7,7 @@ import SkillsandSocials from './Skills and Socials/SkillsandSocials'
 import Error404 from '../../UI/Error404'
 
 //Redux
-import {profileData, getProfile} from '../../../redux/actions/profile';
+import {profileData, getProfile, setProfileSkills, profileLinks} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -24,13 +24,34 @@ const initialState = {
   website: ''
 };
 
+const stateSkills = {
+  skills: ''
+};
+
+const stateLinks = {
+  twitter: '',
+  dribbble: '',
+  behance: '',
+  producthunt: '',
+  instagram: '',
+  linkedin: '',
+  facebook: '',
+  github: ''
+};
+
 const CreateProfile = ({  profile: {signedprofile, loading},
 getProfile,
 profileData,
 history,
+setProfileSkills,
+profileLinks,
 authenticate: {isAuth}}) => {
 
 const [formData, setFormData] = useState(initialState);
+
+const [skillsData, setSkillsData] = useState(stateSkills);
+const [linksData, setLinksData] = useState(stateLinks);
+
 
 useEffect(() => {
    if (!signedprofile) getProfile();
@@ -53,8 +74,18 @@ useEffect(() => {
 
   const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
 
-  const onSubmit = (e) => {
+  const setSkills = (skills) => {
+    setSkillsData(skills);
+  }
+
+  const setLinks = (links) => {
+    setLinksData(links)
+  }
+
+  const onSubmit = async (e) => {
     e.preventDefault();
+    await setProfileSkills(skillsData)
+    await profileLinks(linksData);
     profileData(formData);
   }
 
@@ -134,7 +165,14 @@ useEffect(() => {
           </input>
         </div>
         <div className='createprofile-skillsandsocials'>
-          <SkillsandSocials />
+          <SkillsandSocials
+          skillsData={skillsData}
+          stateSkills={stateSkills}
+          setSkills={setSkills}
+          linksData={linksData}
+          stateLinks={stateLinks}
+          setLinks={setLinks}
+          />
         </div>
         <div className='createprofile-buttons'>
           <Button
@@ -163,4 +201,4 @@ const mapStateToProps = state => ({
   authenticate: state.authenticate
 })
 
-export default connect(mapStateToProps, {getProfile, profileData})(CreateProfile)
+export default connect(mapStateToProps, {getProfile, profileData, setProfileSkills, profileLinks})(CreateProfile)

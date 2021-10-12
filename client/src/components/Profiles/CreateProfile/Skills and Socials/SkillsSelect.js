@@ -2,7 +2,6 @@ import React , {useState, useEffect} from 'react'
 import {skillList} from '../../../Utils/SkillList'
 
 //Redux
-import {setProfileSkills} from '../../../../redux/actions/profile';
 import {connect} from 'react-redux';
 
 //UI CSS
@@ -12,7 +11,12 @@ import './SkillsSelect.css'
 import Button from '../../../UI/Button'
 // import Alert from '../../UI/Alert'
 
-const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSkills, skillsData}) => {
+const SkillsSelect = ({
+profile: {skills, loading},
+unSelectSkills,
+skillsData,
+settingSkills
+}) => {
 
   const [searchSkills, setSearchSkills] = useState('');
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -55,9 +59,8 @@ const SkillsSelect = ({profile: {skills, loading}, setProfileSkills, unSelectSki
 
   const addSKills = async (event) => {
     event.preventDefault()
-    console.log(selectedSkills);
-    await setProfileSkills(formData)
-    unSelectSkills();
+    settingSkills(formData);
+    unSelectSkills(event);
   }
 
 // Adds the selected skills to the Selected Skills section
@@ -140,17 +143,17 @@ const deleteSkills = (e) => {
         ) : null}
 
         <div className='skills-buttons'>
-          <Button
-            className='primary'
-            onClick={addSKills}>
-            Add Skills
-          </Button>
-          <Button
-            className='bad'
-            onClick={unSelectSkills}
-          >
-            Cancel
-          </Button>
+        <Button
+          className='button bad'
+          onClick={unSelectSkills}
+        >
+          Cancel
+        </Button>
+        <Button
+          className='button primary'
+          onClick={addSKills}>
+          Add Skills
+        </Button>
         </div>
       </div>
     </div>
@@ -162,4 +165,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {setProfileSkills})(SkillsSelect)
+export default connect(mapStateToProps)(SkillsSelect)

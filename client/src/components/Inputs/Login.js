@@ -42,7 +42,6 @@ useEffect(() => {
     if (password.trim().length >= 8) {
       checkValidity();
     }
-    console.log('Testing useEffect')
   }, [50])
 }, [password])
 

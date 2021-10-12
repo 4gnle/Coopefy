@@ -22,9 +22,8 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
   useEffect(() => {
     if (!signedprofile && !imagePrev) getProfile();
     if (!loading && signedprofile.profileimage) {
-      const fileContents = new Buffer(signedprofile.profileimage, 'base64');
-      let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
-      setImagePrev(image1);
+      const imageBuffer = new Buffer(signedprofile.profileimage, 'base64');
+      setImagePrev(imageBuffer);
     }
     // eslint-disable-next-line
   }, [loading, profileimage]);
