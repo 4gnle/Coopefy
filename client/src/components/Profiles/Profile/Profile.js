@@ -38,7 +38,17 @@ const profileInfo = {
   website: ''
 };
 
-const Profile = ({profile: {profile, loading, profileimage, bio, skills, username, website, sociallinks, location}, authenticate: {isAuth, user}, getProfileByUsername, cleanProfile, match, history}) => {
+const Profile = ({
+  profile:
+  {profile, loading, profileimage,
+  bio, skills, username, website,
+  sociallinks, location},
+  authenticate:
+  {isAuth, user},
+  getProfileByUsername,
+  cleanProfile,
+  match,
+  history}) => {
 
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
@@ -59,8 +69,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   useEffect(() => {
 
     if (profile && !loading && profile.profileimage) {
-      const fileContents = new Buffer(profile.profileimage, 'base64');
-      let image1 = URL.createObjectURL(new Blob([fileContents]), {type: 'image/jpeg'});
+      let image1 = URL.createObjectURL(new Blob([profile.profileimage]), {type: 'image/jpeg'});
       setImagePrev(image1);
     }
 
@@ -87,7 +96,7 @@ const Profile = ({profile: {profile, loading, profileimage, bio, skills, usernam
   }, [profile, loading, username, profileimage]);
 
   const goBack = () =>{
-    history.goBack();
+    console.log(imagePrev)
   }
 
   return (

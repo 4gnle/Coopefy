@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const imageUpload = require('../../middleware/upload-image');
+const fleekStorage = require('@fleekhq/fleek-storage-js');
 const {check, validationResult} = require('express-validator')
 const normalize = require('normalize-url');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const Profile = require('../../models/Profile');
 
@@ -309,9 +312,21 @@ module.exports = router;
 
     try {
 
+      const uploadedFile = await fleekStorage.upload({
+      apiKey: process.env.API_KEY,
+      apiSecret: process.env.API_SECRET,
+      key: req.user.id,
+      data: req.file.buffer,
+      httpUploadProgressCallback: (event) => {
+        console.log(Math.round(event.loaded/event.total*100)+ '% done');
+      }
+    });
+
+      console.log(uploadedFile.publicUrl);
+
       let profile = await Profile.findOneAndUpdate(
         { user: req.user.id },
-        { profileimage: req.file.buffer })
+        { profileimage: uploadedFile.publicUrl })
 
       res.send(profile.profileimage);
 
