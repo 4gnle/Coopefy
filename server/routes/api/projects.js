@@ -158,14 +158,6 @@ router.post('/apply', auth,
        .json({errors: errors.array() });
    }
 
-  try {
-
-    const {
-    applicantname,
-    application,
-    applicationdate
-   } = req.body;
-
    try {
      const user = await User.findById(req.user.id).select('-password');
 
