@@ -129,11 +129,11 @@ router.post('/', auth,
 module.exports = router;
 
 
-// @router Post api/projects/apply
+// @router Post api/projects/:id/apply
 // @desc Application to Project
 // @access Private
 
-router.post('/apply', auth,
+router.post('/:id/apply', auth,
 [
   check('applicantname', 'Name is required')
     .not()
@@ -161,10 +161,10 @@ router.post('/apply', auth,
    try {
      const user = await User.findById(req.user.id).select('-password');
 
-     const project = await Project.findById(req.params.id);
+     const project = await Projects.findById(req.params.id);
 
      //Check if User Already Sent an Application
-     if(project.applications.filter(application => application.user.toString() === req.user.id).length > 0) {
+     if(project.applications.filter(application => application.applicantid.toString() === req.user.id).length > 0) {
 
        return res.status(400).json({msg: 'You already sent an application'});
      }

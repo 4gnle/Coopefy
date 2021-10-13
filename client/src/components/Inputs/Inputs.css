@@ -51,7 +51,8 @@
   /* margin-right: 50px; */
 }
 
-.inputs-within h1, p {
+.inputs-within > h1,
+.inputs-within > p {
   margin-bottom: 2.5px;
   margin-top: 5px;
 }
@@ -68,14 +69,14 @@
   display: block;
 }
 
-.inputs-within label {
+.inputs-within > label {
   display: block;
   text-align: left;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.inputs-within input {
+.inputs-within > input {
   display: block;
   text-align: left;
   position: relative;
@@ -88,18 +89,18 @@
   width: 300px;
 }
 
-.inputs-within input:focus {
+.inputs-within > input:focus {
   outline: none;
   border-color: blue;
   background: lightgray;
 }
 
-.inputs-within .invalid input {
+.inputs-within .invalid > input {
   border-color: red;
   background: #fbdada;
 }
 
-.inputs-within button {
+.inputs-within > button {
   display: block;
   float: center;
   margin-left: 100px;
