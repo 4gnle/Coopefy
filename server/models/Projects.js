@@ -36,6 +36,23 @@ const ProjectSchema = new Schema({
       projectwebsite: {
         type: String
       },
+
+      applications: [{
+        applicantid: {
+          type: Schema.Types.ObjectId
+        },
+        application: {
+          type: String,
+          required: true
+        },
+        applicantname: {
+          type: String
+        },
+        applicationdate: {
+          type: Date,
+          default: Date.now
+        }
+    }]
 })
 
 module.exports = Projects = mongoose.model('projects', ProjectSchema)

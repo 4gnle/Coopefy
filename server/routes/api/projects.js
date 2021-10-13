@@ -127,3 +127,74 @@ router.post('/', auth,
 });
 
 module.exports = router;
+
+
+// @router Post api/projects/apply
+// @desc Application to Project
+// @access Private
+
+router.post('/apply', auth,
+[
+  check('applicantname', 'Name is required')
+    .not()
+    .isEmpty(),
+  check('application', 'Application is required')
+    .not()
+    .isEmpty(),
+  check('applicationdate', 'Date is required')
+    .not()
+    .isEmpty()
+],
+
+ async (req, res) => {
+
+   // Variable takes errors from ValidationResult
+   const errors = validationResult(req);
+
+   //If there are errors, show a message
+   if (!errors.isEmpty()){
+     return res
+       .status(400)
+       .json({errors: errors.array() });
+   }
+
+  try {
+
+    const {
+    applicantname,
+    application,
+    applicationdate
+   } = req.body;
+
+   try {
+     const user = await User.findById(req.user.id).select('-password');
+
+     const project = await Project.findById(req.params.id);
+
+     //Check if User Already Sent an Application
+     if(project.applications.filter(application => application.user.toString() === req.user.id).length > 0) {
+
+       return res.status(400).json({msg: 'You already sent an application'});
+     }
+
+     //Create New Application
+     const newApplication = {
+       applicantid: req.user.id,
+       applicantname: applicantname,
+       application: application,
+       applicationdate: applicationdate
+     };
+
+     project.applications.unshift(newApplication);
+
+     await project.save();
+
+     res.json(project.applications);
+
+   } catch (err) {
+     console.error(err.message);
+     return res.status(500).send('Server Error');
+   }
+});
+
+module.exports = router;

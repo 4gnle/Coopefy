@@ -6,6 +6,7 @@ import {deleteImage, getProfile, profileImage} from '../../redux/actions/profile
 import {connect} from 'react-redux';
 
 import Button from '../UI/Button'
+import Spinner from '../UI/Spinner'
 
 import './ProfileImage.css'
 
@@ -16,6 +17,7 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
   const [imagePrev, setImagePrev] = useState();
   const [prevURL, setprevURL] = useState({showPrev: false});
   const [valid, setValid] = useState();
+  const [spinner, setSpinner] = useState(false);
 
   const filePickerRef = useRef();
 
@@ -67,12 +69,13 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
     filePickerRef.current.click();
   }
 
-  const submitImage = (e) => {
+  const submitImage = async (e) => {
     const formData = new FormData();
     formData.append("profileimage", file);
     e.preventDefault()
-    profileImage(formData)
-
+    setSpinner(true);
+    await profileImage(formData)
+    setSpinner(false);
   }
 
   const deleteFunc = (e) => {
@@ -105,6 +108,7 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
   return (
 
     <div>
+      {spinner && (<Spinner/>)}
       <input
         type="file"
         ref={filePickerRef}

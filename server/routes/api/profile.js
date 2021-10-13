@@ -317,6 +317,7 @@ module.exports = router;
       apiSecret: process.env.API_SECRET,
       key: req.user.id,
       data: req.file.buffer,
+      bucket:'angeljgomezc-team-bucket/profileimages',
       httpUploadProgressCallback: (event) => {
         console.log(Math.round(event.loaded/event.total*100)+ '% done');
       }
