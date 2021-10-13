@@ -171,6 +171,7 @@ router.post('/:id/apply', auth,
 
      const {
        applicantname,
+       applicantusername,
        application,
        applicationdate
      } = req.body;
@@ -179,6 +180,7 @@ router.post('/:id/apply', auth,
      const newApplication = {
        applicantid: req.user.id,
        applicantname: applicantname,
+       applicantusername: applicantusername,
        application: application,
        applicationdate: applicationdate
      };

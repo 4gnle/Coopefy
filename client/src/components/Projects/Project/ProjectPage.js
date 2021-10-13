@@ -84,7 +84,11 @@ const Project = ({
 
   return (
     <div>
-      {applicationBox && (<Apply/>)}
+      {applicationBox &&
+        (<Apply
+          sendApplication={sendApplication}
+          closeApplication={closeApplication}
+        />)}
       <>
       {!loadProject ? <Spinner/> :
         <>

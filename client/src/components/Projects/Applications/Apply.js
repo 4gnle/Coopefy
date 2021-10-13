@@ -4,11 +4,19 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import Button from '../../UI/Button'
 
-const Apply = () => {
+//Redux & router
+import {getProfile} from '../../../redux/actions/profile';
+
+import {connect} from 'react-redux';
+
+const Apply = ({profile: {signedprofile},
+  closeApplication,
+  sendApplication}) => {
 
   const ApplyBox = styled.div`
     position: absolute;
     box-sizing: border-box;
+    background-color: white;
     border: 0px solid #000000;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
     border-radius: 18px;
@@ -20,13 +28,17 @@ const Apply = () => {
     left: 0;
     bottom: 50%;
     margin: auto;
+    z-index: 1000;
   `
-
+  const Title = styled.h1`
+    text-align: center;
+    font-size: 2rem;
+  `
   const Form = styled.form`
     width: 100%;
   `
 
-  const Input = styled.input`
+  const Textarea = styled.textarea`
     display: block;
     text-align: left;
     position: relative;
@@ -36,33 +48,77 @@ const Apply = () => {
     padding: 0.5rem;
     border-radius: 6px;
     border: 1px solid #ccc;
-    width: 300px;
+    width: 100%;
+    height: 250px;
+    font: 1rem 'Inter';
+  `
+  const ButtonSection = styled.div`
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
   `
 
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({
+    applicantname: '',
+    applicantusername: '',
+    application: ''
+  });
+
+  useEffect(() => {
+    if (!signedprofile) {
+      getProfile();
+    }
+
+    if (signedprofile) {
+      setFormData({...formData, [formData.applicantname]: signedprofile.profilename})
+
+      setFormData({...formData, [formData.applicantusername]: signedprofile.username})
+    }
+  }, [getProfile])
 
   const onChange = (e) => {
-  setFormData(e.target.value);
+  setFormData({...formData, formData.application: e.target.value});
+
+  console.log(formData);
   }
 
-  const sendApplication = () => {
-    console.log(formData)
+  const performApplication = () => {
+    sendApplication(formData)
   }
 
   return (
     <ApplyBox>
       <Form>
-        <Input>
-
-        </Input>
-        <Button
-          onClick={sendApplication}
+        <Title>Write your Application</Title>
+        <Textarea
+          onChange={(e) => onChange(e)}
+          value={formData.application}
         >
 
-        </Button>
+        </Textarea>
+
+        <ButtonSection>
+          <Button
+            className='button bad'
+            onClick={closeApplication}
+          >
+          Cancel
+          </Button>
+          <Button
+            className='button primary'
+            onClick={performApplication}
+          >
+            Send Application
+          </Button>
+        </ButtonSection>
       </Form>
     </ApplyBox>
   )
 }
 
-export default Apply
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps, {getProfile})(Apply)

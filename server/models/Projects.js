@@ -46,7 +46,12 @@ const ProjectSchema = new Schema({
           required: true
         },
         applicantname: {
-          type: String
+          type: String,
+          required: true
+        },
+        applicantusername: {
+          type: String,
+          required: true
         },
         applicationdate: {
           type: Date,
