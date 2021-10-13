@@ -1,22 +1,23 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 
 // UI & CSS
-import styled from 'styled-components'
-import Button from '../../UI/Button'
-import Spinner from '../../UI/Spinner'
+import styled from "styled-components";
+import Button from "../../UI/Button";
+import Spinner from "../../UI/Spinner";
 
 //Redux & router
-import {getProfile} from '../../../redux/actions/profile';
-import {postApplication} from '../../../redux/actions/project'
+import { getProfile } from "../../../redux/actions/profile";
+import { postApplication } from "../../../redux/actions/project";
 
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 
 const ApplyBox = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: white;
   border: 0px solid #000000;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25),
+    12px 12px 12px rgba(0, 0, 0, 0.25);
   border-radius: 18px;
   width: 80%;
   height: fit-content;
@@ -27,21 +28,21 @@ const ApplyBox = styled.div`
   bottom: 50%;
   margin: auto;
   z-index: 1000;
-`
+`;
 const ProjectData = styled.div`
   width: 100%;
-`
+`;
 const Description = styled.h2`
   text-align: center;
   font-size: 1.5rem;
-`
+`;
 const Title = styled.h1`
   text-align: center;
   font-size: 2rem;
-`
+`;
 const Form = styled.form`
   width: 100%;
-`
+`;
 const Textarea = styled.textarea`
   display: block;
   text-align: left;
@@ -54,15 +55,16 @@ const Textarea = styled.textarea`
   border: 1px solid #ccc;
   width: 100%;
   height: 250px;
-`
+`;
 const ButtonSection = styled.div`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
-`
+`;
 
-const Apply = ({profile: {signedprofile},
+const Apply = ({
+  profile: { signedprofile },
   getProfile,
   closeApplication,
   sendApplication,
@@ -73,40 +75,36 @@ const Apply = ({profile: {signedprofile},
   projectamount,
   projectlocation,
   projectid,
-  history
-  }) => {
-
+  history,
+}) => {
   const [formData, setFormData] = useState({
-    applicantname: '',
-    applicantusername: '',
-    application: ''
+    applicantname: "",
+    applicantusername: "",
+    application: "",
   });
 
   const [projectID, setProjectID] = useState();
   const [spinner, setSpinner] = useState(false);
 
-  const {
-    application,
-    applicantname,
-    applicantusername
-  } = formData
+  const { application, applicantname, applicantusername } = formData;
 
   useEffect(() => {
-      getProfile();
+    getProfile();
 
     if (signedprofile) {
-      setFormData({...formData,
-      applicantusername: signedprofile.username,
-      applicantname: signedprofile.profilename
-      })
+      setFormData({
+        ...formData,
+        applicantusername: signedprofile.username,
+        applicantname: signedprofile.profilename,
+      });
     }
-  }, [getProfile])
+  }, [getProfile]);
 
   const onChange = (e) => {
-  setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  console.log(formData)
-  }
+    console.log(formData);
+  };
 
   const performApplication = async (e) => {
     e.preventDefault();
@@ -114,18 +112,28 @@ const Apply = ({profile: {signedprofile},
     await postApplication(formData, projectid);
     sendApplication();
     setSpinner(false);
-  }
+  };
 
   return (
     <ApplyBox>
       <ProjectData>
         <Description>Project Data to Remember</Description>
 
-        <p><b>Description:</b> {projectdescription}</p>
+        <p>
+          <b>Description:</b> {projectdescription}
+        </p>
 
-        {projectreward && projectamount && <p><b>Reward:</b> {projectamount}{' '}{projectreward}</p>}
+        {projectreward && projectamount && (
+          <p>
+            <b>Reward:</b> {projectamount} {projectreward}
+          </p>
+        )}
 
-        {projectlocation && <p><b>Location:</b> {projectlocation}</p>}
+        {projectlocation && (
+          <p>
+            <b>Location:</b> {projectlocation}
+          </p>
+        )}
       </ProjectData>
 
       <Form>
@@ -133,19 +141,16 @@ const Apply = ({profile: {signedprofile},
         <Textarea
           onChange={(e) => onChange(e)}
           value={application}
-          name='application'
-          placeholder='Write your application here'
+          name="application"
+          placeholder="Write your application here"
         />
 
         <ButtonSection>
-          <Button
-            className='button bad'
-            onClick={closeApplication}
-          >
-          Cancel
+          <Button className="button bad" onClick={closeApplication}>
+            Cancel
           </Button>
           <Button
-            className='button primary'
+            className="button primary"
             onClick={(e) => performApplication(e)}
           >
             Send Application
@@ -153,11 +158,11 @@ const Apply = ({profile: {signedprofile},
         </ButtonSection>
       </Form>
     </ApplyBox>
-  )
-}
+  );
+};
 
-const mapStateToProps = state => ({
-  profile: state.profile
-})
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
 
-export default connect(mapStateToProps, {getProfile, postApplication})(Apply)
+export default connect(mapStateToProps, { getProfile, postApplication })(Apply);
