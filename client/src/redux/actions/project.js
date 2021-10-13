@@ -2,6 +2,7 @@ import {
   GET_PROJECT,
   GET_ALLPROJECTS,
   GET_PROJECTSKILLS,
+  GET_PROJECTAPPLICATIONS,
   UPDATE_PROJECT,
   UPDATE_APPLICATION,
   UPDATE_FAILED,
@@ -112,5 +113,25 @@ export const postApplication = (formData, id, edit: false) => async (
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
     }
+  }
+};
+
+//Get Applications by ID
+export const getApplicationsbyID = (id) => async (dispatch) => {
+  try {
+    //Sends the request to the profile/me using the API
+    const res = await api.get(`/projects/${id}/applications`);
+
+    //If the token is there, do this
+    dispatch({
+      type: GET_PROJECTAPPLICATIONS,
+      payload: res.data,
+    });
+  } catch (err) {
+    //If the token is not there, do this
+    dispatch({
+      type: PROJECT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
   }
 };

@@ -15,17 +15,21 @@ import usdc from "../../UI/crypto-icons/usdc.svg";
 //Redux & Router
 import { getProjectById } from "../../../redux/actions/project";
 import { connect } from "react-redux";
+import {getApplicationsbyID} from "../../../redux/actions/project";
 
 //Components
 import Apply from "../Applications/Apply";
+import ApplicationList from "../Applications/ApplicationList";
 
 const Project = ({
-  project: { project, loading },
+  project: { project, loading, applications },
   match,
   history,
   getProjectById,
+  getApplicationsbyID
 }) => {
   const [loadProject, setLoadProject] = useState(false);
+  const [loadedProjects, setLoadedProjects] = useState(false);
 
   const [applicationBox, setApplicationBox] = useState(false);
 
@@ -34,8 +38,15 @@ const Project = ({
     setLoadProject(true);
   };
 
+  const getApplicationsData = async () => {
+    await getApplicationsbyID(match.params.id);
+    setLoadedProjects(true);
+    console.log(applications)
+  }
+
   useEffect(() => {
     getProjectData();
+    getApplicationsData();
   }, [getProjectById]);
 
   const projecticon = () => {
@@ -165,6 +176,12 @@ const Project = ({
             )}
           </>
         )}
+        <>
+        {loadedProjects &&
+          <ApplicationList
+            applications={applications}
+          />}
+        </>
       </>
     </div>
   );
@@ -173,4 +190,4 @@ const Project = ({
 const mapStateToProps = (state) => ({
   project: state.project,
 });
-export default connect(mapStateToProps, { getProjectById })(Project);
+export default connect(mapStateToProps, { getProjectById, getApplicationsbyID})(Project);

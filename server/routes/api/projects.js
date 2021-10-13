@@ -189,3 +189,26 @@ router.post(
 );
 
 module.exports = router;
+
+// @router GET api/projects/:id/applications
+// @desc Get Project Applications
+// @access Public
+router.get(
+  '/:id/applications',
+   async ({params: {id}}, res) => {
+
+  try {
+    let project = await Projects.findOne(
+      { _id: id})
+
+    if (project.applications) {
+      let applications = project.applications
+      res.send(applications);
+    }
+
+  } catch (err) {
+    res.status(500).send({error: err.message });
+  }
+});
+
+module.exports = router;

@@ -2,6 +2,7 @@ import {
   GET_PROJECT,
   GET_ALLPROJECTS,
   GET_PROJECTSKILLS,
+  GET_PROJECTAPPLICATIONS,
   UPDATE_PROJECT,
   UPDATE_APPLICATION,
   UPDATE_FAILED,
@@ -43,6 +44,13 @@ export default function project(state = initialState, action) {
         loading: false,
       };
 
+    case GET_ALLPROJECTS:
+      return {
+        ...state,
+        projects: payload,
+        loading: false,
+      };
+
     case GET_PROJECTSKILLS:
       return {
         ...state,
@@ -50,20 +58,24 @@ export default function project(state = initialState, action) {
         loading: false,
       };
 
+    case GET_PROJECTAPPLICATIONS:
+      return {
+        ...state,
+        applications: payload,
+        loading: false
+      }
+
     case UPDATE_FAILED:
     case PROJECT_ERROR:
       return {
         ...state,
         project: null,
+        projects: null,
+        applications: null,
         loading: false,
       };
 
-    case GET_ALLPROJECTS:
-      return {
-        ...state,
-        projects: payload,
-        loading: false,
-      };
+
 
     default:
       return state;
