@@ -11,7 +11,13 @@ import {connect} from 'react-redux';
 
 const Apply = ({profile: {signedprofile},
   closeApplication,
-  sendApplication}) => {
+  sendApplication,
+  projectdescription,
+  projectreward,
+  projectamount,
+  projectlocation,
+  match
+  }) => {
 
   const ApplyBox = styled.div`
     position: absolute;
@@ -30,6 +36,13 @@ const Apply = ({profile: {signedprofile},
     margin: auto;
     z-index: 1000;
   `
+  const ProjectData = styled.div`
+    width: 100%;
+  `
+  const Description = styled.h2`
+    text-align: center;
+    font-size: 1.5rem;
+  `
   const Title = styled.h1`
     text-align: center;
     font-size: 2rem;
@@ -37,7 +50,6 @@ const Apply = ({profile: {signedprofile},
   const Form = styled.form`
     width: 100%;
   `
-
   const Textarea = styled.textarea`
     display: block;
     text-align: left;
@@ -50,7 +62,6 @@ const Apply = ({profile: {signedprofile},
     border: 1px solid #ccc;
     width: 100%;
     height: 250px;
-    font: 1rem 'Inter';
   `
   const ButtonSection = styled.div`
     width: 100%;
@@ -65,8 +76,12 @@ const Apply = ({profile: {signedprofile},
     application: ''
   });
 
+  const [projectID, setProjectID] = useState();
+
   const {
-    application
+    application,
+    applicantname,
+    applicantusername
   } = formData
 
   useEffect(() => {
@@ -79,6 +94,13 @@ const Apply = ({profile: {signedprofile},
 
       setFormData({...formData, [formData.applicantusername]: signedprofile.username})
     }
+
+    if (match) {
+      setProjectID(match.params.id);
+    }
+
+    console.log(formData);
+
   }, [getProfile])
 
   const onChange = (e) => {
@@ -88,17 +110,27 @@ const Apply = ({profile: {signedprofile},
   }
 
   const performApplication = () => {
-    sendApplication(formData)
+    sendApplication(formData, projectID)
   }
 
   return (
     <ApplyBox>
+      <ProjectData>
+        <Description>Project Data to Remember</Description>
+
+        <p><b>Description:</b> {projectdescription}</p>
+
+        {projectreward && projectamount && <p><b>Reward:</b> {projectamount}{' '}{projectreward}</p>}
+
+        {projectlocation && <p><b>Location:</b> {projectlocation}</p>}
+      </ProjectData>
+
       <Form>
         <Title>Write your Application</Title>
         <Textarea
           onChange={(e) => onChange(e)}
           value={application}
-          name={application}
+          name='application'
           placeholder='Write your application here'
         />
 

@@ -3,6 +3,7 @@ import {
   GET_ALLPROJECTS,
   GET_PROJECTSKILLS,
   UPDATE_PROJECT,
+  UPDATE_APPLICATION,
   UPDATE_FAILED,
   PROJECT_ERROR
 } from './types'
@@ -48,7 +49,6 @@ export const postProject = (formData) => async dispatch => {
   }
 };
 
-
 //Get Projects
 export const getProjects = () => async dispatch => {
 
@@ -86,3 +86,41 @@ export const getProjectById = (id) => async dispatch => {
     });
   }
 }
+
+//Post Application
+export const postApplication = (formData, id, edit: false) => async dispatch => {
+
+    try {
+
+    const res = await api.post(`/projects/${id}/apply`, formData);
+
+    dispatch({
+      type: UPDATE_APPLICATION,
+      payload: res.data
+    });
+
+    dispatch(
+      setAlert(edit ? "Updated Application" : "Added Application", 'success')
+    );
+
+    }catch(err) {
+
+      dispatch({
+        type: UPDATE_FAILED,
+        payload: { msg: err.response.statusText, status: err.response.status}
+      });
+
+      dispatch(
+        setAlert("Could Not Update Project", 'danger')
+      );
+
+    console.log(err);
+
+    const errors = err.response.data.errors;
+
+    if (errors) {
+    errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+  }
+};

@@ -18,13 +18,13 @@
   color: black;
 }
 
-.projectitem-box > a:hover {
-  opacity: 0.5;
-}
-
 .pi-projectname {
   width: 80%;
   margin-left: 5%;
+}
+
+.pi-projectname:hover {
+  opacity: 0.5;
 }
 
 .pi-projectname > h3 > span {
@@ -60,6 +60,10 @@
   width: 90%;
   margin-left: 5%;
   font-size: 14px;
+}
+
+.pi-skillitem:hover {
+  opacity: 0.5;
 }
 
 .pi-projectbottom {

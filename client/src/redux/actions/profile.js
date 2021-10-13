@@ -126,7 +126,7 @@ export const getProfileSkills = () => async dispatch => {
 };
 
 //Send Profile Data
-export const profileData = (formData) => async dispatch => {
+export const profileData = (formData, edit: false) => async dispatch => {
 
     try {
 
@@ -138,7 +138,7 @@ export const profileData = (formData) => async dispatch => {
     });
 
     dispatch(
-      setAlert("Profile Updated", 'success')
+      setAlert(edit ? "Profile Updated" : "Profile Created", 'success')
     );
 
     }catch(err) {

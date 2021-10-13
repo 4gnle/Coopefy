@@ -84,7 +84,7 @@ useEffect(() => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await setProfileSkills(skillsData)
+    await setProfileSkills(skillsData, signedprofile ? true : false)
     await profileLinks(linksData);
     profileData(formData);
   }

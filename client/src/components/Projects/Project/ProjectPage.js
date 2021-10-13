@@ -88,6 +88,10 @@ const Project = ({
         (<Apply
           sendApplication={sendApplication}
           closeApplication={closeApplication}
+          projectdescription={project.projectdescription}
+          projectreward={project.projectreward}
+          projectamount={project.projectamount}
+          projectlocation={project.projectlocation}
         />)}
       <>
       {!loadProject ? <Spinner/> :

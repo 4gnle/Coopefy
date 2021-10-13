@@ -3,6 +3,7 @@ import {
   GET_ALLPROJECTS,
   GET_PROJECTSKILLS,
   UPDATE_PROJECT,
+  UPDATE_APPLICATION,
   UPDATE_FAILED,
   PROJECT_ERROR
 } from '../actions/types'
@@ -10,6 +11,8 @@ import {
 const initialState = {
 project: null,
 projectskills:null,
+application: null,
+applications: [],
 projects:[],
 loading: true,
 error: {},
@@ -30,6 +33,13 @@ export default function project(state = initialState, action) {
     return {
       ...state,
       project: payload,
+      loading: false
+    };
+
+    case UPDATE_APPLICATION:
+    return {
+      ...state,
+      application: payload,
       loading: false
     };
 

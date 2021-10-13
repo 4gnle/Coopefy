@@ -135,11 +135,15 @@ font-size: 1.8rem;
   width: 60%;
 }
 
-.profile-skills p {
+.profile-skills > p {
   margin-right: 10px;
   margin-bottom: 10px;
   font-size: 1.2em;
   text-align: left;
+}
+
+.profile-skillitem:hover {
+  opacity: 0.5;
 }
 
 .profile-activity {

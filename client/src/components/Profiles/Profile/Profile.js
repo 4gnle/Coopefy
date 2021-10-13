@@ -151,7 +151,7 @@ const Profile = ({
 
             {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
               <>
-              <div key={index}>
+              <div className='profile-skillitem' key={index}>
                   <Button className='show'>{' '}{skill}</Button>
               </div>
               </>
