@@ -25,7 +25,8 @@ const Project = ({
   loading},
   match,
   history,
-  getProjectById}) => {
+  getProjectById
+  }) => {
 
   const [loadProject, setLoadProject] = useState(false);
 
@@ -80,11 +81,12 @@ const Project = ({
 
   const sendApplication = async (data) => {
     await closeApplication();
+    history.push(`/project/${match.params.id}/${match.params.projectname}`)
   }
 
   return (
     <div>
-      {applicationBox &&
+      {applicationBox && project &&
         (<Apply
           sendApplication={sendApplication}
           closeApplication={closeApplication}
@@ -92,6 +94,8 @@ const Project = ({
           projectreward={project.projectreward}
           projectamount={project.projectamount}
           projectlocation={project.projectlocation}
+          projectid={match.params.id}
+          projectname={match.params.projectname}
         />)}
       <>
       {!loadProject ? <Spinner/> :

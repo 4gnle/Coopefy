@@ -138,10 +138,10 @@ router.post('/:id/apply', auth,
   check('applicantname', 'Name is required')
     .not()
     .isEmpty(),
-  check('application', 'Application is required')
+  check('applicantusername', 'Username is required')
     .not()
     .isEmpty(),
-  check('applicationdate', 'Date is required')
+  check('application', 'Application is required')
     .not()
     .isEmpty()
 ],

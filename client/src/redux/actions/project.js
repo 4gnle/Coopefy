@@ -111,7 +111,7 @@ export const postApplication = (formData, id, edit: false) => async dispatch => 
       });
 
       dispatch(
-        setAlert("Could Not Update Project", 'danger')
+        setAlert(edit ? "Could not update application" : "Could not post application", 'danger')
       );
 
     console.log(err);
