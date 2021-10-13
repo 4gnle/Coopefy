@@ -169,6 +169,12 @@ router.post('/:id/apply', auth,
        return res.status(400).json({msg: 'You already sent an application'});
      }
 
+     const {
+       applicantname,
+       application,
+       applicationdate
+     } = req.body;
+
      //Create New Application
      const newApplication = {
        applicantid: req.user.id,

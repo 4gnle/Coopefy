@@ -16,6 +16,9 @@ import usdc from '../../UI/crypto-icons/usdc.svg'
 import {getProjectById} from '../../../redux/actions/project';
 import {connect} from 'react-redux';
 
+//Components
+import Apply from '../Applications/Apply'
+
 const Project = ({
   project: {
   project,
@@ -25,6 +28,8 @@ const Project = ({
   getProjectById}) => {
 
   const [loadProject, setLoadProject] = useState(false);
+
+  const [applicationBox, setApplicationBox] = useState(false);
 
   const getProjectData = async () => {
     await getProjectById(match.params.id);
@@ -65,8 +70,22 @@ const Project = ({
     history.goBack();
   }
 
+  const toApplication =() => {
+    setApplicationBox(true);
+  }
+
+  const closeApplication = () => {
+    setApplicationBox(false);
+  }
+
+  const sendApplication = async (data) => {
+    await closeApplication();
+  }
+
   return (
     <div>
+      {applicationBox && (<Apply/>)}
+      <>
       {!loadProject ? <Spinner/> :
         <>
         {project ?
@@ -112,13 +131,16 @@ const Project = ({
 
           <div className='pp-bottom-section'>
 
-            <Button className='button primary'>
+            <Button
+              className='button primary'
+              onClick={toApplication}>
             Apply</Button>
           </div>
         </div>
          : <Error404/>}
         </>
       }
+      </>
     </div>
   )
 }

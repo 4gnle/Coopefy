@@ -24,7 +24,6 @@ import CreateProfile from './Profiles/CreateProfile/CreateProfile'
 import Projects from './Projects/ProjectsList'
 import Project from './Projects/Project/ProjectPage'
 import CreateProject from './Projects/CreateProject/CreateProject'
-import Apply from './Projects/Applications/Apply'
 
 import Alerts from './UI/Alert'
 
@@ -58,7 +57,6 @@ const MainComponent = () => {
           <Route path='/edit-profile' component={CreateProfile} />
           <Route path='/@:username' component={Profile} />
           <Route path='/project/:id/:projectname' component={Project} />
-          <Route path='/project/:id/:projectname/apply' component={Apply} />
       </Switch>
 
       </Router>
