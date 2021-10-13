@@ -65,6 +65,10 @@ const Apply = ({profile: {signedprofile},
     application: ''
   });
 
+  const {
+    application
+  } = formData
+
   useEffect(() => {
     if (!signedprofile) {
       getProfile();
@@ -78,7 +82,7 @@ const Apply = ({profile: {signedprofile},
   }, [getProfile])
 
   const onChange = (e) => {
-  setFormData({...formData, formData.application: e.target.value});
+  setFormData({...formData, [e.target.name]: e.target.value});
 
   console.log(formData);
   }
@@ -93,10 +97,10 @@ const Apply = ({profile: {signedprofile},
         <Title>Write your Application</Title>
         <Textarea
           onChange={(e) => onChange(e)}
-          value={formData.application}
-        >
-
-        </Textarea>
+          value={application}
+          name={application}
+          placeholder='Write your application here'
+        />
 
         <ButtonSection>
           <Button
