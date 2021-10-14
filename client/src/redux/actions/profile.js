@@ -12,6 +12,7 @@ import {
   UPDATE_PROFILE,
   UPDATE_FAILED,
   PROFILE_ERROR,
+  CLEAN_PROFILE
 } from "./types";
 
 import { setAlert } from "./alert";
@@ -39,7 +40,7 @@ export const getProfile = () => async (dispatch) => {
 
 export const cleanProfile = () => async (dispatch) => {
   dispatch({
-    type: PROFILE_ERROR,
+    type: CLEAN_PROFILE,
   });
 };
 

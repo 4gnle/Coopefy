@@ -7,6 +7,7 @@ import {
   GET_SIGNEDPROFILE,
   GET_PROFILESKILLS,
   UPDATE_PROFILE,
+  CLEAN_PROFILE,
   GET_ALLPROFILES,
   UPDATE_FAILED,
   PROFILE_ERROR,
@@ -74,6 +75,13 @@ export default function profile(state = initialState, action) {
         skills: payload,
         loading: false
       };
+
+    case CLEAN_PROFILE:
+    return {
+      ...state,
+      profile: null,
+      profileimage: null
+    };
 
     case UPDATE_FAILED:
     case PROFILE_ERROR:

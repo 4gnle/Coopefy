@@ -4,11 +4,9 @@ import AuthContextProvider from './context/main-context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Redux and Context
-import {Provider} from 'react-redux';
-import store from '../redux/store/store'
 import authToken from '../redux/utilities/authToken'
-import {loadUser} from '../redux/actions/inputs'
 import {getProfile} from '../redux/actions/profile'
+import { connect } from "react-redux";
 
 //Components
 import Navbar from './Navigation/Navbar'
@@ -27,23 +25,21 @@ import CreateProject from './Projects/CreateProject/CreateProject'
 
 import Alerts from './UI/Alert'
 
-const MainComponent = () => {
+const MainComponent = ({signedprofile, getProfile}) => {
 
   if (localStorage.token){
     authToken(localStorage.token)
   }
 
   useEffect(() => {
-    store.dispatch(loadUser());
     getProfile();
   }, [])
 
   const context = useContext(AuthContextProvider);
 
   return (
-    <Provider store={store}>
       <Router>
-        <Navbar loggedin={context.isLoggedIn}/>
+        <Navbar profilesign={signedprofile} loggedin={context.isLoggedIn}/>
         <Alerts />
         <Switch>
           <Route path='/' exact component={Landing} />
@@ -60,14 +56,11 @@ const MainComponent = () => {
       </Switch>
 
       </Router>
-    </Provider>
   )
 }
 
-export default MainComponent
+const mapStateToProps = state => ({
+  profile: state.profile
+});
 
-// <footer>
-//   <Footer loggedin={context.isLoggedIn}/>
-// </footer>
-
-// <Route path='/profile' component={Profile} />
+export default connect(mapStateToProps, {getProfile})(MainComponent)

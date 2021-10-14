@@ -41,7 +41,6 @@ const Project = ({
   const getApplicationsData = async () => {
     await getApplicationsbyID(match.params.id);
     setLoadedProjects(true);
-    console.log(applications)
   }
 
   useEffect(() => {
