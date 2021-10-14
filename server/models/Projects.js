@@ -41,7 +41,7 @@ const ProjectSchema = new Schema({
         applicantid: {
           type: Schema.Types.ObjectId
         },
-        application: {
+        applicationtext: {
           type: String,
           required: true
         },

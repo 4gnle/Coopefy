@@ -132,9 +132,9 @@ router.post(
   "/:id/apply",
   auth,
   [
-    check("applicantname", "Name is required").not().isEmpty(),
-    check("applicantusername", "Username is required").not().isEmpty(),
-    check("application", "Application is required").not().isEmpty(),
+    check("applicantname", "You can't apply without a name").not().isEmpty(),
+    check("applicantusername", "You don't have an username yet").not().isEmpty(),
+    check("applicationtext", "You need to write an application :)").not().isEmpty(),
   ],
 
   async (req, res) => {
@@ -163,7 +163,7 @@ router.post(
       const {
         applicantname,
         applicantusername,
-        application,
+        applicationtext,
         applicationdate,
       } = req.body;
 
@@ -172,7 +172,7 @@ router.post(
         applicantid: req.user.id,
         applicantname: applicantname,
         applicantusername: applicantusername,
-        application: application,
+        applicationtext: applicationtext,
         applicationdate: applicationdate,
       };
 

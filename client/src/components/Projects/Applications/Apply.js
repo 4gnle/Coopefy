@@ -80,13 +80,13 @@ const Apply = ({
   const [formData, setFormData] = useState({
     applicantname: "",
     applicantusername: "",
-    application: "",
+    applicationtext: "",
   });
 
   const [projectID, setProjectID] = useState();
   const [spinner, setSpinner] = useState(false);
 
-  const { application, applicantname, applicantusername } = formData;
+  const { applicationtext, applicantname, applicantusername } = formData;
 
   useEffect(() => {
     getProfile();
@@ -98,7 +98,7 @@ const Apply = ({
         applicantname: signedprofile.profilename,
       });
     }
-  }, [getProfile]);
+  }, [getProfile, setFormData]);
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -140,8 +140,8 @@ const Apply = ({
         <Title>Write your Application</Title>
         <Textarea
           onChange={(e) => onChange(e)}
-          value={application}
-          name="application"
+          value={applicationtext}
+          name="applicationtext"
           placeholder="Write your application here"
         />
 
@@ -165,4 +165,4 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getProfile, postApplication })(Apply);
+export default connect(mapStateToProps, { getProfile, postApplication})(Apply);
