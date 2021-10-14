@@ -1,55 +1,76 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 
-import './Profile.css'
+import "./Profile.css";
 
-//UI
-import Spinner from '../../UI/Spinner'
-import Button from '../../UI/Button'
-import Error404 from '../../UI/Error404'
-import placeholder from '../../UI/placeholder.png'
+//UI & CSS
+import Spinner from "../../UI/Spinner";
+import Button from "../../UI/Button";
+import Error404 from "../../UI/Error404";
+import placeholder from "../../UI/placeholder.png";
+import {
+ProfileBox,
+ProfileMain,
+ProfileTop,
+ProfileName,
+ProfileUsername,
+ProfileMainData,
+ProfileImg,
+ProfileLinks,
+ProfileIconSection,
+ProfileWebsite,
+Icon,
+ProfileLocation,
+ProfileSkills,
+Skills} from './ProfileStyles';
 
 //Redux and Router
-import {getProfileByUsername} from '../../../redux/actions/profile';
-import {cleanProfile} from '../../../redux/actions/profile';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import { getProfileByUsername } from "../../../redux/actions/profile";
+import { cleanProfile } from "../../../redux/actions/profile";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const stateLinks = {
-  twitter: '',
-  dribbble: '',
-  behance: '',
-  producthunt: '',
-  instagram: '',
-  linkedin: '',
-  facebook: '',
-  github: ''
+  twitter: "",
+  dribbble: "",
+  behance: "",
+  producthunt: "",
+  instagram: "",
+  linkedin: "",
+  facebook: "",
+  github: "",
 };
 
 const stateSkills = {
-  skills: ''
+  skills: "",
 };
 
 const profileInfo = {
-  status: '',
-  username: '',
-  profilename: '',
-  location: '',
-  bio: '',
-  website: ''
+  status: "",
+  username: "",
+  profilename: "",
+  location: "",
+  bio: "",
+  website: "",
 };
 
 const Profile = ({
-  profile:
-  {profile, loading, profileimage,
-  bio, skills, username, website,
-  sociallinks, location},
-  authenticate:
-  {isAuth, user},
+  profile: {
+    profile,
+    loading,
+    profileimage,
+    bio,
+    skills,
+    username,
+    website,
+    sociallinks,
+    location,
+  },
+  authenticate: { isAuth, user },
   getProfileByUsername,
   cleanProfile,
   match,
-  history}) => {
-
+  history,
+}) => {
   const [imagePrev, setImagePrev] = useState();
   const [socialLinks, setSocialLinks] = useState(stateLinks);
   const [skillsData, setSkillsData] = useState(stateSkills);
@@ -61,14 +82,14 @@ const Profile = ({
 
   const loadProfile = async () => {
     await cleanProfile();
+    setImagePrev(false);
     await getProfileByUsername(match.params.username);
     setProfileLoaded(true);
-  }
+  };
 
   useEffect(() => {
-
     if (profile && !loading && profile.profileimage) {
-      const fileContents = new Buffer(profile.profileimage, 'base64');
+      const fileContents = new Buffer(profile.profileimage, "base64");
       setImagePrev(fileContents);
     }
 
@@ -79,125 +100,273 @@ const Profile = ({
       }
       setSocialLinks(profileLinks);
 
-      const profileSkills = {...stateSkills};
+      const profileSkills = { ...stateSkills };
       for (const key in profile) {
         if (key in profileSkills) profileSkills[key] = profile[key];
       }
-      setSkillsData(profileSkills)
+      setSkillsData(profileSkills);
 
-       const profileData = { ...profileInfo };
-       for (const key in profile) {
-         if (key in profileData) profileInfo[key] = profile[key];
-       }
-     }
+      const profileData = { ...profileInfo };
+      for (const key in profile) {
+        if (key in profileData) profileInfo[key] = profile[key];
+      }
+    }
 
     // eslint-disable-next-line
   }, [profile, loading, username, profileimage]);
 
-  const goBack = () =>{
+  const goBack = () => {
     history.goBack();
-  }
+  };
 
   return (
     <>
-    {!profileLoaded ? (<Spinner/>) :
-      <>
-      {!profile ? <Error404/> :
-    <div className='profile-box'>
-        <div className='pb-top-buttons'>
-        <Button onClick={goBack} className='button bad'>Back</Button>
-        {isAuth && profile.user && user._id === profile.user._id && <Link to='/edit-profile'><Button className='button random'>Edit Profile</Button></Link>}
-        </div>
-
-      <div className='profile-main'>
-        <div className='profile-picture'>
-          {profileLoaded && !imagePrev ? (<><img alt='Profile' src={placeholder}/><br/></>)
-          : <><img alt='Profile' src={imagePrev}/></>}
-          {profile.status ? (
-            <div className='profile-location'><b><em>{profile.status}</em></b></div>
-          ) : null}
-          {profile.location ? (
-            <div className='profile-location'><p>{profile.location}</p></div>
-          ) : null}
-        </div>
-
-        <div className='profile-top'>
-          {profile && !profileInfo.profilename ? (<><div className='no-profile-name'>No profile name
-            {isAuth && user._id === profile.user._id && <Link to='edit-profile'>
-            <Button className='button small'>Add Name</Button></Link>}
-        </div></>) :
-          <>
-          {profile &&
-          <p><strong>{profileInfo.profilename}
-          </strong>
-          &nbsp;&nbsp;
-          <span>@{profileInfo.username}</span></p>}
-          <em>{profileInfo.bio}</em>
-          </>}
-        </div>
-      </div>
-
-      {!profile ? (<><div className='no-profile'>There's no profile to show
-        {isAuth && <Link to='edit-profile'>
-        <Button className='button small'>Edit Profile</Button></Link>}
-      </div></>) : null}
-
-          <div className='profile-skills'>
-            {profile && profile.skills.length === 0 ? (<><div className='no-profile'>There are no skills show
-              {isAuth && user._id === profile.user._id &&
-                <Link to='edit-profile'>
-              <Button className='button small'>Add Skills</Button></Link>}
-            </div></>) : null}
-
-            {skillsData.skills.length > 0 && skillsData.skills.map((skill, index) => (
-              <>
-              <div className='profile-skillitem' key={index}>
-                  <Button className='show'>{' '}{skill}</Button>
+      {!profileLoaded ? (
+        <Spinner />
+      ) : (
+        <>
+          {!profile ? (
+            <Error404 />
+          ) : (
+            <ProfileBox>
+              <div className="pb-top-buttons">
+                <Button onClick={goBack} className="button bad">
+                  Back
+                </Button>
+                {isAuth && profile.user && user._id === profile.user._id && (
+                  <Link to="/edit-profile">
+                    <Button className="button random">Edit Profile</Button>
+                  </Link>
+                )}
               </div>
-              </>
-              ))}
-          </div>
 
-          <div className='profile-links'>
-            <div className='profile-links-icons'>
-              {socialLinks.producthunt && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.producthunt.com/${socialLinks.producthunt}`}}><i className="fab fa-product-hunt"></i></Link>}
+              <ProfileMain>
+                <ProfileMainData>
+                  {profileLoaded && !imagePrev ? (
+                    <>
+                      <ProfileImg src={placeholder} />
+                      <br />
+                    </>
+                  ) : (
+                    <>
+                      <ProfileImg src={imagePrev} />
+                    </>
+                  )}
+                <ProfileLocation>
+                  {profile.status ? (
 
-              {socialLinks.github && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.github.com/${socialLinks.github}`}}><i style={{color: 'black'}} className="fab fa-github-square"></i></Link>}
+                      <b>
+                        <em>{profile.status}</em>
+                      </b>
+                  ) : null}
+                  {profile.location ? (
+                    <div className="profile-location">
+                      <p>{profile.location}</p>
+                    </div>
+                  ) : null}
+                </ProfileLocation>
+              </ProfileMainData>
 
-              {socialLinks.twitter && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.twitter.com/${socialLinks.twitter}`}}><i className="fab fa-twitter-square"></i></Link>}
+                <ProfileTop>
+                  {profile && !profileInfo.profilename ? (
+                    <>
+                      <div className="no-profile-name">
+                        No profile name
+                        {isAuth && user._id === profile.user._id && (
+                          <Link to="edit-profile">
+                            <Button className="button small">Add Name</Button>
+                          </Link>
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {profile && (
+                        <p>
+                          <ProfileName>{profileInfo.profilename}</ProfileName>
+                          &nbsp;&nbsp;
+                          <ProfileUsername>@{profileInfo.username}</ProfileUsername>
+                        </p>
+                      )}
+                      <em>{profileInfo.bio}</em>
+                    </>
+                  )}
+                </ProfileTop>
+              </ProfileMain>
 
-              {socialLinks.instagram && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.instagram.com/${socialLinks.instagram}`}}><i className="fab fa-instagram-square"></i></Link>}
+              {!profile ? (
+                <>
+                  <div className="no-profile">
+                    There's no profile to show
+                    {isAuth && (
+                      <Link to="edit-profile">
+                        <Button className="button small">Edit Profile</Button>
+                      </Link>
+                    )}
+                  </div>
+                </>
+              ) : null}
 
-              {socialLinks.behance && <Link target="_blank" rel="noopener noreferrer" style={{color: 'black'}} to={ {pathname: `https://www.behance.net/${socialLinks.behance}`}}><i className="fab fa-behance-square"></i></Link>}
+              <ProfileSkills>
+                {profile && profile.skills.length === 0 ? (
+                  <>
+                    <div className="no-profile">
+                      There are no skills show
+                      {isAuth && user._id === profile.user._id && (
+                        <Link to="edit-profile">
+                          <Button className="button small">Add Skills</Button>
+                        </Link>
+                      )}
+                    </div>
+                  </>
+                ) : null}
 
-              {socialLinks.dribbble && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.dribbble.com/${socialLinks.dribbble}`}}><i className="fab fa-dribbble-square"></i></Link>}
+                {skillsData.skills.length > 0 &&
+                  skillsData.skills.map((skill, index) => (
+                    <>
+                      <Skills key={index}>
+                        <Button className="show"> {skill}</Button>
+                      </Skills>
+                    </>
+                  ))}
+              </ProfileSkills>
 
-              {socialLinks.linkedin && <Link target="_blank" rel="noopener noreferrer" to={{pathname: `https://www.linkedin.com/${socialLinks.linkedin}`}}><i className="fab fa-linkedin-square"></i></Link>}
+              <ProfileLinks>
+                <ProfileIconSection>
 
-              {socialLinks.facebook && <Link target="_blank" rel="noopener noreferrer" to={ {pathname: `https://www.facebook.com/${socialLinks.facebook}`}}><i className="fab fa-facebook-square"></i></Link>}
-          </div>
-            <div className='profile-links-website'>
-            {profile && profileInfo.website ?
-              <>
-            <Link target="_blank" rel="noopener noreferrer" to={{pathname: `${profileInfo.website}`}}>{profileInfo.website}</Link>
-            </> : null}
-            </div>
-        </div>
+                  {socialLinks.producthunt && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={{
+                        pathname: `https://www.producthunt.com/${socialLinks.producthunt}`,
+                      }}
+                    >
+                      <Icon className="fab fa-product-hunt"></Icon>
+                    </Link>
+                  )}
 
-          <div className='profile-activity'>
-          <h2>Activity</h2>
-          </div>
+                  {socialLinks.github && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={{
+                        pathname: `https://www.github.com/${socialLinks.github}`,
+                      }}
+                    >
+                      <Icon
+                        style={{ color: "black" }}
+                        className="fab fa-github-square"
+                      ></Icon>
+                    </Link>
+                  )}
 
-        </div>}
-        </>}
+                  {socialLinks.twitter && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={{
+                        pathname: `https://www.twitter.com/${socialLinks.twitter}`,
+                      }}
+                    >
+                      <Icon className="fab fa-twitter-square"></Icon>
+                    </Link>
+                  )}
+
+                  {socialLinks.instagram && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={{
+                        pathname: `https://www.instagram.com/${socialLinks.instagram}`,
+                      }}
+                    >
+                      <Icon className="fab fa-instagram-square"></Icon>
+                    </Link>
+                  )}
+
+                  {socialLinks.behance && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "black" }}
+                      to={{
+                        pathname: `https://www.behance.net/${socialLinks.behance}`,
+                      }}
+                    >
+                      <Icon className="fab fa-behance-square"></Icon>
+                    </Link>
+                  )}
+
+                  {socialLinks.dribbble && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={{
+                        pathname: `https://www.dribbble.com/${socialLinks.dribbble}`,
+                      }}
+                    >
+                      <Icon className="fab fa-dribbble-square"></Icon>
+                    </Link>
+                  )}
+
+                  {socialLinks.linkedin && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={{
+                        pathname: `https://www.linkedin.com/${socialLinks.linkedin}`,
+                      }}
+                    >
+                      <Icon className="fab fa-linkedin-square"></Icon>
+                    </Link>
+                  )}
+
+                  {socialLinks.facebook && (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={{
+                        pathname: `https://www.facebook.com/${socialLinks.facebook}`,
+                      }}
+                    >
+                      <Icon className="fab fa-facebook-square"></Icon>
+                    </Link>
+                  )}
+                </ProfileIconSection>
+
+                <ProfileWebsite>
+                  {profile && profileInfo.website ? (
+                    <>
+                      <ProfileWebsite
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        to={{ pathname: `${profileInfo.website}` }}
+                      >
+                        {profileInfo.website}
+                      </ProfileWebsite>
+                    </>
+                  ) : null}
+                </ProfileWebsite>
+
+              </ProfileLinks>
+
+              <div className="profile-activity">
+                <h2>Activity</h2>
+              </div>
+            </ProfileBox>
+          )}
         </>
-    )
-  }
+      )}
+    </>
+  );
+};
 
-
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile,
-  authenticate: state.authenticate
-})
+  authenticate: state.authenticate,
+});
 
-export default connect(mapStateToProps, {getProfileByUsername, cleanProfile})(Profile)
+export default connect(mapStateToProps, { getProfileByUsername, cleanProfile })(
+  Profile
+);

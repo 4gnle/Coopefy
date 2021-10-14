@@ -1,35 +1,8 @@
-.profile-box {
-  box-sizing: border-box;
-  border: 0px solid #000000;
-  box-sizing: border-box;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
-  border-radius: 18px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5vh;
-  padding: 5px;
-}
-
-.profile-main {
-  width: 100%;
-  display: inline-block;
-  position: static;
-  box-sizing: border-box;
-  margin-left: 0.5vw;
-  margin-top: 30px;
-}
-
 .profile-location {
-  text-align: center;
 }
 
 .profile-top {
-  position: absolute;
-  display: inline-block;
-  margin-left: 362px;
-  top: 13rem;
-  font-size: 1.2rem;
+
 }
 
 .no-profile {
@@ -47,51 +20,24 @@
   text-align:center;
 }
 
-.profile-top > strong {
-  font-size: 2rem;
-  font-weight: 900;
-}
-
-.profile-top > span {
-  position: absolute;
-  bottom: 28px;
-}
-
 .profile-picture {
-  display: block;
-  width: 10rem;
-  height: 10rem;
-  object-fit: cover;
-  border: 2px solid black;
-  margin-left: 6rem;
-  border-radius: 180px;
-  background-color: black;
+
 }
 
 .profile-picture > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 360px;
-  object-fit: cover;
+
 }
 
 .profile-links {
-  width: 10rem;
-  margin-left: 6rem;
-  height: auto;
-  border-radius: 18px;
-  text-align: center;
+
 }
 
 .profile-links-icons {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-left: 0px;
+
 }
 
 .profile-links i {
-  font-size: 1.8rem;
-  margin-left: 10px;
+
 }
 
 i.fa-product-hunt {
@@ -106,18 +52,11 @@ i.fa-product-hunt:hover {
 font-size: 1.8rem;
 }
 
-.profile-links-website > i {
-  font-size: 1.5vh;
-}
-
 .profile-links-website > a {
-  font-size: 14px;
-  text-decoration: none;
-  color: #323232;
+
 }
 
 .profile-links-website > a:hover {
-  color: #6E6E6E;
 }
 
 .profile-links-website > i:hover {
@@ -125,25 +64,11 @@ font-size: 1.8rem;
 }
 
 .profile-skills {
-  display: grid;
-  grid-template-columns: repeat(3, 3fr);
-  grid-auto-rows: 2em;
-  grid-gap: 2vh;
-  margin-left: 367px;
-  margin-top: -50px;
-  float: left;
-  width: 60%;
-}
 
-.profile-skills > p {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  text-align: left;
 }
 
 .profile-skillitem:hover {
-  opacity: 0.5;
+
 }
 
 .profile-activity {
@@ -164,52 +89,13 @@ font-size: 1.8rem;
   margin-top: -4vh;
 }
 
-@media (max-width: 900px) {
-  .profile-box {
-    width: 90%;
-  }
-
-  .profile-picture {
-    width: 8rem;
-    height: 8rem;
-    margin-left: 3rem;
-  }
-
-  .profile-main {
-    box-sizing: border-box;
-    margin-left: 0.5vw;
-    margin-top: 20px;
-  }
-
-  .profile-top {
-    margin-left: 242px;
-    top: 190px;
-  }
-
-  .profile-top span {
-    top: 10px;
-  }
-
-  .profile-skills {
-    margin-left: 245px;
-  }
-
-  .profile-links {
-    width: 9rem;
-    margin-left: 3rem;
-  }
-}
-
 @media (max-width: 650px) {
   .profile-box {
-    box-shadow: 0px 0px 0px 0px;
-    margin-top: 0;
+
   }
 
   .profile-main {
-    box-sizing: border-box;
-    margin-left: 0.5vw;
-    margin-top: 20px;
+
   }
 
   .pb-top-buttons {
@@ -224,26 +110,21 @@ font-size: 1.8rem;
   }
 
   .profile-picture {
-    margin-top: 4rem;
   }
 
   .profile-top {
-    margin-left: 37vw;
-    top: 10rem;
+
   }
 
   .profile-top > p {
-    left: 19vw;
-    margin-top: 1vh;
+
   }
 
   .profile-top span {
-    top: 12px;
   }
 
   .profile-skills {
-    margin-left: 14.5rem;
-    margin-top: 0;
+
   }
 
   .profile-skills p {
@@ -269,46 +150,30 @@ font-size: 1.8rem;
 
 @media (max-width: 480px) {
   .profile-main {
-    height: 45vh;
-    margin-top: 100px;
+
   }
 
   .profile-top {
-    top: 10rem;
-    margin-left: 160px;
+
   }
 
   .profile-top span {
-    top: 15px;
-    bottom: 10px;
+
   }
 
   .profile-top > p {
-    top: -100px;
   }
 
   .profile-picture {
-    margin-left: -15px;
-    margin-right: auto;
+
   }
 
   .profile-skills {
-    position: absolute;
-    width: 95%;
-    top: 380px;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    grid-gap: 2.5vh;
+
   }
 
   .profile-links {
-    position: absolute;
-    margin-top: 2.2rem;
-    top: 230px;
-    margin-left: 5rem;
-    margin-right: auto;
-    width: 70%;
+
   }
 
   i.fa-product-hunt {
@@ -329,14 +194,10 @@ font-size: 1.8rem;
   }
 
   .profile-links-website > a {
-    font-size: 1rem;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
+
   }
 
   .profile-links-website > i {
-    font-size: 2vh;
   }
 
   .profile-activity {
