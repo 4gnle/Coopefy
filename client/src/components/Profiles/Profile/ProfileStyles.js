@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 
+import {Link} from 'react-router-dom'
+
 //Styled-components
 export const ProfileBox = styled.div`
   box-sizing: border-box;
@@ -112,7 +114,7 @@ export const ProfileMainData = styled.div`
   @media (max-width: 650px) {
     margin-top: 4rem;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 480px) {
     margin-left: -15px;
     margin-right: auto;
   }
@@ -127,6 +129,7 @@ export const ProfileImg = styled.img`
 export const ProfileLinks = styled.div`
   width: 10rem;
   margin-left: 6rem;
+  margin-top: 2rem;
   height: auto;
   border-radius: 18px;
   text-align: center;
@@ -150,7 +153,7 @@ export const ProfileLinks = styled.div`
   width: 70%;
   }
 `
-export const ProfileWebsite = styled.a`
+export const ProfileWebsite = styled(Link)`
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -196,16 +199,13 @@ export const ProfileSkills = styled.div`
 
   @media (max-width: 900px){
     position: relative;
-    margin-left: 245px;
+    margin-left: 15rem;
   }
-  @media (max-width: 650px){
-    margin-left: 14.5rem;
-    margin-top: 0;
-  }
+
   @media (max-width: 480px){
     position: absolute;
     width: 95%;
-    top: 380px;
+    top: 450px;
     margin-left: auto;
     margin-right: auto;
     float: none;
