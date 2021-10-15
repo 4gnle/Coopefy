@@ -29,6 +29,13 @@ const ApplicationsBox = styled.div`
     width: 100%;
     top: 60%;
   }
+
+  @media (max-width: 480px) {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 96%;
+    top: 70vh;
+  }
 `
 const Title = styled.h1`
   text-align: center;

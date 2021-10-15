@@ -13,53 +13,8 @@
   text-align:center;
 }
 
-i.fa-product-hunt {
-font-size: 1.7rem;
-}
-
-.profile-links-website > i:hover {
-  font-size: inherit;
-}
-
-.profile-activity {
-  box-sizing: border-box;
-  border: 0px solid #000000;
-  box-sizing: border-box;
-  border: 1px solid black;
-  border-radius: 18px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
-  padding: 5px;
-}
-
-.profile-activity > h2 {
-  text-align: center;
-  margin-top: -4vh;
-}
-
 @media (max-width: 480px) {
   i.fa-product-hunt {
   font-size: 1.5rem;
-  }
-
-  .profile-links-website {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .profile-activity {
-    margin-top: 50px;
-  }
-
-  .profile-activity > h2 {
-    margin-top: -2.5rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .profile-activity {
-    margin-top: 100px;
   }
 }
