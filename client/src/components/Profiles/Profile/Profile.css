@@ -1,10 +1,3 @@
-.profile-location {
-}
-
-.profile-top {
-
-}
-
 .no-profile {
   position: absolute;
   display: inline-block;
@@ -20,55 +13,12 @@
   text-align:center;
 }
 
-.profile-picture {
-
-}
-
-.profile-picture > img {
-
-}
-
-.profile-links {
-
-}
-
-.profile-links-icons {
-
-}
-
-.profile-links i {
-
-}
-
 i.fa-product-hunt {
 font-size: 1.7rem;
 }
 
-.profile-links i:hover {
-  font-size: 1.9rem;
-}
-
-i.fa-product-hunt:hover {
-font-size: 1.8rem;
-}
-
-.profile-links-website > a {
-
-}
-
-.profile-links-website > a:hover {
-}
-
 .profile-links-website > i:hover {
   font-size: inherit;
-}
-
-.profile-skills {
-
-}
-
-.profile-skillitem:hover {
-
 }
 
 .profile-activity {
@@ -89,114 +39,14 @@ font-size: 1.8rem;
   margin-top: -4vh;
 }
 
-@media (max-width: 650px) {
-  .profile-box {
-
-  }
-
-  .profile-main {
-
-  }
-
-  .pb-top-buttons {
-    position: absolute;
-    top: 10%;
-  }
-
-  .pb-top-buttons button {
-    height: 32px !important;
-    width: fit-content;
-    left: 0%;
-  }
-
-  .profile-picture {
-  }
-
-  .profile-top {
-
-  }
-
-  .profile-top > p {
-
-  }
-
-  .profile-top span {
-  }
-
-  .profile-skills {
-
-  }
-
-  .profile-skills p {
-    font-size: 1em;
-    top: 10px;
-  }
-
-  .profile-links {
-  
-  }
-  .profile-links-icons {
-    text-align: center;
-    font-size: 3vh;
-    margin-left: 0px;
-  }
-
-  .profile-links-website > a {
-    font-size: 12px;
-  }
-
-}
-
 @media (max-width: 480px) {
-  .profile-main {
-
-  }
-
-  .profile-top {
-
-  }
-
-  .profile-top span {
-
-  }
-
-  .profile-top > p {
-  }
-
-  .profile-picture {
-
-  }
-
-  .profile-skills {
-
-  }
-
-  .profile-links {
-
-  }
-
   i.fa-product-hunt {
   font-size: 1.5rem;
-  }
-
-  .profile-links i:hover {
-    font-size: 1.7rem;
-  }
-
-  i.fa-product-hunt:hover {
-  font-size: 1.7rem;
   }
 
   .profile-links-website {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .profile-links-website > a {
-
-  }
-
-  .profile-links-website > i {
   }
 
   .profile-activity {

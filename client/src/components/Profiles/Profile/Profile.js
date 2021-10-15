@@ -9,6 +9,7 @@ import Error404 from "../../UI/Error404";
 import placeholder from "../../UI/placeholder.png";
 import {
 ProfileBox,
+TopButtons,
 ProfileMain,
 ProfileTop,
 ProfileName,
@@ -129,7 +130,7 @@ const Profile = ({
             <Error404 />
           ) : (
             <ProfileBox>
-              <div className="pb-top-buttons">
+              <TopButtons>
                 <Button onClick={goBack} className="button bad">
                   Back
                 </Button>
@@ -138,7 +139,7 @@ const Profile = ({
                     <Button className="button random">Edit Profile</Button>
                   </Link>
                 )}
-              </div>
+              </TopButtons>
 
               <ProfileMain>
                 <ProfileMainData>
@@ -348,12 +349,7 @@ const Profile = ({
                     </>
                   ) : null}
                 </ProfileWebsite>
-
               </ProfileLinks>
-
-              <div className="profile-activity">
-                <h2>Activity</h2>
-              </div>
             </ProfileBox>
           )}
         </>
