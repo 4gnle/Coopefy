@@ -176,9 +176,10 @@ const Project = ({
           </>
         )}
         <>
-        {loadedProjects &&
+        {loadedProjects && project &&
           <ApplicationList
             applications={applications}
+            project={project}
           />}
         </>
       </>

@@ -8,11 +8,7 @@ import Spinner from "../../UI/Spinner";
 //components
 import ApplicationItem from "./ApplicationItem"
 
-const ApplicationList = ({applications}) => {
-
-  useEffect(() => {
-
-  })
+const ApplicationList = ({project, applications}) => {
 
   return (
     <ApplicationsBox>
@@ -22,6 +18,7 @@ const ApplicationList = ({applications}) => {
         <>
           <ApplicationItem
             application={application}
+            projectowner={project.projectowner}
           />
         </>
       )) : <NoApplications>There are no applications yet - you're lucky! {':)'}</NoApplications>

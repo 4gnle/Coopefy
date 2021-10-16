@@ -12,6 +12,7 @@ import {connect} from "react-redux";
 const ApplicationItem = ({
   profile: {signedprofile, profile, loading},
   authenticate: {isAuth, user},
+  projectowner,
   application,
   getProfileByUsername}) => {
 
@@ -57,7 +58,7 @@ const ApplicationItem = ({
       <ApplicationText>
         {applicationtext}
       </ApplicationText>
-      {isAuth && user._id === signedprofile._id &&
+      {isAuth && user._id === projectowner &&
         <SelectApplicant className='button primary'>
           Hire
         </SelectApplicant>
