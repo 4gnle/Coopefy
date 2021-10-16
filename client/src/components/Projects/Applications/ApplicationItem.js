@@ -10,7 +10,8 @@ import {getProfileByUsername} from "../../../redux/actions/profile";
 import {connect} from "react-redux";
 
 const ApplicationItem = ({
-  profile: {profile, loading},
+  profile: {signedprofile, profile, loading},
+  authenticate: {isAuth, user},
   application,
   getProfileByUsername}) => {
 
@@ -38,6 +39,10 @@ const ApplicationItem = ({
 
   }, [getProfileByUsername, application])
 
+  const hirePerson = () => {
+
+  }
+
   return (
     <ApplicationBox>
       <ApplicantInfo>
@@ -52,12 +57,18 @@ const ApplicationItem = ({
       <ApplicationText>
         {applicationtext}
       </ApplicationText>
+      {isAuth && user._id === signedprofile._id &&
+        <SelectApplicant className='button primary'>
+          Hire
+        </SelectApplicant>
+      }
     </ApplicationBox>
   )
 }
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: state.profile,
+  authenticate: state.authenticate
 })
 
 export default connect(mapStateToProps, {getProfileByUsername})(ApplicationItem)
@@ -107,3 +118,6 @@ const ApplicantImage = styled.div`
   border-radius: 180px;
   background-color: black;
 `;
+
+const SelectApplicant = styled(Button)`
+`

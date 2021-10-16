@@ -43,7 +43,6 @@ const ApplicationsBox = styled.div`
   width: 90%;
   height: fit-content;
   padding: 0.5rem;
-  box-shadow: 0 0px 5px grey;
   border-radius: 18px;
   overflow: hidden;
   z-index: 1;
