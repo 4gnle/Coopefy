@@ -8,6 +8,31 @@ import Spinner from "../../UI/Spinner";
 //components
 import ApplicationItem from "./ApplicationItem"
 
+const ApplicationList = ({applications}) => {
+
+  useEffect(() => {
+
+  })
+
+  return (
+    <ApplicationsBox>
+      <Title>Applications</Title>
+
+      {applications && applications.length > 0 ? applications.map(application => (
+        <>
+          <ApplicationItem
+            application={application}
+          />
+        </>
+      )) : <NoApplications>There are no applications yet - you're lucky! {':)'}</NoApplications>
+    }
+
+    </ApplicationsBox>
+  )
+}
+
+export default ApplicationList
+
 const ApplicationsBox = styled.div`
   position: static;
   display: block;
@@ -46,28 +71,3 @@ const NoApplications = styled.p`
   font-size: 1rem;
   text-align: center;
 `
-
-const ApplicationList = ({applications}) => {
-
-  useEffect(() => {
-
-  })
-
-  return (
-    <ApplicationsBox>
-      <Title>Applications</Title>
-
-      {applications && applications.length > 0 ? applications.map(application => (
-        <>
-          <ApplicationItem
-            application={application}
-          />
-        </>
-      )) : <NoApplications>There are no applications yet - you're lucky! {':)'}</NoApplications>
-    }
-
-    </ApplicationsBox>
-  )
-}
-
-export default ApplicationList

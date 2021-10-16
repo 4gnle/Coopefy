@@ -112,7 +112,6 @@ const Profile = ({
         if (key in profileData) profileInfo[key] = profile[key];
       }
     }
-
     // eslint-disable-next-line
   }, [profile, loading, username, profileimage]);
 

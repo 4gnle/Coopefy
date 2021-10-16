@@ -11,58 +11,6 @@ import { postApplication } from "../../../redux/actions/project";
 
 import { connect } from "react-redux";
 
-const ApplyBox = styled.div`
-  position: absolute;
-  box-sizing: border-box;
-  background-color: white;
-  border: 0px solid #000000;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25),
-    12px 12px 12px rgba(0, 0, 0, 0.25);
-  border-radius: 18px;
-  width: 80%;
-  height: fit-content;
-  padding: 5%;
-  top: 10%;
-  right: 0;
-  left: 0;
-  bottom: 50%;
-  margin: auto;
-  z-index: 1000;
-`;
-const ProjectData = styled.div`
-  width: 100%;
-`;
-const Description = styled.h2`
-  text-align: center;
-  font-size: 1.5rem;
-`;
-const Title = styled.h1`
-  text-align: center;
-  font-size: 2rem;
-`;
-const Form = styled.form`
-  width: 100%;
-`;
-const Textarea = styled.textarea`
-  display: block;
-  text-align: left;
-  position: relative;
-  font: inherit;
-  margin-top: -0.5px;
-  margin-bottom: 10px;
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 100%;
-  height: 250px;
-`;
-const ButtonSection = styled.div`
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-`;
-
 const Apply = ({
   profile: { signedprofile },
   getProfile,
@@ -143,6 +91,7 @@ const Apply = ({
           value={applicationtext}
           name="applicationtext"
           placeholder="Write your application here"
+
         />
 
         <ButtonSection>
@@ -166,3 +115,66 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { getProfile, postApplication})(Apply);
+
+const ApplyBox = styled.div`
+  position: absolute;
+  box-sizing: border-box;
+  background-color: white;
+  border: 0px solid #000000;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25),
+    12px 12px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  width: 80%;
+  height: fit-content;
+  padding: 5%;
+  top: 10%;
+  right: 0;
+  left: 0;
+  bottom: 50%;
+  margin: auto;
+  z-index: 1000;
+`;
+const ProjectData = styled.div`
+  width: 100%;
+`;
+const Description = styled.h2`
+  text-align: center;
+  font-size: 1.5rem;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 2rem;
+
+  @media (max-width: 650px) {
+    font-size: 1.5rem;
+  }
+`;
+const Form = styled.form`
+  width: 100%;
+`;
+
+const Textarea = styled.textarea`
+  display: block;
+  position: relative;
+  font: inherit;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 90%;
+  height: 250px;
+  resize: none;
+`;
+
+const ButtonSection = styled.div`
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+`;

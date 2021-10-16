@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 // UI & CSS
 import styled from "styled-components";
@@ -6,11 +6,13 @@ import Button from "../../UI/Button";
 import Spinner from "../../UI/Spinner";
 
 //Redux & Router
-import {} from "../../../redux/actions/project";
-import {getProfileByUsername} from "../../../redux/actions/project";
+import {getProfileByUsername} from "../../../redux/actions/profile";
 import {connect} from "react-redux";
 
-const ApplicationItem = ({application}) => {
+const ApplicationItem = ({
+  profile: {profile, loading},
+  application,
+  getProfileByUsername}) => {
 
   const {
     applicantname,
@@ -20,9 +22,26 @@ const ApplicationItem = ({application}) => {
     applicationdate
   } = application;
 
+  const [imagePrev, setImagePrev] = useState();
+
+  useEffect(() => {
+    if (!profile) {
+      getProfileByUsername(applicantusername);
+    }
+
+    if (profile && !imagePrev) {
+      const fileContents = new Buffer(profile.profileimage, "base64");
+      setImagePrev(fileContents);
+
+      console.log(imagePrev)
+    }
+
+  }, [getProfileByUsername, application])
+
   return (
     <ApplicationBox>
       <ApplicantInfo>
+        <ApplicantPicture src={imagePrev}/>
         <ApplicantName>
           {applicantname}{' '}
         <ApplicantUsername>
@@ -30,7 +49,6 @@ const ApplicationItem = ({application}) => {
         </ApplicantUsername>
         </ApplicantName>
       </ApplicantInfo>
-
       <ApplicationText>
         {applicationtext}
       </ApplicationText>
@@ -38,7 +56,11 @@ const ApplicationItem = ({application}) => {
   )
 }
 
-export default ApplicationItem
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps, {getProfileByUsername})(ApplicationItem)
 
 const ApplicationBox = styled.div`
   box-sizing: border-box;
@@ -58,15 +80,18 @@ const ApplicationText = styled.div`
 `;
 
 const ApplicantInfo = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-auto-rows: fit-content;
-  grid-gap: 0rem;
-  width: 100%;
+  display: inline;
   margin-left: 2.5%;
   margin-top: -5px;
   margin-bottom: 10px;
 `;
+
+const ApplicantPicture = styled.img`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 180px;
+  background-color: black;
+`
 
 const ApplicantName = styled.h2`
   font-size: 1rem;
