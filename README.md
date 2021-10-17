@@ -24,10 +24,6 @@ It allows people to collaborate building cool stuff on the internet
 
 ## **How to Contribute**
 
-Follow the same guidelines as in [CONTRIBUTING GUIDELINES](https://github.com/Developer-DAO/developerdao.com/blob/main/docs/CONTRIBUTING.md) (check below)
-
-TL;DR:
-
 1. Check [ISSUES](https://github.com/angeljgomezc/Coopefy/issues) for a TO-DO list of problems to fix and things to add to the website.
 
 2. Fork the repo and create your own branch using `git checkout -b your_branch_name`. Remember to use a branch name that describes WHAT you're doing/fixing.
