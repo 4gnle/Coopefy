@@ -4,7 +4,16 @@ import React from 'react'
 import styled from 'styled-components';
 import Button from '../UI/Button'
 
-const Landing = () => {
+const Landing = ({history}) => {
+
+  function goToProjects() {
+    history.push('/projects')
+  }
+
+  function goToPeople() {
+    history.push('/people')
+  }
+
   return (
     <LandingHero>
       <LandingCopy>
@@ -35,9 +44,20 @@ const Landing = () => {
           </CopyList>
         </ul>
       </LandingCopy>
-      <FindPeopleButton/>
-      <FindProjectsButton/>
-
+      <LandingButtons>
+        <FindPeopleButton
+          className='button primary'
+          onClick={goToPeople}
+          >
+        Find People
+        </FindPeopleButton>
+        <FindProjectsButton
+          className='button'
+          onClick={goToProjects}
+          >
+        Find Projects
+        </FindProjectsButton>
+      </LandingButtons>
     </LandingHero>
   )
 }
@@ -66,6 +86,7 @@ const CopyList = styled.li`
 `
 
 const LandingButtons = styled.div`
+margin-left: 10rem;
 
 `
 const FindPeopleButton = styled(Button)`
