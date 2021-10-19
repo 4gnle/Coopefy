@@ -44,7 +44,7 @@ const ApplicationItem = ({
   }, [getProfileByUsername, application, loadedItem])
 
   const hirePerson = () => {
-
+    console.log(applicantusername);
   }
 
   return (
@@ -61,8 +61,11 @@ const ApplicationItem = ({
       <ApplicationText>
         {applicationtext}
       </ApplicationText>
-      {isAuth && user._id === projectowner &&
-        <SelectApplicant className='button primary'>
+      {isAuth &&
+        <SelectApplicant
+          className='button primary'
+          onClick={hirePerson}
+        >
           Hire
         </SelectApplicant>
       }
