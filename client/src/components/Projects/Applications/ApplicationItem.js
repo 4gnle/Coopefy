@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react'
 import styled from "styled-components";
 import Button from "../../UI/Button";
 import Spinner from "../../UI/Spinner";
+import placeholder from '../../UI/placeholder.png'
 
 //Redux & Router
 import {getProfileByUsername} from "../../../redux/actions/profile";
@@ -26,19 +27,21 @@ const ApplicationItem = ({
 
   const [imagePrev, setImagePrev] = useState();
 
-  useEffect(() => {
-    if (!profile) {
-      getProfileByUsername(applicantusername);
-    }
+  const [loadedItem, setLoadedItem] = useState(false);
 
-    if (profile && !imagePrev) {
+  const loadProfile = async () => {
+    await getProfileByUsername(applicantusername);
+    setLoadedItem(true);
+  }
+
+  useEffect(() => {
+    loadProfile();
+
+    if (loadedItem) {
       const fileContents = new Buffer(profile.profileimage, "base64");
       setImagePrev(fileContents);
-
-      console.log(imagePrev)
     }
-
-  }, [getProfileByUsername, application])
+  }, [getProfileByUsername, application, loadedItem])
 
   const hirePerson = () => {
 

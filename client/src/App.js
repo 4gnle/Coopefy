@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 
 import './App.css';
+import { ChakraProvider } from "@chakra-ui/react"
 
 import MainComponent from './components/MainComponent'
 import {Provider} from 'react-redux';
@@ -15,9 +16,9 @@ const App = () => {
 
   return (
     <div className="App">
-    <Provider store={store}>
-      <MainComponent/>
-    </Provider>
+      <Provider store={store}>
+        <MainComponent/>
+      </Provider>
     </div>
   );
 }
