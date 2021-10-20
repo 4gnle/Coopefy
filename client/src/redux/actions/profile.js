@@ -65,10 +65,10 @@ export const getPeople = () => async (dispatch) => {
 };
 
 //Get Profile by Username
-export const getProfileByUsername = (username) => async (dispatch) => {
+export async function getProfileByUsername (dispatch, username) {
+
   try {
     const res = await api.get(`/profile/${username}`);
-
     //If the token is there, do this
     dispatch({
       type: GET_PROFILE,

@@ -9,47 +9,47 @@ import ProjectItem from './Project/ProjectItem'
 
 //Redux and Router
 import {getProjects} from '../../redux/actions/project';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
-const Projects = ({project: {project, projects, loading},
-   getProjects}) => {
+const Projects = ({getProjects}) => {
 
   const [projectsReady, setProjectsReady] = useState(false);
+
+  const dispatch = useDispatch()
+  const projectsState = useSelector(state => state.project.projects)
+  const loading = useSelector(state => state.project.loading)
 
   useEffect(() => {
     gettingProjects();
   }, [getProjects])
 
   const gettingProjects = async () => {
-    await getProjects();
+    await dispatch(getProjects);
     setProjectsReady(true)
   }
 
-  return (
-    <div className='projects-page'>
-      <div className='projects-top'>
-        <h1>Projects</h1>
-        <p>
-          <i class="fas fa-project-diagram"></i>{' '}
-          Find the best projects to collaborate!
-        </p>
-      </div>
-      {!projectsReady ? <Spinner/> :
-      <div className='projects-grids'>
-      {!loading && projects.length > 0 ? (projects.map(project =>
-        <>
-        <ProjectItem
-          project={project}
-        />
-        </>
-      )): null}
-      </div>}
+  return (<div className='projects-page'>
+    <div className='projects-top'>
+      <h1>Projects</h1>
+      <p>
+        <i class="fas fa-project-diagram"></i>{' '}
+        Find the best projects to collaborate!
+      </p>
     </div>
-  )
+    {
+      !projectsReady
+        ? <Spinner/>
+        : <div className='projects-grids'>
+            {
+              !loading && projectsState.length > 0
+                ? (projectsState.map(project => <> < ProjectItem project = {
+                  project
+                } /> </>))
+                : null
+            }
+          </div>
+    }
+  </div>)
 }
 
-const mapStateToProps = state => ({
-  project: state.project
-})
-
-export default connect(mapStateToProps, {getProjects})(Projects)
+export default Projects;
