@@ -9,22 +9,20 @@ import ProjectItem from './Project/ProjectItem'
 
 //Redux and Router
 import {getProjects} from '../../redux/actions/project';
-import {useSelector, useDispatch} from 'react-redux';
+import {connect} from 'react-redux';
 
-const Projects = ({getProjects}) => {
+const Projects = ({
+  project: {projects, loading},
+  getProjects}) => {
 
   const [projectsReady, setProjectsReady] = useState(false);
-
-  const dispatch = useDispatch()
-  const projectsState = useSelector(state => state.project.projects)
-  const loading = useSelector(state => state.project.loading)
 
   useEffect(() => {
     gettingProjects();
   }, [getProjects])
 
   const gettingProjects = async () => {
-    await dispatch(getProjects);
+    await getProjects();
     setProjectsReady(true)
   }
 
@@ -41,8 +39,8 @@ const Projects = ({getProjects}) => {
         ? <Spinner/>
         : <div className='projects-grids'>
             {
-              !loading && projectsState.length > 0
-                ? (projectsState.map(project => <> < ProjectItem project = {
+              !loading && projects.length > 0
+                ? (projects.map(project => <> < ProjectItem project = {
                   project
                 } /> </>))
                 : null
@@ -52,4 +50,6 @@ const Projects = ({getProjects}) => {
   </div>)
 }
 
-export default Projects;
+const mapStateToProps = state => ({project: state.project})
+
+export default connect(mapStateToProps, {getProjects})(Projects);

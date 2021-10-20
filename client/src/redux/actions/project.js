@@ -44,16 +44,13 @@ export const postProject = (formData) => async (dispatch) => {
 //Get Projects
 export const getProjects = () => async (dispatch) => {
   try {
-    //Sends the request to the profile/me using the API
     const res = await api.get("/projects");
 
-    //If the token is there, do this
     dispatch({
       type: GET_ALLPROJECTS,
       payload: res.data,
     });
   } catch (err) {
-    //If the token is not there, do this
     dispatch({
       type: PROJECT_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },

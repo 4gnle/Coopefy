@@ -65,7 +65,7 @@ export const getPeople = () => async (dispatch) => {
 };
 
 //Get Profile by Username
-export async function getProfileByUsername (dispatch, username) {
+export const getProfileByUsername = (username) => async (dispatch) => {
 
   try {
     const res = await api.get(`/profile/${username}`);

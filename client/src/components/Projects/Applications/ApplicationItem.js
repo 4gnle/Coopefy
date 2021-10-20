@@ -8,22 +8,14 @@ import placeholder from '../../UI/placeholder.png'
 
 //Redux & Router
 import {getProfileByUsername} from "../../../redux/actions/profile";
-import {useDispatch, useSelector} from "react-redux";
+import {connect} from "react-redux";
 
 const ApplicationItem = ({
+  authenticate: {isAuth},
+  profile: {profile},
   projectowner,
   application,
   getProfileByUsername}) => {
-
-  const applicantProfile = useSelector(state => state.profile.profile)
-
-  const isAuthenticated = useSelector(state => state.authenticate.isAuth);
-
-  const dispatch = useDispatch();
-
-  const gettingApplicantProfile = () => {
-    dispatch(getProfileByUsername);
-  }
 
   const {
     applicantname,
@@ -38,8 +30,7 @@ const ApplicationItem = ({
   const [loadedItem, setLoadedItem] = useState(false);
 
   const loadProfile = async () => {
-    await gettingApplicantProfile(applicantusername);
-    console.log(applicantProfile);
+    await getProfileByUsername(applicantusername);
     setLoadedItem(true);
   }
 
@@ -47,7 +38,7 @@ const ApplicationItem = ({
     loadProfile();
 
     if (loadedItem) {
-      const fileContents = new Buffer(applicantProfile.profileimage, "base64");
+      const fileContents = new Buffer(profile.profileimage, "base64");
       setImagePrev(fileContents);
     }
   }, [getProfileByUsername, application, loadedItem])
@@ -70,7 +61,7 @@ const ApplicationItem = ({
       <ApplicationText>
         {applicationtext}
       </ApplicationText>
-      {isAuthenticated &&
+      {isAuth &&
         <SelectApplicant
           className='button primary'
           onClick={hirePerson}
@@ -82,7 +73,12 @@ const ApplicationItem = ({
   )
 }
 
-export default ApplicationItem;
+const mapStateToProps = state => ({
+  state: state.profile,
+  state: state.authenticate
+})
+
+export default connect(mapStateToProps, {getProfileByUsername})(ApplicationItem);
 
 const ApplicationBox = styled.div`
   box-sizing: border-box;
