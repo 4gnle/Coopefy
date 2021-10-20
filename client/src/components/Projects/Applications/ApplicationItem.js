@@ -74,8 +74,8 @@ const ApplicationItem = ({
 }
 
 const mapStateToProps = state => ({
-  state: state.profile,
-  state: state.authenticate
+  profile: state.profile,
+  authenticate: state.authenticate
 })
 
 export default connect(mapStateToProps, {getProfileByUsername})(ApplicationItem);
