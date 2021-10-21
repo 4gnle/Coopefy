@@ -12,7 +12,7 @@ import { postApplication } from "../../../redux/actions/project";
 import { connect } from "react-redux";
 
 const Apply = ({
-  profile: { signedprofile },
+  profile: {signedprofile},
   getProfile,
   closeApplication,
   sendApplication,
@@ -34,19 +34,26 @@ const Apply = ({
   const [projectID, setProjectID] = useState();
   const [spinner, setSpinner] = useState(false);
 
+  const [profileLoaded, setProfileLoaded] = useState(false);
+
   const { applicationtext, applicantname, applicantusername } = formData;
 
-  useEffect(() => {
-    getProfile();
+  const gettingProfile = async () => {
+    await getProfile()
+    setProfileLoaded(true);
+  }
 
-    if (signedprofile) {
+  useEffect(() => {
+    gettingProfile();
+
+    if (profileLoaded) {
       setFormData({
         ...formData,
         applicantusername: signedprofile.username,
         applicantname: signedprofile.profilename,
       });
     }
-  }, [getProfile, setFormData]);
+  }, [setFormData, profileLoaded]);
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

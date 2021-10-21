@@ -13,9 +13,13 @@ import usdt from "../../UI/crypto-icons/usdt.svg";
 import usdc from "../../UI/crypto-icons/usdc.svg";
 
 //Redux & Router
-import { getProjectById } from "../../../redux/actions/project";
+import {
+  getProjectById,
+  getApplicationsbyID,
+} from "../../../redux/actions/project";
+import { getProfile } from "../../../redux/actions/profile";
 import { connect } from "react-redux";
-import {getApplicationsbyID} from "../../../redux/actions/project";
+import {Link} from 'react-router-dom'
 
 //Components
 import Apply from "../Applications/Apply";
@@ -23,13 +27,15 @@ import ApplicationList from "../Applications/ApplicationList";
 
 const Project = ({
   project: { project, loading, applications },
+  profile: { signedprofile, user },
   match,
   history,
   getProjectById,
-  getApplicationsbyID
+  getApplicationsbyID,
 }) => {
   const [loadProject, setLoadProject] = useState(false);
   const [loadedProjects, setLoadedProjects] = useState(false);
+  const [profileLoaded, setProfileLoaded] = useState(false);
 
   const [applicationBox, setApplicationBox] = useState(false);
 
@@ -41,11 +47,17 @@ const Project = ({
   const getApplicationsData = async () => {
     await getApplicationsbyID(match.params.id);
     setLoadedProjects(true);
-  }
+  };
+
+  const getProfileData = async () => {
+    await getProfile();
+    setProfileLoaded(true);
+  };
 
   useEffect(() => {
     getProjectData();
     getApplicationsData();
+    getProfileData();
   }, [getProjectById]);
 
   const projecticon = () => {
@@ -165,9 +177,18 @@ const Project = ({
                 </div>
 
                 <div className="pp-bottom-section">
-                  <Button className="button primary" onClick={toApplication}>
-                    Apply
-                  </Button>
+                  {applications && signedprofile &&
+                  applications.filter(
+                    (application) => application.applicantid.toString() !== signedprofile.user._id
+                  ).length > 0 ? (
+                    <Button className="button primary" onClick={toApplication}>
+                      Apply
+                    </Button>
+                  ) : <>{!signedprofile &&
+                  <Link to='/register'><Button
+                  className="button primary">
+                    Register to Apply
+                  </Button></Link>}</> }
                 </div>
               </div>
             ) : (
@@ -176,11 +197,11 @@ const Project = ({
           </>
         )}
         <>
-        {loadedProjects && project &&
-          <ApplicationList
+          {loadedProjects && project && (
+            <ApplicationList
             applications={applications}
-            project={project}
-          />}
+            project={project} />
+          )}
         </>
       </>
     </div>
@@ -189,5 +210,10 @@ const Project = ({
 
 const mapStateToProps = (state) => ({
   project: state.project,
+  profile: state.profile,
 });
-export default connect(mapStateToProps, { getProjectById, getApplicationsbyID})(Project);
+export default connect(mapStateToProps, {
+  getProjectById,
+  getProfile,
+  getApplicationsbyID,
+})(Project);
