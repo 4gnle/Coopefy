@@ -39,31 +39,27 @@ const People = ({getPeople,
 
   return (
     <div className='people-box'>
+      <div className='pb-top'>
+        <h1>People</h1>
+        <p>
+          <i class="fas fa-user-friends"></i>{' '}
+          Meet amazing people
+        </p>
     {loading && !peopleReady ? <Spinner/> :
-      <>
-        <div className='pb-top'>
-          <h1>People</h1>
-          <p>
-            <i class="fas fa-user-friends"></i>{' '}
-            Meet amazing people
-          </p>
-        </div>
-
         <div className='people-grids'>
         {profiles.length > 0 ? (profiles.map(profile =>
           <>
           {profile.profilename && profile.username ?
-            <>
           <PeopleItem
             key={_id}
             profile={profile}
           />
-          </> : null}</>
+           : null}</>
         )
-      ) : <h4 style={{textAlign: 'center'}}>There is no profile yet</h4>}
+      ) : <Spinner/>}
         </div>
-      </>
     }
+    </div>
   </div>
 )
 }

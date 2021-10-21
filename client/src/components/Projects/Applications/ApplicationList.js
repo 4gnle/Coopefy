@@ -14,13 +14,12 @@ const ApplicationList = ({project, applications}) => {
     <ApplicationsBox>
       <Title>Applications</Title>
 
-      {applications && applications.length > 0 ? applications.map(application => (
-        <>
+      {applications && applications.length > 0 ? applications.map((application, index) => (
           <ApplicationItem
             application={application}
             projectowner={project.projectowner}
+            key={index}
           />
-        </>
       )) : <NoApplications>There are no applications yet - you're lucky! {':)'}</NoApplications>
     }
 

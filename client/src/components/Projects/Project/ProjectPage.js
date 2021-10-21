@@ -38,6 +38,7 @@ const Project = ({
   const [profileLoaded, setProfileLoaded] = useState(false);
 
   const [applicationBox, setApplicationBox] = useState(false);
+  const [hasNotApplied, setHasNotApplied] = useState(false);
 
   const getProjectData = async () => {
     await getProjectById(match.params.id);
@@ -58,7 +59,15 @@ const Project = ({
     getProjectData();
     getApplicationsData();
     getProfileData();
-  }, [getProjectById]);
+
+    console.log(applications);
+
+    if (applications && profileLoaded && applications.filter(
+      (application) => application.applicantid !== signedprofile.user._id
+    ).length > 0) {
+      setHasNotApplied(true);
+    }
+  }, [getProjectById, getProfile, getApplicationsbyID]);
 
   const projecticon = () => {
     if (project.projectreward === "ETH") {
@@ -100,7 +109,7 @@ const Project = ({
 
   const sendApplication = async (data) => {
     await closeApplication();
-    history.push(`/project/${match.params.id}/${match.params.projectname}`);
+    history.go(0);
   };
 
   return (
@@ -177,10 +186,8 @@ const Project = ({
                 </div>
 
                 <div className="pp-bottom-section">
-                  {applications && signedprofile &&
-                  applications.filter(
-                    (application) => application.applicantid.toString() !== signedprofile.user._id
-                  ).length > 0 ? (
+                  {signedprofile &&
+                  hasNotApplied ? (
                     <Button className="button primary" onClick={toApplication}>
                       Apply
                     </Button>
@@ -196,13 +203,11 @@ const Project = ({
             )}
           </>
         )}
-        <>
           {loadedProjects && project && (
             <ApplicationList
             applications={applications}
             project={project} />
           )}
-        </>
       </>
     </div>
   );
