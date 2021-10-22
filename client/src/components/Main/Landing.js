@@ -65,6 +65,7 @@ const Landing = ({history}) => {
 export default Landing
 
 const LandingHero = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
 `
