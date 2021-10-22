@@ -68,11 +68,15 @@ const LandingHero = styled.div`
   width: 100%;
   height: 100%;
 `
-
 const LandingCopy = styled.div`
   position: relative;
   margin-left: 10rem;
   max-width: 60%;
+
+  @media (max-width: 650px) {
+    margin: auto;
+    top: 5rem;
+  }
 `
 const CopyTop = styled.h1`
 `
@@ -86,8 +90,11 @@ const CopyList = styled.li`
 `
 
 const LandingButtons = styled.div`
-margin-left: 10rem;
-
+  margin-left: 10rem;
+  @media (max-width: 650px) {
+    margin-left: 25%;
+    margin-top: 7rem;
+  }
 `
 const FindPeopleButton = styled(Button)`
 

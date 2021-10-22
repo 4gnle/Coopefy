@@ -343,7 +343,7 @@ const Profile = ({
                         rel="noopener noreferrer"
                         to={{ pathname: `${profileInfo.website}` }}
                       >
-                        {profileInfo.website}
+                        Website
                       </ProfileWebsite>
                     </>
                   ) : null}
