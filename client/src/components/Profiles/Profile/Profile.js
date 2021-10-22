@@ -30,13 +30,7 @@ import { cleanProfile } from "../../../redux/actions/profile";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const stateSkills = {
-  skills: "",
-};
-
 const Profile = ({match, history}) => {
-
-  const [imagePrev, setImagePrev] = useState();
 
   const [profileLoaded, setProfileLoaded] = useState(false);
 
@@ -56,16 +50,9 @@ const Profile = ({match, history}) => {
 
   useEffect(() => {
     loadProfile();
-
-    if(profile && profile.profileimage) {
-      const fileContents = new Buffer(profile.profileimage, "base64");
-      setImagePrev(fileContents);
-    };
-
-  }, [profileData, isAuthenticated]);
+  }, [profileData]);
 
   const loadProfile = async () => {
-    setImagePrev(false);
     await dispatch(getProfileByUsername(match.params.username));
     setProfileLoaded(true);
   }
@@ -97,15 +84,10 @@ const Profile = ({match, history}) => {
 
               <ProfileMain>
                 <ProfileMainData>
-                  {profile && !imagePrev ? (
-                    <>
+                  {profile && !profile.profileimage ? (
                       <ProfileImg src={placeholder} />
-                      <br />
-                    </>
                   ) : (
-                    <>
-                      <ProfileImg src={imagePrev} />
-                    </>
+                      <ProfileImg src={`${new Buffer(profile.profileimage, "base64")}`} />
                   )}
                 <ProfileLocation>
                   {profile.status ? (
@@ -294,8 +276,8 @@ const Profile = ({match, history}) => {
                     <>
                       <ProfileWebsite
                         target="_blank"
-                        rel="noopener noreferrer"
-                        to={{ pathname: `${profile.sociallinks.website}` }}
+                        rel="noreferrer noopener"
+                        href={`${profile.website}`}
                       >
                         Website
                       </ProfileWebsite>

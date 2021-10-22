@@ -160,7 +160,7 @@ export const ProfileLinks = styled.div`
     width: 70%;
   }
 `;
-export const ProfileWebsite = styled(Link)`
+export const ProfileWebsite = styled.a`
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
