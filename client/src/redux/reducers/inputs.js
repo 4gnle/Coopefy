@@ -12,7 +12,7 @@ import {
     token: localStorage.getItem('token'),
     isAuth: false,
     isLoad: true,
-    user: null
+    userData: null
   };
 
 
@@ -25,7 +25,7 @@ export default function authenticate(state = initialState, action) {
         ...state,
         isAuth: true,
         isLoad: false,
-        user: payload
+        userData: payload
       };
     // case GOOGLELOGIN:
     //   localStorage.getItem('token', payload.token)

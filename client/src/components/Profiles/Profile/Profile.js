@@ -27,93 +27,48 @@ Skills} from './ProfileStyles';
 //Redux and Router
 import { getProfileByUsername } from "../../../redux/actions/profile";
 import { cleanProfile } from "../../../redux/actions/profile";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-const stateLinks = {
-  twitter: "",
-  dribbble: "",
-  behance: "",
-  producthunt: "",
-  instagram: "",
-  linkedin: "",
-  facebook: "",
-  github: "",
-};
 
 const stateSkills = {
   skills: "",
 };
 
-const profileInfo = {
-  status: "",
-  username: "",
-  profilename: "",
-  location: "",
-  bio: "",
-  website: "",
-};
+const Profile = ({match, history}) => {
 
-const Profile = ({
-  profile: {
-    profile,
-    loading,
-    profileimage,
-    bio,
-    skills,
-    username,
-    website,
-    sociallinks,
-    location,
-  },
-  authenticate: { isAuth, user },
-  getProfileByUsername,
-  cleanProfile,
-  match,
-  history,
-}) => {
   const [imagePrev, setImagePrev] = useState();
-  const [socialLinks, setSocialLinks] = useState(stateLinks);
-  const [skillsData, setSkillsData] = useState(stateSkills);
+
   const [profileLoaded, setProfileLoaded] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const profileData = useSelector(state => state.profile);
+  const isAuthenticated = useSelector(state => state.authenticate)
+
+  const {
+    profile
+  } = profileData;
+
+  const {
+    isAuth,
+    userData
+  } = isAuthenticated;
 
   useEffect(() => {
     loadProfile();
-  }, [getProfileByUsername, match.params.username]);
 
-  const loadProfile = async () => {
-    await cleanProfile();
-    setImagePrev(false);
-    await getProfileByUsername(match.params.username);
-    setProfileLoaded(true);
-  };
-
-  useEffect(() => {
-    if (profile && !loading && profile.profileimage) {
+    if(profile && profile.profileimage) {
       const fileContents = new Buffer(profile.profileimage, "base64");
       setImagePrev(fileContents);
-    }
+    };
 
-    if (!loading && profile) {
-      const profileLinks = { ...stateLinks };
-      for (const key in profile.sociallinks) {
-        if (key in profileLinks) profileLinks[key] = profile.sociallinks[key];
-      }
-      setSocialLinks(profileLinks);
+  }, [profileData, isAuthenticated]);
 
-      const profileSkills = { ...stateSkills };
-      for (const key in profile) {
-        if (key in profileSkills) profileSkills[key] = profile[key];
-      }
-      setSkillsData(profileSkills);
-
-      const profileData = { ...profileInfo };
-      for (const key in profile) {
-        if (key in profileData) profileInfo[key] = profile[key];
-      }
-    }
-    // eslint-disable-next-line
-  }, [profile, loading, username, profileimage]);
+  const loadProfile = async () => {
+    setImagePrev(false);
+    await dispatch(getProfileByUsername(match.params.username));
+    setProfileLoaded(true);
+  }
 
   const goBack = () => {
     history.goBack();
@@ -133,7 +88,7 @@ const Profile = ({
                 <Button onClick={goBack} className="button bad">
                   Back
                 </Button>
-                {isAuth && profile.user && user._id === profile.user._id && (
+                {isAuth && profile.user && userData._id === profile.user._id && (
                   <Link to="/edit-profile">
                     <Button className="button random">Edit Profile</Button>
                   </Link>
@@ -142,7 +97,7 @@ const Profile = ({
 
               <ProfileMain>
                 <ProfileMainData>
-                  {profileLoaded && !imagePrev ? (
+                  {profile && !imagePrev ? (
                     <>
                       <ProfileImg src={placeholder} />
                       <br />
@@ -154,7 +109,6 @@ const Profile = ({
                   )}
                 <ProfileLocation>
                   {profile.status ? (
-
                       <b>
                         <em>{profile.status}</em>
                       </b>
@@ -168,11 +122,11 @@ const Profile = ({
               </ProfileMainData>
 
                 <ProfileTop>
-                  {profile && !profileInfo.profilename ? (
+                  {profile && !profile.profilename ? (
                     <>
                       <div className="no-profile-name">
                         No profile name
-                        {isAuth && user._id === profile.user._id && (
+                        {isAuth && userData._id === profile.user._id && (
                           <Link to="edit-profile">
                             <Button className="button small">Add Name</Button>
                           </Link>
@@ -183,12 +137,12 @@ const Profile = ({
                     <>
                       {profile && (
                         <p>
-                          <ProfileName>{profileInfo.profilename}</ProfileName>
+                          <ProfileName>{profile.profilename}</ProfileName>
                           &nbsp;&nbsp;
-                          <ProfileUsername>@{profileInfo.username}</ProfileUsername>
+                          <ProfileUsername>@{profile.username}</ProfileUsername>
                         </p>
                       )}
-                      <em>{profileInfo.bio}</em>
+                      <em>{profile.bio}</em>
                     </>
                   )}
                 </ProfileTop>
@@ -212,7 +166,7 @@ const Profile = ({
                   <>
                     <div className="no-profile">
                       There are no skills show
-                      {isAuth && user._id === profile.user._id && (
+                      {isAuth && userData._id === profile.user._id && (
                         <Link to="edit-profile">
                           <Button className="button small">Add Skills</Button>
                         </Link>
@@ -221,8 +175,8 @@ const Profile = ({
                   </>
                 ) : null}
 
-                {skillsData.skills.length > 0 &&
-                  skillsData.skills.map((skill, index) => (
+                {profile && profile.skills.length > 0 &&
+                  profile.skills.map((skill, index) => (
                     <>
                       <Skills key={index}>
                         <Button className="show"> {skill}</Button>
@@ -234,24 +188,24 @@ const Profile = ({
               <ProfileLinks>
                 <ProfileIconSection>
 
-                  {socialLinks.producthunt && (
+                  {profile.sociallinks.producthunt && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       to={{
-                        pathname: `https://www.producthunt.com/${socialLinks.producthunt}`,
+                        pathname: `https://www.producthunt.com/${profile.sociallinks.producthunt}`,
                       }}
                     >
                       <Icon className="fab fa-product-hunt"></Icon>
                     </Link>
                   )}
 
-                  {socialLinks.github && (
+                  {profile.sociallinks.github && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       to={{
-                        pathname: `https://www.github.com/${socialLinks.github}`,
+                        pathname: `https://www.github.com/${profile.sociallinks.github}`,
                       }}
                     >
                       <Icon
@@ -261,73 +215,73 @@ const Profile = ({
                     </Link>
                   )}
 
-                  {socialLinks.twitter && (
+                  {profile.sociallinks.twitter && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       to={{
-                        pathname: `https://www.twitter.com/${socialLinks.twitter}`,
+                        pathname: `https://www.twitter.com/${profile.sociallinks.twitter}`,
                       }}
                     >
                       <Icon className="fab fa-twitter-square"></Icon>
                     </Link>
                   )}
 
-                  {socialLinks.instagram && (
+                  {profile.sociallinks.instagram && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       to={{
-                        pathname: `https://www.instagram.com/${socialLinks.instagram}`,
+                        pathname: `https://www.instagram.com/${profile.sociallinks.instagram}`,
                       }}
                     >
                       <Icon className="fab fa-instagram-square"></Icon>
                     </Link>
                   )}
 
-                  {socialLinks.behance && (
+                  {profile.sociallinks.behance && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: "black" }}
                       to={{
-                        pathname: `https://www.behance.net/${socialLinks.behance}`,
+                        pathname: `https://www.behance.net/${profile.sociallinks.behance}`,
                       }}
                     >
                       <Icon className="fab fa-behance-square"></Icon>
                     </Link>
                   )}
 
-                  {socialLinks.dribbble && (
+                  {profile.sociallinks.dribbble && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       to={{
-                        pathname: `https://www.dribbble.com/${socialLinks.dribbble}`,
+                        pathname: `https://www.dribbble.com/${profile.sociallinks.dribbble}`,
                       }}
                     >
                       <Icon className="fab fa-dribbble-square"></Icon>
                     </Link>
                   )}
 
-                  {socialLinks.linkedin && (
+                  {profile.sociallinks.linkedin && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       to={{
-                        pathname: `https://www.linkedin.com/${socialLinks.linkedin}`,
+                        pathname: `https://www.linkedin.com/${profile.sociallinks.linkedin}`,
                       }}
                     >
                       <Icon className="fab fa-linkedin-square"></Icon>
                     </Link>
                   )}
 
-                  {socialLinks.facebook && (
+                  {profile.sociallinks.facebook && (
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       to={{
-                        pathname: `https://www.facebook.com/${socialLinks.facebook}`,
+                        pathname: `https://www.facebook.com/${profile.sociallinks.facebook}`,
                       }}
                     >
                       <Icon className="fab fa-facebook-square"></Icon>
@@ -336,12 +290,12 @@ const Profile = ({
                 </ProfileIconSection>
 
                 <ProfileWebsite>
-                  {profile && profileInfo.website ? (
+                  {profile && profile.website ? (
                     <>
                       <ProfileWebsite
                         target="_blank"
                         rel="noopener noreferrer"
-                        to={{ pathname: `${profileInfo.website}` }}
+                        to={{ pathname: `${profile.sociallinks.website}` }}
                       >
                         Website
                       </ProfileWebsite>
@@ -357,11 +311,4 @@ const Profile = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  profile: state.profile,
-  authenticate: state.authenticate,
-});
-
-export default connect(mapStateToProps, { getProfileByUsername, cleanProfile })(
-  Profile
-);
+export default Profile;

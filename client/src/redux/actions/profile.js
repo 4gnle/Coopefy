@@ -24,13 +24,12 @@ export const getProfile = () => async (dispatch) => {
     //Sends the request to the profile/me using the API
     const res = await api.get("/profile/me");
 
-    //If the token is there, do this
     dispatch({
       type: GET_SIGNEDPROFILE,
       payload: res.data,
     });
   } catch (err) {
-    //If the token is not there, do this
+    
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },

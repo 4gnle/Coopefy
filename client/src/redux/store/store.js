@@ -1,8 +1,8 @@
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
-import authToken from '../utilities/authToken'
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import rootReducer from "../reducers";
+import authToken from "../utilities/authToken";
 
 const initialState = {};
 
@@ -30,6 +30,6 @@ store.subscribe(() => {
     const token = currentState.authenticate.token;
     authToken(token);
   }
-  });
+});
 
 export default store;

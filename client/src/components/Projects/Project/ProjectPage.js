@@ -30,6 +30,7 @@ import ApplicationList from "../Applications/ApplicationList";
 const Project = ({
   project: { project, loading, applications },
   profile: { signedprofile, user },
+  authenticate: {isAuth, userData},
   match,
   history,
   getProjectById,
@@ -162,7 +163,7 @@ const Project = ({
                 </div>
 
                 <div className="pp-bottom-section">
-                  {signedprofile && applications ? (
+                  {signedprofile && isAuth && signedprofile.user._id !== userData._id ? (
                     <Button className="button primary" onClick={toApplication}>
                       Apply
                     </Button>
@@ -191,6 +192,7 @@ const Project = ({
 const mapStateToProps = (state) => ({
   project: state.project,
   profile: state.profile,
+  authenticate: state.authenticate
 });
 export default connect(mapStateToProps, {
   getProjectById,

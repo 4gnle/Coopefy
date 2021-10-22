@@ -11,7 +11,7 @@ import {getProfileByUsername} from "../../../redux/actions/profile";
 import {connect} from "react-redux";
 
 const ApplicationItem = ({
-  authenticate: {isAuth, user},
+  authenticate: {isAuth, userData},
   profile: {profile},
   projectowner,
   application,
@@ -44,7 +44,7 @@ const ApplicationItem = ({
   }, [getProfileByUsername, application, loadedItem])
 
   const hirePerson = () => {
-    console.log(user._id);
+    console.log(userData._id);
   }
 
   return (
@@ -61,7 +61,7 @@ const ApplicationItem = ({
       <ApplicationText>
         {applicationtext}
       </ApplicationText>
-      {isAuth && user._id === projectowner &&
+      {isAuth && userData._id === projectowner &&
         <SelectApplicant
           className='button primary'
           onClick={hirePerson}
