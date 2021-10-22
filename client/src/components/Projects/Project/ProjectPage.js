@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 //UI & CSS
 import "./ProjectPage.css";
+import styled from 'styled-components';
 import Spinner from "../../UI/Spinner";
 import Button from "../../UI/Button";
 import Error404 from "../../UI/Error404";
@@ -25,6 +26,7 @@ import {Link} from 'react-router-dom'
 import Apply from "../Applications/Apply";
 import ApplicationList from "../Applications/ApplicationList";
 
+
 const Project = ({
   project: { project, loading, applications },
   profile: { signedprofile, user },
@@ -35,38 +37,21 @@ const Project = ({
 }) => {
   const [loadProject, setLoadProject] = useState(false);
   const [loadedProjects, setLoadedProjects] = useState(false);
-  const [profileLoaded, setProfileLoaded] = useState(false);
+  const [profileLoaded, setProfileLoaded] = useState();
 
   const [applicationBox, setApplicationBox] = useState(false);
-  const [hasNotApplied, setHasNotApplied] = useState(false);
 
-  const getProjectData = async () => {
+  const getAllData = async () => {
+    await getProfile();
+    setProfileLoaded(true);
     await getProjectById(match.params.id);
     setLoadProject(true);
-  };
-
-  const getApplicationsData = async () => {
     await getApplicationsbyID(match.params.id);
     setLoadedProjects(true);
   };
 
-  const getProfileData = async () => {
-    await getProfile();
-    setProfileLoaded(true);
-  };
-
   useEffect(() => {
-    getProjectData();
-    getApplicationsData();
-    getProfileData();
-
-    console.log(applications);
-
-    if (applications && profileLoaded && applications.filter(
-      (application) => application.applicantid !== signedprofile.user._id
-    ).length > 0) {
-      setHasNotApplied(true);
-    }
+    getAllData();
   }, [getProjectById, getProfile, getApplicationsbyID]);
 
   const projecticon = () => {
@@ -126,68 +111,58 @@ const Project = ({
           projectname={match.params.projectname}
         />
       )}
-      <>
         {!loadProject ? (
           <Spinner />
         ) : (
           <>
             {project ? (
-              <div className="project-box">
+              <ProjectBox>
                 <Button className="button bad" onClick={goBack}>
                   Go Back
                 </Button>
-                <div className="pp-title">
+                <Title>
                   <h2>{project.projectname}</h2>
-                </div>
-                <hr />
-                <div className="pp-details">
+                </Title>
+                <BreakLine />
+
+                <Details>
                   {project.projectreward && project.projectamount ? (
-                    <>
                       <p>
-                        <img alt="coin icon" src={projecticon()} width="21px" />{" "}
+                        <Icon alt="coin icon" src={projecticon()} width="21px" />{" "}
                         {project.projectamount} {project.projectreward}
                       </p>
-                    </>
                   ) : null}
-                  <> </>
-                  <>
                     {project.projectlocation ? (
-                      <span>
+                      <DetailsLine>
                         <i class="fas fa-map-marker-alt"></i>{" "}
                         {project.projectlocation}
-                      </span>
+                      </DetailsLine>
                     ) : (
-                      <span>
+                      <DetailsLine>
                         <i className="fas fa-globe location-icon"></i> Remote
-                      </span>
+                      </DetailsLine>
                     )}
-                  </>
-                  <>
                     {project.projectduration && (
-                      <span>
+                      <DetailsLine>
                         <i class="far fa-clock"></i> {project.projectduration}
-                      </span>
+                      </DetailsLine>
                     )}
-                  </>
-                </div>
-                <hr />
-                <div className="pp-description">
+                </Details>
+                <BreakLine />
+                <Description>
                   {project.projectdescription && project.projectdescription}
-                </div>
-                <hr />
+                </Description>
+                <BreakLine />
                 <div className="pp-skills">
                   {project.projectskills.map((skill, index) => (
-                    <>
                       <div key={index}>
                         <Button className="show"> {skill}</Button>
                       </div>
-                    </>
                   ))}
                 </div>
 
                 <div className="pp-bottom-section">
-                  {signedprofile &&
-                  hasNotApplied ? (
+                  {signedprofile && applications ? (
                     <Button className="button primary" onClick={toApplication}>
                       Apply
                     </Button>
@@ -197,7 +172,8 @@ const Project = ({
                     Register to Apply
                   </Button></Link>}</> }
                 </div>
-              </div>
+
+              </ProjectBox>
             ) : (
               <Error404 />
             )}
@@ -208,7 +184,6 @@ const Project = ({
             applications={applications}
             project={project} />
           )}
-      </>
     </div>
   );
 };
@@ -222,3 +197,57 @@ export default connect(mapStateToProps, {
   getProfile,
   getApplicationsbyID,
 })(Project);
+
+const ProjectBox = styled.div`
+  box-sizing: border-box;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25), 12px 12px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  padding: 5px;
+
+  @media (max-width: 650px) {
+    position: absolute;
+    box-shadow: 0 0 0 0;
+    width: 96%;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: 0;
+  }
+`
+
+const BreakLine = styled.hr`
+  opacity: 0.25;
+  width: 100.7%;
+  margin-left: -0.5%
+`
+
+const Title = styled.div`
+  margin-left: 5%;
+`
+const Details = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: fit-content;
+  grid-gap: 1rem;
+  width: 100%;
+  margin-left: 5%;
+  margin-top: -5px;
+`
+const DetailsLine = styled.span`
+  position: relative;
+  top: 21px;
+`
+const Icon = styled.img`
+  position: relative;
+  top: 5px;
+`
+const Description = styled.div`
+  break-line: anywhere;
+  margin-left: 5%;
+`
