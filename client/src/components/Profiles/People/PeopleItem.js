@@ -1,78 +1,130 @@
 import React, {useEffect, useState} from 'react'
 
 // UI & CSS
-import './PeopleItem.css'
+import styled from 'styled-components';
 import placeholder from '../../UI/placeholder.png'
 
 //UI
 import Button from '../../UI/Button'
 
+
 import {Link} from 'react-router-dom'
 
-const PeopleItem = ({
-  profile: {
-  username,
-  bio,
-  location,
-  profilename,
-  status,
-  skills,
-  socialLinks,
-  website,
-  profileimage,
-  loading}
-  }) => {
+const PeopleItem = ({profileData}) => {
 
-  const [imagePrev, setImagePrev] = useState();
-
-  useEffect(()=> {
-    if (!loading && profileimage) {
-      const fileContents = new Buffer(profileimage, 'base64');
-      setImagePrev(fileContents);
-    }
-  }, [profileimage, username, loading])
+  const {
+    username,
+    profilename,
+    status,
+    skills,
+    profileimage,
+    loading} = profileData;
 
   return (
-    <div className='pi-box'>
-    <Link to={`/@${username}`}>
-        <div className='pi-top'>
-        <h3 style={{margin: '5px'}}>{profilename}</h3>
-          <p>@{username}</p>
-        </div>
+    <ProfileItemBox>
+    <LinkCover to={`/@${username}`}>
+        <ProfileItemTop>
+          <h3 style={{margin: '5px'}}>{profilename}</h3>
+            <p>@{username}</p>
+        </ProfileItemTop>
 
-        <div className='pi-profile-picture'>
+        <ProfileImageCover>
+          {profileData && profileimage ? <ProfileImage alt='Profile'  src={`${new Buffer(profileimage, 'base64')}`}/>: <ProfileImage alt='Profile' src={placeholder}/>}
+        </ProfileImageCover>
 
-          {imagePrev ? <img alt='Profile'  src={imagePrev}/>: <img alt='Profile' src={placeholder}/>}
-
-
-        </div>
-      </Link>
+      </LinkCover>
       <br/>
 
-      <div className='pi-bottom'>
-      <div className='pi-status'>
+      <ProfileItemStatus>
         <em>{status}</em>
-      </div>
+      </ProfileItemStatus>
         <>
         {skills.length > 0 && (
           <>
           <h4 style={{textAlign: 'left', margin: '5px'}}>Skills</h4>
-          <div className='pi-skills'>
-          {skills.map((skill, index) => (
-            <>
-            <Button className='show'>{' '}{skill}</Button>
-            </>
-          ))}
-          </div>
+          <ProfileItemSkills>
+            {skills.map((skill, index) => (
+              <>
+              <SkillButton className='button show'>{' '}{skill}</SkillButton>
+              </>
+            ))}
+          </ProfileItemSkills>
         </>)}
         </>
 
           <Link to={`/@${username}`}><Button
             className='button random'>
           View Profile</Button></Link>
-        </div>
-    </div>
+    </ProfileItemBox>
   )
 }
 
-export default PeopleItem
+export default PeopleItem;
+
+const ProfileItemBox = styled.div`
+  display: grid;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: fit-content;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px grey;
+  background: #C4C4C4;
+  border-radius: 18px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+`;
+
+const ProfileItemTop = styled.div`
+`;
+
+const LinkCover = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
+const ProfileImageCover = styled.div`
+  width: 6rem;
+  height: 6rem;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 180px;
+  background-color: black;
+`;
+
+const ProfileImage = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 180px;
+  object-fit: cover;
+`;
+
+const ProfileItemSkills = styled.div`
+  display: grid;
+  box-sizing: border-box;
+  border-radius: 18px;
+  grid-template-columns: repeat(3, 2fr);
+  grid-auto-rows: 3rem;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+  height: fit-content;
+  overflow: visible;
+`;
+
+const SkillButton = styled(Button)`
+  font-size: 0.7rem;
+`;
+
+const ProfileItemStatus = styled.div`
+  box-sizing: border-box;
+  border-radius: 12px;
+  width: min-content;
+  padding: 1px;
+  margin-left: auto;
+  margin-right: auto;
+`;
