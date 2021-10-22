@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import Button from '../../UI/Button';
 import { Link } from "react-router-dom";
 
 //Styled-components
@@ -219,6 +219,14 @@ export const ProfileSkills = styled.div`
     grid-gap: 2.5vh;
   }
 `;
+
+export const SkillButton = styled(Button)`
+  font-size: 0.7rem;
+  margin: 1px;
+  border: 0;
+  border-radius: 8px;
+`;
+
 export const Skills = styled.div`
   &:hover {
     opacity: 0.5;

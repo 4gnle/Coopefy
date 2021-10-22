@@ -6,8 +6,6 @@ import placeholder from '../../UI/placeholder.png'
 
 //UI
 import Button from '../../UI/Button'
-
-
 import {Link} from 'react-router-dom'
 
 const PeopleItem = ({profileData}) => {
@@ -40,16 +38,13 @@ const PeopleItem = ({profileData}) => {
       </ProfileItemStatus>
         <>
         {skills.length > 0 && (
-          <>
-          <h4 style={{textAlign: 'left', margin: '5px'}}>Skills</h4>
           <ProfileItemSkills>
             {skills.map((skill, index) => (
               <>
-              <SkillButton className='button show'>{' '}{skill}</SkillButton>
+              <SkillButton>{' '}{skill}</SkillButton>
               </>
             ))}
-          </ProfileItemSkills>
-        </>)}
+          </ProfileItemSkills>)}
         </>
 
           <Link to={`/@${username}`}><Button
@@ -118,6 +113,9 @@ const ProfileItemSkills = styled.div`
 
 const SkillButton = styled(Button)`
   font-size: 0.7rem;
+  margin: 1px;
+  border: 0;
+  border-radius: 8px;
 `;
 
 const ProfileItemStatus = styled.div`

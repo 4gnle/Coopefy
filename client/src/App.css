@@ -210,6 +210,10 @@ i.fa-facebook-square {
 .my-3 {
   margin: 1.5rem 0;
 }
+}
 
-
+@media (max-width: 480px) {
+  i.fa-product-hunt {
+  font-size: 1.5rem;
+  }
 }

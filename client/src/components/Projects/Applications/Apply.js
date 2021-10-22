@@ -9,11 +9,9 @@ import Spinner from "../../UI/Spinner";
 import { getProfile } from "../../../redux/actions/profile";
 import { postApplication } from "../../../redux/actions/project";
 
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Apply = ({
-  profile: {signedprofile},
-  getProfile,
   closeApplication,
   sendApplication,
   postApplication,
@@ -23,7 +21,7 @@ const Apply = ({
   projectamount,
   projectlocation,
   projectid,
-  history,
+  history
 }) => {
   const [formData, setFormData] = useState({
     applicantname: "",
@@ -31,7 +29,11 @@ const Apply = ({
     applicationtext: "",
   });
 
-  const [projectID, setProjectID] = useState();
+  const dispatch = useDispatch();
+  const profileData = useSelector(state => state.profile);
+
+  const {signedprofile} = profileData;
+
   const [spinner, setSpinner] = useState(false);
 
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -39,7 +41,7 @@ const Apply = ({
   const { applicationtext, applicantname, applicantusername } = formData;
 
   const gettingProfile = async () => {
-    await getProfile()
+    await dispatch(getProfile());
     setProfileLoaded(true);
   }
 
@@ -57,14 +59,12 @@ const Apply = ({
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-    console.log(formData);
   };
 
   const performApplication = async (e) => {
     e.preventDefault();
     setSpinner(true);
-    await postApplication(formData, projectid);
+    await dispatch(postApplication(formData, projectid));
     sendApplication();
     setSpinner(false);
   };
@@ -117,11 +117,7 @@ const Apply = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  profile: state.profile,
-});
-
-export default connect(mapStateToProps, { getProfile, postApplication})(Apply);
+export default Apply;
 
 const ApplyBox = styled.div`
   position: absolute;

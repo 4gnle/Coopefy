@@ -62,7 +62,6 @@ export default People;
 
 const PeopleBox = styled.div`
   padding: 0.5rem;
-  box-shadow: 0 2px 5px grey;
   background: #C4C4C4;
   background-color: white;
   overflow: hidden;

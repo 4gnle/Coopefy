@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import "./Profile.css";
-
 //UI & CSS
 import Spinner from "../../UI/Spinner";
 import Button from "../../UI/Button";
@@ -22,12 +20,13 @@ ProfileWebsite,
 Icon,
 ProfileLocation,
 ProfileSkills,
+SkillButton,
 Skills} from './ProfileStyles';
 
 //Redux and Router
 import { getProfileByUsername } from "../../../redux/actions/profile";
 import { cleanProfile } from "../../../redux/actions/profile";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Profile = ({match, history}) => {
@@ -161,7 +160,7 @@ const Profile = ({match, history}) => {
                   profile.skills.map((skill, index) => (
                     <>
                       <Skills key={index}>
-                        <Button className="show"> {skill}</Button>
+                        <SkillButton className="show"> {skill}</SkillButton>
                       </Skills>
                     </>
                   ))}
