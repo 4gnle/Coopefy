@@ -47,15 +47,17 @@ const ApplicationsBox = styled.div`
     position: absolute;
     box-shadow: 0 0 0 0;
     width: 100%;
-    top: 60%;
+    top: 55vh;
   }
 
   @media (max-width: 480px) {
-    position: absolute;
-    box-shadow: 0 0 0 0;
     width: 96%;
-    top: 70vh;
-  }
+    top: 60vh;
+  };
+
+  @media (max-width: 390px) {
+    top: 65vh;
+  };
 `
 const Title = styled.h1`
   text-align: center;

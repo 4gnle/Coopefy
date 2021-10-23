@@ -126,4 +126,4 @@ const ApplicantImage = styled.div`
 `;
 
 const SelectApplicant = styled(Button)`
-`
+`;

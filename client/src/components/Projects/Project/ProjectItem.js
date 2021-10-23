@@ -148,7 +148,7 @@ top: 1px;
 `;
 
 const ProjectItemDescription = styled.div`
-width: 80%;
+width: 90%;
 height: 40px;
 margin-left: 5%;
 overflow: hidden;

@@ -42,13 +42,13 @@ const People = () => {
         <PeopleGrids>
         {profiles.length > 0 ?
         (profiles.map((profile, index) =>
-          <div>
-            {profile.status &&
+          <>
+            {profile.status && profile.profilename && profile.skills.length > 0 ?
             <PeopleItem
               key={index}
               profileData={profile}
-            />}
-          </div>
+            /> : null}
+          </>
         )
       ) : <Spinner/>}
         </PeopleGrids>
