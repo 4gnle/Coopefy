@@ -8,14 +8,15 @@ import placeholder from '../../UI/placeholder.png'
 
 //Redux & Router
 import {getProfileByUsername} from "../../../redux/actions/profile";
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const ApplicationItem = ({
-  authenticate: {isAuth, userData},
-  profile: {profile},
   projectowner,
-  application,
-  getProfileByUsername}) => {
+  application}) => {
+
+  const dispatch = useDispatch();
+  const authData = useSelector(state => state.authenticate);
+  const profileData = useSelector(state => state.profile);
 
   const {
     applicantname,
@@ -25,20 +26,23 @@ const ApplicationItem = ({
     applicationdate
   } = application;
 
+  const {userData, isAuth} = authData;
+  const {profiledata} = profileData;
+
   const [imagePrev, setImagePrev] = useState();
 
   const [loadedItem, setLoadedItem] = useState(false);
 
   const loadProfile = async () => {
-    await getProfileByUsername(applicantusername);
+    await dispatch(getProfileByUsername(applicantusername));
     setLoadedItem(true);
   }
 
   useEffect(() => {
     loadProfile();
 
-    if (loadedItem) {
-      const fileContents = new Buffer(profile.profileimage, "base64");
+    if (profiledata) {
+      const fileContents = new Buffer(profiledata.profileimage, 'base64');
       setImagePrev(fileContents);
     }
   }, [getProfileByUsername, application, loadedItem])
@@ -50,7 +54,7 @@ const ApplicationItem = ({
   return (
     <ApplicationBox>
       <ApplicantInfo>
-        <ApplicantPicture src={imagePrev}/>
+      <ApplicantPicture src={imagePrev}/>
         <ApplicantName>
           {applicantname}{' '}
         <ApplicantUsername>
@@ -73,12 +77,7 @@ const ApplicationItem = ({
   )
 }
 
-const mapStateToProps = state => ({
-  profile: state.profile,
-  authenticate: state.authenticate
-})
-
-export default connect(mapStateToProps, {getProfileByUsername})(ApplicationItem);
+export default ApplicationItem;
 
 const ApplicationBox = styled.div`
   box-sizing: border-box;
