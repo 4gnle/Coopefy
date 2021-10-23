@@ -41,14 +41,14 @@ const People = () => {
     {loading && !peopleReady ? <Spinner/> :
         <PeopleGrids>
         {profiles.length > 0 ?
-        (profiles.map(profile =>
+        (profiles.map((profile, index) =>
           <div>
-          {profile.profilename && profile.username ?
-          <PeopleItem
-            key={profile._id}
-            profileData={profile}
-          />
-           : null}</div>
+            {profile.status &&
+            <PeopleItem
+              key={index}
+              profileData={profile}
+            />}
+          </div>
         )
       ) : <Spinner/>}
         </PeopleGrids>

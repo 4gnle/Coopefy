@@ -29,7 +29,7 @@ export const getProfile = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    
+
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -95,25 +95,6 @@ export const getUsernamebyID = (id) => async (dispatch) => {
     //If the username is not there, do this
     dispatch({
       type: NO_USERNAME,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
-
-//Get Profile Skills
-export const getProfileSkills = () => async (dispatch) => {
-  try {
-    //Sends the request to the profile/me using the API
-    const res = await api.get("/profile/skills");
-    //If the token is there, do this
-    dispatch({
-      type: GET_PROFILESKILLS,
-      payload: res.data,
-    });
-  } catch (err) {
-    //If the token is not there, do this
-    dispatch({
-      type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
   }

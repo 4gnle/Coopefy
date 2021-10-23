@@ -40,9 +40,8 @@ const Projects = ({
         : <div className='projects-grids'>
             {
               !loading && projects.length > 0
-                ? (projects.map(project => <> < ProjectItem project = {
-                  project
-                } /> </>))
+                ? (projects.map(project => <> <ProjectItem projectData =
+                  {project}/> </>))
                 : null
             }
           </div>

@@ -16,15 +16,13 @@ import {
 } from '../actions/types'
 
 const initialState = {
-profile: null,
-signedprofile: null,
+profiledata: null,
+signedprofiledata: null,
+username: null,
 profileimage: null,
-skills:null,
 profiles:[],
-repos:[],
 loading: true,
 error: {},
-username: null
 };
 
 export default function profile(state = initialState, action) {
@@ -43,7 +41,7 @@ export default function profile(state = initialState, action) {
     case GET_PROFILE:
       return {
         ...state,
-        profile: payload,
+        profiledata: payload,
         loading: false
       };
 
@@ -79,7 +77,7 @@ export default function profile(state = initialState, action) {
     case CLEAN_PROFILE:
     return {
       ...state,
-      profile: null,
+      profiledata: null,
       profileimage: null
     };
 
@@ -87,7 +85,7 @@ export default function profile(state = initialState, action) {
     case PROFILE_ERROR:
       return {
         ...state,
-        profile: null,
+        profiledata: null,
         signedprofile: null,
         loading: false,
         username: null,
