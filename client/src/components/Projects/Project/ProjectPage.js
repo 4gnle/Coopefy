@@ -175,7 +175,7 @@ const Project = ({match, history}) => {
                     {!signedprofile && (
                       <Link to="/register">
                         <Button className="button primary">
-                          Register to Apply
+                          Log In to Apply
                         </Button>
                       </Link>
                     )}
@@ -257,9 +257,9 @@ const Description = styled.div`
 const Skills = styled.div`
   margin-left: 5%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 2rem;
-  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 2fr);
+  grid-auto-rows: 3rem;
+  grid-gap: 0.2rem;
   width: 90%;
   padding: 2%;
 

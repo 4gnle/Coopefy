@@ -183,4 +183,5 @@ const SkillButton = styled(Button)`
   margin: 1px;
   border: 0;
   border-radius: 8px;
+  width: max-content;
 `;

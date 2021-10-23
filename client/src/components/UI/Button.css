@@ -48,10 +48,10 @@
   align-items: center;
   border-radius: 12px;
   border-style: none;
+  height: 2rem;
   box-sizing: border-box;
   cursor: default;
   font-size: 14px;
-  height: fit-content;
   width: fit-content;
   line-height: normal;
   padding: 0.5rem 0.5rem;
@@ -182,7 +182,7 @@ button:active:disabled {
   }
 
   .show {
-    font-size: 12px;  
+    font-size: 12px;
   }
 
 }
