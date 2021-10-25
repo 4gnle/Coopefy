@@ -54,6 +54,7 @@ const Project = ({match, history}) => {
 
   useEffect(() => {
     getAllData();
+
   }, [getProjectById, getProfile, getApplicationsbyID]);
 
   const projecticon = () => {
@@ -253,6 +254,7 @@ const Icon = styled.img`
 const Description = styled.div`
   break-line: anywhere;
   margin-left: 5%;
+  padding: 5px;
 `;
 const Skills = styled.div`
   margin-left: 5%;

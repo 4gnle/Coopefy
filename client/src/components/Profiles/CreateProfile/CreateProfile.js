@@ -278,6 +278,7 @@ const BottomTextArea = styled.textarea`
   width: 100%;
   left: 350px;
   font-size: 1rem;
+  font-family: 'Inter';
   padding: 5px;
 `;
 
