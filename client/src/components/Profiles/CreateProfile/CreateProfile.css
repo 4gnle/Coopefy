@@ -1,208 +1,31 @@
-.createprofile-edit-box {
-  height: auto;
-  max-width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 2px 12px grey;
-  background: #C4C4C4;
-  border-radius: 28px;
-  background-color: white;
-  overflow: hidden;
-  z-index: 1;
-}
 
-.createprofile-top-inputs > label {
-  font-size: 1rem;
-  margin-left: 0px;
-  margin-bottom: 5px;
-  float:left;
-}
-
-.createprofile-top-inputs {
-  float: right;
-  margin-right: 150px;
-  margin-top: -150px;
-}
-
-.createprofile-top-inputs-status > label {
-  font-size: 1rem;
-  margin-top: 5px;
-  float:left;
-}
 
 .createprofile-top-inputs-name > input {
-  border-radius: 6px;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  width: 100%;
-  height: 25%;
-  font-family: 'Inter';
-  font: 1rem 'Inter';
-  padding: 5px;
-  float: left;
-  margin-bottom: 10px;
+
 }
 
 .createprofile-top-inputs-status > select {
-  display: inline-block;
-  border-radius: 6px;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  width: 100%;
-  height: 25%;
-  font-size: 1vw;
-  font-family: 'Inter';
-  font: 1rem 'Inter';
-  padding: 5px;
-  margin-top: 20px;
+
 }
 
 .createprofile-bottom-inputs {
-  margin-top: 55px;
-  float: center;
+
 }
 
 .createprofile-bottom-inputs > label {
-  font-size: 1rem;
-  font-weight: bold;
-  float:left;
+
 }
 
 .createprofile-bottom-inputs > input {
-  border-radius: 6px;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  width: 100%;
-  height: 25%;
-  font-family: 'Inter';
-  font: 1rem 'Inter';
-  padding: 5px;
+
 }
 
 .createprofile-bottom-inputs > textarea {
-  resize: none;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  background: white;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  width: 100%;
-  left: 350px;
-  font: 1vw 'Inter';
-  padding: 5px;
+
 }
 
 .createprofile-buttons {
-  position: static;
-  margin-top: 20%;
-}
 
-@media (max-width: 1300px) {
-  .createprofile-top-inputs {
-    margin-right: 60px;
-    margin-top: -112px;
-  }
-
-  .createprofile-top-inputs > label {
-    font-size: 1.2vw;
-    font-weight: bold;
-    margin-bottom: -10px;
-    margin-right: auto;
-    margin-left: 15px;
-  }
-
-  .createprofile-top-inputs-name > input {
-    font-size: 1.2vw;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status > select {
-    font-size: 1.2vw;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    margin-top: 30px;
-    float: center;
-  }
-
-  .createprofile-bottom-inputs > label {
-    font-size: 1.2vw;
-    font-weight: bold;
-    float:left;
-  }
-
-  .createprofile-bottom-inputs > input {
-    font-size: 1.2vw;
-    padding: 5px;
-    margin-bottom: 5px;
-  }
-
-  .createprofile-bottom-inputs > textarea {
-    font-size: 1.2vw;
-    padding: 5px;
-    margin-bottom: 5px;
-    height: 30%;
-  }
-
-  .createprofile-buttons {
-    position: static;
-    margin-top: 25%;
-  }
-}
-
-@media (max-width: 800px) {
-  .createprofile-top-inputs > label {
-    font-size: 1.5vw;
-    font-weight: bold;
-    float:left;
-  }
-
-  .createprofile-top-inputs {
-    float: right;
-    margin-right: 20px;
-    margin-top: -120px;
-  }
-
-  .createprofile-top-inputs-name > input {
-    font-size: 1.5vw;
-    padding: 5px;
-  }
-
-  .createprofile-top-inputs-status > select {
-    font-size: 1.5vw;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs {
-    margin-top: 30px;
-    float: center;
-  }
-
-  .createprofile-bottom-inputs > label {
-    font-size: 1.5vw;
-    font-weight: bold;
-    float:left;
-  }
-
-  .createprofile-bottom-inputs > input {
-    font-size: 1.5vw;
-    padding: 5px;
-  }
-
-  .createprofile-bottom-inputs > textarea {
-    font-size: 1.5vw;
-    padding: 5px;
-  }
-
-  .createprofile-buttons {
-    position: static;
-    margin-top: 27%;
-  }
 }
 
 @media (max-width: 650px) {
@@ -274,54 +97,5 @@
   .createprofile-buttons {
     position: static;
     margin-top: 5%;
-  }
-}
-
-@media (max-width: 480px) {
-  .createprofile-edit-box {
-    max-width: 70%;
-    box-shadow: 0px;
-    position: absolute;
-    left: 25px;
-    top: 50px;
-    margin-top: 0px;
-  }
-}
-
-@media (max-width: 380px) {
-  .createprofile-edit-box {
-    max-width: 80%;
-    box-shadow: 0px;
-    left: 0px;
-  }
-
-  .createprofile-top-inputs {
-    float: none;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 10px;
-  }
-
-  .createprofile-top-inputs-name > input {
-    font-size: 2.5vw;
-    box-sizing: border-box;
-    padding: 5px;
-    width: 100%;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    }
-
-  .createprofile-top-inputs-status > select {
-    font-size: 2.5vw;
-    padding: 5px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .createprofile-bottom-inputs {
-    float: center;
-    margin-top: 5px;
   }
 }

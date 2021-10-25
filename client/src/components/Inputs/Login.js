@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAlert } from "../../redux/actions/alert";
 import { loginUser } from "../../redux/actions/inputs";
 
-const Login = ({ history, loginUser, setAlert }) => {
+const Login = ({history}) => {
   if (localStorage.token) {
     history.push("/dashboard");
   }

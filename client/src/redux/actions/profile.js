@@ -101,7 +101,7 @@ export const getUsernamebyID = (id) => async (dispatch) => {
 };
 
 //Send Profile Data
-export const profileData = (formData, edit: false) => async (dispatch) => {
+export const profileEdit = (formData, edit: false) => async (dispatch) => {
   try {
     const res = await api.post("/profile", formData);
 

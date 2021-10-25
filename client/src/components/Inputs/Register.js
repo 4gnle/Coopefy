@@ -1,7 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
 // Redux Functions
-import {connect} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {registerUser} from '../../redux/actions/inputs'
 // import {googleLogin} from '../../redux/actions/inputs'
@@ -17,7 +17,9 @@ Inputs,
 InputButton,
 Small} from "./Inputs";
 
-const Register = ({history, registerUser, setAlert }) => {
+const Register = ({history}) => {
+
+  const dispatch = useDispatch();
 
   if (localStorage.token) {
     history.push('/dashboard')
@@ -61,9 +63,9 @@ const Register = ({history, registerUser, setAlert }) => {
 
   const onSubmit = (event) => {
     if (!valid) {
-      setAlert('Passwords do not match', 'danger');
+      dispatch(setAlert('Passwords do not match', 'danger'));
     } else {
-      registerUser(history, username, email, password);
+      dispatch(registerUser(history, username, email, password));
     };
       event.preventDefault();
   };
@@ -124,7 +126,6 @@ const Register = ({history, registerUser, setAlert }) => {
             </>
           }
 
-
           <InputButton
           className="button"
           type='submit'
@@ -140,4 +141,4 @@ const Register = ({history, registerUser, setAlert }) => {
     </InputBox>  )
 }
 
-export default connect(null, {setAlert, registerUser})(Register)
+export default Register;

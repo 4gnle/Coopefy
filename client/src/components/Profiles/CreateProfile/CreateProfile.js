@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import "./CreateProfile.css";
+import styled from 'styled-components';
 
 //Components
 import SkillsandSocials from "./Skills and Socials/SkillsandSocials";
@@ -8,12 +8,12 @@ import Error404 from "../../UI/Error404";
 
 //Redux
 import {
-  profileData,
+  profileEdit,
   getProfile,
   setProfileSkills,
   profileLinks,
 } from "../../../redux/actions/profile";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 //UI
@@ -45,15 +45,17 @@ const stateLinks = {
 };
 
 const CreateProfile = ({
-  profile: { signedprofile, loading },
-  getProfile,
-  profileData,
-  history,
-  setProfileSkills,
-  profileLinks,
-  authenticate: { isAuth },
+  history
 }) => {
   const [formData, setFormData] = useState(initialState);
+
+  const dispatch = useDispatch();
+
+  const profileData = useSelector(state => state.profile);
+  const authData = useSelector(state => state.authenticate);
+
+  const {signedprofile, loading} = profileData;
+  const {isAuth} = authData;
 
   const [skillsData, setSkillsData] = useState(stateSkills);
   const [linksData, setLinksData] = useState(stateLinks);
@@ -84,9 +86,9 @@ const CreateProfile = ({
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await setProfileSkills(skillsData, signedprofile ? true : false);
-    await profileLinks(linksData);
-    profileData(formData);
+    await dispatch(setProfileSkills(skillsData, signedprofile ? true : false));
+    await dispatch(profileLinks(linksData));
+    dispatch(profileEdit(formData));
   };
 
   const goBack = () => {
@@ -100,23 +102,20 @@ const CreateProfile = ({
       ) : (
         <>
           {signedprofile && isAuth ? (
-            <div className="createprofile-edit-box">
+            <EditBox>
               <ImageUpload />
-              <div className="createprofile-top-inputs">
-                <label>Name</label>
-                <div className="createprofile-top-inputs-name">
-                  <input
+              <TopInputBox>
+                <TopLabel>Name</TopLabel>
+                  <TopNameInput
                     placeholder="First and last name"
                     className="m-1"
                     onChange={(e) => onChange(e)}
                     value={profilename}
                     name="profilename"
-                  ></input>
-                </div>
+                  />
 
-                <div className="createprofile-top-inputs-status">
-                  <label>Status</label>
-                  <select
+                  <TopLabel>Status</TopLabel>
+                  <TopStatusSelect
                     name="status"
                     onChange={(e) => onChange(e)}
                     value={status}
@@ -129,13 +128,12 @@ const CreateProfile = ({
                     <option value="Collaborating">Collaborating</option>
                     <option value="Learning">Learning</option>
                     <option value="Teaching">Teaching</option>
-                  </select>
-                </div>
-              </div>
+                  </TopStatusSelect>
+              </TopInputBox>
 
-              <div className="createprofile-bottom-inputs">
-                <label>Bio</label>
-                <textarea
+              <BottomInputBox>
+                <BottomLabel>Bio</BottomLabel>
+                <BottomTextArea
                   maxLength="250"
                   cols="30"
                   rows="5"
@@ -145,25 +143,26 @@ const CreateProfile = ({
                   onChange={(e) => onChange(e)}
                   value={bio}
                   name="bio"
-                ></textarea>
+                />
 
-                <label>Location</label>
-                <input
+                <BottomLabel>Location</BottomLabel>
+                <BottomInput
                   placeholder="State/City + Country  (eg. California, US)"
                   onChange={(e) => onChange(e)}
                   value={location}
                   name="location"
-                ></input>
+                />
 
-                <label>Website</label>
-                <input
+                <BottomLabel>Website</BottomLabel>
+                <BottomInput
                   placeholder="Personal website (www.example.com)"
                   className=""
                   onChange={(e) => onChange(e)}
                   value={website}
                   name="website"
-                ></input>
-              </div>
+                />
+              </BottomInputBox>
+
               <div className="createprofile-skillsandsocials">
                 <SkillsandSocials
                   skillsData={skillsData}
@@ -174,15 +173,15 @@ const CreateProfile = ({
                   setLinks={setLinks}
                 />
               </div>
-              <div className="createprofile-buttons">
+              <Buttons>
                 <Button className="button bad" onClick={goBack}>
                   Cancel
                 </Button>
                 <Button className="button primary" onClick={(e) => onSubmit(e)}>
                   Save
                 </Button>
-              </div>
-            </div>
+              </Buttons>
+            </EditBox>
           ) : (
             <Error404 />
           )}
@@ -192,20 +191,97 @@ const CreateProfile = ({
   );
 };
 
-CreateProfile.propTypes = {
-  profileData: PropTypes.func.isRequired,
-  getProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
-};
+export default CreateProfile;
 
-const mapStateToProps = (state) => ({
-  profile: state.profile,
-  authenticate: state.authenticate,
-});
+const EditBox = styled.div`
+  height: auto;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 12px grey;
+  background: #C4C4C4;
+  border-radius: 28px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+`;
 
-export default connect(mapStateToProps, {
-  getProfile,
-  profileData,
-  setProfileSkills,
-  profileLinks,
-})(CreateProfile);
+const TopLabel = styled.label`
+  font-size: 1rem;
+  margin-left: 0px;
+  margin-bottom: 5px;
+  float:left;
+`;
+
+const TopInputBox = styled.div`
+  float: right;
+  margin-right: 150px;
+  margin-top: -150px;
+`;
+
+const TopNameInput = styled.input`
+  border-radius: 6px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 100%;
+  height: 25%;
+  padding: 5px;
+  font-size: 1rem;
+  float: left;
+  margin-bottom: 10px;
+`;
+
+const TopStatusSelect = styled.select`
+  display: inline-block;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 100%;
+  height: 25%;
+  font-size: 1rem;
+  padding: 5px;
+  margin-top: 20px;
+`;
+
+const BottomInputBox = styled.div`
+  margin-top: 55px;
+  float: center;
+`;
+
+const BottomLabel = styled.label`
+  font-size: 1rem;
+  font-weight: bold;
+  float:left;
+`;
+
+const BottomInput = styled.input`
+  border-radius: 6px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 25%;
+  font-size: 1rem;
+  padding: 5px;
+`;
+
+const BottomTextArea = styled.textarea`
+  resize: none;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  width: 100%;
+  left: 350px;
+  font-size: 1rem;
+  padding: 5px;
+`;
+
+const Buttons = styled.div`
+  margin-top: 20%;
+  text-align: center;
+`;
