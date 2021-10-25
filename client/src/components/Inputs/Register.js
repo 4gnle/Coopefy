@@ -1,20 +1,21 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
-// import GoogleLogin from 'react-google-login'
-
-// Router
-import {Link} from 'react-router-dom'
-
-// UI
-import Button from '../UI/Button'
-
 // Redux Functions
 import {connect} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {registerUser} from '../../redux/actions/inputs'
 // import {googleLogin} from '../../redux/actions/inputs'
 
-import './Inputs.css'
+import {InputBox,
+InputsWithin,
+Cta,
+Cta2,
+Titles,
+SmallLink,
+Label,
+Inputs,
+InputButton,
+Small} from "./Inputs";
 
 const Register = ({history, registerUser, setAlert }) => {
 
@@ -68,16 +69,16 @@ const Register = ({history, registerUser, setAlert }) => {
   };
 
   return (
-    <div className='input-box-register'>
+    <InputBox>
       <form>
-      <div className='inputs-within'>
+      <InputsWithin>
 
-        <div className='titles'>
-          <h1>Register</h1>
-          <p>and co-operate!</p>
-        </div>
-        <label className="lead">Username ID</label>
-          <input
+        <Titles>
+          <Cta>Register</Cta>
+          <Cta2>and co-operate!</Cta2>
+        </Titles>
+        <Label>Username ID</Label>
+          <Inputs
           type='text'
           name='username'
           placeholder='&#xF007; Write a unique username'
@@ -85,10 +86,10 @@ const Register = ({history, registerUser, setAlert }) => {
           value={formData.username}
           required
           >
-          </input>
+          </Inputs>
 
-        <label className="lead">Email</label>
-          <input
+        <Label>Email</Label>
+          <Inputs
           type='email'
           name='email'
           placeholder='&#xf0e0; Write a valid email'
@@ -96,10 +97,10 @@ const Register = ({history, registerUser, setAlert }) => {
           value={formData.email}
           required
           >
-          </input>
+          </Inputs>
 
-        <label className="lead">Password</label>
-          <input
+        <Label>Password</Label>
+          <Inputs
           type='password'
           name='password'
           placeholder='&#xF084; At least 8 characters'
@@ -107,37 +108,36 @@ const Register = ({history, registerUser, setAlert }) => {
           value={formData.password}
           required
           >
-          </input>
+          </Inputs>
 
           {validPassword &&
-            <Fragment>
-              <label className="lead">Confirm Password</label>
-              <input
+            <>
+              <Label>Confirm Password</Label>
+              <Inputs
               type='password'
               name='password2'
               placeholder='&#xF084; Confirm Password'
               onChange={e => onChange(e)}
               value={formData.password2}
               >
-              </input>
-            </Fragment>
+              </Inputs>
+            </>
           }
 
 
-          <Button
-          className="button m-1"
+          <InputButton
+          className="button"
           type='submit'
           onClick={onSubmit}
-          // disabled={!valid}
           >
             Sign Up
-          </Button>
+          </InputButton>
 
-          <small>Already have an account? <Link to='/login'>
-          Log in then!</Link></small>
-          </div>
+          <Small>Already have an account? <SmallLink to='/login'>
+          Log in then!</SmallLink></Small>
+          </InputsWithin>
       </form>
-    </div>  )
+    </InputBox>  )
 }
 
 export default connect(null, {setAlert, registerUser})(Register)
