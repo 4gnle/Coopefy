@@ -46,15 +46,14 @@
 
 .show {
   align-items: center;
-  border-radius: 12px;
+  border-radius: 8px;
   border-style: none;
   height: 2rem;
   box-sizing: border-box;
   cursor: default;
   font-size: 14px;
-  width: fit-content;
+  width: max-content;
   line-height: normal;
-  padding: 0.5rem 0.5rem;
 }
 
 .random {

@@ -3,24 +3,33 @@ import React, {useState, useEffect} from 'react'
 import './Navbar.css'
 
 //Redux & Router
-import {connect} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom';
 
 import {logUserOut} from '../../redux/actions/inputs'
 import {getProfile} from '../../redux/actions/profile';
 
-const Navbar = ({ authenticate: {isAuth}, profile: {signedprofile, loading, username, _id}, logUserOut, profilesign }) => {
+const Navbar = ({logUserOut, profilesign}) => {
+
+  const authData = useSelector(state => state.authenticate);
+
+  const profileData = useSelector(state => state.profile);
+
+  const dispatch = useDispatch();
+
+  const {signedprofile, loading, username, _id} = profileData;
+
+  const {isAuth} = authData;
 
   const [username1, setUsername1] = useState();
 
   useEffect(() => {
-    getProfile();
-
-    if (signedprofile || profilesign && !loading && signedprofile.username) {
-      setUsername1(signedprofile.username);
-    }
+    dispatch(getProfile());
   }, [loading, signedprofile])
 
+  const logOUT = () => {
+    dispatch(logUserOut);
+  }
 
   const loggedIn = (
     <ul>
@@ -38,9 +47,9 @@ const Navbar = ({ authenticate: {isAuth}, profile: {signedprofile, loading, user
 
         <div className="auth-links">
 
-          {signedprofile && <Link to={`/@${username1}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>}
+          {signedprofile && <Link to={`/@${signedprofile.username}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>}
 
-          <Link to='/' className="sign" onClick={logUserOut}>
+          <Link to='/' className="sign" onClick={logOUT}>
           <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>
 
         </div>
@@ -79,9 +88,4 @@ const Navbar = ({ authenticate: {isAuth}, profile: {signedprofile, loading, user
   )
 }
 
-const mapStateToProps = state => ({
-  authenticate: state.authenticate,
-  profile: state.profile
-})
-
-export default connect(mapStateToProps, {logUserOut, getProfile})(Navbar);
+export default Navbar;

@@ -247,6 +247,7 @@ const DetailsLine = styled.span`
   position: relative;
   top: 21px;
 `;
+
 const Icon = styled.img`
   position: relative;
   top: 5px;
