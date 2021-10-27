@@ -26,7 +26,7 @@ const Navbar = ({logUserOut, profilesign}) => {
   }, [loading, signedprofile])
 
   const logOUT = () => {
-    dispatch(logUserOut());
+    dispatch(logUserOut);
   }
 
   const loggedIn = (

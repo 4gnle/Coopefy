@@ -11,7 +11,7 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/User')
 const Profile = require('../../models/Profile')
 
-// @router GET api/users
+// @router POST api/users
 // @desc Register User
 // @access Public
 router.post('/', [

@@ -20,11 +20,13 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   publicAddress: {
-    type: String,
-    unique: true
+    type: Number,
+    unique: true,
+    lowercase: true
   },
   nonce: {
-    type: String
+    type: String,
+    default: () => Math.floor(Math.random() * 1000000)
   },
   date: {
     type: Date,

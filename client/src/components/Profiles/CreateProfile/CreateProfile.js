@@ -196,7 +196,7 @@ export default CreateProfile;
 
 const EditBox = styled.div`
   height: auto;
-  max-width: 50%;
+  max-width: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -319,6 +319,14 @@ const BottomTextArea = styled.textarea`
 `;
 
 const Buttons = styled.div`
-  margin-top: 20%;
+  margin-top: 30%;
   text-align: center;
+
+  @media (max-width: 950px) {
+    margin-top: 40%;
+  }
+
+  @media (max-width: 650px) {
+    margin-top: 20%;
+  }
 `;

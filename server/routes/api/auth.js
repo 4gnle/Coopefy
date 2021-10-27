@@ -81,7 +81,7 @@ router.post(
 
 				const msgBufferHex = await bufferToHex(Buffer.from(msg, 'utf8'));
 
-				await const address = await recoverPersonalSignature({
+				const address = await recoverPersonalSignature({
 					data: msgBufferHex,
 					sig: signature,
 				});
@@ -92,11 +92,12 @@ router.post(
 					res.status(401).send({
 						error: 'Signature verification failed',
 					});
+        }
 
         const payload = {
           user: {
             id: user.id,
-            publicAddress
+            publicAddress: publicAddress
           },
         };
 
@@ -110,8 +111,15 @@ router.post(
           }
         );
 
-    } catch (e) {
+      if (user) {
+        user.nonce = Math.floor(Math.random() * 10000);
+        return user.save();
+      }
 
+    } catch (err) {
+
+      console.log(err.message);
+      res.status(500).send("Auth error");
     }
   }
 );
@@ -166,7 +174,7 @@ router.post(
       // Bringing the USER.ID as payload
       const payload = {
         user: {
-          id: user.id,
+          id: user.id
         },
       };
 
@@ -180,9 +188,6 @@ router.post(
           res.json({ token });
         }
       );
-
-      user.nonce = Math.floor(Math.random() * 10000);
-			return user.save();
 
     } catch (err) {
       console.log(err.message);
