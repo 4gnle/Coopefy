@@ -19,7 +19,7 @@ It allows people to collaborate building cool stuff on the internet
 
 1. Clone this repo with git
 2. Install dependencies by running `npm install`
-3. Start the development server with `npm run coopefy` 
+3. Start the development server with `npm start` 
 4. Open development site by going to `http:localhost:3000`
 
 ## **How to Contribute**
