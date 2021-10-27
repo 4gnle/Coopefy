@@ -10,12 +10,7 @@ import Button from '../UI/Button';
 import Spinner from '../UI/Spinner';
 import styled from 'styled-components';
 
-const ImageUpload = () => {
-
-  const profileData = useSelector(state => state.profile);
-
-  const {signedprofile, loading, profileimage} = profileData;
-
+const ImageUpload = ({profileimage}) => {
   const dispatch = useDispatch();
 
   const [file, setFile] = useState();
@@ -28,15 +23,11 @@ const ImageUpload = () => {
   const filePickerRef = useRef();
 
   useEffect(() => {
-    if (!signedprofile){
-      dispatch(getProfile());
-    };
-
-    if (!loading && signedprofile.profileimage) {
-      const imageBuffer = new Buffer(signedprofile.profileimage, 'base64');
+    if (profileimage){
+      const imageBuffer = new Buffer(profileimage, 'base64');
       setImagePrev(imageBuffer);
-    }
-  }, [loading, profileimage]);
+    };
+  }, [profileimage]);
 
 
   // Transforms the file into a URL
@@ -91,6 +82,7 @@ const ImageUpload = () => {
     dispatch(deleteImage());
   }
 
+  const showConsole = () => {console.log(imagePrev)}
   const Buttons = () => {
     return (
     <>
@@ -102,7 +94,7 @@ const ImageUpload = () => {
         </Button>
 
         <Button
-        onClick={deleteFunc}
+        onClick={showConsole}
         className='button bad m'
         title='Delete Image'>
         <i className="fas fa-trash-alt">
@@ -158,7 +150,7 @@ const ImgUpload = styled.div`
   background: #000000;
 `;
 
-const ImgUploadPrev = styled.div`
+const ImgUploadPrev = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 180px;
@@ -176,9 +168,8 @@ const ButtonSection = styled.div`
 
 const ButtonImage = styled(Button)`
   border: black;
-  padding: 4.5rem;
-  width: 2rem;
-  height: 2rem;
+  width: 7.5rem;
+  height: 7.5rem;
   border-radius: 180px;
   background: #000000;
   color: white;

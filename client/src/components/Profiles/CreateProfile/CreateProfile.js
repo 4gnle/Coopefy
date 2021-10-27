@@ -104,7 +104,7 @@ const CreateProfile = ({
           {signedprofile && isAuth ? (
             <EditBox>
               <ImgSection>
-                <ImageUpload/>
+                <ImageUpload profileimage={signedprofile.profileimage}/>
               </ImgSection>
               <TopInputBox>
                 <TopLabel>Name</TopLabel>
