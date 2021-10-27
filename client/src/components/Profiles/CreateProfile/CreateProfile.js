@@ -108,7 +108,6 @@ const CreateProfile = ({
                 <TopLabel>Name</TopLabel>
                   <TopNameInput
                     placeholder="First and last name"
-                    className="m-1"
                     onChange={(e) => onChange(e)}
                     value={profilename}
                     name="profilename"
@@ -201,16 +200,27 @@ const EditBox = styled.div`
   margin-top: 30px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 2px 12px grey;
   background: #C4C4C4;
   border-radius: 28px;
+  box-shadow: 0 2px 12px grey;
   background-color: white;
   overflow: hidden;
   z-index: 1;
+
+  @media (max-width: 650px) {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 90%;
+    box-shadow: 0 0 0;
+  }
 `;
 
 const TopLabel = styled.label`
   font-size: 1rem;
+  font-weight: bold;
   margin-left: 0px;
   margin-bottom: 5px;
   float:left;
@@ -218,8 +228,15 @@ const TopLabel = styled.label`
 
 const TopInputBox = styled.div`
   float: right;
-  margin-right: 150px;
-  margin-top: -150px;
+  margin-top: -10vh;
+  width: 60%;
+
+  @media (max-width: 650px) {
+    margin-right: 0px;
+    margin-top: 0;
+    float: none;
+    width: 100%;
+  }
 `;
 
 const TopNameInput = styled.input`
@@ -238,17 +255,22 @@ const TopStatusSelect = styled.select`
   display: inline-block;
   border-radius: 6px;
   border: 1px solid #000000;
+  background-color: white;
   box-sizing: border-box;
   width: 100%;
   height: 25%;
   font-size: 1rem;
   padding: 5px;
-  margin-top: 20px;
+  margin-top: 0px;
 `;
 
 const BottomInputBox = styled.div`
   margin-top: 55px;
   float: center;
+
+  @media (max-width: 650px) {
+    margin-top: 25px;
+  }
 `;
 
 const BottomLabel = styled.label`
@@ -278,7 +300,7 @@ const BottomTextArea = styled.textarea`
   width: 100%;
   left: 350px;
   font-size: 1rem;
-  font-family: 'Inter';
+  font-family: 'Nunito';
   padding: 5px;
 `;
 
