@@ -121,6 +121,15 @@ const Links = styled(Link)`
   text-decoration: none;
   border-radius: 18px;
 
+  &:focus {
+    background-color: lightgray;
+    color: black;
+  }
+
+  &:hover {
+    color: gray;
+  }
+
   @media (max-width: 650px) {
     ${Span} {
       display: none;
