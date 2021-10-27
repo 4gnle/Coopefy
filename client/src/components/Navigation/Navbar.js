@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
-import './Navbar.css'
+// UI and CSS
+import styled from 'styled-components';
 
 //Redux & Router
 import {useSelector, useDispatch} from 'react-redux'
@@ -21,8 +22,6 @@ const Navbar = ({logUserOut, profilesign}) => {
 
   const {isAuth} = authData;
 
-  const [username1, setUsername1] = useState();
-
   useEffect(() => {
     dispatch(getProfile());
   }, [loading, signedprofile])
@@ -33,59 +32,124 @@ const Navbar = ({logUserOut, profilesign}) => {
 
   const loggedIn = (
     <ul>
-      <div className="general-links">
+      <GeneralLinks>
 
-          <Link to='/dashboard'><i className="fas fa-columns"></i><span> Dashboard</span></Link>
+          <Links to='/dashboard'><i className="fas fa-columns"></i><Span> Dashboard</Span></Links>
 
-          <Link to='/projects'><i className= "fas fa-tools fa-fw"/><span> Projects</span></Link>
+          <Link to='/projects'><i className= "fas fa-tools fa-fw"/><Span> Projects</Span></Link>
 
-          <Link to='/people'><i className= "fas fa-users fa-fw"/><span> People</span></Link>
+          <Links to='/people'><i className= "fas fa-users fa-fw"/><Span> People</Span></Links>
 
-          <Link to='/about'><i className="fas fa-book-open"/><span> About</span></Link>
+          <Links to='/about'><i className="fas fa-book-open"/><Span> About</Span></Links>
 
-        </div>
+        </GeneralLinks>
 
-        <div className="auth-links">
+        <AuthLinks>
 
-          {signedprofile && <Link to={`/@${signedprofile.username}`}><i className="fas fa-user fa-fw" /><span>You</span></Link>}
+          {signedprofile && <Links to={`/@${signedprofile.username}`}><i className="fas fa-user fa-fw" /><Span>You</Span></Links>}
 
-          <Link to='/' className="sign" onClick={logOUT}>
-          <i className="fas fa-sign-out-alt"></i><span>Log Out</span></Link>
+          <AuthLink to='/' onClick={logOUT}>
+          <i className="fas fa-sign-out-alt"></i><Span>Log Out</Span></AuthLink>
 
-        </div>
+        </AuthLinks>
       </ul>
   )
 
   const loggedOut = (
     <ul>
-      <div className="auth-links">
-        <Link to='/login'  className="login"><i className="fas fa-door-open"></i><span> Login</span></Link>
+      <AuthLinks>
+        <Links to='/login'><i className="fas fa-door-open"></i><Span> Login</Span></Links>
 
-        <Link to='/register' className="sign"><i className= "fas fa-sign-in-alt fa-fw"/><span> Register</span></Link>
-      </div>
+        <AuthLink to='/register'><i className= "fas fa-sign-in-alt fa-fw"/><Span> Register</Span></AuthLink>
+      </AuthLinks>
 
-      <div className="general-links">
-        <Link to='/people'><i className= "fas fa-users fa-fw"/><span> People</span></Link>
+      <GeneralLinks>
+        <Links to='/people'><i className= "fas fa-users fa-fw"/><Span> People</Span></Links>
 
-        <Link to='/projects'><i className= "fas fa-tools fa-fw" />
-        <span> Projects</span></Link>
+        <Links to='/projects'><i className= "fas fa-tools fa-fw" />
+        <Span> Projects</Span></Links>
 
-        <Link to='/about'><i className="fas fa-book-open"/><span> About</span></Link>
-      </div>
+        <Links to='/about'><i className="fas fa-book-open"/><Span> About</Span></Links>
+      </GeneralLinks>
     </ul>
   )
 
   return (
-    <div className="navbar">
-          <h1 className="title1">
-            <Link to="/" ><i className='fas fa-hands-helping'/><span className="icon-sm"> Coopefy</span></Link>
-          </h1>
+    <Navbar1>
+          <NavbarTitle>
+            <Links to="/" ><i className='fas fa-hands-helping'/><Span className="icon-sm"> Coopefy</Span></Links>
+          </NavbarTitle>
 
     {isAuth ? loggedIn : loggedOut}
-    </div>
-
-
+    </Navbar1>
   )
 }
 
 export default Navbar;
+
+const Span = styled.span`
+
+`;
+
+const Navbar1 = styled.div`
+  display: block;
+  background-color: #000000;
+  justify-content: space-between;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  height: 10%;
+  border-bottom: solid 1px gray;
+  opacity: 0.8;
+  overflow: hidden;
+
+  @media (max-width: 480px) {
+    position: fixed;
+    display: block;
+    text-align: center;
+    z-index: 1000;
+  }
+`;
+
+const Links = styled(Link)`
+  color: white;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  float: left;
+  align-items: right;
+  text-decoration: none;
+  border-radius: 18px;
+
+  @media (max-width: 650px) {
+    ${Span} {
+      display: none;
+      justify-content: center;
+    }
+  }
+`;
+
+const AuthLink = styled(Links)`
+  border-radius: 10px;
+  border: 1px solid;
+`;
+
+const NavbarTitle = styled.h1`
+display: block;
+float: left;
+font-size: 20px;
+`;
+
+const GeneralLinks = styled.div`
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  float: center;
+`;
+
+const AuthLinks = styled.div`
+  display: inline-block;
+  align-items: right;
+  text-align: right;
+  float: right;
+`;
