@@ -4,11 +4,10 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 
 //Redux & Router
-import {useSelector, useDispatch} from 'react-redux'
-import {Link} from 'react-router-dom';
-
-import {logUserOut} from '../../redux/actions/inputs'
+import {useSelector, useDispatch} from 'react-redux';
+import {logUserOut} from '../../redux/actions/inputs';
 import {getProfile} from '../../redux/actions/profile';
+import {Link} from 'react-router-dom';
 
 const Navbar = ({logUserOut, profilesign}) => {
 
@@ -18,7 +17,7 @@ const Navbar = ({logUserOut, profilesign}) => {
 
   const dispatch = useDispatch();
 
-  const {signedprofile, loading, username, _id} = profileData;
+  const {signedprofile, loading, username} = profileData;
 
   const {isAuth} = authData;
 
@@ -27,7 +26,7 @@ const Navbar = ({logUserOut, profilesign}) => {
   }, [loading, signedprofile])
 
   const logOUT = () => {
-    dispatch(logUserOut);
+    dispatch(logUserOut());
   }
 
   const loggedIn = (
@@ -36,7 +35,7 @@ const Navbar = ({logUserOut, profilesign}) => {
 
           <Links to='/dashboard'><i className="fas fa-columns"></i><Span> Dashboard</Span></Links>
 
-          <Link to='/projects'><i className= "fas fa-tools fa-fw"/><Span> Projects</Span></Link>
+          <Links to='/projects'><i className= "fas fa-tools fa-fw"/><Span> Projects</Span></Links>
 
           <Links to='/people'><i className= "fas fa-users fa-fw"/><Span> People</Span></Links>
 
