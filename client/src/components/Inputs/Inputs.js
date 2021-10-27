@@ -26,6 +26,18 @@ export const InputBox = styled.div`
   }
 `;
 
+export const MetamaskLogin = styled.div`
+  display: inline-block;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  @media (max-width: 650px) {
+    text-align: center;
+  }
+`;
+
 export const InputsWithin = styled.div`
   display: inline-block;
   flex-wrap: wrap;
@@ -100,6 +112,13 @@ export const InputButton = styled.button`
     margin-top: 5px;
     height: 50px;
   }
+`;
+
+export const MetamaskButton = styled(Button)`
+`;
+
+export const InsideIcon = styled.img`
+  position: relative;
 `;
 
 export const Small = styled.small`

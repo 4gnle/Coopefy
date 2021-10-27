@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
+// CSS and UI
 import {InputBox,
 InputsWithin,
 Cta,
@@ -9,7 +10,11 @@ SmallLink,
 Label,
 Inputs,
 InputButton,
-Small} from "./Inputs";
+Small,
+MetamaskLogin,
+MetamaskButton,
+InsideIcon} from "./Inputs";
+import metamask from '../UI/crypto-icons/metamask.png'
 
 // Redux Functions
 import { useDispatch, useSelector } from "react-redux";
@@ -120,6 +125,16 @@ const Login = ({history}) => {
           </Small>
         </InputsWithin>
       </form>
+
+      <MetamaskLogin>
+        <MetamaskButton
+          className='button random'
+        >
+        <InsideIcon style={{width: '1rem', height: '1rem'}} src={metamask}/>{' '}
+        Log In with Metamask
+        </MetamaskButton>
+      </MetamaskLogin>
+
     </InputBox>
   );
 };
