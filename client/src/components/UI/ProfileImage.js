@@ -1,16 +1,22 @@
-import React, {Fragment, useRef, useState, useEffect} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 
 //Redux
 import {deleteImage, getProfile, profileImage} from '../../redux/actions/profile';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
-import Button from '../UI/Button'
-import Spinner from '../UI/Spinner'
+// UI & CSS
+import Button from '../UI/Button';
+import Spinner from '../UI/Spinner';
+import styled from 'styled-components';
 
-import './ProfileImage.css'
+const ImageUpload = () => {
 
-const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileImage, getProfile, deleteImage}) => {
+  const profileData = useSelector(state => state.profile);
+
+  const {signedprofile, loading, profileimage} = profileData;
+
+  const dispatch = useDispatch();
 
   const [file, setFile] = useState();
   const [previewURL, setpreviewURL] = useState();
@@ -22,12 +28,14 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
   const filePickerRef = useRef();
 
   useEffect(() => {
-    if (!signedprofile && !imagePrev) getProfile();
+    if (!signedprofile){
+      dispatch(getProfile());
+    };
+
     if (!loading && signedprofile.profileimage) {
       const imageBuffer = new Buffer(signedprofile.profileimage, 'base64');
       setImagePrev(imageBuffer);
     }
-    // eslint-disable-next-line
   }, [loading, profileimage]);
 
 
@@ -38,13 +46,10 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
   }
 
   const filereader = new FileReader();
-
-  filereader.onload = () => {
-    setpreviewURL(filereader.result);
-  }
-
-  filereader.readAsDataURL(file);
-
+    filereader.onload = () => {
+      setpreviewURL(filereader.result);
+    }
+    filereader.readAsDataURL(file);
   }, [file]);
 
   // This create the image preview from the input
@@ -74,21 +79,21 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
     formData.append("profileimage", file);
     e.preventDefault()
     setSpinner(true);
-    await profileImage(formData)
+    await dispatch(profileImage(formData))
     setSpinner(false);
   }
 
-  const deleteFunc = (e) => {
+  const deleteFunc = async (e) => {
     e.preventDefault();
-    setprevURL({showPrev: false});
-    setImagePrev(null)
-    setFile(null);
-    deleteImage();
+    await setprevURL({showPrev: false});
+    await setImagePrev(null)
+    await setFile(null);
+    dispatch(deleteImage());
   }
 
   const Buttons = () => {
     return (
-    <Fragment>
+    <>
       <Button
         className="button primary m"
         onClick={submitImage}
@@ -103,11 +108,11 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
         <i className="fas fa-trash-alt">
         </i>
       </Button>
-    </Fragment>)}
+    </>)}
 
   return (
 
-    <div>
+    <ImageUploadBox>
       {spinner && (<Spinner/>)}
       <input
         type="file"
@@ -117,32 +122,74 @@ const ImageUpload = ({profile: {signedprofile, loading, profileimage}, profileIm
         onChange={imagePreview}
       />
 
-      <div className='image-upload.center'>
-        <div  className='image-upload__preview'>
-
-        {imagePrev ? (<img src={imagePrev} alt="Preview"/>) : previewURL && prevURL.showPrev ? (<img src={previewURL} alt="Preview"/>) :
-          <Button
-          className="button-image"
-          type="button"
+      <ImgUpload>
+        {imagePrev ? (<ImgUploadPrev src={imagePrev} alt="Preview"/>) : previewURL && prevURL.showPrev ? (<ImgUploadPrev src={previewURL} alt="Preview"/>) :
+          <ButtonImage
           onClick={filePicker}
           title='Pick Image'>
           <i className="fas fa-images"></i>
-          </Button>}
-        </div>
-      </div>
+          </ButtonImage>}
+      </ImgUpload>
 
-      <div className='buttons'>
+      <ButtonSection>
 
         {previewURL && prevURL.showPrev ? (<Buttons/>) : imagePrev ? (<Buttons/>) : null}
-      </div>
 
-
-    </div>
+      </ButtonSection>
+    </ImageUploadBox>
   )
 }
 
-const mapStateToProps = state => ({
-  profile: state.profile
-})
+export default ImageUpload;
 
-export default connect(mapStateToProps, {profileImage, deleteImage, getProfile})(ImageUpload);
+const ImageUploadBox = styled.div`
+  width: 10%;
+  text-align: center;
+  margin: auto;
+`;
+
+const ImgUpload = styled.div`
+  border: 2px solid black;
+  display: flex;
+  margin: auto;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 180px;
+  background: #000000;
+`;
+
+const ImgUploadPrev = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 180px;
+  object-fit: cover;
+`;
+
+const ButtonSection = styled.div`
+  position: absolute;
+  margin-left: 5px;
+
+  @media (max-width: 650px) {
+    margin-left: 20px;
+  }
+  `;
+
+const ButtonImage = styled(Button)`
+  border: black;
+  padding: 4.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 180px;
+  background: #000000;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background: white;
+    color: black;
+    transition: all 0.5s ease;
+    float: center;
+    text-align: center;
+  }
+`;

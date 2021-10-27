@@ -103,7 +103,9 @@ const CreateProfile = ({
         <>
           {signedprofile && isAuth ? (
             <EditBox>
-              <ImageUpload />
+              <ImgSection>
+                <ImageUpload/>
+              </ImgSection>
               <TopInputBox>
                 <TopLabel>Name</TopLabel>
                   <TopNameInput
@@ -215,6 +217,18 @@ const EditBox = styled.div`
     margin: auto;
     max-width: 90%;
     box-shadow: 0 0 0;
+  }
+`;
+
+const ImgSection = styled.div`
+  position: relative;
+  left: -35%;
+
+  @media (max-width: 650px) {
+    position: relative;
+    left: -10%;
+    right: 0;
+    margin-bottom: 50px;
   }
 `;
 
