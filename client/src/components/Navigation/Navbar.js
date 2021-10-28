@@ -9,7 +9,7 @@ import {logUserOut} from '../../redux/actions/inputs';
 import {getProfile} from '../../redux/actions/profile';
 import {Link} from 'react-router-dom';
 
-const Navbar = ({logUserOut, profilesign}) => {
+const Navbar = ({profilesign}) => {
 
   const authData = useSelector(state => state.authenticate);
 

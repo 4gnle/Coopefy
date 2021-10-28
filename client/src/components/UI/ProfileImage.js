@@ -2,8 +2,8 @@ import React, {useRef, useState, useEffect} from 'react'
 // import PropTypes from 'prop-types';
 
 //Redux
-import {deleteImage, getProfile, profileImage} from '../../redux/actions/profile';
-import {useSelector, useDispatch} from 'react-redux';
+import {deleteImage, profileImage} from '../../redux/actions/profile';
+import {useDispatch} from 'react-redux';
 
 // UI & CSS
 import Button from '../UI/Button';
@@ -82,7 +82,6 @@ const ImageUpload = ({profileimage}) => {
     dispatch(deleteImage());
   }
 
-  const showConsole = () => {console.log(imagePrev)}
   const Buttons = () => {
     return (
     <>
@@ -94,7 +93,7 @@ const ImageUpload = ({profileimage}) => {
         </Button>
 
         <Button
-        onClick={showConsole}
+        onClick={deleteFunc}
         className='button bad m'
         title='Delete Image'>
         <i className="fas fa-trash-alt">

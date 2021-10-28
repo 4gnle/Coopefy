@@ -61,7 +61,7 @@ const CreateProfile = ({
   const [linksData, setLinksData] = useState(stateLinks);
 
   useEffect(() => {
-    if (!signedprofile) getProfile();
+    if (!signedprofile) dispatch(getProfile());
     if (!loading && signedprofile) {
       const profileData = { ...initialState };
       for (const key in signedprofile) {
