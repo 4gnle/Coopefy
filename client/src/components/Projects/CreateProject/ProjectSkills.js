@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 
 //UI CSS
-import './ProjectSkills.css'
 import Button from '../../UI/Button'
+import styled from 'styled-components'
 
 //Components and Utils
 import {skillList} from '../../Utils/SkillList'
@@ -58,30 +58,29 @@ const ProjectSkills = ({
   };
 
     return (
-    <div>
-      <div className='backdrop' onClick={unSelectSkills}>
-      </div>
+      <>
+      <Backdrop onClick={unSelectSkills}>
+      </Backdrop>
 
-        <div className='select-skills'>
-          <div className='skills-window'>
-          <header>Choose Your Skills</header>
+        <SelectSkillsBox>
+          <SkillsWindow>
+          <SkillsWindowHeader>Choose Skills</SkillsWindowHeader>
 
-          <form className='skills-form' action="/" method="get">
-            <label style={{marginBottom: '0px'}}>
+          <SkillsForm action="/" method="get">
+            <SkillsWindowLabel style={{marginBottom: '0px'}}>
             Search Skills
-            </label>
-            <input
+            </SkillsWindowLabel>
+            <SkillsSearch
               value={searchSkills}
               onInput={e => setSearchSkills(e.target.value)}
-              className='skills-search'
               type="text"
               id="header-search"
               placeholder="Write your desired skill"
               name="s"
             />
-          </form>
+          </SkillsForm>
 
-          <div className='skills-list'>
+          <SkillList>
             {skills1.filter((skill) => {
               if (searchSkills === '') {
                 return skill
@@ -90,31 +89,29 @@ const ProjectSkills = ({
                 return skill
               } {return false};
             }).map((skill, index) => (
-               <button
-                className='skills-badge'
+               <SkillsBadge
                 key={index}
                 onClick={e => selectSkill(skill.name)}
                 >
                 {skill.name}
-              </button>
+              </SkillsBadge>
             ))}
-          </div>
+          </SkillList>
 
           {skillConfirm && selectedSkills ? (
-            <div className='selected-skills'>
-              <div><h3>Selected Skills</h3><em>(Max 6 skills)</em></div>
+            <SelectedSkills>
+              <h3>Selected Skills</h3>
             {selectedSkills && selectedSkills.map((skill, index) => (
-                <button
+                <SelectedSkillsBadge
                   key={index}
-                  className='selected-skill-badge'
                   onClick={e => deleteSkills(skill.id)}>
                   {skill.skill}
-                </button>
+                </SelectedSkillsBadge>
             ))}
-            </div>
+            </SelectedSkills>
           ) : null}
 
-          <div className='skills-buttons'>
+          <SelectSkillsButtons>
             <Button
               className='primary'
               onClick={addSkills}>
@@ -126,11 +123,132 @@ const ProjectSkills = ({
             >
               Cancel
             </Button>
-          </div>
-        </div>
-      </div>
-    </div>
+          </SelectSkillsButtons>
+        </SkillsWindow>
+      </SelectSkillsBox>
+    </>
   )
 }
 
-export default ProjectSkills
+export default ProjectSkills;
+
+const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+`;
+
+const SelectSkillsBox = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 10%;
+  width: 50%;
+  z-index: 10;
+  overflow: hidden;
+  text-align: center;
+`;
+
+const SkillsWindow = styled.div`
+  float: center;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  box-shadow: 0 2px 12px gray;
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+const SkillsWindowHeader = styled.header`
+  background: gray;
+  padding: 1rem;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+`;
+
+const SkillsWindowLabel = styled.label`
+ padding: 1rem;
+ margin-right: -10px !important;
+ font-size: 20px !important;
+`;
+
+const SkillsForm = styled.form`
+  display: block;
+  margin: 10px;
+`;
+
+const SkillList = styled.div`
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  text-overflow: clip;
+  word-break: break-all;
+  white-space: pre-wrap;
+  overflow: auto;
+`;
+
+const SelectedSkills = styled.div`
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  text-overflow: clip;
+  word-break: break-all;
+  white-space: pre-wrap;
+`;
+
+const SelectedSkillsBadge = styled(Button)`
+  margin: 2.5px !important;
+  width: 8rem !important;
+  height: 50px !important;
+  padding: 1px !important;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: red !important;
+  }
+`;
+
+const SelectSkillsButtons = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+`;
+
+const SkillsBadge = styled(Button)`
+  margin: 2.5px !important;
+  width: 8rem !important;
+  height: 17% !important;
+  padding: 1px !important;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: lightblue;
+  color: black;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+`;
+
+const SkillsSearch = styled.input`
+  text-align: left !important;
+  position: relative;
+  font: inherit;
+  margin-top: -0.5px;
+  margin-bottom: 10px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 300px;
+`;
