@@ -68,7 +68,7 @@ const CreateProfile = ({
       }
       setFormData(profileData);
     }
-  }, [dispatch, loading, getProfile, signedprofile]);
+  }, [signedprofile, dispatch, loading]);
 
   const { status, profilename, location, bio, website } = formData;
 

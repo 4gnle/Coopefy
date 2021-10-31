@@ -17,13 +17,13 @@ const Navbar = ({profilesign}) => {
 
   const dispatch = useDispatch();
 
-  const {signedprofile, loading} = profileData;
+  const {signedprofile} = profileData;
 
   const {isAuth} = authData;
 
   useEffect(() => {
     dispatch(getProfile());
-  }, [loading, signedprofile])
+  }, [dispatch])
 
   const logOUT = () => {
     dispatch(logUserOut());

@@ -3,8 +3,6 @@ import React, {useEffect, useState} from 'react'
 // UI & CSS
 import styled from "styled-components";
 import Button from "../../UI/Button";
-import Spinner from "../../UI/Spinner";
-import placeholder from '../../UI/placeholder.png'
 
 //Redux & Router
 import {getProfileByUsername} from "../../../redux/actions/profile";
@@ -45,7 +43,7 @@ const ApplicationItem = ({
       const fileContents = new Buffer(profiledata.profileimage, 'base64');
       setImagePrev(fileContents);
     }
-  }, [getProfileByUsername, application, loadedItem])
+  }, [loadProfile, profiledata])
 
   const hirePerson = () => {
     console.log(userData._id);

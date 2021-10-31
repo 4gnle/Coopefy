@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 // UI & CSS
 import styled from 'styled-components';
@@ -15,8 +15,7 @@ const PeopleItem = ({profileData}) => {
     profilename,
     status,
     skills,
-    profileimage,
-    loading} = profileData;
+    profileimage} = profileData;
 
   return (
     <ProfileItemBox>

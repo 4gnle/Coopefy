@@ -49,7 +49,7 @@ const SkillsandSocials = (
        }
        setSkills(profileSkills);
      }
-   }, [loading, getProfile, signedprofile]);
+   });
 
   const selectLinks = () => {
     setChangeLinks(true);

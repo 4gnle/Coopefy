@@ -25,7 +25,6 @@ Skills} from './ProfileStyles';
 
 //Redux and Router
 import { getProfileByUsername } from "../../../redux/actions/profile";
-import { cleanProfile } from "../../../redux/actions/profile";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -54,7 +53,7 @@ const Profile = ({match, history}) => {
 
   useEffect(() => {
     loadProfile();
-  }, [profiledata]);
+  });
 
   const goBack = () => {
     history.goBack();

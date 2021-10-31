@@ -25,14 +25,15 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
     setUseMenu(false);
   }
 
-  useEffect(() => {
-    profileGet();
-  }, [profileGet]);
-
   const profileGet = async () => {
     await getProfile();
     setProfileReady(true);
   }
+
+  useEffect(() => {
+    profileGet();
+  });
+
   useEffect(() => {
     if (signedprofile && signedprofile.profileimage && !imagePrev) {
       const imageBuffer = new Buffer(signedprofile.profileimage, 'base64');
@@ -77,7 +78,7 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
          <Link to='edit-profile'>
           <Button className='button small'>Add Image</Button></Link>
         </div></>) :
-          <img src={imagePrev}/>
+          <img src={imagePrev} alt='profile'/>
         }
         </div>
         <Button

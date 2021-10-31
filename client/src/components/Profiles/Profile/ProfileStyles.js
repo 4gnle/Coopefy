@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
 import Button from '../../UI/Button';
-import { Link } from "react-router-dom";
 
 //Styled-components
 export const ProfileBox = styled.div`
