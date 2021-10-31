@@ -39,7 +39,7 @@ settingSkills
           skills1.filter(skill => skill.name !== skill)
         })
       }
-   }, [skillsData])
+   }, [skillsData, selectedSkills, skills1])
 
   // Adds the skills to the formdata so they're sent to the database
   useEffect(() => {

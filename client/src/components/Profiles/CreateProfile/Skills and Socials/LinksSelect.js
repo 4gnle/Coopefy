@@ -28,7 +28,7 @@ const LinksSelect = ({
        }
        setFormData(profileData);
      }
-   }, [loading, getProfile, signedprofile]);
+   }, [stateLinks, loading, getProfile, signedprofile]);
 
   const {
   github,

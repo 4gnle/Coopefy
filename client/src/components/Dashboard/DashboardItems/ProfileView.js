@@ -8,22 +8,11 @@ import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
 //Redux and Router
-import {profileData, getProfile} from '../../../redux/actions/profile';
+import {getProfile} from '../../../redux/actions/profile';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom'
 
 const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, username}, getProfile}) => {
-
-  const links = {
-    twitter: '',
-    dribbble: '',
-    behance: '',
-    producthunt: '',
-    instagram: '',
-    linkedin: '',
-    facebook: '',
-    github: ''
-  };
 
   const [useMenu, setUseMenu] = useState(false);
   const [imagePrev, setImagePrev] = useState();
@@ -38,7 +27,7 @@ const ProfileView = ({profile: {signedprofile, loading, profileimage, bio, usern
 
   useEffect(() => {
     profileGet();
-  }, [getProfile]);
+  }, [profileGet]);
 
   const profileGet = async () => {
     await getProfile();

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 
 // UI and CSS
 import styled from 'styled-components';
@@ -17,7 +17,7 @@ const Navbar = ({profilesign}) => {
 
   const dispatch = useDispatch();
 
-  const {signedprofile, loading, username} = profileData;
+  const {signedprofile, loading} = profileData;
 
   const {isAuth} = authData;
 

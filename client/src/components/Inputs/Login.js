@@ -13,11 +13,12 @@ InputButton,
 Small,
 MetamaskLogin,
 MetamaskButton,
-InsideIcon} from "./Inputs";
+InsideIcon} from "./Styles";
+
 import metamask from '../UI/crypto-icons/metamask.png'
 
 // Redux Functions
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAlert } from "../../redux/actions/alert";
 import { loginUser } from "../../redux/actions/inputs";
 

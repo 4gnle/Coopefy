@@ -1,7 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
 // Redux Functions
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {setAlert} from '../../redux/actions/alert'
 import {registerUser} from '../../redux/actions/inputs'
 // import {googleLogin} from '../../redux/actions/inputs'
@@ -15,7 +15,7 @@ SmallLink,
 Label,
 Inputs,
 InputButton,
-Small} from "./Inputs";
+Small} from "./Styles";
 
 const Register = ({history}) => {
 

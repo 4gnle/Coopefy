@@ -14,7 +14,6 @@ import {
   profileLinks,
 } from "../../../redux/actions/profile";
 import { useDispatch, useSelector } from "react-redux";
-import PropTypes from "prop-types";
 
 //UI
 import Button from "../../UI/Button";
@@ -69,7 +68,7 @@ const CreateProfile = ({
       }
       setFormData(profileData);
     }
-  }, [loading, getProfile, signedprofile]);
+  }, [dispatch, loading, getProfile, signedprofile]);
 
   const { status, profilename, location, bio, website } = formData;
 

@@ -33,7 +33,7 @@ const MainComponent = ({signedprofile, getProfile}) => {
 
   useEffect(() => {
     getProfile();
-  }, [])
+  }, [getProfile])
 
   const context = useContext(AuthContextProvider);
 
