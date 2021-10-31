@@ -70,7 +70,7 @@ const ProjectItem = ({projectData}) => {
                 width='21px'
                 height='21px'
               /> : null}
-        {projectlocation ? <ProjectItemTitleDetails>{' - '}{projectlocation}</ProjectItemTitleDetails> : <span>{' - '}<i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
+        {projectlocation ? <ProjectItemTitleDetails>{' - '}<ProjectItemLocationIcon>{projectlocation}</ProjectItemLocationIcon></ProjectItemTitleDetails> : <span>{' - '}<i className="fas fa-globe location-icon"></i>{' '}Remote</span>}
         </h3></>)}
       </ProjectItemName>
       </ProjectItemLink>
@@ -143,8 +143,8 @@ const ProjectItemTitleIcon = styled.img`
 `;
 
 const ProjectItemLocationIcon = styled.div`
-position: relative;
-top: 1px;
+  position: relative;
+  top: 1px;
 `;
 
 const ProjectItemDescription = styled.div`

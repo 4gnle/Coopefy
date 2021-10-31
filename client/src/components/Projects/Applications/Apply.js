@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 // UI & CSS
 import styled from "styled-components";
 import Button from "../../UI/Button";
-import Spinner from "../../UI/Spinner";
 
 //Redux & router
 import { getProfile } from "../../../redux/actions/profile";
@@ -55,7 +54,7 @@ const Apply = ({
         applicantname: signedprofile.profilename,
       });
     }
-  }, [setFormData, profileLoaded]);
+  },  [profileLoaded, formData, signedprofile.username, signedprofile.profilename]);
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

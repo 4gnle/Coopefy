@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 // UI & CSS
 import styled from "styled-components";
 import Button from "../../UI/Button";
+import Spinner from '../../UI/Spinner';
 
 //Redux & Router
 import {getProfileByUsername} from "../../../redux/actions/profile";
@@ -50,6 +51,8 @@ const ApplicationItem = ({
   }
 
   return (
+    <>{loadedItem ? <Spinner/> :
+
     <ApplicationBox>
       <ApplicantInfo>
       <ApplicantPicture src={imagePrev}/>
@@ -72,6 +75,7 @@ const ApplicationItem = ({
         </SelectApplicant>
       }
     </ApplicationBox>
+  }</>
   )
 }
 
@@ -114,14 +118,6 @@ const ApplicantName = styled.h2`
 const ApplicantUsername = styled.span`
   font-weight: normal;
 `
-
-const ApplicantImage = styled.div`
-  padding: 1.5rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 180px;
-  background-color: black;
-`;
 
 const SelectApplicant = styled(Button)`
 `;

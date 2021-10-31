@@ -25,7 +25,7 @@ const ProjectSkills = ({
             selectSkill(e);
           })
         }
-     }, [formData])
+     })
 
     let skills1 = skillList;
 

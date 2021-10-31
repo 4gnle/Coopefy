@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 // UI & CSS
 import styled from "styled-components";
-import Button from "../../UI/Button";
-import Spinner from "../../UI/Spinner";
+
 
 //components
 import ApplicationItem from "./ApplicationItem"

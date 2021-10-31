@@ -8,7 +8,6 @@ import {connect} from 'react-redux';
 
 //UI
 import './CreateProject.css';
-import Button from '../../UI/Button'
 import Spinner from '../../UI/Spinner'
 
 //Components
