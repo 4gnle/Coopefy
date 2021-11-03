@@ -2,9 +2,9 @@
 
 ## **What is this repo?**
 
-This is the code for the job board [Website](https://www.coopefy.com) (name could be changed later)
+This is the code for the job board [https://www.coopefy.com](https://www.coopefy.com) (name could be changed later)
 
-It allows people to collaborate building cool stuff on the internet 
+It allows people to collaborate building cool stuff on the internet
 
 # **Development**
 
@@ -19,7 +19,7 @@ It allows people to collaborate building cool stuff on the internet
 
 1. Clone this repo with git
 2. Install dependencies by running `npm install`
-3. Start the development server with `npm start` 
+3. Start the development server with `npm start`
 4. Open development site by going to `http:localhost:3000`
 
 ## **How to Contribute**
@@ -30,9 +30,8 @@ It allows people to collaborate building cool stuff on the internet
 
 3. Once your work is done with the local copy of the repo, don't hesitate to draw a pull request. We'll gladly revise and push as deemed fit.
 
-4. Feel free to add new issues as you read the code and find inconsistencies and/or possible features that may add up to the website. Follow the labeling standards to make it easier to understand what you're proposing. 
+4. Feel free to add new issues as you read the code and find inconsistencies and/or possible features that may add up to the website. Follow the labeling standards to make it easier to understand what you're proposing.
 
-5. Document changes and/or issues clearly. Make it easy for everyone involved to understand your ideas/changes. 
+5. Document changes and/or issues clearly. Make it easy for everyone involved to understand your ideas/changes.
 
-**NOTE**: The [ISSUES](https://github.com/angeljgomezc/Coopefy/issues) page will work as the TO-DO list with everything you need to start contributing. Read every issue to understand what's needed and whether it's something you can help with. Try to go through the [CONTRIBUTING GUIDELINES](https://github.com/Developer-DAO/developerdao.com/blob/main/docs/CONTRIBUTING.md) beforehand. 
-
+**NOTE**: The [ISSUES](https://github.com/angeljgomezc/Coopefy/issues) page will work as the TO-DO list with everything you need to start contributing. Read every issue to understand what's needed and whether it's something you can help with. Try to go through the [CONTRIBUTING GUIDELINES](https://github.com/Developer-DAO/developerdao.com/blob/main/docs/CONTRIBUTING.md) beforehand.
