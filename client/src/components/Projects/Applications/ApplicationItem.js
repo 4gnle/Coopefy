@@ -20,9 +20,7 @@ const ApplicationItem = ({
   const {
     applicantname,
     applicantusername,
-    applicantid,
-    applicationtext,
-    applicationdate
+    applicationtext
   } = application;
 
   const {userData, isAuth} = authData;
@@ -39,19 +37,21 @@ const ApplicationItem = ({
 
   useEffect(() => {
     loadProfile();
+  })
 
+  useEffect(() => {
     if (profiledata) {
       const fileContents = new Buffer(profiledata.profileimage, 'base64');
       setImagePrev(fileContents);
     }
-  }, [getProfileByUsername])
+  })
 
   const hirePerson = () => {
     console.log(userData._id);
   }
 
   return (
-    <>{loadedItem ? <Spinner/> :
+    <>{!loadedItem ? <Spinner/> :
 
     <ApplicationBox>
       <ApplicantInfo>
