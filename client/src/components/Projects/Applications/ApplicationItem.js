@@ -44,7 +44,7 @@ const ApplicationItem = ({
       const fileContents = new Buffer(profiledata.profileimage, 'base64');
       setImagePrev(fileContents);
     }
-  }, [loadProfile, profiledata])
+  }, [getProfileByUsername])
 
   const hirePerson = () => {
     console.log(userData._id);

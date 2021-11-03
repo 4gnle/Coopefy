@@ -54,8 +54,7 @@ const Project = ({match, history}) => {
 
   useEffect(() => {
     getAllData();
-
-  }, [getProjectById, getProfile, getApplicationsbyID]);
+  }, [getProfile, getProjectById, getApplicationsbyID]);
 
   const projecticon = () => {
     if (project.projectreward === "ETH") {

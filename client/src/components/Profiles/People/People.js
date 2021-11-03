@@ -23,7 +23,7 @@ const People = () => {
 
   useEffect(() => {
     gettingPeople();
-  });
+  }, [getPeople]);
 
   const gettingPeople = async () => {
     await dispatch(getPeople());
