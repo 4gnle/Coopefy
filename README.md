@@ -4,7 +4,7 @@
 
 This is the code for the job board [https://www.coopefy.com](https://www.coopefy.com) (name could be changed later)
 
-It allows people to collaborate building cool stuff on the internet
+It allows people to collaborate
 
 # **Development**
 
