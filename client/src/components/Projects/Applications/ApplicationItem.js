@@ -40,11 +40,11 @@ const ApplicationItem = ({
   })
 
   useEffect(() => {
-    if (profiledata) {
+    if (profiledata && profiledata.profileimage) {
       const fileContents = new Buffer(profiledata.profileimage, 'base64');
       setImagePrev(fileContents);
     }
-  })
+  }, [profiledata])
 
   const hirePerson = () => {
     console.log(userData._id);
