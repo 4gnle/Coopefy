@@ -16,6 +16,9 @@ const ApplicationList = ({project, applications}) => {
       {applications && applications.length > 0 ? applications.map((application, index) => (
           <ApplicationItem
             application={application}
+            applicantname={application.applicantname}
+            applicantusername={application.applicantusername}
+            applicationtext={application.applicationtext}
             projectowner={project.projectowner}
             key={index}
           />

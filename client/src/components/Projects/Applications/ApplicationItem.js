@@ -11,17 +11,13 @@ import {useDispatch, useSelector} from "react-redux";
 
 const ApplicationItem = ({
   projectowner,
-  application}) => {
+  applicantname,
+  applicantusername,
+  applicationtext}) => {
 
   const dispatch = useDispatch();
   const authData = useSelector(state => state.authenticate);
   const profileData = useSelector(state => state.profile);
-
-  const {
-    applicantname,
-    applicantusername,
-    applicationtext
-  } = application;
 
   const {userData, isAuth} = authData;
   const {profiledata} = profileData;
@@ -37,7 +33,8 @@ const ApplicationItem = ({
 
   useEffect(() => {
     loadProfile();
-  })
+    console.log('wow')
+  }, [loadedItem])
 
   useEffect(() => {
     if (profiledata && profiledata.profileimage) {

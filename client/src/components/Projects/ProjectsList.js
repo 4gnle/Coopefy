@@ -19,6 +19,7 @@ const Projects = ({
 
   useEffect(() => {
     gettingProjects();
+    console.log('wow');
   }, [getProjects])
 
   const gettingProjects = async () => {
